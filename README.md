@@ -178,25 +178,3 @@ connect a passive speaker directly to GP16.
 Two steady TG320 sinewaves do not normally create a sustained audible tone:
 a constant I/Q magnitude has no AM envelope to demodulate. Phase drift between
 the two generators can cause slow variations, which is expected.
-
-## 3 MHz and full AM/audio test
-
-Do not connect a 3 MHz generator directly to GP26 or GP27. Each ADC channel
-runs at 250 ksample/s, so a direct 3 MHz signal aliases and does not provide a
-valid baseband test.
-
-Use 3 MHz only at the RF input of a suitable analogue PicoRX front-end or an
-external mixer that converts RF into safe, low-frequency, DC-biased I/Q
-signals for GP27 and GP26.
-
-The TG320 is a single-channel generator with DC offset, but it does not have
-the TG330's internal AM function or a shared I/Q reference. A full end-to-end
-speaker test needs a coherent amplitude-modulated I/Q source, such as:
-
-* The PicoRX analogue I/Q front-end plus an AM-modulated RF source.
-* A phase-locked dual-channel generator with AM capability.
-* An external I/Q modulator or 90-degree phase-shift network.
-
-For a successful full test, the magnitude bar rises and falls with the AM
-envelope, `AUD` changes at the modulation frequency, GP16 PWM duty changes,
-and the filtered amplified speaker output reproduces the modulation tone.
