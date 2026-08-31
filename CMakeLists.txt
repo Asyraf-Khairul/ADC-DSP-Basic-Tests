@@ -24,6 +24,12 @@ set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
 project(adc_dsp_standalone C CXX ASM)
 
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS ON)
+
 pico_sdk_init()
 
 add_executable(adc_dsp_standalone
@@ -36,8 +42,6 @@ add_executable(adc_dsp_standalone
     nco.cpp
     clocks_pico.cpp
 )
-
-target_compile_features(adc_dsp_standalone PRIVATE cxx_std_17)
 
 target_link_libraries(adc_dsp_standalone PRIVATE
     pico_stdlib
