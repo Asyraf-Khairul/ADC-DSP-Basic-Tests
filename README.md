@@ -1,4 +1,4 @@
-# ADC/DSP Standalone Test
+# ADC/DSP Basic Tests
 
 This project is a diagnostic for the Pi Pico receive back-end. It proves the
 ADC, DMA, basic I/Q DSP, PWM audio output, and SSD1306 status display without
