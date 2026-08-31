@@ -43,19 +43,6 @@ The copied NCO sources are retained from PicoRX but are not called in this
 diagnostic. `LO_FREQUENCY` is only a reference configuration value. This
 firmware does not generate an RF local oscillator.
 
-## Build and flash
-
-From this project directory in a Pico SDK-enabled shell:
-
-```powershell
-cmake -G Ninja -S . -B build -DPICO_BOARD=pico
-cmake --build build
-```
-
-Flash `build\adc_dsp_standalone.uf2` by holding `BOOTSEL` while connecting
-USB, then copying the UF2 to the mounted `RPI-RP2` drive.
-
-No serial monitor is required.
 
 ## OLED status display
 
