@@ -147,17 +147,11 @@ MAG: clearly higher than the no-signal noise level
 bar: longer than the no-signal bar
 ```
 
-## GP16 PWM check
+## Audio PWM check
 
-Probe GP16 with the oscilloscope. Start around 2 us/div. The output should be
+Probe GP16 with the oscilloscope. The output should be
 PWM close to 160 kHz, with duty cycle controlled by `AUD`.
 
-For an audible output, filter GP16 before an amplified speaker:
-
-```
-GP16 -> 1 kOhm resistor -> filtered output
-filtered output -> 10 nF capacitor -> GND
-```
 
 Connect an oscilloscope or amplified speaker to the filtered output. Do not
 connect a passive speaker directly to GP16.
