@@ -8,12 +8,16 @@ ADC/magnitude checks.
 
 Read [TEST_GUIDE.md](TEST_GUIDE.md) for safe AFG1022 settings, individual test
 steps, expected observations and report checkpoints.
+For another computer, read [UNI_SETUP.md](UNI_SETUP.md): it includes a
+copy-paste Codex prompt to retrieve this branch, set up tools and build both UF2s.
 See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for source attribution and
 documented differences from the receiver algorithms.
 
 ## Start here
 
-1. Flash `firmware/adc_dsp_suite.uf2` using BOOTSEL.
+1. Build the normal UF2 first if this is a fresh clone (see [UNI_SETUP.md](UNI_SETUP.md)).
+   Flash `build/adc_dsp_standalone.uf2`, or its local
+   `firmware/adc_dsp_suite.uf2` copy, using BOOTSEL.
 2. Verify generator output voltage before connecting it to an ADC.
 3. The OLED starts in BASIC. Connect a USB serial terminal and send `help`.
 4. For CH1 AM testing: carrier 8 kHz, safe 200 mVpp/+1.65 V bias, AM 1 kHz/30%,
