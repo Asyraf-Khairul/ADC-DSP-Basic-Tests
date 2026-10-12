@@ -40,7 +40,7 @@ bool write_commands(uint8_t address) {
         0xAD, 0x8B,  // Enable the SH1106 internal DC-DC converter.
         0xA4, 0xA6,  // Display RAM contents, normal (non-inverted) pixels.
     };
-    return i2c_write_blocking(i2c1, address, commands, sizeof(commands), false) ==
+    return i2c_write_timeout_us(i2c1, address, commands, sizeof(commands), false, 10000) ==
            static_cast<int>(sizeof(commands));
 }
 
@@ -72,10 +72,46 @@ void display_init(uint sda_gpio, uint scl_gpio, uint8_t i2c_address) {
     ssd1306_show(&display);
     sleep_ms(kChargePumpDelayMs);
     const uint8_t display_on[] = {0x00, 0xAF};
-    i2c_write_blocking(i2c1, i2c_address, display_on, sizeof(display_on), false);
+    i2c_write_timeout_us(i2c1, i2c_address, display_on, sizeof(display_on), false, 10000);
     sleep_ms(kDisplayOnDelayMs);
     draw_line(0, "ADC DSP TEST");
     draw_line(2, "STARTING");
+    ssd1306_show(&display);
+}
+
+void display_status(const Status &st, unsigned page) {
+    char line[24];
+    ssd1306_clear(&display,0);
+    snprintf(line,sizeof(line),"%s %s P%u",mode_name(st.settings.mode),input_name(st.settings.input),page);
+    draw_line(0,line);
+    if(page==0) {
+        snprintf(line,sizeof(line),"I %u %u %u",st.lo[0],st.mean[0],st.hi[0]); draw_line(1,line);
+        snprintf(line,sizeof(line),"Q %u %u %u",st.lo[1],st.mean[1],st.hi[1]); draw_line(2,line);
+        snprintf(line,sizeof(line),"RMS %u %u",st.rms[0],st.rms[1]); draw_line(3,line);
+        snprintf(line,sizeof(line),"MAG %d AUD %d",st.magnitude,st.audio_rms); draw_line(4,line);
+        snprintf(line,sizeof(line),"T%d BW%d G%d",st.settings.tune,st.settings.bw,st.settings.gain); draw_line(5,line);
+    } else if(page==1) {
+        snprintf(line,sizeof(line),"ADC D%lu F%lu",(unsigned long)st.health.adc_drops,(unsigned long)st.health.adc_overflows); draw_line(1,line);
+        snprintf(line,sizeof(line),"AUD U%lu D%lu",(unsigned long)st.health.audio_underruns,(unsigned long)st.health.audio_drops); draw_line(2,line);
+        snprintf(line,sizeof(line),"MAX %lu us",(unsigned long)st.max_us); draw_line(3,line);
+        snprintf(line,sizeof(line),"LATE %lu IRQ %lu",(unsigned long)st.deadline_misses,(unsigned long)st.health.late_irqs); draw_line(4,line);
+        snprintf(line,sizeof(line),"B%lu C%lu",(unsigned long)st.blocks,(unsigned long)st.clips); draw_line(5,line);
+    } else if(page==2) {
+        if(st.settings.mode==6) { draw_line(2,"NO FFT IN BASIC"); }
+        else {
+            draw_line(1,"FFT -15k 0 +15k");
+            for(unsigned x=0;x<128;++x) {
+                unsigned height=st.spectrum[x]*42/255;
+                if(height) ssd1306_fill_rectangle(&display,x,63-height,1,height,1);
+            }
+        }
+    } else {
+        draw_line(1,"AUDIO 64 @15k");
+        for(unsigned x=0;x<128;++x) {
+            int y=42-(int(st.audio[x/2])*20/32768);
+            ssd1306_draw_pixel(&display,x,y,1);
+        }
+    }
     ssd1306_show(&display);
 }
 

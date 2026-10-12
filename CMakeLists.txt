@@ -32,19 +32,32 @@ set(CMAKE_CXX_EXTENSIONS ON)
 
 pico_sdk_init()
 
+option(BENCH_SELF_TEST "Build synthetic DSP tests instead of live ADC firmware" OFF)
+if(BENCH_SELF_TEST)
+    set(BENCH_ENTRY tests/self_test.cpp)
+else()
+    set(BENCH_ENTRY main.cpp)
+endif()
 add_executable(adc_dsp_standalone
-    main.cpp
-    adc.cpp
-    dsp.cpp
+    ${BENCH_ENTRY}
+    bench.cpp
+    stream.cpp
     display.cpp
-    pwm.cpp
     ssd1306.c
-    nco.cpp
-    clocks_pico.cpp
+    receiver_dsp/rx_dsp.cpp
+    receiver_dsp/fft.cpp
+    receiver_dsp/fft_filter.cpp
+    receiver_dsp/utils.cpp
+    receiver_dsp/cic_corrections.cpp
+    receiver_dsp/noise_reduction.cpp
+    receiver_dsp/ring_buffer_lib.c
 )
+target_include_directories(adc_dsp_standalone PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(adc_dsp_standalone PRIVATE
     pico_stdlib
+    pico_multicore
+    pico_util
     hardware_adc
     hardware_dma
     hardware_i2c
@@ -54,7 +67,9 @@ target_link_libraries(adc_dsp_standalone PRIVATE
     m
 )
 
-pico_enable_stdio_usb(adc_dsp_standalone 0)
+target_compile_options(adc_dsp_standalone PRIVATE -fwrapv)
+target_compile_definitions(adc_dsp_standalone PRIVATE PICO_STACK_SIZE=0x1000 PICO_CORE1_STACK_SIZE=0x800)
+pico_enable_stdio_usb(adc_dsp_standalone 1)
 pico_enable_stdio_uart(adc_dsp_standalone 0)
 pico_add_extra_outputs(adc_dsp_standalone)
 

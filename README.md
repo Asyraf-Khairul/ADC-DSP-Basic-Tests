@@ -1,187 +1,175 @@
-# ADC/DSP Basic Tests
+# Pico ADC/DSP test suite
 
-This project is a diagnostic for the Pi Pico receive back-end. It proves the
-ADC, DMA, basic I/Q DSP, PWM audio output, and SH1106 status display without
-starting the full PicoRX application.
+A standalone bench harness for the DSP in your `SDR-RX` project. This now includes
+AM, synchronous AM, FM, USB, LSB, CW, frequency tuning, FFT bandwidth, AGC/manual
+gain, squelch, I/Q swap/correction, de-emphasis, bass/treble, impulse blanking,
+automatic notch and noise reduction. BASIC remains available for simple
+ADC/magnitude checks.
 
-```
-GP27 / ADC1 (I) + GP26 / ADC0 (Q)
-    -> ADC FIFO and DMA
-    -> I/Q DC removal
-    -> AM magnitude: sqrt(I^2 + Q^2)
-    -> audio DC removal and decimation
-    -> PWM DMA on GP16
-```
+Read [TEST_GUIDE.md](TEST_GUIDE.md) for safe AFG1022 settings, individual test
+steps, expected observations and report checkpoints.
+See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for source attribution and
+documented differences from the receiver algorithms.
 
-## Pin map
+## Start here
 
-| Function | Pico pin |
+1. Flash `firmware/adc_dsp_suite.uf2` using BOOTSEL.
+2. Verify generator output voltage before connecting it to an ADC.
+3. The OLED starts in BASIC. Connect a USB serial terminal and send `help`.
+4. For CH1 AM testing: carrier 8 kHz, safe 200 mVpp/+1.65 V bias, AM 1 kHz/30%,
+   connected to GP27; send `preset 2`.
+5. Check `page 1` for sample loss as well as measuring the recovered audio.
+   A live OLED or nonzero MAG alone does not prove demodulation.
+
+The UF2 files are build outputs, not evidence of hardware validation.
+Do not claim all tests pass until you have run and recorded them on the board.
+
+## Wiring
+
+| Function | GPIO |
 | --- | --- |
-| I input | GP27 / ADC1 |
-| Q input | GP26 / ADC0 |
-| PWM audio | GP16 |
-| OLED SDA | GP18 / I2C1 |
-| OLED SCL | GP19 / I2C1 |
+| I / ADC1 | GP27 |
+| Q / ADC0 | GP26 |
+| PWM audio (through board filter/amplifier) | GP16 |
+| OLED SDA / SCL | GP18 / GP19 |
+| Optional preset button to GND | GP22 |
+| Optional OLED page button to GND | GP17 |
+| Optional AGC-cycle button to GND | GP5 |
 
-The default OLED address is `0x3C`. Change `OLED_I2C_ADDRESS` in `main.cpp`
-to `0x3D` for an OLED with the alternate address.
+Buttons use internal pull-ups, active low. GPIO names are NOT physical pin
+numbers. Leave buttons unconnected if not installed; USB controls still work.
+OLED remains the existing **SH1106 128x64, address 0x3C** configuration.
+The files named `ssd1306.*` provide drawing/page transfers; they do not make this
+an SSD1306 initialization sequence. Change `display_init(18,19,0x3c)` in the
+entry point if the address differs. Missing OLED does not stop DSP execution.
 
-The display configuration targets a **128x64 I2C SH1106** module with an
-internal charge pump. Connect SDA to GP18, SCL to GP19, VCC to Pico 3V3,
-and GND to Pico GND. `display.cpp` supplies SH1106 initialization commands
-and a two-column RAM offset. The existing `ssd1306.c`/`.h` files are reused
-for drawing and page transfers; their filenames do not select the controller.
-For a module with a different column mapping, adjust `kDisplayColumnOffset`
-in `display.cpp`.
+No RF LO is generated on GP0/GP1. This suite directly tests the ADC/DSP back-end.
+Do not connect generator outputs against powered mixer/amplifier outputs.
 
-The power-up sequence follows the
-[SH1106 datasheet](https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/kinetis/46518/1/SH1106%20datasheet.pdf),
-including the internal DC-DC enable command and stabilization delays.
+## Presets
 
-## Build and load
+Send `preset N`; GPIO22 cycles the same list from the default BASIC preset.
+Each preset restores all settings to reproducible defaults; settings are not
+saved to flash.
 
-With the Raspberry Pi Pico extension tools available in the terminal:
+| N | Mode | Input | Tune |
+| --- | --- | --- | --- |
+| 0 | BASIC envelope diagnostic | I/Q | 0 |
+| 1 | Receiver AM | I/Q | 0 |
+| 2 | Receiver AM | real IF on I | 8000 Hz |
+| 3 | Synchronous AM | real IF on I | 8000 Hz |
+| 4 | FM | real IF on I | 8000 Hz |
+| 5 | FSK discriminator via FM | real IF on I | 8250 Hz |
+| 6 | USB | I/Q | 0 |
+| 7 | LSB | I/Q | 0 |
+| 8 | CW | real IF on I | 8000 Hz |
+
+Real IF sends the selected input into the receiver I branch and replaces Q
+with midscale internally. Frequency shifting/filtering select one spectral
+image; I/Q correction and swap are forced off. Both physical pins' raw ADC
+statistics remain visible. This is not simultaneous two-channel AM modulation.
+
+## USB commands
+
+Lowercase, one command per line. All value ranges are checked. An `OK queued`
+reply means the command was accepted; `status` shows the applied settings
+and revision. Allow at least two seconds to settle; PLL/adaptive processing
+may need longer. Reboot to clear upstream filter histories between independent
+measurements. Select only one feature at a time when first characterizing it.
+
+| Command | Values / meaning |
+| --- | --- |
+| `mode` | `basic am amsync fm usb lsb cw` |
+| `input` | `iq`, `i` (real IF on GP27), `q` (real IF on GP26) |
+| `tune` | -12000..12000 Hz; use +8000 for the documented real-IF tests |
+| `bw` | 0..4: very narrow through very wide, mode-dependent |
+| `agc` | 0 fast, 1 medium, 2 slow, 3 long, 4 manual |
+| `gain` | 0..10: gain or AGC ceiling = 2 to this power |
+| `volume` | 0..100 percent PWM output scaling; default 25 |
+| `squelch` | -1 off, 0..12 receiver-relative threshold steps |
+| `hang` | 0..7 = 50,100,200,500,1000,2000,3000,5000 ms |
+| `swap`, `iqcorr` | 0/1; IQ input only |
+| `deemph` | 0 off, 1 ~50 us, 2 ~75 us |
+| `bass`, `treble` | 0 off, 1..4 increasing effect |
+| `blanker` | 0 off, 1..6 increasing sensitivity |
+| `notch`, `nr` | 0 off, 1 on |
+| `smooth` | 1..15 noise estimator smoothing |
+| `threshold` | 0 adaptive noise threshold, or 1..6 |
+| `cw` | nominal 100..2000 Hz sidetone; integer phase-step quantization |
+| `page` | 0 ADC/audio stats, 1 health, 2 spectrum, 3 audio waveform |
+| `stream` | 0 off, 1 print status once per second |
+| `status`, `help` | current state / command reference |
+
+BASIC uses only gain and volume from the processing controls; it is not the
+receiver chain. Receiver modes use the imported DSP. MAG is in internal units,
+not calibrated dBm; it is not directly comparable between BASIC and receiver
+modes. ADC RMS is **AC-only** over a 4.267 ms block. Audio RMS includes DC and
+is measured before output volume. Spectrum is auto-scaled and qualitative;
+its center is the digitally tuned frequency (relative span -15..+15 kHz).
+Audio view is a short, untriggered 64-sample record and is not an oscilloscope.
+
+## How the code fits together
+
+```text
+GP27 / GP26 (alternating, 480 kword/s total)
+  -> continuous chained ADC DMA + six-block queue
+  -> bench.cpp input selection and diagnostics
+  -> receiver_dsp: CIC /16 -> 30 kHz complex
+     -> DC removal, IQ correction, digital frequency shift
+     -> 256-point overlap FFT filter /2 -> 15 kHz complex
+     -> AM / AMSYNC / USB / LSB / FM / CW
+     -> audio processing, AGC, squelch
+  -> 64 PCM samples per block
+  -> output volume and 16x linear interpolation
+  -> chained PWM DMA, GP16 at 240 kHz
+```
+
+System clock is 120 MHz; ADC clock is 48 MHz with a 100-cycle period.
+Each raw block has 2048 words and spans 4.2667 ms. The ADC samples I and Q
+2.083 us apart; they are not simultaneous. PWM wrap is 499.
+Core 1 owns acquisition, receiver processing and audio queues.
+Core 0 owns OLED, USB commands and buttons. Short locked snapshots separate them.
+Counters expose overload; continuous operation still needs board verification.
+
+- `main.cpp`: cores, settings queue, serial parser dispatch and buttons.
+- `stream.*`: ADC/PWM DMA and queue health.
+- `bench.*`: presets, validated controls, receiver adapter and block statistics.
+- `receiver_dsp/`: copied/adapted receiver algorithms, no dependency on the other folder.
+- `display.*`, `ssd1306.*`: existing SH1106 driver plus four bench pages.
+- `tests/self_test.cpp`: synthetic DSP-only test entry point.
+- Old `adc.*`, `dsp.*`, `pwm.*`, `nco.*`, `clocks*` are retained as legacy
+  reference files; CMake does not compile them into this suite.
+
+## Build
+
+Use the installed Pico VS Code extension / Pico SDK 2.1.0, RP2040 `pico` board.
+Configure Release, then build `adc_dsp_standalone`:
 
 ```sh
-cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DBENCH_SELF_TEST=OFF
 cmake --build build
 ```
 
-For the configured RP2040 Pico board, hold BOOTSEL while connecting USB,
-then copy `build/adc_dsp_standalone.uf2` to the `RPI-RP2` drive. The Pico
-reboots into the firmware. Confirm `ADC DSP RUN` appears and the `B` count
-increases to check operation on the hardware.
+Normal artifact: `build/adc_dsp_standalone.uf2`.
+If CMake picks Windows' Python Store alias, pass
+`-DPython3_EXECUTABLE=C:/Users/asyra/.pico-sdk/python/3.13.7/python.exe`.
+Use the Pico terminal or supply `PICO_SDK_PATH`, `PICO_TOOLCHAIN_PATH` and
+`CMAKE_MAKE_PROGRAM` for the installed toolchain/Ninja.
 
-## What the firmware does
+Optional software-only build (separate directory):
 
-`SAMPLE_RATE` is the aggregate ADC FIFO rate. With its default value of
-500000 samples/s, I and Q alternate in the FIFO, so each channel is sampled
-at 250000 samples/s. A DMA block holds 1000 ADC values, which is 500 I/Q
-pairs and takes about 2 ms to capture.
-
-For each pair, the DSP tracks and removes its DC bias, then calculates the
-magnitude. The magnitude DC component is removed to make an audio signal. The
-DSP decimates by 25, producing 20 audio samples per DMA block or 10000 audio
-samples/s. PWM DMA repeats each audio sample 16 times, producing a 160 kHz
-PWM carrier on GP16.
-
-The copied NCO sources are retained from PicoRX but are not called in this
-diagnostic. `LO_FREQUENCY` is only a reference configuration value. This
-firmware does not generate an RF local oscillator.
-
-
-## OLED status display
-
-The display updates about five times per second. It should first show
-`ADC DSP TEST`, then `ADC DSP RUN`.
-
-| OLED item | Meaning |
-| --- | --- |
-| `RAW` | Direct 12-bit ADC readings. Valid range is 0 to 4095. |
-| `I/Q` | Samples after DC-bias removal. They should vary around zero. |
-| `MAG` | I/Q magnitude, `sqrt(I^2 + Q^2)`. |
-| `AUD` | Magnitude after its DC part is removed: the recovered audio. |
-| `PWM` | PWM duty value sent to GP16. |
-| `B` | DMA blocks processed. It must steadily increase. |
-| Bottom bar | Magnitude indicator, not a calibrated dB or S-meter reading. |
-
-`B` is not signal strength. One block equals 1000 raw ADC samples, 500 I/Q
-pairs, and 20 output audio samples. For example, `B1000` means the firmware
-has processed one million raw ADC samples.
-
-With no intentional signal, a small fluctuating magnitude bar is normal ADC
-noise. `RAW` near 0 or 4095 is a warning that the ADC input is at a rail.
-
-## ADC safety and bias
-
-The ADC range is strictly 0 V to 3.3 V. Never apply a negative voltage or a
-signal above 3.3 V to GP26 or GP27.
-
-The existing input circuit has an independent 1 kOhm pull-down before the 470
-Ohm series resistor for each ADC input. Those pull-downs hold each input near
-0 V when no source is connected; they do not create a 1.65 V midpoint.
-
-For a direct test without adding bias components, use the TG320 main output
-in DC-coupled mode. Its DC offset must drive the RX input node to 1.65 V.
-Connect generator ground to Pico GND. Do not use the TG320 TTL auxiliary
-output.
-
-Before continuing, use a multimeter to confirm both GPIO pins are near 1.65 V
-when driven. The ADC should then report `RAW` near 2048. The DSP deliberately
-removes this DC level, so `I/Q` returning close to zero after settling is
-correct.
-
-If a DC-offset-capable source is unavailable, add a 1 kOhm pull-up from 3V3
-to each separate RX input node, before its 470 Ohm resistor. Together with the
-existing 1 kOhm pull-down, it forms a 1.65 V divider.
-
-## Direct two-TG320 test
-
-Two TG320s can prove both ADC paths, DMA, DSP operation, OLED feedback, and
-GP16 PWM. They cannot provide a stable, phase-locked quadrature source.
-
-### 1. Check firmware operation
-
-1. Disconnect both TG320 outputs.
-2. Power the Pico and OLED.
-3. Confirm `ADC DSP RUN` is shown and `B` increases.
-4. Expect `RAW` near zero because the 1 kOhm pull-downs are active.
-
-### 2. Test I only
-
-1. Turn TG320 A output off, set it to sinewave, 10 kHz, minimum amplitude,
-   and 0 V offset.
-2. Connect its main output centre conductor to `RX_I`, before the 470 Ohm
-   resistor. Connect its shield to Pico GND.
-3. Set the oscilloscope to DC coupling and 1 Mohm input. Probe `RX_I` and
-   connect the probe ground to Pico GND.
-4. Turn TG320 A on and increase positive DC offset until `RX_I` and GP27 are
-   about 1.65 V.
-5. Increase amplitude until the scope reads about 300 mVpp at `RX_I`.
-
-The scope waveform must stay between about 1.50 V and 1.80 V. The OLED `RAW`
-value should vary around 2048, roughly 1860 to 2235 for a real 300 mVpp input.
-
-### 3. Test Q only
-
-Repeat the I test with TG320 B connected to `RX_Q`, before its 470 Ohm
-resistor. Verify GP26 sits around 1.65 V and its `RAW` value changes around
-2048.
-
-### 4. Drive I and Q together
-
-1. Keep TG320 A on RX_I and TG320 B on RX_Q.
-2. Set both for sinewave, 10 kHz, approximately 300 mVpp at the RX nodes, and
-   1.65 V DC offset.
-3. Probe RX_I with scope channel 1 and RX_Q with channel 2. Both scope ground
-   clips connect to Pico GND.
-4. Trigger from channel 1 and tune the TG320 B frequency as close as possible
-   to TG320 A.
-
-A true quadrature signal has Q shifted by 90 degrees. At 10 kHz that is a
-25 microsecond shift. The independent TG320s have no shared reference or
-phase-lock connection, so their relative phase drifts. This is acceptable for
-testing two ADC channels, but it is not a precision I/Q or audio-demodulation
-test.
-
-Expected OLED behavior during this test:
-
-```
-RAW: both channels vary around 2048
-I/Q: both values change sign
-MAG: clearly higher than the no-signal noise level
-bar: longer than the no-signal bar
+```sh
+cmake -S . -B build-selftest -G Ninja -DCMAKE_BUILD_TYPE=Release -DBENCH_SELF_TEST=ON
+cmake --build build-selftest
 ```
 
-## Audio PWM check
+This firmware waits for a USB serial connection and runs synthetic tests.
+It neither captures physical ADC inputs nor drives audio. Restore the normal
+firmware afterward. See the guide for what the checks do and do not establish.
 
-Probe GP16 with the oscilloscope. The output should be
-PWM close to 160 kHz, with duty cycle controlled by `AUD`.
+## Scope
 
-
-Connect an oscilloscope or amplified speaker to the filtered output. Do not
-connect a passive speaker directly to GP16.
-
-Two steady TG320 sinewaves do not normally create a sustained audible tone:
-a constant I/Q magnitude has no AM envelope to demodulate. Phase drift between
-the two generators can cause slow variations, which is expected.
+No PSK/PM data decoder, symbol synchronization, packet decoder, BER tester,
+RF front-end, LO or complete radio UI is included. FSK/PM stimuli can exercise
+the FM discriminator, but that is not data decoding. Noise/impulse rejection
+needs an appropriate mixed stimulus; it cannot be proven with a clean sine alone.

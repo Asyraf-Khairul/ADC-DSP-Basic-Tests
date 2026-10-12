@@ -40,7 +40,7 @@ inline static void swap(int32_t *a, int32_t *b) {
 }
 
 inline static void fancy_write(i2c_inst_t *i2c, uint8_t addr, const uint8_t *src, size_t len, char *name) {
-    switch(i2c_write_blocking(i2c, addr, src, len, false)) {
+    switch(i2c_write_timeout_us(i2c, addr, src, len, false, 20000)) {
     case PICO_ERROR_GENERIC:
         printf("[%s] addr not acknowledged!\n", name);
         break;
