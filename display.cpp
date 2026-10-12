@@ -10,20 +10,35 @@
 namespace {
 constexpr uint16_t kDisplayWidth = 128u;
 constexpr uint16_t kDisplayHeight = 64u;
+// A typical 128x64 SH1106 panel uses columns 2..129 of its 132-column RAM.
+constexpr uint8_t kDisplayColumnOffset = 2u;
 constexpr uint32_t kI2cBaudRate = 100000u;
 constexpr uint32_t kPowerUpDelayMs = 250u;
 constexpr uint32_t kInitRetryDelayMs = 100u;
+constexpr uint32_t kChargePumpDelayMs = 100u;
+constexpr uint32_t kDisplayOnDelayMs = 150u;
 constexpr uint kInitAttempts = 10u;
 
 ssd1306_t display;
 uint8_t display_buffer[(kDisplayWidth + 1u) * (kDisplayHeight / 8u)];
 
 bool write_commands(uint8_t address) {
+    // SH1106 uses page addressing and AD/8B for its internal DC-DC supply.
+    // Do not send SSD1306 horizontal-addressing (20) or charge-pump (8D) commands.
     const uint8_t commands[] = {
-        0x00, 0xAE, 0x20, 0x00, 0xB0, 0xC8, 0x00, 0x10, 0x40,
-        0x81, 0xFF, 0xA1, 0xA6, 0xA8, 0x3F, 0xA4, 0xD3, 0x00,
-        0xD5, 0x80, 0xD9, 0xF1, 0xDA, 0x12, 0xDB, 0x40, 0x8D,
-        0x14, 0xAF,
+        0x00,        // I2C control byte: commands follow.
+        0xAE,        // Keep the panel off while configuring and clearing RAM.
+        0xD5, 0x50,  // Default oscillator frequency, clock divider 1.
+        0xA8, 0x3F,  // 64 multiplexed rows.
+        0xD3, 0x00,  // No vertical offset.
+        0x40,        // Display start line 0.
+        0xA1, 0xC8,  // Segment remap and reversed COM scan.
+        0xDA, 0x12,  // Alternative COM pin configuration.
+        0x81, 0x80,  // Contrast.
+        0xD9, 0x22,  // SH1106 default discharge/precharge periods.
+        0xDB, 0x35,  // SH1106 default VCOM deselect level.
+        0xAD, 0x8B,  // Enable the SH1106 internal DC-DC converter.
+        0xA4, 0xA6,  // Display RAM contents, normal (non-inverted) pixels.
     };
     return i2c_write_blocking(i2c1, address, commands, sizeof(commands), false) ==
            static_cast<int>(sizeof(commands));
@@ -44,6 +59,8 @@ void display_init(uint sda_gpio, uint scl_gpio, uint8_t i2c_address) {
     gpio_pull_up(scl_gpio);
 
     ssd1306_init(&display, kDisplayWidth, kDisplayHeight, i2c_address, i2c1);
+    // The shared drawing driver already sends each page separately.
+    display.disp_col_offset = kDisplayColumnOffset;
     display.buffer = display_buffer;
     for (uint attempt = 0u; attempt < kInitAttempts; ++attempt) {
         if (write_commands(i2c_address)) {
@@ -52,6 +69,11 @@ void display_init(uint sda_gpio, uint scl_gpio, uint8_t i2c_address) {
         sleep_ms(kInitRetryDelayMs);
     }
     ssd1306_clear(&display, 0);
+    ssd1306_show(&display);
+    sleep_ms(kChargePumpDelayMs);
+    const uint8_t display_on[] = {0x00, 0xAF};
+    i2c_write_blocking(i2c1, i2c_address, display_on, sizeof(display_on), false);
+    sleep_ms(kDisplayOnDelayMs);
     draw_line(0, "ADC DSP TEST");
     draw_line(2, "STARTING");
     ssd1306_show(&display);

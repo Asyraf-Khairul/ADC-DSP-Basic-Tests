@@ -1,7 +1,7 @@
 # ADC/DSP Basic Tests
 
 This project is a diagnostic for the Pi Pico receive back-end. It proves the
-ADC, DMA, basic I/Q DSP, PWM audio output, and SSD1306 status display without
+ADC, DMA, basic I/Q DSP, PWM audio output, and SH1106 status display without
 starting the full PicoRX application.
 
 ```
@@ -25,6 +25,32 @@ GP27 / ADC1 (I) + GP26 / ADC0 (Q)
 
 The default OLED address is `0x3C`. Change `OLED_I2C_ADDRESS` in `main.cpp`
 to `0x3D` for an OLED with the alternate address.
+
+The display configuration targets a **128x64 I2C SH1106** module with an
+internal charge pump. Connect SDA to GP18, SCL to GP19, VCC to Pico 3V3,
+and GND to Pico GND. `display.cpp` supplies SH1106 initialization commands
+and a two-column RAM offset. The existing `ssd1306.c`/`.h` files are reused
+for drawing and page transfers; their filenames do not select the controller.
+For a module with a different column mapping, adjust `kDisplayColumnOffset`
+in `display.cpp`.
+
+The power-up sequence follows the
+[SH1106 datasheet](https://community.nxp.com/pwmxy87654/attachments/pwmxy87654/kinetis/46518/1/SH1106%20datasheet.pdf),
+including the internal DC-DC enable command and stabilization delays.
+
+## Build and load
+
+With the Raspberry Pi Pico extension tools available in the terminal:
+
+```sh
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+```
+
+For the configured RP2040 Pico board, hold BOOTSEL while connecting USB,
+then copy `build/adc_dsp_standalone.uf2` to the `RPI-RP2` drive. The Pico
+reboots into the firmware. Confirm `ADC DSP RUN` appears and the `B` count
+increases to check operation on the hardware.
 
 ## What the firmware does
 
