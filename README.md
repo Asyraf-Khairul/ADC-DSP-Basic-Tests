@@ -45,7 +45,8 @@ Buttons and encoder contacts use internal pull-ups, active low. Connect the
 encoder common terminal to GND; no encoder push switch is required. If using
 an encoder module, power its logic from 3.3 V. GPIO names are NOT physical pin
 numbers. Pin assignments are in `controls.h`; GP5 is no longer used for a button.
-Set `ENCODER_DIRECTION` to -1 there if clockwise rotation is reversed.
+`ENCODER_DIRECTION` is -1 for this encoder so clockwise moves down the menu;
+set it to 1 for an encoder wired in the opposite direction.
 OLED remains the existing **SH1106 128x64, address 0x3C** configuration.
 The files named `ssd1306.*` provide drawing/page transfers; they do not make this
 an SSD1306 initialization sequence. Change `display_init(18,19,0x3c)` in the
