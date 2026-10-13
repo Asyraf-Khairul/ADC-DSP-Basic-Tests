@@ -2,6 +2,8 @@
 #include "bench.h"
 #include <cstddef>
 
+constexpr unsigned STATUS_PAGE_COUNT = 5;
+
 // Hardware-independent menu and input decoding, also exercised by host tests.
 struct PanelInput {
     int turns = 0, coarse_turns = 0;
@@ -32,7 +34,7 @@ public:
     // Returns a settings request; the caller must acknowledge queue success.
     bool update(PanelInput input, const Settings &current, Settings &next, uint32_t now);
     void acknowledge(bool accepted, uint32_t now);
-    void set_page(unsigned value) { page_ = value % 4; }
+    void set_page(unsigned value) { page_ = value % STATUS_PAGE_COUNT; }
     unsigned page() const { return page_; }
     bool menu_open() const { return menu_; }
     bool editing() const { return editing_; }

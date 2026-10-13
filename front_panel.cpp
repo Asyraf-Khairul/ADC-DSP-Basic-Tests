@@ -126,7 +126,7 @@ bool FrontPanel::update(PanelInput input, const Settings &current, Settings &nex
     if (input.back) {
         if (editing_) editing_ = false;
         else if (menu_) menu_ = false;
-        else page_ = (page_ + 1) % 4;
+        else page_ = (page_ + 1) % STATUS_PAGE_COUNT;
         notice_ = nullptr;
         return false;
     }

@@ -62,7 +62,7 @@ Normal firmware needs no serial monitor for configuration or on-screen status.
 | Action | Status pages | Settings menu | Editing a value |
 | --- | --- | --- | --- |
 | Turn encoder | Tune in receiver modes | Move selection | Adjust draft value |
-| Short press Button 1 | Next OLED page (0..3) | Return to status | Cancel the edit |
+| Short press Button 1 | Next OLED page (0..4) | Return to status | Cancel the edit |
 | Hold Button 1 and turn | Coarse tune | Move selection | Adjust draft value |
 | Press Button 2 | Open Settings | Select item | Apply value |
 
@@ -86,7 +86,19 @@ If the queue is full, `Busy: press OK again` keeps the draft so it can be retrie
 Back cancels an unsubmitted edit. Presets reset all DSP settings, and reboot
 restores BASIC defaults; settings are not saved to flash.
 
-Pages: 0 = ADC/audio values, 1 = streaming health, 2 = spectrum, 3 = audio waveform.
+Pages: 0 = ADC/audio values, 1 = streaming health, 2 = spectrum, 3 = audio waveform,
+4 = processing timings. Page 4 shows microseconds as `latest / maximum` for
+`IN` (ADC statistics), `DSP` (BASIC or receiver processing), `STAT` (audio
+statistics), `FFT` (spectrum display preparation), and `OUT` (PWM interpolation
+and audio queue submission). These are elapsed times including interrupt service;
+they are not CPU-only cycle counts. Timing instrumentation adds a few timer reads
+per block, never one per sample. The maximum values accumulate until reboot.
+FFT latest is zero on blocks without a spectrum update; its maximum retains peaks.
+Individual stage maxima can come from different blocks and should not be summed.
+Page 1 remains the overall deadline/loss check. Reboot between timing runs for
+different receiver modes so their maxima and counters can be compared separately.
+See the BASIC baseline, optimized results and repeat procedure in
+[TEST_GUIDE.md](TEST_GUIDE.md).
 USB serial remains optional for full numerical logging and keyboard commands.
 The separate synthetic self-test firmware still uses USB serial for its results.
 
@@ -140,9 +152,9 @@ measurements. Select only one feature at a time when first characterizing it.
 | `smooth` | 1..15 noise estimator smoothing |
 | `threshold` | 0 adaptive noise threshold, or 1..6 |
 | `cw` | nominal 100..2000 Hz sidetone; integer phase-step quantization |
-| `page` | 0 ADC/audio stats, 1 health, 2 spectrum, 3 audio waveform |
+| `page` | 0 ADC/audio stats, 1 health, 2 spectrum, 3 audio waveform, 4 timings |
 | `stream` | 0 off, 1 print status once per second |
-| `status`, `help` | current state / command reference |
+| `status`, `help` | current state (including timings) / command reference |
 
 BASIC uses only gain and volume from the processing controls; it is not the
 receiver chain. Receiver modes use the imported DSP. MAG is in internal units,
@@ -153,6 +165,14 @@ its center is the digitally tuned frequency (relative span -15..+15 kHz).
 Audio view is a short, untriggered 64-sample record and is not an oscilloscope.
 
 ## How the code fits together
+
+BASIC now uses `basic_dsp.*`: integer DC tracking with compatible rounding,
+per-pair interpolated magnitude and the original 16-pair averaging. The kernel
+and magnitude table run from RAM. Its measured 60.019-second hardware run had
+zero deadline misses/losses and maximum processing time 3730 us. Numerical
+comparison, waveform settings, hashes and logs are in the BASIC optimization
+section of [TEST_GUIDE.md](TEST_GUIDE.md). This result applies to BASIC;
+receiver modes still require independent timing tests.
 
 ```text
 GP27 / GP26 (alternating, 480 kword/s total)
@@ -181,8 +201,9 @@ Counters expose overload; continuous operation still needs board verification.
 - `settings.cpp`: presets and validated serial settings shared with the menu.
 - `stream.*`: ADC/PWM DMA and queue health.
 - `bench.*`: presets, validated controls, receiver adapter and block statistics.
+- `basic_dsp.*`: optimized BASIC processing, unchanged sample/averaging order.
 - `receiver_dsp/`: copied/adapted receiver algorithms, no dependency on the other folder.
-- `display.*`, `ssd1306.*`: existing SH1106 driver plus four bench pages.
+- `display.*`, `ssd1306.*`: existing SH1106 driver plus five bench pages.
 - `tests/self_test.cpp`: synthetic DSP-only test entry point.
 - Old `adc.*`, `dsp.*`, `pwm.*`, `nco.*`, `clocks*` are retained as legacy
   reference files; CMake does not compile them into this suite.
@@ -204,7 +225,7 @@ Use the installed Pico VS Code extension / Pico SDK 2.1.0, RP2040 `pico` board.
 Configure Release, then build `adc_dsp_standalone`:
 
 ```sh
-cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DBENCH_SELF_TEST=OFF
+cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DBENCH_SELF_TEST=OFF -DBENCH_OPERATION_BENCHMARK=OFF
 cmake --build build
 ```
 

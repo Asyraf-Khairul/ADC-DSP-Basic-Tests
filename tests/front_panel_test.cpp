@@ -54,9 +54,11 @@ void button_tests() {
 void navigation_tests() {
     FrontPanel panel;
     Settings s, next;
-    for (unsigned p = 1; p <= 4; ++p) {
-        assert(!update(panel,back,s,next)); assert(panel.page() == p%4);
+    for (unsigned p = 1; p <= STATUS_PAGE_COUNT; ++p) {
+        assert(!update(panel,back,s,next)); assert(panel.page() == p%STATUS_PAGE_COUNT);
     }
+    panel.set_page(4); assert(panel.page() == 4);
+    panel.set_page(STATUS_PAGE_COUNT); assert(panel.page() == 0);
     assert(!update(panel,{5},s,next)); // BASIC has no digital tuning.
     assert(next.tune == 0 && panel.notice(100));
     select(panel,"Volume",s);

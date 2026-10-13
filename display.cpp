@@ -105,12 +105,22 @@ void display_status(const Status &st, unsigned page, const char *footer) {
                 if(height) ssd1306_fill_rectangle(&display,x,63-height,1,height,1);
             }
         }
-    } else {
+    } else if(page==3) {
         draw_line(1,"AUDIO 64 @15k");
         for(unsigned x=0;x<128;++x) {
             int y=42-(int(st.audio[x/2])*20/32768);
             ssd1306_draw_pixel(&display,x,y,1);
         }
+    } else if(page==4) {
+        const StageTiming *stages[] = {&st.timing.input_stats, &st.timing.dsp,
+            &st.timing.audio_stats, &st.timing.spectrum, &st.timing.output};
+        const char *names[] = {"IN", "DSP", "STAT", "FFT", "OUT"};
+        for (unsigned row=0; row<5; ++row) {
+            snprintf(line,sizeof(line),"%s %lu/%lu",names[row],
+                (unsigned long)stages[row]->latest_us,(unsigned long)stages[row]->max_us);
+            draw_line(row+1,line);
+        }
+        draw_line(6,"us latest / max");
     }
     if (page < 2) draw_line(6, footer ? footer : "B1:Page B2:Menu");
     ssd1306_show(&display);

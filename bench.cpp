@@ -1,11 +1,13 @@
 #include "bench.h"
+#include "basic_dsp.h"
 #include "receiver_dsp/rx_dsp.h"
+#include "hardware/timer.h"
 #include <algorithm>
 #include <cmath>
 
 namespace {
 rx_dsp receiver; // Static lifetime is required by the upstream stateful implementation.
-float basic_i = 2048, basic_q = 2048, basic_dc = 0;
+basic_dsp::BasicKernel basic;
 }
 void apply_settings(const Settings &s) {
     receiver.set_mode(std::min(s.mode,5),s.bw);
@@ -27,6 +29,7 @@ void apply_settings(const Settings &s) {
     receiver.amsync_reset();
 }
 void process_samples(uint16_t *raw, int16_t *audio, Status &st) {
+    uint32_t stage_start = time_us_32();
     for (unsigned ch=0;ch<2;++ch) {
         uint32_t sum=0; uint64_t squares=0;
         uint16_t lo=4095,hi=0;
@@ -40,24 +43,12 @@ void process_samples(uint16_t *raw, int16_t *audio, Status &st) {
         st.mean[ch]=std::lround(mean); st.lo[ch]=lo; st.hi[ch]=hi;
         st.rms[ch]=std::sqrt(std::max(0.0,squares/1024.0-mean*mean));
     }
+    uint32_t stage_end = time_us_32();
+    st.timing.input_stats.record(stage_end - stage_start);
+    stage_start = stage_end;
     const auto &s=st.settings;
     if(s.mode==6) {
-        double total_mag=0;
-        for(unsigned n=0;n<AUDIO_WORDS;++n) {
-            float sum=0;
-            for(unsigned k=0;k<16;++k) {
-                unsigned pos=2*(n*16+k);
-                basic_i+=(raw[pos]-basic_i)/1024;
-                basic_q+=(raw[pos+1]-basic_q)/1024;
-                float i=raw[pos]-basic_i, q=raw[pos+1]-basic_q;
-                sum+=std::sqrt(i*i+q*q);
-            }
-            float mag=sum/16;
-            total_mag+=mag;
-            basic_dc+=(mag-basic_dc)/256;
-            audio[n]=std::clamp<int>((mag-basic_dc)*(1<<s.gain),-32767,32767);
-        }
-        st.magnitude=total_mag/AUDIO_WORDS;
+        st.magnitude=basic.process(raw,audio,s.gain);
     } else {
         if(s.input) for(unsigned n=0;n<ADC_WORDS;n+=2) {
             raw[n]=raw[n+(s.input==2 ? 1 : 0)];
@@ -68,6 +59,9 @@ void process_samples(uint16_t *raw, int16_t *audio, Status &st) {
         // Drain upstream's optional decoder queue; no bit decoder is implemented here.
         int16_t i,q; while(receiver.get_raw_data(i,q)) {}
     }
+    stage_end = time_us_32();
+    st.timing.dsp.record(stage_end - stage_start);
+    stage_start = stage_end;
     uint64_t square=0; st.audio_peak=0;
     for(unsigned n=0;n<AUDIO_WORDS;++n) {
         st.audio[n]=audio[n];
@@ -75,10 +69,14 @@ void process_samples(uint16_t *raw, int16_t *audio, Status &st) {
         st.audio_peak=std::max(st.audio_peak,std::abs(int(audio[n])));
     }
     st.audio_rms=std::sqrt(square/double(AUDIO_WORDS));
+    stage_end = time_us_32();
+    st.timing.audio_stats.record(stage_end - stage_start);
+    stage_start = stage_end;
     // Spectrum generation is deliberately decimated to reduce processing overhead.
     if(s.mode!=6 && st.blocks%64==0) {
         uint8_t spectrum[256], scale;
         receiver.get_spectrum(spectrum,scale,1);
         for(unsigned n=0;n<128;++n) st.spectrum[n]=std::max(spectrum[n*2],spectrum[n*2+1]);
-    }
+        st.timing.spectrum.record(time_us_32() - stage_start);
+    } else st.timing.spectrum.record(0);
 }

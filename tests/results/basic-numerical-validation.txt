@@ -1,0 +1,2 @@
+PASS standalone lookup magnitude max absolute error=0.123810860 ADC counts (bound 0.25)
+PASS DC tracker: 1000000 full-range ADC samples match binary32 reference state exactly

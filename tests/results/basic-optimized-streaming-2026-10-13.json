@@ -1,0 +1,55 @@
+{
+  "duration_seconds": 60.019098500022665,
+  "processed_blocks_per_second": 234.59199407992912,
+  "maximum_total_us": 3730,
+  "first": {
+    "Total": 2963,
+    "Maximum": 3730,
+    "Late": 0,
+    "ADCdrop": 0,
+    "FIFO": 0,
+    "AUDunder": 0,
+    "AUDdrop": 0,
+    "IRQlate": 0,
+    "B": 53920,
+    "Revision": 0,
+    "Settings": "BASIC IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+    "Clips": 0
+  },
+  "last": {
+    "Total": 2960,
+    "Maximum": 3730,
+    "Late": 0,
+    "ADCdrop": 0,
+    "FIFO": 0,
+    "AUDunder": 0,
+    "AUDdrop": 0,
+    "IRQlate": 0,
+    "B": 68000,
+    "Revision": 0,
+    "Settings": "BASIC IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+    "Clips": 0
+  },
+  "increases": {
+    "B": 14080,
+    "Late": 0,
+    "ADCdrop": 0,
+    "FIFO": 0,
+    "AUDunder": 0,
+    "AUDdrop": 0,
+    "IRQlate": 0,
+    "Clips": 0
+  },
+  "timing_and_counter_pass": true,
+  "physical_UI_confirmation": "User confirmed OLED, encoder and both buttons remained responsive during the run",
+  "current_scope_recheck": {
+    "provenance": "user reported in GP27/GP26 order",
+    "GP27_mean_V": 1.653,
+    "GP26_mean_V": 1.652,
+    "GP27_Vpp": 0.24,
+    "GP26_Vpp": 0.24,
+    "AFG_CH1_offset_V": 2.5,
+    "AFG_CH2_offset_V": 2.5,
+    "note": "Scope and AFG readings supplied by user; ADC counter/timing logs acquired by the collector"
+  }
+}

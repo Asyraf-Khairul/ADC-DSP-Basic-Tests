@@ -1,0 +1,42 @@
+{
+  "commit": "81dbbd97ec9d30c80be6c358353fb578d9b14a41",
+  "branch": "testing/dsp-suite",
+  "flags": "Release -g -O3 -DNDEBUG; no global fast-math",
+  "normal_options": "BENCH_SELF_TEST=OFF BENCH_OPERATION_BENCHMARK=OFF",
+  "builds": [
+    {
+      "name": "instrumented baseline",
+      "sha256": "a30ee264c65beea3c5e9fbd52bb876dab32d9dec83e199090da55f88e13c03e7",
+      "snapshot": "firmware/evidence/baseline-profile-81dbbd9",
+      "log": "tests/results/basic-profile-2026-10-13.txt"
+    },
+    {
+      "name": "isolated operation benchmark",
+      "sha256": "c9ee45a5892dd5db01a97d4412222190d11be049e1b00b6f5c28c6b9961af327",
+      "snapshot": "firmware/evidence/operation-benchmark",
+      "options": "BENCH_OPERATION_BENCHMARK=ON",
+      "log": "tests/results/basic-operation-benchmark-2026-10-13.txt"
+    },
+    {
+      "name": "first streaming candidate, 64-bit operations in flash",
+      "sha256": "58a8e7addf02f1e154a0b2053722f34591d73df43b0c2a9b59561693bc03b23f",
+      "local_changes": "bench.cpp uses BasicKernel; compatible Q16 DC and Q8 lookup from operation-benchmark snapshot, Q24 audio DC, no RAM placement",
+      "log": "tests/results/basic-optimized-startup-2026-10-13.txt",
+      "result": "FAIL max=4728us LATE=37"
+    },
+    {
+      "name": "RAM candidate retaining 64-bit hot-loop operations",
+      "sha256": "2348b63514417f74cbf3990a64437ecf8dde6dcbc0a3ea693a98d51f564ed9d5",
+      "snapshot": "firmware/evidence/optimized-ram-final",
+      "log": "tests/results/basic-ram-startup-outputs-off-2026-10-13.txt",
+      "result": "FAIL max=4547us LATE=2"
+    },
+    {
+      "name": "final RAM and 32-bit hot-loop candidate",
+      "sha256": "43f9dab0eddcaf592257c37771d3721fc90f6b6eb86420d681081113146f67c1",
+      "snapshot": "firmware/evidence/optimized-32bit-final",
+      "log": "tests/results/basic-optimized-streaming-2026-10-13.txt",
+      "result": "PASS BASIC timing and counters; physical UI and current scope/AFG readings confirmed by user"
+    }
+  ]
+}

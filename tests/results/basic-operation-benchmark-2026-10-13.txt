@@ -1,0 +1,12 @@
+UF2 SHA256: C9EE45A5892DD5DB01A97D4412222190D11BE049E1B00B6F5C28C6B9961AF327
+BASIC OPERATION BENCHMARK -- synthetic, no streaming or loss counters
+BENCH float_dc_tracking min=7354 mean=7355.1 max=7373 us per 1024 pairs
+BENCH float_magnitude min=3241 mean=3244.6 max=3319 us per 1024 pairs
+BENCH fixed_dc_tracking min=354 mean=357.5 max=413 us per 1024 pairs
+BENCH integer_sqrt_magnitude min=1276 mean=1279.2 max=1349 us per 1024 pairs
+BENCH compatible_dc_tracking min=1435 mean=1439.8 max=1549 us per 1024 pairs
+BENCH lookup_magnitude min=1129 mean=1138.4 max=1339 us per 1024 pairs
+BENCH original_full_kernel min=10799 mean=10805.5 max=10932 us per 1024 pairs
+BENCH fixed_sqrt_full_kernel min=2666 mean=2673.6 max=2830 us per 1024 pairs
+BENCH fixed_lookup_full_kernel min=2534 mean=2541.5 max=2709 us per 1024 pairs
+BENCH DONE -- flash normal firmware before hardware streaming tests

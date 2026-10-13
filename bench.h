@@ -9,10 +9,21 @@ struct Settings {
     int deemph = 0, bass = 0, treble = 0, blanker = 0, notch = 0;
     int nr = 0, smooth = 10, threshold = 1, cw = 700;
 };
+struct StageTiming {
+    uint32_t latest_us = 0, max_us = 0;
+    void record(uint32_t elapsed_us) {
+        latest_us = elapsed_us;
+        if (elapsed_us > max_us) max_us = elapsed_us;
+    }
+};
+struct ProcessingTiming {
+    StageTiming input_stats, dsp, audio_stats, spectrum, process, output;
+};
 struct Status {
     Settings settings;
     uint32_t revision = 0, blocks = 0, dsp_us = 0, max_us = 0, deadline_misses = 0;
     StreamHealth health{};
+    ProcessingTiming timing{};
     uint16_t lo[2]{}, mean[2]{}, hi[2]{}, rms[2]{};
     uint32_t clips = 0;
     int magnitude = 0, audio_rms = 0, audio_peak = 0;

@@ -1,0 +1,46 @@
+UF2 SHA256: 43f9dab0eddcaf592257c37771d3721fc90f6b6eb86420d681081113146f67c1
+Source: 81dbbd9 plus local profiling and BASIC optimization
+Fresh USB firmware reboot; Pico power kept connected
+Serial page cycling every 10 seconds; physical UI confirmation collected separately
+HOST elapsed_ms=0
+B=53920 rev=0 BASIC IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+I min/mean/max/rms=1929/2068/2207/89 Q=1940/2073/2208/86 MAG=122 AUD rms/peak=346/527 clips=0
+us=2963 max=3730 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+TIMING us latest/max PROC=2758/3518 OUT=205/289 IN=731/849 DSP=1991/2729 STAT=36/71 FFT=0/0
+HOST elapsed_ms=10018.424
+B=56288 rev=0 BASIC IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+I min/mean/max/rms=1938/2079/2208/90 Q=1939/2070/2203/87 MAG=123 AUD rms/peak=342/525 clips=0
+us=2836 max=3730 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+TIMING us latest/max PROC=2648/3518 OUT=188/378 IN=656/849 DSP=1958/2729 STAT=33/71 FFT=0/0
+HOST elapsed_ms=20024.658
+B=58624 rev=0 BASIC IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+I min/mean/max/rms=1941/2081/2207/89 Q=1940/2068/2208/88 MAG=124 AUD rms/peak=338/522 clips=0
+us=2962 max=3730 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+TIMING us latest/max PROC=2757/3518 OUT=205/378 IN=732/1011 DSP=1988/2729 STAT=36/71 FFT=0/0
+HOST elapsed_ms=30024.326
+B=60960 rev=0 BASIC IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+I min/mean/max/rms=1939/2077/2209/88 Q=1939/2066/2204/89 MAG=124 AUD rms/peak=343/530 clips=0
+us=2958 max=3730 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+TIMING us latest/max PROC=2754/3518 OUT=204/378 IN=731/1011 DSP=1986/2729 STAT=35/71 FFT=0/0
+HOST elapsed_ms=40025.019
+B=63296 rev=0 BASIC IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+I min/mean/max/rms=1932/2074/2210/87 Q=1943/2067/2209/89 MAG=123 AUD rms/peak=345/520 clips=0
+us=2956 max=3730 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+TIMING us latest/max PROC=2752/3518 OUT=204/378 IN=731/1011 DSP=1984/2729 STAT=36/71 FFT=0/0
+HOST elapsed_ms=50017.678
+B=65664 rev=0 BASIC IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+I min/mean/max/rms=1940/2074/2208/87 Q=1940/2077/2204/88 MAG=122 AUD rms/peak=346/546 clips=0
+us=2836 max=3730 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+TIMING us latest/max PROC=2647/3518 OUT=189/378 IN=658/1011 DSP=1955/2729 STAT=34/71 FFT=0/0
+HOST elapsed_ms=60019.099
+B=68000 rev=0 BASIC IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+I min/mean/max/rms=1941/2079/2206/88 Q=1941/2075/2204/87 MAG=122 AUD rms/peak=344/538 clips=0
+us=2960 max=3730 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+TIMING us latest/max PROC=2756/3518 OUT=204/378 IN=730/1011 DSP=1988/2729 STAT=36/76 FFT=0/0

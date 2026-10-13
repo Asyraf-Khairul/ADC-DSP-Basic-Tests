@@ -28,8 +28,12 @@ void worker() {
         if(!stream_read(raw)) { tight_loop_contents(); continue; }
         uint32_t start=time_us_32();
         process_samples(raw,audio,st);
+        const uint32_t process_end=time_us_32();
         stream_audio(audio,st.settings.volume);
-        st.dsp_us=time_us_32()-start;
+        const uint32_t output_end=time_us_32();
+        st.dsp_us=output_end-start;
+        st.timing.process.record(process_end-start);
+        st.timing.output.record(output_end-process_end);
         if(st.dsp_us>st.max_us) st.max_us=st.dsp_us;
         if(st.dsp_us>4266) ++st.deadline_misses;
         ++st.blocks;
@@ -49,7 +53,7 @@ void help() {
     puts("volume 0..100; squelch -1=off or 0..12; hang 0..7; swap 0|1; iqcorr 0|1");
     puts("deemph 0..2; bass/treble 0..4; blanker 0..6; notch/nr 0|1");
     puts("smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz");
-    puts("page 0..3; stream 0|1; status; help. Reboot resets settings and DSP history.");
+    puts("page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.");
     puts("BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.");
 }
 void report(const Status &st) {
@@ -67,6 +71,14 @@ void report(const Status &st) {
     printf("sq=%d hang=%d swap=%d iqcorr=%d deemph=%d bass=%d treble=%d blanker=%d notch=%d nr=%d smooth=%d threshold=%d cw=%d\n",
         s.squelch,s.hang,s.input?0:s.swap,s.input?0:s.iqcorr,s.deemph,s.bass,s.treble,
         s.blanker,s.notch,s.nr,s.smooth,s.threshold,s.cw);
+    const auto &t=st.timing;
+    printf("TIMING us latest/max PROC=%lu/%lu OUT=%lu/%lu IN=%lu/%lu DSP=%lu/%lu STAT=%lu/%lu FFT=%lu/%lu\n",
+        (unsigned long)t.process.latest_us,(unsigned long)t.process.max_us,
+        (unsigned long)t.output.latest_us,(unsigned long)t.output.max_us,
+        (unsigned long)t.input_stats.latest_us,(unsigned long)t.input_stats.max_us,
+        (unsigned long)t.dsp.latest_us,(unsigned long)t.dsp.max_us,
+        (unsigned long)t.audio_stats.latest_us,(unsigned long)t.audio_stats.max_us,
+        (unsigned long)t.spectrum.latest_us,(unsigned long)t.spectrum.max_us);
 }
 }
 
@@ -97,7 +109,7 @@ int main() {
                     else if(!strcmp(line,"status")) report(st);
                     else if(!strcmp(line,"stream 0")) streaming=false;
                     else if(!strcmp(line,"stream 1")) streaming=true;
-                    else if(!strncmp(line,"page ",5) && strlen(line)==6 && line[5]>='0' && line[5]<='3') panel.set_page(line[5]-'0');
+                    else if(!strncmp(line,"page ",5) && strlen(line)==6 && line[5]>='0' && line[5]<'0'+STATUS_PAGE_COUNT) panel.set_page(line[5]-'0');
                     else {
                         Settings candidate=requested;
                         if(!parse_setting(line,candidate)) puts("ERR unknown command/value; type help");

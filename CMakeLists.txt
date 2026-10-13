@@ -33,7 +33,13 @@ set(CMAKE_CXX_EXTENSIONS ON)
 pico_sdk_init()
 
 option(BENCH_SELF_TEST "Build synthetic DSP tests instead of live ADC firmware" OFF)
-if(BENCH_SELF_TEST)
+option(BENCH_OPERATION_BENCHMARK "Build isolated BASIC operation benchmark" OFF)
+if(BENCH_SELF_TEST AND BENCH_OPERATION_BENCHMARK)
+    message(FATAL_ERROR "Select only one synthetic test entry point")
+endif()
+if(BENCH_OPERATION_BENCHMARK)
+    set(BENCH_ENTRY tests/basic_operation_benchmark.cpp)
+elseif(BENCH_SELF_TEST)
     set(BENCH_ENTRY tests/self_test.cpp)
 else()
     set(BENCH_ENTRY main.cpp)
@@ -41,6 +47,7 @@ endif()
 add_executable(adc_dsp_standalone
     ${BENCH_ENTRY}
     bench.cpp
+    basic_dsp.cpp
     settings.cpp
     front_panel.cpp
     controls.cpp
