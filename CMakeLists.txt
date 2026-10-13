@@ -41,6 +41,9 @@ endif()
 add_executable(adc_dsp_standalone
     ${BENCH_ENTRY}
     bench.cpp
+    settings.cpp
+    front_panel.cpp
+    controls.cpp
     stream.cpp
     display.cpp
     ssd1306.c

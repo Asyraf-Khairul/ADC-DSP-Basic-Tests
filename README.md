@@ -19,10 +19,11 @@ documented differences from the receiver algorithms.
    Flash `build/adc_dsp_standalone.uf2`, or its local
    `firmware/adc_dsp_suite.uf2` copy, using BOOTSEL.
 2. Verify generator output voltage before connecting it to an ADC.
-3. The OLED starts in BASIC. Connect a USB serial terminal and send `help`.
+3. The OLED starts in BASIC. Press Button 2 (GP22) to open Settings.
 4. For CH1 AM testing: carrier 8 kHz, safe 200 mVpp/+1.65 V bias, AM 1 kHz/30%,
-   connected to GP27; send `preset 2`.
-5. Check `page 1` for sample loss as well as measuring the recovered audio.
+   connected to GP27; select Preset, turn to `2 IF-AM`, and press Button 2 to apply.
+5. Return with Button 1 (GP17), then short-press it to view page 1 for sample loss
+   as well as measuring the recovered audio.
    A live OLED or nonzero MAG alone does not prove demodulation.
 
 The UF2 files are build outputs, not evidence of hardware validation.
@@ -36,12 +37,15 @@ Do not claim all tests pass until you have run and recorded them on the board.
 | Q / ADC0 | GP26 |
 | PWM audio (through board filter/amplifier) | GP16 |
 | OLED SDA / SCL | GP18 / GP19 |
-| Optional preset button to GND | GP22 |
-| Optional OLED page button to GND | GP17 |
-| Optional AGC-cycle button to GND | GP5 |
+| Rotary encoder A / B | GP20 / GP21 |
+| Button 1: page / back / hold for coarse tune | GP17 to GND |
+| Button 2: menu / select / apply | GP22 to GND |
 
-Buttons use internal pull-ups, active low. GPIO names are NOT physical pin
-numbers. Leave buttons unconnected if not installed; USB controls still work.
+Buttons and encoder contacts use internal pull-ups, active low. Connect the
+encoder common terminal to GND; no encoder push switch is required. If using
+an encoder module, power its logic from 3.3 V. GPIO names are NOT physical pin
+numbers. Pin assignments are in `controls.h`; GP5 is no longer used for a button.
+Set `ENCODER_DIRECTION` to -1 there if clockwise rotation is reversed.
 OLED remains the existing **SH1106 128x64, address 0x3C** configuration.
 The files named `ssd1306.*` provide drawing/page transfers; they do not make this
 an SSD1306 initialization sequence. Change `display_init(18,19,0x3c)` in the
@@ -50,9 +54,44 @@ entry point if the address differs. Missing OLED does not stop DSP execution.
 No RF LO is generated on GP0/GP1. This suite directly tests the ADC/DSP back-end.
 Do not connect generator outputs against powered mixer/amplifier outputs.
 
+## Encoder and OLED controls
+
+Normal firmware needs no serial monitor for configuration or on-screen status.
+
+| Action | Status pages | Settings menu | Editing a value |
+| --- | --- | --- | --- |
+| Turn encoder | Tune in receiver modes | Move selection | Adjust draft value |
+| Short press Button 1 | Next OLED page (0..3) | Return to status | Cancel the edit |
+| Hold Button 1 and turn | Coarse tune | Move selection | Adjust draft value |
+| Press Button 2 | Open Settings | Select item | Apply value |
+
+Buttons act on release after debounce. Releasing Button 1 after coarse tuning
+does not also change pages. Encoder edges are captured in interrupts, including
+while an OLED frame is being transferred; button sampling runs every millisecond.
+The decoder expects four valid quadrature transitions per step.
+
+Fine tuning defaults to 100 Hz per step. Coarse tuning uses ten times the fine
+step, with a minimum of 1 kHz. Settings > Tune step offers 1, 10, 100 and 1000 Hz.
+Tuning is limited to -12000..12000 Hz and does not act in BASIC mode.
+
+The menu includes Preset, Mode, Input, Tune, Tune step, Bandwidth, AGC, Gain,
+Volume, Squelch, Hang, IQ swap, IQ corr, Deemph, Bass, Treble, Blanker, Notch,
+Noise red, NR smooth, NR thresh and CW tone. The edit screen explains the
+selected setting and flags controls that are inactive in BASIC or require IQ.
+The values shown in the menu are requested settings. Apply queues them to the
+DSP core; `Queued; wait 2s` confirms submission. The status pages show the applied
+mode, input, tune, bandwidth and gain. Allow at least two seconds for settling.
+If the queue is full, `Busy: press OK again` keeps the draft so it can be retried.
+Back cancels an unsubmitted edit. Presets reset all DSP settings, and reboot
+restores BASIC defaults; settings are not saved to flash.
+
+Pages: 0 = ADC/audio values, 1 = streaming health, 2 = spectrum, 3 = audio waveform.
+USB serial remains optional for full numerical logging and keyboard commands.
+The separate synthetic self-test firmware still uses USB serial for its results.
+
 ## Presets
 
-Send `preset N`; GPIO22 cycles the same list from the default BASIC preset.
+Choose Settings > Preset with the encoder, or optionally send `preset N` over USB.
 Each preset restores all settings to reproducible defaults; settings are not
 saved to flash.
 
@@ -73,7 +112,7 @@ with midscale internally. Frequency shifting/filtering select one spectral
 image; I/Q correction and swap are forced off. Both physical pins' raw ADC
 statistics remain visible. This is not simultaneous two-channel AM modulation.
 
-## USB commands
+## Optional USB commands
 
 Lowercase, one command per line. All value ranges are checked. An `OK queued`
 reply means the command was accepted; `status` shows the applied settings
@@ -135,7 +174,10 @@ Core 1 owns acquisition, receiver processing and audio queues.
 Core 0 owns OLED, USB commands and buttons. Short locked snapshots separate them.
 Counters expose overload; continuous operation still needs board verification.
 
-- `main.cpp`: cores, settings queue, serial parser dispatch and buttons.
+- `main.cpp`: cores, settings queue, front-panel and optional serial dispatch.
+- `controls.*`: GP20/21 encoder interrupts and GP17/22 button debounce.
+- `front_panel.*`: menu navigation, editing, value labels and tuning steps.
+- `settings.cpp`: presets and validated serial settings shared with the menu.
 - `stream.*`: ADC/PWM DMA and queue health.
 - `bench.*`: presets, validated controls, receiver adapter and block statistics.
 - `receiver_dsp/`: copied/adapted receiver algorithms, no dependency on the other folder.
@@ -143,6 +185,17 @@ Counters expose overload; continuous operation still needs board verification.
 - `tests/self_test.cpp`: synthetic DSP-only test entry point.
 - Old `adc.*`, `dsp.*`, `pwm.*`, `nco.*`, `clocks*` are retained as legacy
   reference files; CMake does not compile them into this suite.
+
+Host-side control tests (no board required):
+
+```sh
+g++ -std=c++17 -Wall -Wextra -Werror -I. tests/front_panel_test.cpp front_panel.cpp settings.cpp -o build/front_panel_test.exe
+./build/front_panel_test.exe
+```
+
+These check menu navigation, cancel/retry, preset selection, setting limits,
+tuning increments, quadrature bounce and button debounce. Physical encoder
+direction, detent spacing and operation during DSP load still need board testing.
 
 ## Build
 

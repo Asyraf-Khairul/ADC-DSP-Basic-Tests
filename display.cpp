@@ -79,7 +79,7 @@ void display_init(uint sda_gpio, uint scl_gpio, uint8_t i2c_address) {
     ssd1306_show(&display);
 }
 
-void display_status(const Status &st, unsigned page) {
+void display_status(const Status &st, unsigned page, const char *footer) {
     char line[24];
     ssd1306_clear(&display,0);
     snprintf(line,sizeof(line),"%s %s P%u",mode_name(st.settings.mode),input_name(st.settings.input),page);
@@ -111,6 +111,34 @@ void display_status(const Status &st, unsigned page) {
             int y=42-(int(st.audio[x/2])*20/32768);
             ssd1306_draw_pixel(&display,x,y,1);
         }
+    }
+    if (page < 2) draw_line(6, footer ? footer : "B1:Page B2:Menu");
+    ssd1306_show(&display);
+}
+
+void display_menu(const FrontPanel &panel, const Settings &settings, uint32_t now) {
+    char line[22], value[22];
+    ssd1306_clear(&display, 0);
+    if (panel.editing()) {
+        snprintf(line, sizeof(line), "EDIT %s", panel.label(panel.selected()));
+        draw_line(0, line);
+        panel.value(panel.selected(), settings, value, sizeof(value));
+        draw_line(2, value);
+        draw_line(4, panel.description(settings));
+        draw_line(5, panel.notice(now) ? panel.notice(now) : "Turn to change");
+        draw_line(6, "B1:Cancel B2:Apply");
+    } else {
+        snprintf(line, sizeof(line), "SETTINGS %u/%u", panel.selected()+1, panel.count());
+        draw_line(0, line);
+        const unsigned first = (panel.selected()/4)*4;
+        for (unsigned row = 0; row < 4 && first+row < panel.count(); ++row) {
+            const unsigned item = first+row;
+            panel.value(item, settings, value, sizeof(value));
+            snprintf(line, sizeof(line), "%c%-9.9s %.10s", item == panel.selected() ? '>' : ' ', panel.label(item), value);
+            draw_line(row+1, line);
+        }
+        draw_line(5, panel.notice(now) ? panel.notice(now) : "Turn to browse");
+        draw_line(6, "B1:Back B2:Select");
     }
     ssd1306_show(&display);
 }

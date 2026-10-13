@@ -4,6 +4,26 @@ Record observations, not just PASS labels. Building firmware is not a hardware
 test. None of the hardware checkpoints below has been executed by the coding
 agent. Suggested thresholds are bench acceptance targets, not certified specs.
 
+## Operating without a serial monitor
+
+Use encoder A=GP20, B=GP21, Button 1=GP17 and Button 2=GP22. Button 2 opens
+Settings/selects/applies; turning the encoder browses or edits; Button 1 backs
+out/cancels. On status screens, a short Button 1 press cycles pages. Turning
+the encoder tunes in receiver modes, with Button 1 held for coarse steps.
+
+All configuration commands below have an OLED menu equivalent: `preset N`
+means Settings > Preset > N, `gain N` means Settings > Gain > N, and so on.
+`bw` is Bandwidth; `iqcorr` is IQ corr; `nr` is Noise red; `smooth`/`threshold`
+are NR smooth/NR thresh; `cw` is CW tone. `page N` means cycle to page N.
+Apply changes with Button 2 and allow at least two seconds to settle. In BASIC,
+only gain and volume affect processing; receiver features require a receiver mode.
+
+USB `help`, `status` and `stream 1` are optional logging aids for normal firmware.
+Use page 0 for ADC/audio readings and page 1 for loss counters without a PC.
+For exact audio peak values and detailed numerical logs, use optional `status`;
+the OLED audio view and an oscilloscope provide waveform feedback without serial.
+The separate software self-test remains a USB-serial test, not the normal firmware.
+
 ## 1. Safe wiring and baseline
 
 1. Disconnect the receiver/mixer outputs from GP27 and GP26 before injecting:
@@ -19,9 +39,9 @@ agent. Suggested thresholds are bench acceptance targets, not certified specs.
    For single-channel tests hold the unused ADC at a quiet 1.65 V bias.
    A floating ADC is not a valid zero/noise test. IF mode ignores the unused
    channel digitally, but its displayed RAW statistics still describe the pin.
-5. Flash the normal `firmware/adc_dsp_suite.uf2`. Connect a USB serial terminal
-   (115200, line ending newline; USB baud setting is nominal). Send `help`.
-   Default preset is BASIC. Send `stream 1` to log once per second.
+5. Flash the normal `firmware/adc_dsp_suite.uf2`. Default preset is BASIC.
+   Use the encoder/menu for setup and OLED pages for feedback. Optionally connect
+   a USB serial terminal (115200, newline) and send `stream 1` for a log.
 6. Send `preset 0`. Check each ADC's min/mean/max and AC RMS against the scope.
    Approximate voltage = count * measured ADC reference / 4095.
    For 3.3 V reference: mean ~2048 counts and AC RMS ~88 counts for 200 mVpp

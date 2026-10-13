@@ -169,7 +169,10 @@ the chosen UF2 onto that drive. This replaces the Pico's running firmware,
 not your GitHub source. Keep a known-good UF2 if you want to restore it.
 
 Start with the normal firmware. It uses GP27=I, GP26=Q, GP16=audio and
-GP18/GP19=SH1106 OLED. Read the voltage limits and wiring checkpoints in
+GP18/GP19=SH1106 OLED. The encoder is GP20/GP21; Button 1 is GP17
+(page/back/hold for coarse tuning), and Button 2 is GP22 (menu/select/apply).
+Normal firmware can be configured and observed entirely on the OLED;
+serial is optional for detailed logs. Read the voltage limits and wiring checkpoints in
 [TEST_GUIDE.md](TEST_GUIDE.md) BEFORE connecting generator outputs.
 The software-test firmware instead waits for a USB serial connection and
 runs synthetic checks. Reflash normal firmware before AFG testing.

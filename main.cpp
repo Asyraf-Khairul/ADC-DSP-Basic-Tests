@@ -1,5 +1,6 @@
 #include "bench.h"
 #include "display.h"
+#include "controls.h"
 #include "pico/stdlib.h"
 #include "pico/multicore.h"
 #include "pico/util/queue.h"
@@ -7,7 +8,6 @@
 #include "hardware/clocks.h"
 #include <cstdio>
 #include <cstring>
-#include <initializer_list>
 
 namespace {
 queue_t commands;
@@ -75,14 +75,15 @@ int main() {
     stdio_init_all();
     queue_init(&commands,sizeof(Settings),8);
     critical_section_init(&status_lock);
-    for(unsigned pin: {22u,17u,5u}) { gpio_init(pin); gpio_set_dir(pin,GPIO_IN); gpio_pull_up(pin); }
     display_init(18,19,0x3c);
+    controls_init();
     multicore_launch_core1_with_stack(worker,core1_stack,sizeof(core1_stack));
     Settings requested;
     Status st;
-    char line[96]{}; unsigned length=0, page=0, selected=0;
-    bool overflow=false, streaming=false, was_down[3]{};
-    uint32_t next_display=0, next_report=0, next_buttons=0;
+    FrontPanel panel;
+    char line[96]{}; unsigned length=0;
+    bool overflow=false, streaming=false;
+    uint32_t next_display=0, next_report=0;
     help();
     for(;;) {
         critical_section_enter_blocking(&status_lock); st=shared_status; critical_section_exit(&status_lock);
@@ -96,7 +97,7 @@ int main() {
                     else if(!strcmp(line,"status")) report(st);
                     else if(!strcmp(line,"stream 0")) streaming=false;
                     else if(!strcmp(line,"stream 1")) streaming=true;
-                    else if(!strncmp(line,"page ",5) && strlen(line)==6 && line[5]>='0' && line[5]<='3') page=line[5]-'0';
+                    else if(!strncmp(line,"page ",5) && strlen(line)==6 && line[5]>='0' && line[5]<='3') panel.set_page(line[5]-'0');
                     else {
                         Settings candidate=requested;
                         if(!parse_setting(line,candidate)) puts("ERR unknown command/value; type help");
@@ -111,25 +112,20 @@ int main() {
             }
         }
         uint32_t now=to_ms_since_boot(get_absolute_time());
-        if(int32_t(now-next_buttons)>=0) {
-            next_buttons=now+40;
-            const unsigned pins[]={22,17,5};
-            for(unsigned i=0;i<3;++i) {
-                bool down=!gpio_get(pins[i]);
-                if(down && !was_down[i]) {
-                    if(i==1) page=(page+1)%4;
-                    else {
-                        Settings candidate=requested;
-                        unsigned next_selected=selected;
-                        if(i==0) { next_selected=(selected+1)%PRESET_COUNT; candidate=preset(next_selected); }
-                        else candidate.agc=(candidate.agc+1)%5;
-                        if(queue_try_add(&commands,&candidate)) { requested=candidate; selected=next_selected; }
-                    }
-                }
-                was_down[i]=down;
-            }
+        const PanelInput input = controls_read();
+        Settings candidate;
+        if (panel.update(input, requested, candidate, now)) {
+            const bool accepted = queue_try_add(&commands, &candidate);
+            if (accepted) requested = candidate;
+            panel.acknowledge(accepted, now);
         }
-        if(int32_t(now-next_display)>=0) { next_display=now+250; display_status(st,page); }
+        // Redraw immediately on input; GPIO interrupts keep recording turns during I2C.
+        if(input.turns || input.coarse_turns || input.ok || input.back) next_display=now;
+        if(int32_t(now-next_display)>=0) {
+            next_display=now+250;
+            if(panel.menu_open()) display_menu(panel,requested,now);
+            else display_status(st,panel.page(),panel.notice(now));
+        }
         if(streaming && int32_t(now-next_report)>=0) { next_report=now+1000; report(st); }
         sleep_ms(1);
     }
