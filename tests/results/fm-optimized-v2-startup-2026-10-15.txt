@@ -1,0 +1,64 @@
+2026-10-14T20:35:04.960504+00:00 USB 1200-baud BOOTSEL request; power retained
+2026-10-14T20:35:04.966958+00:00 Reset-port result: Cannot configure port, something went wrong. Original message: OSError(22, 'A device which does not exist was specified.', None, 433)
+2026-10-14T20:35:05.483210+00:00 UF2 Bootloader v3.0
+Model: Raspberry Pi RP2
+Board-ID: RPI-RP2
+2026-10-14T20:35:07.064752+00:00 Copied UF2 sha256=77b8f17f2facca31221a7e537a34cc139ef9cc8a222d3e657b803949d3561e0e
+2026-10-14T20:35:08.569961+00:00 TX stream 0
+2026-10-14T20:35:08.570276+00:00 TX help
+2026-10-14T20:35:08.641752+00:00 RX 
+2026-10-14T20:35:08.643341+00:00 RX Pico ADC/DSP suite: commands are lowercase, one per line.
+2026-10-14T20:35:08.645198+00:00 RX preset 0..8: BASIC, IQ-AM, IF-AM, IF-AMSYNC, IF-FM, IF-FSK, USB, LSB, IF-CW
+2026-10-14T20:35:08.646322+00:00 RX mode basic|am|amsync|fm|usb|lsb|cw; input iq|i|q; tune -12000..12000 Hz
+2026-10-14T20:35:08.648431+00:00 RX bw 0..4; agc 0=fast 1=medium 2=slow 3=long 4=manual; gain 0..10 (2^n)
+2026-10-14T20:35:08.650079+00:00 RX volume 0..100; squelch -1=off or 0..12; hang 0..7; swap 0|1; iqcorr 0|1
+2026-10-14T20:35:08.651120+00:00 RX deemph 0..2; bass/treble 0..4; blanker 0..6; notch/nr 0|1
+2026-10-14T20:35:08.652359+00:00 RX smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz
+2026-10-14T20:35:08.656695+00:00 RX page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.
+2026-10-14T20:35:08.660370+00:00 RX BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.
+2026-10-14T20:35:08.664179+00:00 RX measure start|stop: all-block timing window; cumulative diagnostics never reset.
+2026-10-14T20:35:08.670188+00:00 RX BUILD label=fm-optimized-v2 source_sha256=c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6 base=bfa22b8c150ee87c1808418a08cb066160e3834d
+2026-10-14T20:35:08.671925+00:00 RX INSTRUMENT sys_clock_Hz=120000000 timer_1024_reads_us=86 extra_receiver_timer_reads_per_block=9
+2026-10-14T20:35:08.766024+00:00 RX 
+2026-10-14T20:35:08.767660+00:00 RX Pico ADC/DSP suite: commands are lowercase, one per line.
+2026-10-14T20:35:08.769293+00:00 RX preset 0..8: BASIC, IQ-AM, IF-AM, IF-AMSYNC, IF-FM, IF-FSK, USB, LSB, IF-CW
+2026-10-14T20:35:08.770803+00:00 RX mode basic|am|amsync|fm|usb|lsb|cw; input iq|i|q; tune -12000..12000 Hz
+2026-10-14T20:35:08.772266+00:00 RX bw 0..4; agc 0=fast 1=medium 2=slow 3=long 4=manual; gain 0..10 (2^n)
+2026-10-14T20:35:08.775134+00:00 RX volume 0..100; squelch -1=off or 0..12; hang 0..7; swap 0|1; iqcorr 0|1
+2026-10-14T20:35:08.777554+00:00 RX deemph 0..2; bass/treble 0..4; blanker 0..6; notch/nr 0|1
+2026-10-14T20:35:08.780391+00:00 RX smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz
+2026-10-14T20:35:08.783954+00:00 RX page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.
+2026-10-14T20:35:08.787355+00:00 RX BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.
+2026-10-14T20:35:08.791351+00:00 RX measure start|stop: all-block timing window; cumulative diagnostics never reset.
+2026-10-14T20:35:08.796843+00:00 RX BUILD label=fm-optimized-v2 source_sha256=c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6 base=bfa22b8c150ee87c1808418a08cb066160e3834d
+2026-10-14T20:35:08.798445+00:00 RX INSTRUMENT sys_clock_Hz=120000000 timer_1024_reads_us=86 extra_receiver_timer_reads_per_block=9
+2026-10-14T20:35:10.694561+00:00 TX status
+2026-10-14T20:35:10.761197+00:00 RX B=480 rev=0 BASIC IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+2026-10-14T20:35:10.763179+00:00 RX I min/mean/max/rms=1936/2073/2210/88 Q=2042/2057/2068/2 MAG=79 AUD rms/peak=50/170 clips=0
+2026-10-14T20:35:10.764867+00:00 RX us=2827 max=3046 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0
+2026-10-14T20:35:10.766540+00:00 RX sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+2026-10-14T20:35:10.767677+00:00 RX TIMING us latest/max PROC=2624/2815 OUT=203/274 IN=555/586 DSP=2033/2197 STAT=35/56 FFT=0/0
+2026-10-14T20:35:10.768560+00:00 RX RX latest_us CICMIX=0 FILTER=0 DEMOD=0 CAPTURE=0 FFTFWD=0 FFTBINS=0 FFTINV=0
+2026-10-14T20:35:10.769047+00:00 RX MEASURE id=0 active=0 settings_changed=0
+2026-10-14T20:35:10.769993+00:00 RX WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0
+2026-10-14T20:35:10.770853+00:00 RX WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0
+2026-10-14T20:35:10.772098+00:00 RX WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0
+2026-10-14T20:35:10.773153+00:00 RX WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0
+2026-10-14T20:35:10.773339+00:00 RX BOOKKEEP max_us=0 sum_us=0
+2026-10-14T20:35:10.773408+00:00 RX ENDSTATUS
+2026-10-14T20:35:11.594459+00:00 TX preset 4
+2026-10-14T20:35:11.605285+00:00 RX OK queued; allow 2 s settling
+2026-10-14T20:35:12.664427+00:00 TX status
+2026-10-14T20:35:12.761415+00:00 RX B=960 rev=1 FM IF-I tune=8000 bw=2 agc=4 gain=2^0 vol=25
+2026-10-14T20:35:12.763370+00:00 RX I min/mean/max/rms=1931/2073/2208/88 Q=2032/2057/2069/2 MAG=121 AUD rms/peak=1605/2594 clips=0
+2026-10-14T20:35:12.763967+00:00 RX us=3389 max=4003 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0
+2026-10-14T20:35:12.764652+00:00 RX sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+2026-10-14T20:35:12.765233+00:00 RX TIMING us latest/max PROC=3185/3799 OUT=204/353 IN=555/586 DSP=2594/2658 STAT=36/72 FFT=0/611
+2026-10-14T20:35:12.765772+00:00 RX RX latest_us CICMIX=499 FILTER=1549 DEMOD=361 CAPTURE=2 FFTFWD=863 FFTBINS=261 FFTINV=357
+2026-10-14T20:35:12.766021+00:00 RX MEASURE id=0 active=0 settings_changed=0
+2026-10-14T20:35:12.766637+00:00 RX WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0
+2026-10-14T20:35:12.767225+00:00 RX WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0
+2026-10-14T20:35:12.768122+00:00 RX WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0
+2026-10-14T20:35:12.769051+00:00 RX WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0
+2026-10-14T20:35:12.769220+00:00 RX BOOKKEEP max_us=0 sum_us=0
+2026-10-14T20:35:12.769294+00:00 RX ENDSTATUS

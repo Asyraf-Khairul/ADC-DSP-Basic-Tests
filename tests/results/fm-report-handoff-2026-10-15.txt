@@ -1,0 +1,133 @@
+Please help write my engineering report section about FM receiver processing
+optimization and real-time timing validation on a Raspberry Pi Pico. First
+propose a section layout, then draft the section using only the evidence below.
+Separate implementation changes, numerical verification, measured timing and
+remaining demodulation tests. Do not describe this as a complete FM receiver pass.
+
+Repository: Asyraf-Khairul/ADC-DSP-Basic-Tests.
+Local branch: testing/fm-timing-optimized, based on bfa22b8c150ee87c1808418a08cb066160e3834d.
+This branch has only been committed locally, not pushed to GitHub. You cannot
+inspect these changes online yet. Use this supplied account, and do not claim
+to have independently reviewed the repository unless I upload the files or
+later provide an accessible pushed commit. Dates below are 15 October 2026
+in New Zealand; raw serial timestamps use UTC.
+
+Problem and experimental sequence
+1. Original FM IF-I run01: 62.114179 seconds, 14,558 processed blocks, 54 new
+deadline misses, 2360 new near-rail samples, maximum block time 4465 us.
+GP26 had no external source. Retained resistors could pull it toward ground;
+do not assume it was necessarily floating. No streaming-loss counters increased.
+2. GP26 bias was corrected. I reported 1.635 V before run02. Corrected-bias
+baseline run02: 62.058405 seconds, 14,545 blocks, 234.375988 blocks/s, 80 new
+deadline misses, zero new near-rail samples and zero streaming faults. All
+80 late blocks were spectrum-update blocks. Maximum interval time was 4373 us,
+107 us above the 4266 us deadline. Its cumulative 4958 us maximum existed
+before the measured window and must not be attributed to this interval.
+3. First optimization candidate fm-optimized-v1: 62.067215 seconds, 14,547
+blocks, one new deadline miss, maximum 4872 us; no streaming faults or new
+near-rail samples. This candidate still FAILED. Its evidence was retained.
+4. Second candidate fm-optimized-v2 passed the observed interval described below.
+
+Implementation changes
+- receiver_dsp/fft.cpp: native-width unsigned loop indices avoid repeated
+16-bit truncations. Signed 16-bit sample intermediates, rounding and wrapping
+were retained. The quarter-turn index now uses span >> 1, avoiding an unused
+negative shift at stage zero.
+- receiver_dsp/rx_dsp.cpp: zoom 1 copies spectrum pixels directly instead of
+using the general division-based zoom loop; other zoom levels retain that loop.
+- Corrected magnitudes for all 256 bins are calculated once per display update
+and reused for scaling instead of calculating each correction twice.
+- Repeated magnitudes below 256 reuse the exact calculated pixel within that
+update. The validity flags reset for each update, so changing display scale
+cannot reuse stale results. Larger values use the original expression.
+- The extra local spectrum storage is 800 bytes within the existing 16 KiB
+core1 stack. No new persistent tables or heap allocations. This is not a
+runtime stack high-water measurement.
+- Clock, sampling rates, filter coefficients, demodulation calculations,
+gain, diagnostic counters and spectrum cadence were not changed. No fast-math.
+All signal-dependent work stays inside the original inclusive timer, which
+measures process_samples plus stream_audio. Spectrum updates remain every
+64 receiver blocks. Diagnostic window bookkeeping is measured separately.
+
+Setup and method
+Pico clock 120 MHz; aggregate ADC rate 480 kword/s, 240 ksample/s per channel;
+2048 ADC words and 64 audio samples per block, audio at 15 kHz. Nominal block
+rate 234.375/s; firmware deadline 4266 us. Mixer disconnected; retained
+470 ohm/1 kohm dividers. Generator CH1 to GP27: user-confirmed 8 kHz sine
+carrier, displayed 300 mVpp, High-Z, +2.5 V offset, internal sine FM at 500 Hz
+with 500 Hz deviation. GP26 biased near midscale. The 1.635 V reading preceded
+the corrected baseline and was carried forward, not remeasured after flashing.
+Fresh complete GP27 mean/Vpp/min/max scope readings were not supplied.
+
+Preset 4: FM, IF-I, tuning +8000 Hz, bandwidth index 2, manual AGC setting 4,
+gain_log2=0 (gain x1, not mute), volume 25%. Remaining settings: sq=-1,
+hang=3, swap=0, iqcorr=0, deemph=0, bass=0, treble=0, blanker=0, notch=0,
+nr=0, smooth=10, threshold=1, cw=700.
+
+Each candidate was built in Release (-O3, -fwrapv), with BENCH_SELF_TEST=OFF
+and BENCH_OPERATION_BENCHMARK=OFF. USB BOOTSEL reboot retained board power.
+The new boot naturally starts new cumulative counters; previous logs remain
+preserved. Preset 4 was restored and at least 5.1 seconds settling allowed.
+No settings or cumulative counters were reset during measurement. Serial
+measure start/stop accumulated every block, separating ordinary and spectrum
+blocks. Raw output includes accurate host timestamps and device endpoints.
+USB latency and 32-block status publication affect outer serial snapshots;
+exact device-window endpoints determine throughput.
+
+Final optimized results
+Device interval: 62.186506 s; host start-record to stop-record: 62.1831426 s.
+Processed blocks: 4319 to 18894, increase 14,575; 234.3756055 blocks/s.
+Deadline misses, ADC drops, FIFO overflows, audio underruns, audio dropped
+blocks, late DMA interrupts and near-rail samples: all 0 to 0, increase zero.
+Ordinary blocks: 14,347, zero late, mean total 3362.906 us, maximum 3969 us.
+Spectrum-update blocks: 228, zero late, mean total 3767.605 us, maximum 3858 us.
+All-block interval maximum: 3969 us, giving 297 us (6.96%) deadline headroom.
+Cumulative maximum since boot: 4003 us at both start and end, not the interval
+maximum. Largest sampled latest total: 3470 us. Snapshots miss many blocks;
+the separate all-block window supplies the interval maximum.
+
+Mean ordinary-block FFT filtering decreased from 1632.067 to 1541.326 us
+(5.56%). Mean spectrum preparation decreased from 729.996 to 402.781 us
+(44.82%). Mean total spectrum-block time decreased from 4199.740 to
+3767.605 us (10.29%). These compare complete builds; individual edits were
+not each isolated in separate hardware benchmarks. Receiver DSP and FFT
+filter timings contain nested stages; do not add nested values or maxima
+from different blocks. Timing includes interrupt service.
+
+Validation and limitations
+43 fresh-process host receiver scenarios, 512 blocks each, produced identical
+PCM, magnitude, spectrum pixels and scale versus the frozen reference.
+Includes FM real-I gain x1 at 250/500 Hz deviation and modulation off,
+other receiver modes/settings, and zoom 2/3/4. Another 9000 FFT/IFFT cases
+covered sizes 1..256, silence, rails and seeded random full-range inputs;
+all were bit-identical. Host numerical tests are not hardware numerical or
+demodulation-quality measurements. I confirmed the OLED, encoder and both
+buttons were responsive after v2 startup, before the timed interval; this
+was not a separately timestamped in-window check. No photos were archived.
+The recovered 500 Hz output tone, modulation-off suppression, deviation
+response, distortion and speaker audibility have NOT been established.
+AM hardware timing has not been retested on this new binary. The observed
+FM timing pass is not a guarantee for all signals, effects or longer runs.
+
+Evidence files
+tests/results/fm-if-timing-2026-10-15-run01.{txt,json,md}
+tests/results/fm-if-timing-2026-10-15-run02.{txt,json,md}
+tests/results/fm-optimized-v1-timing-2026-10-15-run01.{txt,json,md}
+tests/results/fm-optimized-v2-timing-2026-10-15-run01.{txt,json,md}
+tests/results/fm-optimized-v2-numerical-2026-10-15.json
+tests/results/fm-optimized-v2-software-checks-2026-10-15.json
+tests/artifacts/fm-optimized-v2.uf2 and fm-optimized-v2.json
+Collector: tests/measure_fm_if_window.py.
+
+Running label: fm-optimized-v2.
+Source fingerprint: c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6.
+UF2 SHA256: 77b8f17f2facca31221a7e537a34cc139ef9cc8a222d3e657b803949d3561e0e.
+The firmware embeds parent bfa22b8 plus its source fingerprint because it was
+built before the local commit. Runtime self-reported identity was checked;
+there was no independent flash readback. A later rebuild can change identity.
+
+Please include a before/after results table, explain in plain language why
+the original failures matter even though no streaming losses occurred, discuss
+the limited timing margin and test limitations, and identify the remaining
+FM demodulation tests separately. Do not invent scope readings or claim that
+hearing audio, recovering 500 Hz, or complete FM functionality has passed.

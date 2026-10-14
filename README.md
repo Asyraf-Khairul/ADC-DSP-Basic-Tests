@@ -13,6 +13,39 @@ copy-paste Codex prompt to retrieve this branch, set up tools and build both UF2
 See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for source attribution and
 documented differences from the receiver algorithms.
 
+## Tested FM real-I optimization (15 October 2026)
+
+The `fm-optimized-v2` firmware passed a 62.186506-second FM real-I timing
+interval: 14,575 blocks at 234.3756 blocks/s, no new deadline misses, streaming
+faults or near-rail samples. The all-block maximum was 3969 us against the
+4266 us deadline, leaving 297 us (6.96%). FM audio recovery has not yet been
+validated. This is an observed timing result, not a worst-case guarantee.
+
+- [Full report and before/after results](tests/results/fm-optimized-v2-timing-2026-10-15-run01.md)
+- [Machine-readable results](tests/results/fm-optimized-v2-timing-2026-10-15-run01.json)
+  and [raw serial evidence](tests/results/fm-optimized-v2-timing-2026-10-15-run01.txt)
+- [43-case numerical comparison](tests/results/fm-optimized-v2-numerical-2026-10-15.json)
+- [Exact tested UF2](tests/artifacts/fm-optimized-v2.uf2) and
+  [artifact identity](tests/artifacts/fm-optimized-v2.json)
+- [ChatGPT report handoff prompt](tests/results/fm-report-handoff-2026-10-15.txt)
+
+Select Preset 4: FM, IF-I, tune +8000 Hz, BW 2, manual gain x1, volume 25%.
+The measured stimulus was an 8 kHz carrier with internal 500 Hz sine FM and
+500 Hz deviation on GP27; GP26 was held near midscale. See the report for
+generator settings, measurement provenance and limitations.
+
+Native-width FFT counters, a direct zoom-1 spectrum copy, reuse of corrected
+magnitudes and exact per-update pixel memoization reduce processing overhead.
+Rates, DSP sample arithmetic, display cadence, counters and inclusive timing
+remain intact. Failed baseline and first-candidate runs are retained.
+
+For a new build, use Release, `BENCH_SELF_TEST=OFF`,
+`BENCH_OPERATION_BENCHMARK=OFF`, and `BENCH_BUILD_LABEL=fm-optimized-v2`.
+The exact tested binary embeds parent `bfa22b8` plus its source fingerprint;
+rebuilding after committing can change binary identity. Its SHA256 is
+`77b8f17f2facca31221a7e537a34cc139ef9cc8a222d3e657b803949d3561e0e`.
+The earlier AM result below belongs to its own tested binary, not this FM build.
+
 ## Tested AM-IQ optimization (14 October 2026)
 
 The `am-optimized-v1` firmware passed a 62.05-second AM-IQ timing run at

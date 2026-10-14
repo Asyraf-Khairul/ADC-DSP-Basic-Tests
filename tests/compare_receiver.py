@@ -22,7 +22,9 @@ names=['am_unmodulated','am_depth10','am_depth30','am_depth60','am_depth90',
        'am_tuned','amsync','lsb','usb','fm','cw',
        'am_effects','amsync_effects','lsb_effects','usb_effects','fm_effects','cw_effects',
        'am_swapped','am_swapped_iqcorr','am_real_i','am_real_q','am_tune_min','am_tune_max',
-       'am_bw_narrow','am_bw_wide','am_swap_tune_transition']
+       'am_bw_narrow','am_bw_wide','am_swap_tune_transition',
+       'fm_real_i_dev500_gain1','fm_real_i_dev250_gain1','fm_real_i_unmodulated_gain1',
+       'am_zoom2','am_zoom3','am_zoom4']
 record=struct.Struct('<64hi256BB')
 rows=[]; waveforms=[]
 def ac_rms(a):

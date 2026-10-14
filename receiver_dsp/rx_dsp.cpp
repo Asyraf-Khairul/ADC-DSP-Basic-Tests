@@ -844,9 +844,11 @@ void rx_dsp :: get_spectrum(uint8_t spectrum[], uint8_t &dB10, uint8_t zoom)
   uint16_t new_max=0u;
   static uint16_t min=1u;//long term maximum
   uint16_t new_min=65535u;
+  uint16_t magnitudes[256];
   for(uint16_t i=0; i<256; ++i)
   {
     const uint16_t magnitude = cic_correct(freq_bin(i), capture_filter_control.fft_bin, capture[i]);
+    magnitudes[i] = magnitude;
     if(magnitude == 0) continue;
     new_max = std::max(magnitude, new_max);
     new_min = std::min(magnitude, new_min);
@@ -859,21 +861,38 @@ void rx_dsp :: get_spectrum(uint8_t spectrum[], uint8_t &dB10, uint8_t zoom)
 
   //clamp and convert to log scale 0 -> 255
   uint8_t temp_spectrum[256];
+  // Quiet bins often share the same small integer magnitude. Memoize their
+  // exact pixel calculation within this update, when logmin/logmax are fixed.
+  // Larger magnitudes retain the original expression; no approximation or
+  // cross-frame state is introduced. All work remains in the timed update.
+  uint8_t small_pixels[256];
+  uint32_t small_valid[8]{};
   for(uint16_t i=0; i<256; ++i)
   {
-    const uint16_t magnitude = cic_correct(freq_bin(i), capture_filter_control.fft_bin, capture[i]);
+    const uint16_t magnitude = magnitudes[i];
     if(magnitude == 0)
     {
       temp_spectrum[fft_shift(i)] = 0u;
+    } else if(magnitude < 256 && (small_valid[magnitude >> 5] & (1u << (magnitude & 31)))) {
+      temp_spectrum[fft_shift(i)] = small_pixels[magnitude];
     } else {
       const float normalised = 255.0f*(spectrum_log(magnitude)-logmin)/(logmax-logmin);
       const float clamped = std::max(std::min(normalised, 255.0f), 0.0f);
       temp_spectrum[fft_shift(i)] = clamped;
+      if(magnitude < 256) {
+        small_pixels[magnitude] = temp_spectrum[fft_shift(i)];
+        small_valid[magnitude >> 5] |= 1u << (magnitude & 31);
+      }
     }
   }
 
-  //zoom
-  for(int16_t i=0; i<256; ++i)
+  // At zoom 1 the general expression selects exactly temp_spectrum[i].
+  // The OLED uses this case: avoid 512 runtime integer divisions per update.
+  if(zoom == 1)
+  {
+    for(unsigned i=0; i<256; ++i) spectrum[i] = temp_spectrum[i];
+  }
+  else for(int16_t i=0; i<256; ++i)
   {
     uint16_t total = 0;
     for(int16_t j=0; j<zoom; j++)

@@ -1,0 +1,20 @@
+{
+  "fft_equivalence": "PASS 9000 FFT/IFFT cases: sizes 1..256, silence, rails and seeded full-range random input, bit-identical",
+  "receiver_numerical_evidence": "fm-optimized-v2-numerical-2026-10-15.json",
+  "scenarios": 43,
+  "blocks_per_scenario": 512,
+  "full_record_bit_identical": true,
+  "release_build": "passed",
+  "static_end": "0x20031134",
+  "heap_limit": "0x20040000",
+  "heap_capacity_bytes": 61132,
+  "known_queue_payload_bytes": 51929,
+  "remaining_before_allocator_overhead_bytes": 9203,
+  "limitations": [
+    "Host numerical tests are not Pico timing or hardware demodulation validation.",
+    "No additional persistent tables or heap allocations; static end increased 48 bytes from previous build.",
+    "Hardware timing is recorded separately in fm-optimized-v2-timing-2026-10-15-run01.json."
+  ],
+  "spectrum_stack_added_bytes": 800,
+  "core1_stack_bytes": 16384
+}

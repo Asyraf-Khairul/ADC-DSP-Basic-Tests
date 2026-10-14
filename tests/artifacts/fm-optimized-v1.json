@@ -1,0 +1,19 @@
+{
+  "artifact": "fm-optimized-v1.uf2",
+  "sha256": "5a31caf35c9ca3759959e3316184a959fb73646c6d5d3e6bb590d27fe47d67ff",
+  "bytes": 265728,
+  "source_identity": {
+    "BENCH_BUILD_LABEL": "fm-optimized-v1",
+    "BENCH_SOURCE_SHA256": "c61de66ea6531b1d8d0609d46bcfdbdec12eb90ef4ca1d65a30cb42f5cc7767a",
+    "BENCH_BASE_COMMIT": "bfa22b8c150ee87c1808418a08cb066160e3834d"
+  },
+  "build_type": "Release",
+  "cxx_flags_release": "-g -O3 -DNDEBUG",
+  "additional_compile_option": "-fwrapv",
+  "BENCH_SELF_TEST": false,
+  "BENCH_OPERATION_BENCHMARK": false,
+  "arm_gcc": "13.3.1",
+  "pico_sdk": "2.1.0",
+  "hardware_evidence": "../results/fm-optimized-v1-timing-2026-10-15-run01.json",
+  "note": "Exact tested candidate v1, built before the local commit on testing/fm-timing-optimized. Runtime identity verified; no independent flash readback. See linked hardware result. Local commit only; not pushed."
+}

@@ -1,3 +1,4 @@
 # Preserve frozen reference bytes and timestamped serial evidence exactly.
 tests/reference_receiver/** -text -whitespace
 tests/results/am-*.txt -text -whitespace
+tests/results/fm-*.txt -text -whitespace

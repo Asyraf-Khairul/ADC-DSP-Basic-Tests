@@ -67,7 +67,10 @@ void __not_in_flash_func(fixed_fft)(int16_t reals[], int16_t imaginaries[], unsi
 #else
 void fixed_fft(int16_t reals[], int16_t imaginaries[], unsigned m, bool scale) {
 #endif
-  uint16_t stage, subdft_size, span, j, i, ip;
+  // All indices are bounded by 256. Native-width counters avoid repeated
+  // 16-bit truncations in the Cortex-M0+ butterfly loops. Keep the sample
+  // temporaries int16_t: their wrap-before-shift behavior is part of the DSP.
+  unsigned stage, subdft_size, span, j, i, ip;
   int16_t temp_real, temp_imaginary;
   int16_t top_real, top_imaginary;
   int16_t bottom_real, bottom_imaginary;
@@ -91,9 +94,10 @@ void fixed_fft(int16_t reals[], int16_t imaginaries[], unsigned m, bool scale) {
   for (stage = 0; stage < m; ++stage) {
      subdft_size = 2 << stage;
      span = subdft_size >> 1;
-     uint16_t shift = (max_m - stage - 1);
-     uint16_t apply_scaling_this_stage = stage & 1;
-     uint16_t quarter_turn = 1 << (stage-1);
+     const unsigned shift = (max_m - stage - 1);
+     const unsigned apply_scaling_this_stage = stage & 1;
+     // Stage zero has only j == 0; avoid the original negative shift there.
+     const unsigned quarter_turn = span >> 1;
 
      for (j = 0; j < span; ++j) {
 
