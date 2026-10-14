@@ -22,6 +22,7 @@ class rx_dsp
   public:
 
   rx_dsp();
+  ReceiverProfile profile{};
   uint16_t process_block(uint16_t samples[], int16_t audio_samples[], ring_buffer_t *iq_samples);
   void set_frequency_offset_Hz(double offset_frequency);
   void set_agc_control(uint8_t agc_control, uint8_t agc_gain);
@@ -54,7 +55,6 @@ class rx_dsp
   bool squelch_enabled = false;
   
   void frequency_shift(int16_t &i, int16_t &q);
-  bool decimate(int16_t &i, int16_t &q);
   int16_t demodulate(int16_t i, int16_t q, uint16_t mag, int16_t phi);
   int16_t automatic_gain_control(int16_t audio);
   int16_t apply_deemphasis(int16_t x);
@@ -77,7 +77,6 @@ class rx_dsp
   semaphore_t audio_semaphore;
 
   //used in cic decimator
-  uint8_t decimate_count;
   int32_t integratori1, integratorq1;
   int32_t integratori2, integratorq2;
   int32_t integratori3, integratorq3;

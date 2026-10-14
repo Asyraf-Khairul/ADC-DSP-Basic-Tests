@@ -24,6 +24,13 @@ Local changes to imported algorithms:
 - Guard flat/silent spectrum scaling and initialize empty queue reads.
 - Use defined wider frequency-word conversion and compile with `-fwrapv`.
 
+AM timing changes additionally group equivalent CIC updates with local state,
+retain exact spectrum logarithm results in a precomputed table, and add stage
+profiling. `tests/reference_receiver/` freezes the prior adapted receiver at
+`34bde79` for numerical comparisons, retaining its original notices. The 37-case
+bit-identical comparison is against that frozen adapted reference, not the
+original upstream receiver.
+
 These are adapted receiver algorithms, not a bit-identical validation of the
 upstream revision. Function-static filter histories remain; reboot for a clean
 independent measurement. The source `SDR-RX` working tree was not edited.

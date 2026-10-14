@@ -6,14 +6,27 @@
 #include "pico/util/queue.h"
 #include "pico/critical_section.h"
 #include "hardware/clocks.h"
+#include "build_identity.h"
 #include <cstdio>
 #include <cstring>
 
 namespace {
 queue_t commands;
+queue_t capture_commands;
 critical_section_t status_lock;
 Status shared_status;
 uint32_t core1_stack[4096];
+uint32_t timer_probe_us = 0;
+CaptureCounters capture_counters(const Status &st) {
+    return {st.blocks, st.deadline_misses, st.clips, st.revision, stream_health(), time_us_64()};
+}
+void publish(Status &st) {
+    st.health=stream_health();
+    if (st.capture.active) st.capture.end=capture_counters(st);
+    critical_section_enter_blocking(&status_lock);
+    shared_status=st;
+    critical_section_exit(&status_lock);
+}
 void worker() {
     static uint16_t raw[ADC_WORDS];
     static int16_t audio[AUDIO_WORDS];
@@ -25,7 +38,14 @@ void worker() {
         if(queue_try_remove(&commands,&next)) {
             st.settings=next; ++st.revision; apply_settings(next);
         }
+        uint8_t capture_command;
+        if (queue_try_remove(&capture_commands, &capture_command)) {
+            if (capture_command == 1) st.capture.begin(capture_counters(st));
+            else st.capture.finish(capture_counters(st));
+            publish(st);
+        }
         if(!stream_read(raw)) { tight_loop_contents(); continue; }
+        const bool has_spectrum = st.settings.mode != 6 && st.blocks%64 == 0;
         uint32_t start=time_us_32();
         process_samples(raw,audio,st);
         const uint32_t process_end=time_us_32();
@@ -36,12 +56,22 @@ void worker() {
         st.timing.output.record(output_end-process_end);
         if(st.dsp_us>st.max_us) st.max_us=st.dsp_us;
         if(st.dsp_us>4266) ++st.deadline_misses;
+        const uint32_t bookkeeping_start = time_us_32();
+        const auto &r=st.receiver_profile;
+        const uint32_t values[CAPTURE_STAGES] = {st.dsp_us,
+            st.timing.input_stats.latest_us,st.timing.dsp.latest_us,
+            st.timing.audio_stats.latest_us,st.timing.spectrum.latest_us,
+            st.timing.output.latest_us,r.cic_mix,r.filter,r.demod_audio,r.capture,
+            r.fft_forward,r.fft_bins,r.fft_inverse};
+        st.capture.record(has_spectrum, values, st.revision);
+        if (st.capture.active) {
+            const uint32_t overhead = time_us_32() - bookkeeping_start;
+            st.capture.bookkeeping_max_us = std::max(st.capture.bookkeeping_max_us, overhead);
+            st.capture.bookkeeping_sum_us += overhead;
+        }
         ++st.blocks;
         if(st.blocks%32==0) {
-            st.health=stream_health();
-            critical_section_enter_blocking(&status_lock);
-            shared_status=st;
-            critical_section_exit(&status_lock);
+            publish(st);
         }
     }
 }
@@ -55,6 +85,26 @@ void help() {
     puts("smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz");
     puts("page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.");
     puts("BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.");
+    puts("measure start|stop: all-block timing window; cumulative diagnostics never reset.");
+    printf("BUILD label=%s source_sha256=%s base=%s\n", BENCH_BUILD_LABEL, BENCH_SOURCE_SHA256, BENCH_BASE_COMMIT);
+    printf("INSTRUMENT sys_clock_Hz=%lu timer_1024_reads_us=%lu extra_receiver_timer_reads_per_block=9\n",
+        (unsigned long)clock_get_hz(clk_sys),(unsigned long)timer_probe_us);
+}
+void report_capture_counters(const char *name, const CaptureCounters &c) {
+    printf("%s B=%lu rev=%lu deadline=%lu clips=%lu ADCdrop=%lu FIFO=%lu AUDunder=%lu AUDdrop=%lu IRQlate=%lu device_us=%llu\n",
+        name,(unsigned long)c.blocks,(unsigned long)c.revision,(unsigned long)c.late,
+        (unsigned long)c.clips,(unsigned long)c.health.adc_drops,
+        (unsigned long)c.health.adc_overflows,(unsigned long)c.health.audio_underruns,
+        (unsigned long)c.health.audio_drops,(unsigned long)c.health.late_irqs,
+        (unsigned long long)c.device_us);
+}
+void report_group(const char *name, const TimingGroup &g) {
+    const char *names[CAPTURE_STAGES] = {"TOTAL","IN","DSP","STAT","FFT","OUT",
+        "CICMIX","FILTER","DEMOD","CAPTURE","FFTFWD","FFTBINS","FFTINV"};
+    printf("WINDOW_%s N=%lu LATE=%lu",name,(unsigned long)g.count,(unsigned long)g.late);
+    for (unsigned k=0;k<CAPTURE_STAGES;++k)
+        printf(" %s=%lu/%llu",names[k],(unsigned long)g.max_us[k],(unsigned long long)g.sum_us[k]);
+    puts("");
 }
 void report(const Status &st) {
     const auto &s=st.settings; const auto &h=st.health;
@@ -79,13 +129,33 @@ void report(const Status &st) {
         (unsigned long)t.dsp.latest_us,(unsigned long)t.dsp.max_us,
         (unsigned long)t.audio_stats.latest_us,(unsigned long)t.audio_stats.max_us,
         (unsigned long)t.spectrum.latest_us,(unsigned long)t.spectrum.max_us);
+    const auto &r=st.receiver_profile;
+    printf("RX latest_us CICMIX=%lu FILTER=%lu DEMOD=%lu CAPTURE=%lu FFTFWD=%lu FFTBINS=%lu FFTINV=%lu\n",
+        (unsigned long)r.cic_mix,(unsigned long)r.filter,(unsigned long)r.demod_audio,
+        (unsigned long)r.capture,(unsigned long)r.fft_forward,(unsigned long)r.fft_bins,
+        (unsigned long)r.fft_inverse);
+    printf("MEASURE id=%lu active=%u settings_changed=%u\n",(unsigned long)st.capture.id,
+        st.capture.active,st.capture.settings_changed);
+    report_capture_counters("WINDOW_START",st.capture.start);
+    report_capture_counters("WINDOW_END",st.capture.end);
+    report_group("ORDINARY",st.capture.ordinary);
+    report_group("SPECTRUM",st.capture.spectrum);
+    printf("BOOKKEEP max_us=%lu sum_us=%llu\n",(unsigned long)st.capture.bookkeeping_max_us,
+        (unsigned long long)st.capture.bookkeeping_sum_us);
+    puts("ENDSTATUS");
 }
 }
 
 int main() {
     set_sys_clock_khz(120000,true);
     stdio_init_all();
+    volatile uint32_t timer_sink = 0;
+    const uint32_t timer_start = time_us_32();
+    for(unsigned i=0;i<1024;++i) timer_sink=time_us_32();
+    timer_probe_us=time_us_32()-timer_start;
+    (void)timer_sink;
     queue_init(&commands,sizeof(Settings),8);
+    queue_init(&capture_commands,sizeof(uint8_t),4);
     critical_section_init(&status_lock);
     display_init(18,19,0x3c);
     controls_init();
@@ -107,6 +177,10 @@ int main() {
                 else if(length) {
                     if(!strcmp(line,"help")) help();
                     else if(!strcmp(line,"status")) report(st);
+                    else if(!strcmp(line,"measure start") || !strcmp(line,"measure stop")) {
+                        const uint8_t command = !strcmp(line,"measure start") ? 1 : 2;
+                        puts(queue_try_add(&capture_commands,&command) ? "OK measurement queued" : "ERR busy; retry");
+                    }
                     else if(!strcmp(line,"stream 0")) streaming=false;
                     else if(!strcmp(line,"stream 1")) streaming=true;
                     else if(!strncmp(line,"page ",5) && strlen(line)==6 && line[5]>='0' && line[5]<'0'+STATUS_PAGE_COUNT) panel.set_page(line[5]-'0');

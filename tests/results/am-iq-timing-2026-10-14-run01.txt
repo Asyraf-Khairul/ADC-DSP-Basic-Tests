@@ -1,0 +1,401 @@
+# HOST IDENTITY_AND_CONDITIONS {"run_name": "am-iq-timing-2026-10-14-run01", "requested_mode": "AM IQ only", "source_commit": "34bde79a126fc4a7737a4e7194b63833e2aace05", "branch": "testing/dsp-suite", "initial_git_status": "?? .vscode/\n?? tests/measure_am_iq.py", "local_build_settings": ["BENCH_OPERATION_BENCHMARK:BOOL=OFF", "BENCH_SELF_TEST:BOOL=OFF", "CMAKE_BUILD_TYPE:STRING=Release", "CMAKE_CXX_FLAGS_RELEASE:STRING=-g -O3 -DNDEBUG"], "local_uf2_sha256": {"firmware/adc_dsp_suite.uf2": "43f9dab0eddcaf592257c37771d3721fc90f6b6eb86420d681081113146f67c1", "build/adc_dsp_standalone.uf2": "43f9dab0eddcaf592257c37771d3721fc90f6b6eb86420d681081113146f67c1"}, "runtime_identity": {"port": "COM8", "usb_serial": "E664A836A3704126", "vid": 11914, "pid": 10, "exact_running_binary_verified": false, "limitation": "Serial help/status expose no build ID or firmware hash. Local UF2 identity is not a readback of flash."}, "stimulus": {"provenance": "User-supplied conditions; instruments not queried", "mixer": "disconnected", "waveform_both": "continuous sine, 1 kHz, modulation off", "generator_both": {"amplitude_Vpp": 0.3, "load_indication": "High-Z", "offset_V": 2.5}, "dividers_ohm": [470, 1000], "I_pin": "GP27", "Q_pin": "GP26", "earlier_scope_both": {"mean_V_approx": 1.65, "Vpp_approx": 0.24, "fresh_readings": false}, "phase": "not independently verified"}, "physical_UI_confirmation": "unverified", "P1_P4_photographs": "requested; not received", "deadline_us": 4266, "nominal_adc_words_per_second": 480000, "adc_words_per_block": 2048, "nominal_blocks_per_second": 234.375, "publication_blocks": 32, "actions": [], "constraints": "No rebuild, flash, reboot, counter reset, sampling/DSP changes or other receiver mode. Only preset 1 before settling; status queries during interval.", "raw_log": "am-iq-timing-2026-10-14-run01.txt", "assessment": "incomplete"}
+# HOST TX {"command": "stream 0", "monotonic_ns": 446029441665500, "utc": "2026-10-14T04:56:35.189888+00:00"}
+# HOST TX {"command": "help", "monotonic_ns": 446029956117300, "utc": "2026-10-14T04:56:35.704341+00:00"}
+# HOST RX {"monotonic_ns": 446029961177100, "utc": "2026-10-14T04:56:35.709404+00:00"}
+
+# HOST RX {"monotonic_ns": 446029962756600, "utc": "2026-10-14T04:56:35.710981+00:00"}
+Pico ADC/DSP suite: commands are lowercase, one per line.
+# HOST RX {"monotonic_ns": 446029964658600, "utc": "2026-10-14T04:56:35.712883+00:00"}
+preset 0..8: BASIC, IQ-AM, IF-AM, IF-AMSYNC, IF-FM, IF-FSK, USB, LSB, IF-CW
+# HOST RX {"monotonic_ns": 446029966441400, "utc": "2026-10-14T04:56:35.714666+00:00"}
+mode basic|am|amsync|fm|usb|lsb|cw; input iq|i|q; tune -12000..12000 Hz
+# HOST RX {"monotonic_ns": 446029967987400, "utc": "2026-10-14T04:56:35.716212+00:00"}
+bw 0..4; agc 0=fast 1=medium 2=slow 3=long 4=manual; gain 0..10 (2^n)
+# HOST RX {"monotonic_ns": 446029968794600, "utc": "2026-10-14T04:56:35.717018+00:00"}
+volume 0..100; squelch -1=off or 0..12; hang 0..7; swap 0|1; iqcorr 0|1
+# HOST RX {"monotonic_ns": 446029969217300, "utc": "2026-10-14T04:56:35.717441+00:00"}
+deemph 0..2; bass/treble 0..4; blanker 0..6; notch/nr 0|1
+# HOST RX {"monotonic_ns": 446029969652000, "utc": "2026-10-14T04:56:35.717876+00:00"}
+smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz
+# HOST RX {"monotonic_ns": 446029970292000, "utc": "2026-10-14T04:56:35.718516+00:00"}
+page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.
+# HOST RX {"monotonic_ns": 446029970870600, "utc": "2026-10-14T04:56:35.719094+00:00"}
+BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.
+# HOST TX {"command": "status", "monotonic_ns": 446031003773000, "utc": "2026-10-14T04:56:36.752004+00:00"}
+# HOST RX {"monotonic_ns": 446031121618000, "utc": "2026-10-14T04:56:36.869854+00:00"}
+B=29024 rev=2 AM IQ tune=-100 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446031123999400, "utc": "2026-10-14T04:56:36.872232+00:00"}
+I min/mean/max/rms=5/16/29/3 Q=1942/2076/2205/87 MAG=157 AUD rms/peak=1226/2400 clips=30356
+# HOST RX {"monotonic_ns": 446031126098500, "utc": "2026-10-14T04:56:36.874331+00:00"}
+us=4672 max=8188 deadline=25786 ADCdrop=3146 FIFO=0 AUDunder=3150 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446031128025900, "utc": "2026-10-14T04:56:36.876258+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446031128758500, "utc": "2026-10-14T04:56:36.876990+00:00"}
+TIMING us latest/max PROC=4484/8000 OUT=188/318 IN=654/1082 DSP=3797/3910 STAT=33/78 FFT=0/3508
+# HOST TX {"command": "preset 1", "monotonic_ns": 446031131958200, "utc": "2026-10-14T04:56:36.880191+00:00"}
+# HOST RX {"monotonic_ns": 446031140966600, "utc": "2026-10-14T04:56:36.889199+00:00"}
+OK queued; allow 2 s settling
+# HOST TX {"command": "status", "monotonic_ns": 446031658746600, "utc": "2026-10-14T04:56:37.406983+00:00"}
+# HOST RX {"monotonic_ns": 446031667608600, "utc": "2026-10-14T04:56:37.415847+00:00"}
+B=29152 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446031669577100, "utc": "2026-10-14T04:56:37.417814+00:00"}
+I min/mean/max/rms=0/16/28/3 Q=1940/2067/2209/89 MAG=155 AUD rms/peak=1215/2368 clips=30520
+# HOST RX {"monotonic_ns": 446031671367000, "utc": "2026-10-14T04:56:37.419603+00:00"}
+us=4795 max=8188 deadline=25914 ADCdrop=3162 FIFO=0 AUDunder=3166 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446031673147900, "utc": "2026-10-14T04:56:37.421383+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446031673708100, "utc": "2026-10-14T04:56:37.421943+00:00"}
+TIMING us latest/max PROC=4589/8000 OUT=206/318 IN=731/1082 DSP=3822/3910 STAT=36/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446036774468800, "utc": "2026-10-14T04:56:42.522749+00:00"}
+# HOST RX {"monotonic_ns": 446036873408500, "utc": "2026-10-14T04:56:42.621683+00:00"}
+B=30240 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446036874850400, "utc": "2026-10-14T04:56:42.623122+00:00"}
+I min/mean/max/rms=0/16/30/4 Q=1939/2077/2206/88 MAG=155 AUD rms/peak=1198/2128 clips=32445
+# HOST RX {"monotonic_ns": 446036876139200, "utc": "2026-10-14T04:56:42.624410+00:00"}
+us=4791 max=8188 deadline=27002 ADCdrop=3295 FIFO=0 AUDunder=3299 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446036877763700, "utc": "2026-10-14T04:56:42.626035+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446036879244900, "utc": "2026-10-14T04:56:42.627516+00:00"}
+TIMING us latest/max PROC=4587/8000 OUT=204/318 IN=729/1082 DSP=3822/3910 STAT=35/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446038873532800, "utc": "2026-10-14T04:56:44.621825+00:00"}
+# HOST RX {"monotonic_ns": 446038882472800, "utc": "2026-10-14T04:56:44.630761+00:00"}
+B=30656 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446038884890700, "utc": "2026-10-14T04:56:44.633177+00:00"}
+I min/mean/max/rms=0/16/33/3 Q=1941/2071/2205/87 MAG=158 AUD rms/peak=1212/2256 clips=32978
+# HOST RX {"monotonic_ns": 446038886979700, "utc": "2026-10-14T04:56:44.635265+00:00"}
+us=4792 max=8188 deadline=27418 ADCdrop=3346 FIFO=0 AUDunder=3350 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446038891693000, "utc": "2026-10-14T04:56:44.639981+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446038895937600, "utc": "2026-10-14T04:56:44.644225+00:00"}
+TIMING us latest/max PROC=4588/8000 OUT=204/318 IN=729/1082 DSP=3823/3910 STAT=36/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446040873807600, "utc": "2026-10-14T04:56:46.622114+00:00"}
+# HOST RX {"monotonic_ns": 446040883349700, "utc": "2026-10-14T04:56:46.631654+00:00"}
+B=31072 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446040887124900, "utc": "2026-10-14T04:56:46.635425+00:00"}
+I min/mean/max/rms=0/16/27/3 Q=1920/2074/2206/87 MAG=158 AUD rms/peak=1199/2384 clips=33533
+# HOST RX {"monotonic_ns": 446040889195800, "utc": "2026-10-14T04:56:46.637494+00:00"}
+us=4793 max=8188 deadline=27834 ADCdrop=3397 FIFO=0 AUDunder=3401 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446040890839800, "utc": "2026-10-14T04:56:46.639138+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446040892320800, "utc": "2026-10-14T04:56:46.640619+00:00"}
+TIMING us latest/max PROC=4589/8000 OUT=204/318 IN=730/1082 DSP=3823/3910 STAT=35/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446042873636400, "utc": "2026-10-14T04:56:48.621956+00:00"}
+# HOST RX {"monotonic_ns": 446042881664400, "utc": "2026-10-14T04:56:48.629977+00:00"}
+B=31488 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446042882269400, "utc": "2026-10-14T04:56:48.630581+00:00"}
+I min/mean/max/rms=5/16/32/3 Q=1941/2073/2207/87 MAG=161 AUD rms/peak=1221/2448 clips=34147
+# HOST RX {"monotonic_ns": 446042882840700, "utc": "2026-10-14T04:56:48.631152+00:00"}
+us=4794 max=8188 deadline=28250 ADCdrop=3448 FIFO=0 AUDunder=3452 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446042883589500, "utc": "2026-10-14T04:56:48.631901+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446042884419700, "utc": "2026-10-14T04:56:48.632733+00:00"}
+TIMING us latest/max PROC=4589/8000 OUT=205/318 IN=730/1082 DSP=3823/3910 STAT=36/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446044873676900, "utc": "2026-10-14T04:56:50.622010+00:00"}
+# HOST RX {"monotonic_ns": 446044881831100, "utc": "2026-10-14T04:56:50.630157+00:00"}
+B=31904 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446044882437100, "utc": "2026-10-14T04:56:50.630762+00:00"}
+I min/mean/max/rms=4/16/29/3 Q=1940/2071/2203/86 MAG=160 AUD rms/peak=1201/2432 clips=34790
+# HOST RX {"monotonic_ns": 446044882976300, "utc": "2026-10-14T04:56:50.631302+00:00"}
+us=4792 max=8188 deadline=28666 ADCdrop=3499 FIFO=0 AUDunder=3503 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446044883620800, "utc": "2026-10-14T04:56:50.631946+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446044884560000, "utc": "2026-10-14T04:56:50.632886+00:00"}
+TIMING us latest/max PROC=4588/8000 OUT=204/318 IN=729/1082 DSP=3823/3988 STAT=35/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446046873584200, "utc": "2026-10-14T04:56:52.621926+00:00"}
+# HOST RX {"monotonic_ns": 446046880696800, "utc": "2026-10-14T04:56:52.629037+00:00"}
+B=32320 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446046881282500, "utc": "2026-10-14T04:56:52.629622+00:00"}
+I min/mean/max/rms=3/16/29/3 Q=1942/2075/2206/87 MAG=163 AUD rms/peak=1234/2496 clips=35423
+# HOST RX {"monotonic_ns": 446046881794000, "utc": "2026-10-14T04:56:52.630133+00:00"}
+us=4795 max=8188 deadline=29082 ADCdrop=3550 FIFO=0 AUDunder=3554 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446046882423000, "utc": "2026-10-14T04:56:52.630762+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446046882982300, "utc": "2026-10-14T04:56:52.631321+00:00"}
+TIMING us latest/max PROC=4590/8000 OUT=205/318 IN=729/1082 DSP=3825/3988 STAT=36/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446048873770800, "utc": "2026-10-14T04:56:54.622131+00:00"}
+# HOST RX {"monotonic_ns": 446048881114400, "utc": "2026-10-14T04:56:54.629470+00:00"}
+B=32736 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446048881739500, "utc": "2026-10-14T04:56:54.630092+00:00"}
+I min/mean/max/rms=4/16/29/4 Q=1939/2069/2204/87 MAG=162 AUD rms/peak=1192/2320 clips=36178
+# HOST RX {"monotonic_ns": 446048882231400, "utc": "2026-10-14T04:56:54.630584+00:00"}
+us=4794 max=8188 deadline=29498 ADCdrop=3601 FIFO=0 AUDunder=3605 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446048882923700, "utc": "2026-10-14T04:56:54.631277+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446048883549500, "utc": "2026-10-14T04:56:54.631902+00:00"}
+TIMING us latest/max PROC=4590/8000 OUT=204/318 IN=730/1082 DSP=3823/3988 STAT=37/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446050873466800, "utc": "2026-10-14T04:56:56.621840+00:00"}
+# HOST RX {"monotonic_ns": 446050882305000, "utc": "2026-10-14T04:56:56.630676+00:00"}
+B=33152 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446050884470500, "utc": "2026-10-14T04:56:56.632840+00:00"}
+I min/mean/max/rms=4/16/30/3 Q=1942/2078/2204/88 MAG=163 AUD rms/peak=1207/2176 clips=36884
+# HOST RX {"monotonic_ns": 446050886361800, "utc": "2026-10-14T04:56:56.634729+00:00"}
+us=4758 max=8188 deadline=29914 ADCdrop=3652 FIFO=0 AUDunder=3656 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446050888315400, "utc": "2026-10-14T04:56:56.636682+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446050889598300, "utc": "2026-10-14T04:56:56.637965+00:00"}
+TIMING us latest/max PROC=4553/8000 OUT=205/318 IN=656/1082 DSP=3854/3988 STAT=41/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446052873786100, "utc": "2026-10-14T04:56:58.622172+00:00"}
+# HOST RX {"monotonic_ns": 446052882819300, "utc": "2026-10-14T04:56:58.631203+00:00"}
+B=33568 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446052884731500, "utc": "2026-10-14T04:56:58.633112+00:00"}
+I min/mean/max/rms=0/16/31/3 Q=1942/2068/2208/89 MAG=161 AUD rms/peak=1200/2240 clips=37438
+# HOST RX {"monotonic_ns": 446052886211600, "utc": "2026-10-14T04:56:58.634591+00:00"}
+us=4679 max=8188 deadline=30330 ADCdrop=3703 FIFO=0 AUDunder=3707 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446052887614700, "utc": "2026-10-14T04:56:58.635994+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446052888633400, "utc": "2026-10-14T04:56:58.637013+00:00"}
+TIMING us latest/max PROC=4489/8000 OUT=190/318 IN=656/1082 DSP=3799/4104 STAT=34/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446054873736800, "utc": "2026-10-14T04:57:00.622137+00:00"}
+# HOST RX {"monotonic_ns": 446054882274800, "utc": "2026-10-14T04:57:00.630673+00:00"}
+B=33984 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446054884618900, "utc": "2026-10-14T04:57:00.633016+00:00"}
+I min/mean/max/rms=6/16/35/3 Q=1941/2079/2215/89 MAG=161 AUD rms/peak=1194/2320 clips=37925
+# HOST RX {"monotonic_ns": 446054886556800, "utc": "2026-10-14T04:57:00.634953+00:00"}
+us=4676 max=8188 deadline=30746 ADCdrop=3754 FIFO=0 AUDunder=3758 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446054888468400, "utc": "2026-10-14T04:57:00.636862+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446054889741900, "utc": "2026-10-14T04:57:00.638135+00:00"}
+TIMING us latest/max PROC=4488/8000 OUT=188/318 IN=656/1082 DSP=3799/4104 STAT=33/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446056873801500, "utc": "2026-10-14T04:57:02.622215+00:00"}
+# HOST RX {"monotonic_ns": 446056882128700, "utc": "2026-10-14T04:57:02.630539+00:00"}
+B=34400 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446056884262700, "utc": "2026-10-14T04:57:02.632671+00:00"}
+I min/mean/max/rms=3/16/29/3 Q=1940/2066/2206/90 MAG=158 AUD rms/peak=1222/2464 clips=38422
+# HOST RX {"monotonic_ns": 446056886023800, "utc": "2026-10-14T04:57:02.634431+00:00"}
+us=4682 max=8188 deadline=31162 ADCdrop=3805 FIFO=0 AUDunder=3809 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446056887622400, "utc": "2026-10-14T04:57:02.636030+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446056888807400, "utc": "2026-10-14T04:57:02.637214+00:00"}
+TIMING us latest/max PROC=4490/8000 OUT=192/318 IN=657/1082 DSP=3800/4104 STAT=33/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446058873447700, "utc": "2026-10-14T04:57:04.621871+00:00"}
+# HOST RX {"monotonic_ns": 446058880599300, "utc": "2026-10-14T04:57:04.629020+00:00"}
+B=34816 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446058881249000, "utc": "2026-10-14T04:57:04.629670+00:00"}
+I min/mean/max/rms=5/16/30/3 Q=1940/2079/2212/90 MAG=157 AUD rms/peak=1237/2496 clips=38981
+# HOST RX {"monotonic_ns": 446058881927800, "utc": "2026-10-14T04:57:04.630349+00:00"}
+us=4682 max=8188 deadline=31578 ADCdrop=3856 FIFO=0 AUDunder=3860 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446058882612200, "utc": "2026-10-14T04:57:04.631033+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446058883180300, "utc": "2026-10-14T04:57:04.631601+00:00"}
+TIMING us latest/max PROC=4491/8000 OUT=191/318 IN=656/1082 DSP=3801/4104 STAT=34/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446060873929500, "utc": "2026-10-14T04:57:06.622370+00:00"}
+# HOST RX {"monotonic_ns": 446060882933100, "utc": "2026-10-14T04:57:06.631371+00:00"}
+B=35264 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446060885078800, "utc": "2026-10-14T04:57:06.633517+00:00"}
+I min/mean/max/rms=0/16/29/3 Q=1915/2079/2204/88 MAG=154 AUD rms/peak=1222/2448 clips=39498
+# HOST RX {"monotonic_ns": 446060886963600, "utc": "2026-10-14T04:57:06.635398+00:00"}
+us=4682 max=8188 deadline=32026 ADCdrop=3911 FIFO=0 AUDunder=3915 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446060888965900, "utc": "2026-10-14T04:57:06.637400+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446060890312700, "utc": "2026-10-14T04:57:06.638747+00:00"}
+TIMING us latest/max PROC=4492/8000 OUT=190/318 IN=654/1082 DSP=3804/4104 STAT=33/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446062873896600, "utc": "2026-10-14T04:57:08.622350+00:00"}
+# HOST RX {"monotonic_ns": 446062984527300, "utc": "2026-10-14T04:57:08.732981+00:00"}
+B=35680 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446062986849300, "utc": "2026-10-14T04:57:08.735298+00:00"}
+I min/mean/max/rms=5/16/27/3 Q=1941/2068/2204/88 MAG=157 AUD rms/peak=1216/2320 clips=39946
+# HOST RX {"monotonic_ns": 446062988385300, "utc": "2026-10-14T04:57:08.736834+00:00"}
+us=4772 max=8188 deadline=32442 ADCdrop=3962 FIFO=0 AUDunder=3966 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446062989780100, "utc": "2026-10-14T04:57:08.738229+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446062990778700, "utc": "2026-10-14T04:57:08.739227+00:00"}
+TIMING us latest/max PROC=4563/8000 OUT=209/318 IN=657/1082 DSP=3858/4104 STAT=47/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446064873903800, "utc": "2026-10-14T04:57:10.622374+00:00"}
+# HOST RX {"monotonic_ns": 446064983540500, "utc": "2026-10-14T04:57:10.732004+00:00"}
+B=36096 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446064984187900, "utc": "2026-10-14T04:57:10.732650+00:00"}
+I min/mean/max/rms=4/16/28/3 Q=1941/2076/2205/87 MAG=156 AUD rms/peak=1209/2288 clips=40509
+# HOST RX {"monotonic_ns": 446064984702700, "utc": "2026-10-14T04:57:10.733165+00:00"}
+us=4674 max=8188 deadline=32858 ADCdrop=4013 FIFO=0 AUDunder=4017 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446064985321800, "utc": "2026-10-14T04:57:10.733784+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446064985878700, "utc": "2026-10-14T04:57:10.734341+00:00"}
+TIMING us latest/max PROC=4486/8000 OUT=188/318 IN=654/1082 DSP=3798/4104 STAT=33/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446066873756800, "utc": "2026-10-14T04:57:12.622235+00:00"}
+# HOST RX {"monotonic_ns": 446066983726900, "utc": "2026-10-14T04:57:12.732204+00:00"}
+B=36512 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446066984311800, "utc": "2026-10-14T04:57:12.732787+00:00"}
+I min/mean/max/rms=5/16/27/3 Q=1942/2070/2211/87 MAG=159 AUD rms/peak=1197/2112 clips=41045
+# HOST RX {"monotonic_ns": 446066984822200, "utc": "2026-10-14T04:57:12.733298+00:00"}
+us=4674 max=8188 deadline=33274 ADCdrop=4064 FIFO=0 AUDunder=4068 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446066985439000, "utc": "2026-10-14T04:57:12.733914+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446066985995200, "utc": "2026-10-14T04:57:12.734471+00:00"}
+TIMING us latest/max PROC=4486/8000 OUT=188/318 IN=655/1082 DSP=3797/4104 STAT=34/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446068873549500, "utc": "2026-10-14T04:57:14.622045+00:00"}
+# HOST RX {"monotonic_ns": 446068983866700, "utc": "2026-10-14T04:57:14.732357+00:00"}
+B=36928 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446068984454600, "utc": "2026-10-14T04:57:14.732944+00:00"}
+I min/mean/max/rms=6/16/34/3 Q=1942/2074/2206/86 MAG=159 AUD rms/peak=1194/2224 clips=41549
+# HOST RX {"monotonic_ns": 446068984974200, "utc": "2026-10-14T04:57:14.733463+00:00"}
+us=4673 max=8188 deadline=33690 ADCdrop=4115 FIFO=0 AUDunder=4119 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446068986806300, "utc": "2026-10-14T04:57:14.735295+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446068988150600, "utc": "2026-10-14T04:57:14.736640+00:00"}
+TIMING us latest/max PROC=4486/8000 OUT=187/318 IN=655/1082 DSP=3797/4104 STAT=33/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446070873858400, "utc": "2026-10-14T04:57:16.622368+00:00"}
+# HOST RX {"monotonic_ns": 446070985029800, "utc": "2026-10-14T04:57:16.733537+00:00"}
+B=37344 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446070987341800, "utc": "2026-10-14T04:57:16.735846+00:00"}
+I min/mean/max/rms=2/16/26/3 Q=1943/2073/2207/86 MAG=161 AUD rms/peak=1211/2400 clips=42052
+# HOST RX {"monotonic_ns": 446070989059900, "utc": "2026-10-14T04:57:16.737562+00:00"}
+us=4674 max=8188 deadline=34106 ADCdrop=4166 FIFO=0 AUDunder=4170 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446070990594600, "utc": "2026-10-14T04:57:16.739097+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446070991658400, "utc": "2026-10-14T04:57:16.740161+00:00"}
+TIMING us latest/max PROC=4486/8000 OUT=188/318 IN=654/1082 DSP=3798/4104 STAT=33/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446072873486600, "utc": "2026-10-14T04:57:18.622005+00:00"}
+# HOST RX {"monotonic_ns": 446072984721300, "utc": "2026-10-14T04:57:18.733241+00:00"}
+B=37760 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446072986718300, "utc": "2026-10-14T04:57:18.735235+00:00"}
+I min/mean/max/rms=5/16/28/3 Q=1941/2071/2207/87 MAG=161 AUD rms/peak=1191/2432 clips=42529
+# HOST RX {"monotonic_ns": 446072988135800, "utc": "2026-10-14T04:57:18.736652+00:00"}
+us=4677 max=8188 deadline=34522 ADCdrop=4216 FIFO=0 AUDunder=4221 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446072989476500, "utc": "2026-10-14T04:57:18.737992+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446072990458300, "utc": "2026-10-14T04:57:18.738974+00:00"}
+TIMING us latest/max PROC=4489/8000 OUT=188/318 IN=688/1082 DSP=3768/4104 STAT=33/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446074874060400, "utc": "2026-10-14T04:57:20.622597+00:00"}
+# HOST RX {"monotonic_ns": 446074984733200, "utc": "2026-10-14T04:57:20.733264+00:00"}
+B=38208 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446074985460900, "utc": "2026-10-14T04:57:20.733990+00:00"}
+I min/mean/max/rms=0/16/27/4 Q=1937/2067/2206/89 MAG=159 AUD rms/peak=1211/2464 clips=43075
+# HOST RX {"monotonic_ns": 446074985976300, "utc": "2026-10-14T04:57:20.734505+00:00"}
+us=4791 max=8188 deadline=34970 ADCdrop=4272 FIFO=0 AUDunder=4276 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446074986587500, "utc": "2026-10-14T04:57:20.735116+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446074987145200, "utc": "2026-10-14T04:57:20.735674+00:00"}
+TIMING us latest/max PROC=4587/8000 OUT=204/318 IN=729/1082 DSP=3822/4104 STAT=35/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446076873742600, "utc": "2026-10-14T04:57:22.622291+00:00"}
+# HOST RX {"monotonic_ns": 446076984715000, "utc": "2026-10-14T04:57:22.733259+00:00"}
+B=38624 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446076985351600, "utc": "2026-10-14T04:57:22.733894+00:00"}
+I min/mean/max/rms=3/16/33/3 Q=1915/2080/2205/89 MAG=159 AUD rms/peak=1204/2384 clips=43761
+# HOST RX {"monotonic_ns": 446076985891100, "utc": "2026-10-14T04:57:22.734434+00:00"}
+us=4794 max=8188 deadline=35386 ADCdrop=4323 FIFO=0 AUDunder=4327 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446076986527000, "utc": "2026-10-14T04:57:22.735069+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446076987107200, "utc": "2026-10-14T04:57:22.735650+00:00"}
+TIMING us latest/max PROC=4589/8000 OUT=205/318 IN=730/1082 DSP=3823/4104 STAT=36/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446078873615400, "utc": "2026-10-14T04:57:24.622177+00:00"}
+# HOST RX {"monotonic_ns": 446078985525300, "utc": "2026-10-14T04:57:24.734085+00:00"}
+B=39040 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446078987059600, "utc": "2026-10-14T04:57:24.735616+00:00"}
+I min/mean/max/rms=0/16/30/4 Q=1937/2067/2210/89 MAG=157 AUD rms/peak=1220/2368 clips=44623
+# HOST RX {"monotonic_ns": 446078988841200, "utc": "2026-10-14T04:57:24.737397+00:00"}
+us=4797 max=8188 deadline=35802 ADCdrop=4374 FIFO=0 AUDunder=4378 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446078990916100, "utc": "2026-10-14T04:57:24.739472+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446078992332600, "utc": "2026-10-14T04:57:24.740889+00:00"}
+TIMING us latest/max PROC=4592/8000 OUT=205/318 IN=728/1082 DSP=3828/4104 STAT=36/78 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446080873658400, "utc": "2026-10-14T04:57:26.622235+00:00"}
+# HOST RX {"monotonic_ns": 446080984956700, "utc": "2026-10-14T04:57:26.733531+00:00"}
+B=39456 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446080986992300, "utc": "2026-10-14T04:57:26.735563+00:00"}
+I min/mean/max/rms=5/16/30/4 Q=1916/2080/2208/90 MAG=156 AUD rms/peak=1214/2208 clips=45672
+# HOST RX {"monotonic_ns": 446080988801100, "utc": "2026-10-14T04:57:26.737371+00:00"}
+us=4793 max=8188 deadline=36218 ADCdrop=4425 FIFO=0 AUDunder=4429 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446080990615600, "utc": "2026-10-14T04:57:26.739185+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446080991749700, "utc": "2026-10-14T04:57:26.740319+00:00"}
+TIMING us latest/max PROC=4589/8000 OUT=204/318 IN=730/1082 DSP=3823/4104 STAT=35/82 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446082873905200, "utc": "2026-10-14T04:57:28.622494+00:00"}
+# HOST RX {"monotonic_ns": 446082985195200, "utc": "2026-10-14T04:57:28.733782+00:00"}
+B=39872 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446082987201100, "utc": "2026-10-14T04:57:28.735785+00:00"}
+I min/mean/max/rms=0/16/31/4 Q=1940/2067/2206/89 MAG=155 AUD rms/peak=1207/2192 clips=46637
+# HOST RX {"monotonic_ns": 446082988997500, "utc": "2026-10-14T04:57:28.737580+00:00"}
+us=4793 max=8188 deadline=36634 ADCdrop=4476 FIFO=0 AUDunder=4480 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446082990717800, "utc": "2026-10-14T04:57:28.739301+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446082991940300, "utc": "2026-10-14T04:57:28.740523+00:00"}
+TIMING us latest/max PROC=4589/8000 OUT=204/318 IN=730/1082 DSP=3823/4104 STAT=36/82 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446084873538500, "utc": "2026-10-14T04:57:30.622137+00:00"}
+# HOST RX {"monotonic_ns": 446084984399700, "utc": "2026-10-14T04:57:30.732997+00:00"}
+B=40288 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446084985230500, "utc": "2026-10-14T04:57:30.733828+00:00"}
+I min/mean/max/rms=3/16/31/4 Q=1941/2080/2206/89 MAG=155 AUD rms/peak=1207/2320 clips=47618
+# HOST RX {"monotonic_ns": 446084985761600, "utc": "2026-10-14T04:57:30.734358+00:00"}
+us=4815 max=8188 deadline=37050 ADCdrop=4527 FIFO=0 AUDunder=4532 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446084986424200, "utc": "2026-10-14T04:57:30.735020+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446084986985800, "utc": "2026-10-14T04:57:30.735582+00:00"}
+TIMING us latest/max PROC=4611/8000 OUT=204/318 IN=746/1082 DSP=3829/4104 STAT=36/82 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446086873837500, "utc": "2026-10-14T04:57:32.622454+00:00"}
+# HOST RX {"monotonic_ns": 446086985640900, "utc": "2026-10-14T04:57:32.734256+00:00"}
+B=40704 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446086988154400, "utc": "2026-10-14T04:57:32.736765+00:00"}
+I min/mean/max/rms=0/16/30/4 Q=1942/2068/2209/89 MAG=154 AUD rms/peak=1214/2368 clips=48455
+# HOST RX {"monotonic_ns": 446086990131300, "utc": "2026-10-14T04:57:32.738741+00:00"}
+us=4794 max=8188 deadline=37466 ADCdrop=4578 FIFO=0 AUDunder=4582 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446086991890700, "utc": "2026-10-14T04:57:32.740501+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446086993074600, "utc": "2026-10-14T04:57:32.741684+00:00"}
+TIMING us latest/max PROC=4590/8000 OUT=204/318 IN=731/1082 DSP=3823/4104 STAT=36/82 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446088873514700, "utc": "2026-10-14T04:57:34.622140+00:00"}
+# HOST RX {"monotonic_ns": 446088983706500, "utc": "2026-10-14T04:57:34.732332+00:00"}
+B=41120 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446088984364900, "utc": "2026-10-14T04:57:34.732988+00:00"}
+I min/mean/max/rms=0/16/30/4 Q=1942/2079/2210/89 MAG=154 AUD rms/peak=1227/2464 clips=49773
+# HOST RX {"monotonic_ns": 446088984970700, "utc": "2026-10-14T04:57:34.733594+00:00"}
+us=4817 max=8188 deadline=37882 ADCdrop=4629 FIFO=0 AUDunder=4634 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446088985700800, "utc": "2026-10-14T04:57:34.734324+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446088986303700, "utc": "2026-10-14T04:57:34.734927+00:00"}
+TIMING us latest/max PROC=4613/8000 OUT=204/318 IN=747/1082 DSP=3829/4104 STAT=35/82 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446090873699600, "utc": "2026-10-14T04:57:36.622342+00:00"}
+# HOST RX {"monotonic_ns": 446090984767400, "utc": "2026-10-14T04:57:36.733408+00:00"}
+B=41536 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446090986944600, "utc": "2026-10-14T04:57:36.735583+00:00"}
+I min/mean/max/rms=0/16/34/4 Q=1940/2069/2211/88 MAG=156 AUD rms/peak=1229/2480 clips=51112
+# HOST RX {"monotonic_ns": 446090988674800, "utc": "2026-10-14T04:57:36.737312+00:00"}
+us=4790 max=8188 deadline=38298 ADCdrop=4680 FIFO=0 AUDunder=4684 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446090990410600, "utc": "2026-10-14T04:57:36.739047+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446090991622400, "utc": "2026-10-14T04:57:36.740259+00:00"}
+TIMING us latest/max PROC=4586/8000 OUT=204/318 IN=745/1082 DSP=3805/4104 STAT=35/82 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446092873840800, "utc": "2026-10-14T04:57:38.622497+00:00"}
+# HOST RX {"monotonic_ns": 446092984713600, "utc": "2026-10-14T04:57:38.733368+00:00"}
+B=41952 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446092986647900, "utc": "2026-10-14T04:57:38.735298+00:00"}
+I min/mean/max/rms=0/16/30/4 Q=1941/2067/2209/89 MAG=156 AUD rms/peak=1192/2336 clips=52720
+# HOST RX {"monotonic_ns": 446092988074900, "utc": "2026-10-14T04:57:38.736725+00:00"}
+us=4791 max=8188 deadline=38714 ADCdrop=4732 FIFO=0 AUDunder=4736 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446092989489100, "utc": "2026-10-14T04:57:38.738139+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446092990527400, "utc": "2026-10-14T04:57:38.739177+00:00"}
+TIMING us latest/max PROC=4587/8000 OUT=204/318 IN=728/1082 DSP=3823/4104 STAT=35/82 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446094873758000, "utc": "2026-10-14T04:57:40.622427+00:00"}
+# HOST RX {"monotonic_ns": 446094983842700, "utc": "2026-10-14T04:57:40.732509+00:00"}
+B=42368 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446094985648200, "utc": "2026-10-14T04:57:40.734313+00:00"}
+I min/mean/max/rms=3/16/36/4 Q=1921/2080/2205/90 MAG=156 AUD rms/peak=1179/2224 clips=54246
+# HOST RX {"monotonic_ns": 446094986320500, "utc": "2026-10-14T04:57:40.734984+00:00"}
+us=4792 max=8188 deadline=39130 ADCdrop=4783 FIFO=0 AUDunder=4787 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446094986969800, "utc": "2026-10-14T04:57:40.735633+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446094987537000, "utc": "2026-10-14T04:57:40.736200+00:00"}
+TIMING us latest/max PROC=4587/8000 OUT=205/318 IN=758/1082 DSP=3793/4104 STAT=36/82 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446096873673200, "utc": "2026-10-14T04:57:42.622354+00:00"}
+# HOST RX {"monotonic_ns": 446096984610400, "utc": "2026-10-14T04:57:42.733292+00:00"}
+B=42784 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446096986555600, "utc": "2026-10-14T04:57:42.735233+00:00"}
+I min/mean/max/rms=2/16/28/4 Q=1935/2066/2211/90 MAG=155 AUD rms/peak=1202/2192 clips=55912
+# HOST RX {"monotonic_ns": 446096987779800, "utc": "2026-10-14T04:57:42.736456+00:00"}
+us=4792 max=8188 deadline=39546 ADCdrop=4834 FIFO=0 AUDunder=4838 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446096988988200, "utc": "2026-10-14T04:57:42.737665+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446096989893400, "utc": "2026-10-14T04:57:42.738570+00:00"}
+TIMING us latest/max PROC=4588/8000 OUT=204/318 IN=729/1082 DSP=3823/4104 STAT=36/82 FFT=0/3508
+# HOST TX {"command": "status", "monotonic_ns": 446098873797900, "utc": "2026-10-14T04:57:44.622494+00:00"}
+# HOST RX {"monotonic_ns": 446098983427000, "utc": "2026-10-14T04:57:44.732119+00:00"}
+B=43200 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"monotonic_ns": 446098984547300, "utc": "2026-10-14T04:57:44.733237+00:00"}
+I min/mean/max/rms=1/16/35/4 Q=1935/2080/2205/90 MAG=156 AUD rms/peak=1200/2272 clips=57955
+# HOST RX {"monotonic_ns": 446098985069400, "utc": "2026-10-14T04:57:44.733759+00:00"}
+us=4795 max=8188 deadline=39962 ADCdrop=4885 FIFO=0 AUDunder=4889 AUDdrop=0 IRQlate=0
+# HOST RX {"monotonic_ns": 446098985694500, "utc": "2026-10-14T04:57:44.734384+00:00"}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"monotonic_ns": 446098986264700, "utc": "2026-10-14T04:57:44.734955+00:00"}
+TIMING us latest/max PROC=4591/8000 OUT=204/318 IN=732/1082 DSP=3823/4104 STAT=35/82 FFT=0/3508
+# HOST INTERVAL_RESULT {"timestamp_basis": "Difference between host perf_counter_ns reception timestamps for the first B= line in the selected start/end records; UTC timestamps also saved for every received line.", "elapsed_seconds": 62.1100185, "start": {"phase": "interval_start", "request": {"command": "status", "monotonic_ns": 446036774468800, "utc": "2026-10-14T04:56:42.522749+00:00"}, "first_line_received": {"monotonic_ns": 446036873408500, "utc": "2026-10-14T04:56:42.621683+00:00"}, "complete_received": {"monotonic_ns": 446036879244900, "utc": "2026-10-14T04:56:42.627516+00:00"}, "request_to_first_line_ms": 98.9397, "revision": 3, "settings": {"mode": "AM", "input": "IQ", "tune_Hz": 0, "bw": 2, "agc": 4, "gain_log2": 4, "volume_percent": 25, "sq": -1, "hang": 3, "swap": 0, "iqcorr": 0, "deemph": 0, "bass": 0, "treble": 0, "blanker": 0, "notch": 0, "nr": 0, "smooth": 10, "threshold": 1, "cw": 700, "gain_factor": 16}, "counters": {"deadline_misses": 27002, "adc_drops": 3295, "fifo_overflows": 0, "audio_underruns": 3299, "audio_drops": 0, "late_dma_interrupts": 0, "processed_blocks": 30240, "near_rail_samples": 32445}, "total_latest_us": 4791, "total_cumulative_max_since_boot_us": 8188, "stages": {"PROC": {"latest_us": 4587, "cumulative_max_since_boot_us": 8000}, "OUT": {"latest_us": 204, "cumulative_max_since_boot_us": 318}, "IN": {"latest_us": 729, "cumulative_max_since_boot_us": 1082}, "DSP": {"latest_us": 3822, "cumulative_max_since_boot_us": 3910}, "STAT": {"latest_us": 35, "cumulative_max_since_boot_us": 78}, "FFT": {"latest_us": 0, "cumulative_max_since_boot_us": 3508}}, "raw_lines": ["B=30240 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25", "I min/mean/max/rms=0/16/30/4 Q=1939/2077/2206/88 MAG=155 AUD rms/peak=1198/2128 clips=32445", "us=4791 max=8188 deadline=27002 ADCdrop=3295 FIFO=0 AUDunder=3299 AUDdrop=0 IRQlate=0", "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700", "TIMING us latest/max PROC=4587/8000 OUT=204/318 IN=729/1082 DSP=3822/3910 STAT=35/78 FFT=0/3508"]}, "end": {"phase": "interval_end", "request": {"command": "status", "monotonic_ns": 446098873797900, "utc": "2026-10-14T04:57:44.622494+00:00"}, "first_line_received": {"monotonic_ns": 446098983427000, "utc": "2026-10-14T04:57:44.732119+00:00"}, "complete_received": {"monotonic_ns": 446098986264700, "utc": "2026-10-14T04:57:44.734955+00:00"}, "request_to_first_line_ms": 109.6291, "revision": 3, "settings": {"mode": "AM", "input": "IQ", "tune_Hz": 0, "bw": 2, "agc": 4, "gain_log2": 4, "volume_percent": 25, "sq": -1, "hang": 3, "swap": 0, "iqcorr": 0, "deemph": 0, "bass": 0, "treble": 0, "blanker": 0, "notch": 0, "nr": 0, "smooth": 10, "threshold": 1, "cw": 700, "gain_factor": 16}, "counters": {"deadline_misses": 39962, "adc_drops": 4885, "fifo_overflows": 0, "audio_underruns": 4889, "audio_drops": 0, "late_dma_interrupts": 0, "processed_blocks": 43200, "near_rail_samples": 57955}, "total_latest_us": 4795, "total_cumulative_max_since_boot_us": 8188, "stages": {"PROC": {"latest_us": 4591, "cumulative_max_since_boot_us": 8000}, "OUT": {"latest_us": 204, "cumulative_max_since_boot_us": 318}, "IN": {"latest_us": 732, "cumulative_max_since_boot_us": 1082}, "DSP": {"latest_us": 3823, "cumulative_max_since_boot_us": 4104}, "STAT": {"latest_us": 35, "cumulative_max_since_boot_us": 82}, "FFT": {"latest_us": 0, "cumulative_max_since_boot_us": 3508}}, "raw_lines": ["B=43200 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25", "I min/mean/max/rms=1/16/35/4 Q=1935/2080/2205/90 MAG=156 AUD rms/peak=1200/2272 clips=57955", "us=4795 max=8188 deadline=39962 ADCdrop=4885 FIFO=0 AUDunder=4889 AUDdrop=0 IRQlate=0", "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700", "TIMING us latest/max PROC=4591/8000 OUT=204/318 IN=732/1082 DSP=3823/4104 STAT=35/82 FFT=0/3508"]}, "snapshot_count": 32, "changes": {"deadline_misses": 12960, "adc_drops": 1590, "fifo_overflows": 0, "audio_underruns": 1590, "audio_drops": 0, "late_dma_interrupts": 0, "processed_blocks": 12960, "near_rail_samples": 25510}, "approximate_blocks_per_second": 208.66198904770894, "nominal_rate_compatible": false, "endpoint_publication_and_serial_tolerance_blocks": 80.8833125, "largest_sampled_total_latest_us": 4817, "stages": {"PROC": {"start_latest_us": 4587, "end_latest_us": 4591, "largest_sampled_latest_us": 4613, "start_cumulative_max_since_boot_us": 8000, "end_cumulative_max_since_boot_us": 8000}, "OUT": {"start_latest_us": 204, "end_latest_us": 204, "largest_sampled_latest_us": 209, "start_cumulative_max_since_boot_us": 318, "end_cumulative_max_since_boot_us": 318}, "IN": {"start_latest_us": 729, "end_latest_us": 732, "largest_sampled_latest_us": 758, "start_cumulative_max_since_boot_us": 1082, "end_cumulative_max_since_boot_us": 1082}, "DSP": {"start_latest_us": 3822, "end_latest_us": 3823, "largest_sampled_latest_us": 3858, "start_cumulative_max_since_boot_us": 3910, "end_cumulative_max_since_boot_us": 4104}, "STAT": {"start_latest_us": 35, "end_latest_us": 35, "largest_sampled_latest_us": 47, "start_cumulative_max_since_boot_us": 78, "end_cumulative_max_since_boot_us": 82}, "FFT": {"start_latest_us": 0, "end_latest_us": 0, "largest_sampled_latest_us": 0, "start_cumulative_max_since_boot_us": 3508, "end_cumulative_max_since_boot_us": 3508}}, "timing_and_streaming_pass": false, "streaming_faults_with_increases": ["deadline_misses", "adc_drops", "audio_underruns"], "input_condition_issue_near_rail_increase": true}

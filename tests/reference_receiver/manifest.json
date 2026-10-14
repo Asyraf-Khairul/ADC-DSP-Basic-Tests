@@ -1,0 +1,21 @@
+{
+  "source_commit": "34bde79a126fc4a7737a4e7194b63833e2aace05",
+  "files": {
+    "receiver_dsp/cic_corrections.cpp": "f4f6de1f6f7a2fd8788d022ec05aae6630eb4c26832d13e3623bfff5bffda21a",
+    "receiver_dsp/cic_corrections.h": "dfb8aefa5133d01198ce466f31ebeca876e57ecb15c783d52ccc057221b3616e",
+    "receiver_dsp/fft.cpp": "a5a74b4c14d0e049712478e065f51467624b00a852fcd377b89e6ca69c9b6188",
+    "receiver_dsp/fft.h": "3c90f4870b8abd85590e300257188d1c431d79e760c664821e2fbb1bb2a69828",
+    "receiver_dsp/fft_filter.cpp": "8161570e29103394d78adfd476ee30d970c56124e4f4e8ab080ff26ea1c0fde5",
+    "receiver_dsp/fft_filter.h": "4c78182bb64d1ba8f076e3ccb2f20ec570e8fed35e9f724e92c6b72c3e5a6a1c",
+    "receiver_dsp/noise_reduction.cpp": "a8a956610a1a4b96ae7dc4063e5ad792bf2b51d96777ef7c67b33c6ea2bc1caa",
+    "receiver_dsp/noise_reduction.h": "f3ea4b706a4b18b22dda1ab62594cc99e050eaff186dac83ff97e71c34451a06",
+    "receiver_dsp/ring_buffer_lib.c": "14fbec8200b61628dccde3ced5d91586fd4d6c99047223ced1aab5673f16f0d2",
+    "receiver_dsp/ring_buffer_lib.h": "78cd3ce0fb67e88eca159e9449db88c32fb6cb485e403ad956f8c3e0b33cda8c",
+    "receiver_dsp/ring_buffer_lib_config.h": "012895ac6e4b8622579fda902dd7547b03bd14f6bc40f1b8d89b6b7bc3d5d187",
+    "receiver_dsp/rx_definitions.h": "1318d3372307461794cf8fbb2e637cc3fc5eb7123226c817db4fe72ca531d83e",
+    "receiver_dsp/rx_dsp.cpp": "60688b3529c69ceb4bcf8306c07e986fc86c0cb87d776a45c687c60c8edb0540",
+    "receiver_dsp/rx_dsp.h": "a60657706b8122be6e0c2820649e03607d2253fe06ca97a2bb1ed1085fd536da",
+    "receiver_dsp/utils.cpp": "caaa9e383f0ca4b044142b0282e06f46b863e1e0dd2f111af85f6fc52d99dbbd",
+    "receiver_dsp/utils.h": "9fe2275a1ad145b7ba582498de21eade721d3889a91de08dcd9720fec0c2d75d"
+  }
+}

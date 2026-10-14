@@ -33,6 +33,7 @@ void __not_in_flash_func(fft_filter::filter_block)(int16_t sample_real[], int16_
 void fft_filter::filter_block(int16_t sample_real[], int16_t sample_imag[], s_filter_control &filter_control, int16_t capture[]) {
 #endif
 
+  const uint32_t profile_start = receiver_profile_clock();
   // window
   for (uint16_t i = 0; i < fft_size; i++) {
     sample_real[i] = product(sample_real[i], window[i]);
@@ -41,6 +42,7 @@ void fft_filter::filter_block(int16_t sample_real[], int16_t sample_imag[], s_fi
 
   // forward FFT
   fixed_fft(sample_real, sample_imag, 8);
+  const uint32_t profile_forward_end = receiver_profile_clock();
 
   if(filter_control.capture)
   {
@@ -163,8 +165,12 @@ void fft_filter::filter_block(int16_t sample_real[], int16_t sample_imag[], s_fi
   }
 
   // inverse FFT
+  const uint32_t profile_bins_end = receiver_profile_clock();
   fixed_ifft(sample_real, sample_imag, 7);
-
+  const uint32_t profile_end = receiver_profile_clock();
+  profile.fft_forward = profile_forward_end - profile_start;
+  profile.fft_bins = profile_bins_end - profile_forward_end;
+  profile.fft_inverse = profile_end - profile_bins_end;
 }
 
 

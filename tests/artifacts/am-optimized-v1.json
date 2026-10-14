@@ -1,0 +1,19 @@
+{
+  "artifact": "am-optimized-v1.uf2",
+  "sha256": "0bca44e437d8579749c61407390c5f12f947c87a45c53818ebc00163f6768f92",
+  "bytes": 265728,
+  "source_identity": {
+    "BENCH_BUILD_LABEL": "am-optimized-v1",
+    "BENCH_SOURCE_SHA256": "86d0e4fe2bd42cc00d51896696ec6402e11beee3f1282a7385d0eff4441f9497",
+    "BENCH_BASE_COMMIT": "34bde79a126fc4a7737a4e7194b63833e2aace05"
+  },
+  "build_type": "Release",
+  "cxx_flags_release": "-g -O3 -DNDEBUG",
+  "additional_compile_option": "-fwrapv",
+  "BENCH_SELF_TEST": false,
+  "BENCH_OPERATION_BENCHMARK": false,
+  "arm_gcc": "13.3.1",
+  "pico_sdk": "2.1.0",
+  "hardware_evidence": "../results/am-iq-optimized-v1-2026-10-14-run01.json",
+  "note": "Exact hardware-tested image built before publication commit. Embedded base commit identifies its parent; source fingerprint identifies the local runtime source/configuration. Rebuilding after commit can change binary identity."
+}

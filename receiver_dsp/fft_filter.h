@@ -18,6 +18,7 @@
 
 #include "fft.h"
 #include "rx_definitions.h"
+#include "profile.h"
 
 struct s_filter_control
 {
@@ -49,6 +50,7 @@ class fft_filter
   void filter_block(int16_t sample_real[], int16_t sample_imag[], s_filter_control &filter_control, int16_t capture[]);
 
   public:
+  ReceiverProfile profile{};
   fft_filter()
   {
     fft_initialise();

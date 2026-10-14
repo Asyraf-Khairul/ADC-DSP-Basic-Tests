@@ -13,6 +13,50 @@ copy-paste Codex prompt to retrieve this branch, set up tools and build both UF2
 See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for source attribution and
 documented differences from the receiver algorithms.
 
+## Tested AM-IQ optimization (14 October 2026)
+
+The `am-optimized-v1` firmware passed a 62.05-second AM-IQ timing run at
+234.375 blocks/s, with no new deadline misses or streaming faults. The maximum
+across every measured block, including spectrum updates, was 4086 us against
+a 4266 us deadline. Headroom is limited to 180 us (4.22%); this is not a general
+worst-case guarantee or an AM demodulation-quality pass.
+
+- [Full before/after report](tests/results/am-iq-optimized-v1-2026-10-14-run01.md)
+- [Machine-readable results](tests/results/am-iq-optimized-v1-2026-10-14-run01.json)
+  and [raw hardware log](tests/results/am-iq-optimized-v1-2026-10-14-run01.txt)
+- [37-case receiver numerical comparison](tests/results/am-optimized-v1-expanded-numerical-2026-10-14.json)
+- [Exact tested UF2](tests/artifacts/am-optimized-v1.uf2) and
+  [artifact identity](tests/artifacts/am-optimized-v1.json)
+
+Download the UF2 with GitHub's **Download raw file** button. It is the exact
+image already tested, not a rebuild after committing. SHA256:
+`0bca44e437d8579749c61407390c5f12f947c87a45c53818ebc00163f6768f92`.
+It embeds base commit `34bde79` plus the tested source fingerprint; the enclosing
+Git commit publishes those working-tree changes and evidence. A later rebuild
+will embed its own Git base and may have a different binary hash.
+
+The tested setup used both 1 kHz unmodulated sine inputs with the mixer
+disconnected, through the existing 470 ohm / 1 kohm dividers. Generator settings
+were 300 mVpp, High-Z, +2.5 V offset, modulation off. GP27 is I; GP26 is Q.
+Approximately 1.65 V mean / 240 mVpp at the ADC pins were historical scope
+measurements, not fresh readings for this run. Generator settings alone do not
+verify the voltage reaching a pin.
+
+After flashing, select **Preset 1: IQ-AM** through the OLED: AM, IQ, tune 0 Hz,
+BW 2, manual gain 16, volume 25%. Allow at least five seconds to settle. P1 shows
+streaming faults; P4 shows processing timings. Preserve starting counters and
+compare their increases. For every-block timing, use the included serial
+collector and `measure start` / `measure stop`; OLED/serial latest snapshots
+alone can miss spectrum-update blocks. Controls were confirmed responsive;
+optimized-run P1/P4 photos were not captured.
+
+For a new build, configure Release with `BENCH_SELF_TEST=OFF`,
+`BENCH_OPERATION_BENCHMARK=OFF`, and explicitly set
+`BENCH_BUILD_LABEL=am-optimized-v1` (the original instrumentation cache default
+is `am-profile-v1`). Keep the runtime source fingerprint and new UF2 hash with
+any new test log. Neither `build/` nor local `firmware/evidence/` archives are
+published; the exact tested UF2 is intentionally included under `tests/artifacts/`.
+
 ## Start here
 
 1. Build the normal UF2 first if this is a fresh clone (see [UNI_SETUP.md](UNI_SETUP.md)).

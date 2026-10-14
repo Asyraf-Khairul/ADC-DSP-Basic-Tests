@@ -1,0 +1,3538 @@
+{
+  "run_name": "am-iq-timing-2026-10-14-run01",
+  "requested_mode": "AM IQ only",
+  "source_commit": "34bde79a126fc4a7737a4e7194b63833e2aace05",
+  "branch": "testing/dsp-suite",
+  "initial_git_status": "?? .vscode/\n?? tests/measure_am_iq.py",
+  "local_build_settings": [
+    "BENCH_OPERATION_BENCHMARK:BOOL=OFF",
+    "BENCH_SELF_TEST:BOOL=OFF",
+    "CMAKE_BUILD_TYPE:STRING=Release",
+    "CMAKE_CXX_FLAGS_RELEASE:STRING=-g -O3 -DNDEBUG"
+  ],
+  "local_uf2_sha256": {
+    "firmware/adc_dsp_suite.uf2": "43f9dab0eddcaf592257c37771d3721fc90f6b6eb86420d681081113146f67c1",
+    "build/adc_dsp_standalone.uf2": "43f9dab0eddcaf592257c37771d3721fc90f6b6eb86420d681081113146f67c1"
+  },
+  "runtime_identity": {
+    "port": "COM8",
+    "usb_serial": "E664A836A3704126",
+    "vid": 11914,
+    "pid": 10,
+    "exact_running_binary_verified": false,
+    "limitation": "Serial help/status expose no build ID or firmware hash. Local UF2 identity is not a readback of flash."
+  },
+  "stimulus": {
+    "provenance": "User-supplied conditions; instruments not queried",
+    "mixer": "disconnected",
+    "waveform_both": "continuous sine, 1 kHz, modulation off",
+    "generator_both": {
+      "amplitude_Vpp": 0.3,
+      "load_indication": "High-Z",
+      "offset_V": 2.5
+    },
+    "dividers_ohm": [
+      470,
+      1000
+    ],
+    "I_pin": "GP27",
+    "Q_pin": "GP26",
+    "earlier_scope_both": {
+      "mean_V_approx": 1.65,
+      "Vpp_approx": 0.24,
+      "fresh_readings": false
+    },
+    "phase": "not independently verified",
+    "correction_after_run": {
+      "provenance": "User clarified after collection: stop i didnt turn on ch1",
+      "AFG_CH1_output": "OFF during recorded run",
+      "intended_two_input_conditions_met": false
+    }
+  },
+  "physical_UI_confirmation": "User confirmed responsive OLED and controls; no photographs taken at time of confirmation",
+  "P1_P4_photographs": "Not taken according to user; no captures received",
+  "deadline_us": 4266,
+  "nominal_adc_words_per_second": 480000,
+  "adc_words_per_block": 2048,
+  "nominal_blocks_per_second": 234.375,
+  "publication_blocks": 32,
+  "actions": [
+    {
+      "command": "stream 0",
+      "monotonic_ns": 446029441665500,
+      "utc": "2026-10-14T04:56:35.189888+00:00"
+    },
+    {
+      "command": "help",
+      "monotonic_ns": 446029956117300,
+      "utc": "2026-10-14T04:56:35.704341+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446031003773000,
+      "utc": "2026-10-14T04:56:36.752004+00:00"
+    },
+    {
+      "command": "preset 1",
+      "monotonic_ns": 446031131958200,
+      "utc": "2026-10-14T04:56:36.880191+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446031658746600,
+      "utc": "2026-10-14T04:56:37.406983+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446036774468800,
+      "utc": "2026-10-14T04:56:42.522749+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446038873532800,
+      "utc": "2026-10-14T04:56:44.621825+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446040873807600,
+      "utc": "2026-10-14T04:56:46.622114+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446042873636400,
+      "utc": "2026-10-14T04:56:48.621956+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446044873676900,
+      "utc": "2026-10-14T04:56:50.622010+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446046873584200,
+      "utc": "2026-10-14T04:56:52.621926+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446048873770800,
+      "utc": "2026-10-14T04:56:54.622131+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446050873466800,
+      "utc": "2026-10-14T04:56:56.621840+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446052873786100,
+      "utc": "2026-10-14T04:56:58.622172+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446054873736800,
+      "utc": "2026-10-14T04:57:00.622137+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446056873801500,
+      "utc": "2026-10-14T04:57:02.622215+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446058873447700,
+      "utc": "2026-10-14T04:57:04.621871+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446060873929500,
+      "utc": "2026-10-14T04:57:06.622370+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446062873896600,
+      "utc": "2026-10-14T04:57:08.622350+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446064873903800,
+      "utc": "2026-10-14T04:57:10.622374+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446066873756800,
+      "utc": "2026-10-14T04:57:12.622235+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446068873549500,
+      "utc": "2026-10-14T04:57:14.622045+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446070873858400,
+      "utc": "2026-10-14T04:57:16.622368+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446072873486600,
+      "utc": "2026-10-14T04:57:18.622005+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446074874060400,
+      "utc": "2026-10-14T04:57:20.622597+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446076873742600,
+      "utc": "2026-10-14T04:57:22.622291+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446078873615400,
+      "utc": "2026-10-14T04:57:24.622177+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446080873658400,
+      "utc": "2026-10-14T04:57:26.622235+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446082873905200,
+      "utc": "2026-10-14T04:57:28.622494+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446084873538500,
+      "utc": "2026-10-14T04:57:30.622137+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446086873837500,
+      "utc": "2026-10-14T04:57:32.622454+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446088873514700,
+      "utc": "2026-10-14T04:57:34.622140+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446090873699600,
+      "utc": "2026-10-14T04:57:36.622342+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446092873840800,
+      "utc": "2026-10-14T04:57:38.622497+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446094873758000,
+      "utc": "2026-10-14T04:57:40.622427+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446096873673200,
+      "utc": "2026-10-14T04:57:42.622354+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 446098873797900,
+      "utc": "2026-10-14T04:57:44.622494+00:00"
+    }
+  ],
+  "records": [
+    {
+      "phase": "before_preset_1",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446031003773000,
+        "utc": "2026-10-14T04:56:36.752004+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446031121618000,
+        "utc": "2026-10-14T04:56:36.869854+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446031128758500,
+        "utc": "2026-10-14T04:56:36.876990+00:00"
+      },
+      "request_to_first_line_ms": 117.845,
+      "revision": 2,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": -100,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 25786,
+        "adc_drops": 3146,
+        "fifo_overflows": 0,
+        "audio_underruns": 3150,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 29024,
+        "near_rail_samples": 30356
+      },
+      "total_latest_us": 4672,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4484,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 188,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 654,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3797,
+          "cumulative_max_since_boot_us": 3910
+        },
+        "STAT": {
+          "latest_us": 33,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=29024 rev=2 AM IQ tune=-100 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=5/16/29/3 Q=1942/2076/2205/87 MAG=157 AUD rms/peak=1226/2400 clips=30356",
+        "us=4672 max=8188 deadline=25786 ADCdrop=3146 FIFO=0 AUDunder=3150 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4484/8000 OUT=188/318 IN=654/1082 DSP=3797/3910 STAT=33/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "confirm_preset_1",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446031658746600,
+        "utc": "2026-10-14T04:56:37.406983+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446031667608600,
+        "utc": "2026-10-14T04:56:37.415847+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446031673708100,
+        "utc": "2026-10-14T04:56:37.421943+00:00"
+      },
+      "request_to_first_line_ms": 8.862,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 25914,
+        "adc_drops": 3162,
+        "fifo_overflows": 0,
+        "audio_underruns": 3166,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 29152,
+        "near_rail_samples": 30520
+      },
+      "total_latest_us": 4795,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4589,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 206,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 731,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3822,
+          "cumulative_max_since_boot_us": 3910
+        },
+        "STAT": {
+          "latest_us": 36,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=29152 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/16/28/3 Q=1940/2067/2209/89 MAG=155 AUD rms/peak=1215/2368 clips=30520",
+        "us=4795 max=8188 deadline=25914 ADCdrop=3162 FIFO=0 AUDunder=3166 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4589/8000 OUT=206/318 IN=731/1082 DSP=3822/3910 STAT=36/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_start",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446036774468800,
+        "utc": "2026-10-14T04:56:42.522749+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446036873408500,
+        "utc": "2026-10-14T04:56:42.621683+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446036879244900,
+        "utc": "2026-10-14T04:56:42.627516+00:00"
+      },
+      "request_to_first_line_ms": 98.9397,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 27002,
+        "adc_drops": 3295,
+        "fifo_overflows": 0,
+        "audio_underruns": 3299,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 30240,
+        "near_rail_samples": 32445
+      },
+      "total_latest_us": 4791,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4587,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 729,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3822,
+          "cumulative_max_since_boot_us": 3910
+        },
+        "STAT": {
+          "latest_us": 35,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=30240 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/16/30/4 Q=1939/2077/2206/88 MAG=155 AUD rms/peak=1198/2128 clips=32445",
+        "us=4791 max=8188 deadline=27002 ADCdrop=3295 FIFO=0 AUDunder=3299 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4587/8000 OUT=204/318 IN=729/1082 DSP=3822/3910 STAT=35/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446038873532800,
+        "utc": "2026-10-14T04:56:44.621825+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446038882472800,
+        "utc": "2026-10-14T04:56:44.630761+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446038895937600,
+        "utc": "2026-10-14T04:56:44.644225+00:00"
+      },
+      "request_to_first_line_ms": 8.94,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 27418,
+        "adc_drops": 3346,
+        "fifo_overflows": 0,
+        "audio_underruns": 3350,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 30656,
+        "near_rail_samples": 32978
+      },
+      "total_latest_us": 4792,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4588,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 729,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3823,
+          "cumulative_max_since_boot_us": 3910
+        },
+        "STAT": {
+          "latest_us": 36,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=30656 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/16/33/3 Q=1941/2071/2205/87 MAG=158 AUD rms/peak=1212/2256 clips=32978",
+        "us=4792 max=8188 deadline=27418 ADCdrop=3346 FIFO=0 AUDunder=3350 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4588/8000 OUT=204/318 IN=729/1082 DSP=3823/3910 STAT=36/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446040873807600,
+        "utc": "2026-10-14T04:56:46.622114+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446040883349700,
+        "utc": "2026-10-14T04:56:46.631654+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446040892320800,
+        "utc": "2026-10-14T04:56:46.640619+00:00"
+      },
+      "request_to_first_line_ms": 9.5421,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 27834,
+        "adc_drops": 3397,
+        "fifo_overflows": 0,
+        "audio_underruns": 3401,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 31072,
+        "near_rail_samples": 33533
+      },
+      "total_latest_us": 4793,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4589,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 730,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3823,
+          "cumulative_max_since_boot_us": 3910
+        },
+        "STAT": {
+          "latest_us": 35,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=31072 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/16/27/3 Q=1920/2074/2206/87 MAG=158 AUD rms/peak=1199/2384 clips=33533",
+        "us=4793 max=8188 deadline=27834 ADCdrop=3397 FIFO=0 AUDunder=3401 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4589/8000 OUT=204/318 IN=730/1082 DSP=3823/3910 STAT=35/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446042873636400,
+        "utc": "2026-10-14T04:56:48.621956+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446042881664400,
+        "utc": "2026-10-14T04:56:48.629977+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446042884419700,
+        "utc": "2026-10-14T04:56:48.632733+00:00"
+      },
+      "request_to_first_line_ms": 8.028,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 28250,
+        "adc_drops": 3448,
+        "fifo_overflows": 0,
+        "audio_underruns": 3452,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 31488,
+        "near_rail_samples": 34147
+      },
+      "total_latest_us": 4794,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4589,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 205,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 730,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3823,
+          "cumulative_max_since_boot_us": 3910
+        },
+        "STAT": {
+          "latest_us": 36,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=31488 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=5/16/32/3 Q=1941/2073/2207/87 MAG=161 AUD rms/peak=1221/2448 clips=34147",
+        "us=4794 max=8188 deadline=28250 ADCdrop=3448 FIFO=0 AUDunder=3452 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4589/8000 OUT=205/318 IN=730/1082 DSP=3823/3910 STAT=36/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446044873676900,
+        "utc": "2026-10-14T04:56:50.622010+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446044881831100,
+        "utc": "2026-10-14T04:56:50.630157+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446044884560000,
+        "utc": "2026-10-14T04:56:50.632886+00:00"
+      },
+      "request_to_first_line_ms": 8.1542,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 28666,
+        "adc_drops": 3499,
+        "fifo_overflows": 0,
+        "audio_underruns": 3503,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 31904,
+        "near_rail_samples": 34790
+      },
+      "total_latest_us": 4792,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4588,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 729,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3823,
+          "cumulative_max_since_boot_us": 3988
+        },
+        "STAT": {
+          "latest_us": 35,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=31904 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=4/16/29/3 Q=1940/2071/2203/86 MAG=160 AUD rms/peak=1201/2432 clips=34790",
+        "us=4792 max=8188 deadline=28666 ADCdrop=3499 FIFO=0 AUDunder=3503 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4588/8000 OUT=204/318 IN=729/1082 DSP=3823/3988 STAT=35/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446046873584200,
+        "utc": "2026-10-14T04:56:52.621926+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446046880696800,
+        "utc": "2026-10-14T04:56:52.629037+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446046882982300,
+        "utc": "2026-10-14T04:56:52.631321+00:00"
+      },
+      "request_to_first_line_ms": 7.1126,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 29082,
+        "adc_drops": 3550,
+        "fifo_overflows": 0,
+        "audio_underruns": 3554,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 32320,
+        "near_rail_samples": 35423
+      },
+      "total_latest_us": 4795,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4590,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 205,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 729,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3825,
+          "cumulative_max_since_boot_us": 3988
+        },
+        "STAT": {
+          "latest_us": 36,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=32320 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=3/16/29/3 Q=1942/2075/2206/87 MAG=163 AUD rms/peak=1234/2496 clips=35423",
+        "us=4795 max=8188 deadline=29082 ADCdrop=3550 FIFO=0 AUDunder=3554 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4590/8000 OUT=205/318 IN=729/1082 DSP=3825/3988 STAT=36/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446048873770800,
+        "utc": "2026-10-14T04:56:54.622131+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446048881114400,
+        "utc": "2026-10-14T04:56:54.629470+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446048883549500,
+        "utc": "2026-10-14T04:56:54.631902+00:00"
+      },
+      "request_to_first_line_ms": 7.3436,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 29498,
+        "adc_drops": 3601,
+        "fifo_overflows": 0,
+        "audio_underruns": 3605,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 32736,
+        "near_rail_samples": 36178
+      },
+      "total_latest_us": 4794,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4590,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 730,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3823,
+          "cumulative_max_since_boot_us": 3988
+        },
+        "STAT": {
+          "latest_us": 37,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=32736 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=4/16/29/4 Q=1939/2069/2204/87 MAG=162 AUD rms/peak=1192/2320 clips=36178",
+        "us=4794 max=8188 deadline=29498 ADCdrop=3601 FIFO=0 AUDunder=3605 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4590/8000 OUT=204/318 IN=730/1082 DSP=3823/3988 STAT=37/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446050873466800,
+        "utc": "2026-10-14T04:56:56.621840+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446050882305000,
+        "utc": "2026-10-14T04:56:56.630676+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446050889598300,
+        "utc": "2026-10-14T04:56:56.637965+00:00"
+      },
+      "request_to_first_line_ms": 8.8382,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 29914,
+        "adc_drops": 3652,
+        "fifo_overflows": 0,
+        "audio_underruns": 3656,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 33152,
+        "near_rail_samples": 36884
+      },
+      "total_latest_us": 4758,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4553,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 205,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 656,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3854,
+          "cumulative_max_since_boot_us": 3988
+        },
+        "STAT": {
+          "latest_us": 41,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=33152 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=4/16/30/3 Q=1942/2078/2204/88 MAG=163 AUD rms/peak=1207/2176 clips=36884",
+        "us=4758 max=8188 deadline=29914 ADCdrop=3652 FIFO=0 AUDunder=3656 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4553/8000 OUT=205/318 IN=656/1082 DSP=3854/3988 STAT=41/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446052873786100,
+        "utc": "2026-10-14T04:56:58.622172+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446052882819300,
+        "utc": "2026-10-14T04:56:58.631203+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446052888633400,
+        "utc": "2026-10-14T04:56:58.637013+00:00"
+      },
+      "request_to_first_line_ms": 9.0332,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 30330,
+        "adc_drops": 3703,
+        "fifo_overflows": 0,
+        "audio_underruns": 3707,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 33568,
+        "near_rail_samples": 37438
+      },
+      "total_latest_us": 4679,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4489,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 190,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 656,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3799,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 34,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=33568 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/16/31/3 Q=1942/2068/2208/89 MAG=161 AUD rms/peak=1200/2240 clips=37438",
+        "us=4679 max=8188 deadline=30330 ADCdrop=3703 FIFO=0 AUDunder=3707 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4489/8000 OUT=190/318 IN=656/1082 DSP=3799/4104 STAT=34/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446054873736800,
+        "utc": "2026-10-14T04:57:00.622137+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446054882274800,
+        "utc": "2026-10-14T04:57:00.630673+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446054889741900,
+        "utc": "2026-10-14T04:57:00.638135+00:00"
+      },
+      "request_to_first_line_ms": 8.538,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 30746,
+        "adc_drops": 3754,
+        "fifo_overflows": 0,
+        "audio_underruns": 3758,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 33984,
+        "near_rail_samples": 37925
+      },
+      "total_latest_us": 4676,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4488,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 188,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 656,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3799,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 33,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=33984 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=6/16/35/3 Q=1941/2079/2215/89 MAG=161 AUD rms/peak=1194/2320 clips=37925",
+        "us=4676 max=8188 deadline=30746 ADCdrop=3754 FIFO=0 AUDunder=3758 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4488/8000 OUT=188/318 IN=656/1082 DSP=3799/4104 STAT=33/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446056873801500,
+        "utc": "2026-10-14T04:57:02.622215+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446056882128700,
+        "utc": "2026-10-14T04:57:02.630539+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446056888807400,
+        "utc": "2026-10-14T04:57:02.637214+00:00"
+      },
+      "request_to_first_line_ms": 8.3272,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 31162,
+        "adc_drops": 3805,
+        "fifo_overflows": 0,
+        "audio_underruns": 3809,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 34400,
+        "near_rail_samples": 38422
+      },
+      "total_latest_us": 4682,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4490,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 192,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 657,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3800,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 33,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=34400 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=3/16/29/3 Q=1940/2066/2206/90 MAG=158 AUD rms/peak=1222/2464 clips=38422",
+        "us=4682 max=8188 deadline=31162 ADCdrop=3805 FIFO=0 AUDunder=3809 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4490/8000 OUT=192/318 IN=657/1082 DSP=3800/4104 STAT=33/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446058873447700,
+        "utc": "2026-10-14T04:57:04.621871+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446058880599300,
+        "utc": "2026-10-14T04:57:04.629020+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446058883180300,
+        "utc": "2026-10-14T04:57:04.631601+00:00"
+      },
+      "request_to_first_line_ms": 7.1516,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 31578,
+        "adc_drops": 3856,
+        "fifo_overflows": 0,
+        "audio_underruns": 3860,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 34816,
+        "near_rail_samples": 38981
+      },
+      "total_latest_us": 4682,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4491,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 191,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 656,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3801,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 34,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=34816 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=5/16/30/3 Q=1940/2079/2212/90 MAG=157 AUD rms/peak=1237/2496 clips=38981",
+        "us=4682 max=8188 deadline=31578 ADCdrop=3856 FIFO=0 AUDunder=3860 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4491/8000 OUT=191/318 IN=656/1082 DSP=3801/4104 STAT=34/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446060873929500,
+        "utc": "2026-10-14T04:57:06.622370+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446060882933100,
+        "utc": "2026-10-14T04:57:06.631371+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446060890312700,
+        "utc": "2026-10-14T04:57:06.638747+00:00"
+      },
+      "request_to_first_line_ms": 9.0036,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 32026,
+        "adc_drops": 3911,
+        "fifo_overflows": 0,
+        "audio_underruns": 3915,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 35264,
+        "near_rail_samples": 39498
+      },
+      "total_latest_us": 4682,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4492,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 190,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 654,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3804,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 33,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=35264 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/16/29/3 Q=1915/2079/2204/88 MAG=154 AUD rms/peak=1222/2448 clips=39498",
+        "us=4682 max=8188 deadline=32026 ADCdrop=3911 FIFO=0 AUDunder=3915 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4492/8000 OUT=190/318 IN=654/1082 DSP=3804/4104 STAT=33/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446062873896600,
+        "utc": "2026-10-14T04:57:08.622350+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446062984527300,
+        "utc": "2026-10-14T04:57:08.732981+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446062990778700,
+        "utc": "2026-10-14T04:57:08.739227+00:00"
+      },
+      "request_to_first_line_ms": 110.6307,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 32442,
+        "adc_drops": 3962,
+        "fifo_overflows": 0,
+        "audio_underruns": 3966,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 35680,
+        "near_rail_samples": 39946
+      },
+      "total_latest_us": 4772,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4563,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 209,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 657,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3858,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 47,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=35680 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=5/16/27/3 Q=1941/2068/2204/88 MAG=157 AUD rms/peak=1216/2320 clips=39946",
+        "us=4772 max=8188 deadline=32442 ADCdrop=3962 FIFO=0 AUDunder=3966 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4563/8000 OUT=209/318 IN=657/1082 DSP=3858/4104 STAT=47/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446064873903800,
+        "utc": "2026-10-14T04:57:10.622374+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446064983540500,
+        "utc": "2026-10-14T04:57:10.732004+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446064985878700,
+        "utc": "2026-10-14T04:57:10.734341+00:00"
+      },
+      "request_to_first_line_ms": 109.6367,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 32858,
+        "adc_drops": 4013,
+        "fifo_overflows": 0,
+        "audio_underruns": 4017,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 36096,
+        "near_rail_samples": 40509
+      },
+      "total_latest_us": 4674,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4486,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 188,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 654,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3798,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 33,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=36096 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=4/16/28/3 Q=1941/2076/2205/87 MAG=156 AUD rms/peak=1209/2288 clips=40509",
+        "us=4674 max=8188 deadline=32858 ADCdrop=4013 FIFO=0 AUDunder=4017 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4486/8000 OUT=188/318 IN=654/1082 DSP=3798/4104 STAT=33/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446066873756800,
+        "utc": "2026-10-14T04:57:12.622235+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446066983726900,
+        "utc": "2026-10-14T04:57:12.732204+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446066985995200,
+        "utc": "2026-10-14T04:57:12.734471+00:00"
+      },
+      "request_to_first_line_ms": 109.9701,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 33274,
+        "adc_drops": 4064,
+        "fifo_overflows": 0,
+        "audio_underruns": 4068,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 36512,
+        "near_rail_samples": 41045
+      },
+      "total_latest_us": 4674,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4486,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 188,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 655,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3797,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 34,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=36512 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=5/16/27/3 Q=1942/2070/2211/87 MAG=159 AUD rms/peak=1197/2112 clips=41045",
+        "us=4674 max=8188 deadline=33274 ADCdrop=4064 FIFO=0 AUDunder=4068 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4486/8000 OUT=188/318 IN=655/1082 DSP=3797/4104 STAT=34/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446068873549500,
+        "utc": "2026-10-14T04:57:14.622045+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446068983866700,
+        "utc": "2026-10-14T04:57:14.732357+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446068988150600,
+        "utc": "2026-10-14T04:57:14.736640+00:00"
+      },
+      "request_to_first_line_ms": 110.3172,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 33690,
+        "adc_drops": 4115,
+        "fifo_overflows": 0,
+        "audio_underruns": 4119,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 36928,
+        "near_rail_samples": 41549
+      },
+      "total_latest_us": 4673,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4486,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 187,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 655,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3797,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 33,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=36928 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=6/16/34/3 Q=1942/2074/2206/86 MAG=159 AUD rms/peak=1194/2224 clips=41549",
+        "us=4673 max=8188 deadline=33690 ADCdrop=4115 FIFO=0 AUDunder=4119 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4486/8000 OUT=187/318 IN=655/1082 DSP=3797/4104 STAT=33/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446070873858400,
+        "utc": "2026-10-14T04:57:16.622368+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446070985029800,
+        "utc": "2026-10-14T04:57:16.733537+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446070991658400,
+        "utc": "2026-10-14T04:57:16.740161+00:00"
+      },
+      "request_to_first_line_ms": 111.1714,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 34106,
+        "adc_drops": 4166,
+        "fifo_overflows": 0,
+        "audio_underruns": 4170,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 37344,
+        "near_rail_samples": 42052
+      },
+      "total_latest_us": 4674,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4486,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 188,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 654,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3798,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 33,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=37344 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=2/16/26/3 Q=1943/2073/2207/86 MAG=161 AUD rms/peak=1211/2400 clips=42052",
+        "us=4674 max=8188 deadline=34106 ADCdrop=4166 FIFO=0 AUDunder=4170 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4486/8000 OUT=188/318 IN=654/1082 DSP=3798/4104 STAT=33/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446072873486600,
+        "utc": "2026-10-14T04:57:18.622005+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446072984721300,
+        "utc": "2026-10-14T04:57:18.733241+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446072990458300,
+        "utc": "2026-10-14T04:57:18.738974+00:00"
+      },
+      "request_to_first_line_ms": 111.2347,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 34522,
+        "adc_drops": 4216,
+        "fifo_overflows": 0,
+        "audio_underruns": 4221,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 37760,
+        "near_rail_samples": 42529
+      },
+      "total_latest_us": 4677,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4489,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 188,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 688,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3768,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 33,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=37760 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=5/16/28/3 Q=1941/2071/2207/87 MAG=161 AUD rms/peak=1191/2432 clips=42529",
+        "us=4677 max=8188 deadline=34522 ADCdrop=4216 FIFO=0 AUDunder=4221 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4489/8000 OUT=188/318 IN=688/1082 DSP=3768/4104 STAT=33/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446074874060400,
+        "utc": "2026-10-14T04:57:20.622597+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446074984733200,
+        "utc": "2026-10-14T04:57:20.733264+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446074987145200,
+        "utc": "2026-10-14T04:57:20.735674+00:00"
+      },
+      "request_to_first_line_ms": 110.6728,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 34970,
+        "adc_drops": 4272,
+        "fifo_overflows": 0,
+        "audio_underruns": 4276,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 38208,
+        "near_rail_samples": 43075
+      },
+      "total_latest_us": 4791,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4587,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 729,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3822,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 35,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=38208 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/16/27/4 Q=1937/2067/2206/89 MAG=159 AUD rms/peak=1211/2464 clips=43075",
+        "us=4791 max=8188 deadline=34970 ADCdrop=4272 FIFO=0 AUDunder=4276 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4587/8000 OUT=204/318 IN=729/1082 DSP=3822/4104 STAT=35/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446076873742600,
+        "utc": "2026-10-14T04:57:22.622291+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446076984715000,
+        "utc": "2026-10-14T04:57:22.733259+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446076987107200,
+        "utc": "2026-10-14T04:57:22.735650+00:00"
+      },
+      "request_to_first_line_ms": 110.9724,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 35386,
+        "adc_drops": 4323,
+        "fifo_overflows": 0,
+        "audio_underruns": 4327,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 38624,
+        "near_rail_samples": 43761
+      },
+      "total_latest_us": 4794,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4589,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 205,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 730,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3823,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 36,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=38624 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=3/16/33/3 Q=1915/2080/2205/89 MAG=159 AUD rms/peak=1204/2384 clips=43761",
+        "us=4794 max=8188 deadline=35386 ADCdrop=4323 FIFO=0 AUDunder=4327 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4589/8000 OUT=205/318 IN=730/1082 DSP=3823/4104 STAT=36/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446078873615400,
+        "utc": "2026-10-14T04:57:24.622177+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446078985525300,
+        "utc": "2026-10-14T04:57:24.734085+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446078992332600,
+        "utc": "2026-10-14T04:57:24.740889+00:00"
+      },
+      "request_to_first_line_ms": 111.9099,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 35802,
+        "adc_drops": 4374,
+        "fifo_overflows": 0,
+        "audio_underruns": 4378,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 39040,
+        "near_rail_samples": 44623
+      },
+      "total_latest_us": 4797,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4592,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 205,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 728,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3828,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 36,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=39040 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/16/30/4 Q=1937/2067/2210/89 MAG=157 AUD rms/peak=1220/2368 clips=44623",
+        "us=4797 max=8188 deadline=35802 ADCdrop=4374 FIFO=0 AUDunder=4378 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4592/8000 OUT=205/318 IN=728/1082 DSP=3828/4104 STAT=36/78 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446080873658400,
+        "utc": "2026-10-14T04:57:26.622235+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446080984956700,
+        "utc": "2026-10-14T04:57:26.733531+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446080991749700,
+        "utc": "2026-10-14T04:57:26.740319+00:00"
+      },
+      "request_to_first_line_ms": 111.2983,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 36218,
+        "adc_drops": 4425,
+        "fifo_overflows": 0,
+        "audio_underruns": 4429,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 39456,
+        "near_rail_samples": 45672
+      },
+      "total_latest_us": 4793,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4589,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 730,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3823,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 35,
+          "cumulative_max_since_boot_us": 82
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=39456 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=5/16/30/4 Q=1916/2080/2208/90 MAG=156 AUD rms/peak=1214/2208 clips=45672",
+        "us=4793 max=8188 deadline=36218 ADCdrop=4425 FIFO=0 AUDunder=4429 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4589/8000 OUT=204/318 IN=730/1082 DSP=3823/4104 STAT=35/82 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446082873905200,
+        "utc": "2026-10-14T04:57:28.622494+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446082985195200,
+        "utc": "2026-10-14T04:57:28.733782+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446082991940300,
+        "utc": "2026-10-14T04:57:28.740523+00:00"
+      },
+      "request_to_first_line_ms": 111.29,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 36634,
+        "adc_drops": 4476,
+        "fifo_overflows": 0,
+        "audio_underruns": 4480,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 39872,
+        "near_rail_samples": 46637
+      },
+      "total_latest_us": 4793,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4589,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 730,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3823,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 36,
+          "cumulative_max_since_boot_us": 82
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=39872 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/16/31/4 Q=1940/2067/2206/89 MAG=155 AUD rms/peak=1207/2192 clips=46637",
+        "us=4793 max=8188 deadline=36634 ADCdrop=4476 FIFO=0 AUDunder=4480 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4589/8000 OUT=204/318 IN=730/1082 DSP=3823/4104 STAT=36/82 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446084873538500,
+        "utc": "2026-10-14T04:57:30.622137+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446084984399700,
+        "utc": "2026-10-14T04:57:30.732997+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446084986985800,
+        "utc": "2026-10-14T04:57:30.735582+00:00"
+      },
+      "request_to_first_line_ms": 110.8612,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 37050,
+        "adc_drops": 4527,
+        "fifo_overflows": 0,
+        "audio_underruns": 4532,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 40288,
+        "near_rail_samples": 47618
+      },
+      "total_latest_us": 4815,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4611,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 746,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3829,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 36,
+          "cumulative_max_since_boot_us": 82
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=40288 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=3/16/31/4 Q=1941/2080/2206/89 MAG=155 AUD rms/peak=1207/2320 clips=47618",
+        "us=4815 max=8188 deadline=37050 ADCdrop=4527 FIFO=0 AUDunder=4532 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4611/8000 OUT=204/318 IN=746/1082 DSP=3829/4104 STAT=36/82 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446086873837500,
+        "utc": "2026-10-14T04:57:32.622454+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446086985640900,
+        "utc": "2026-10-14T04:57:32.734256+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446086993074600,
+        "utc": "2026-10-14T04:57:32.741684+00:00"
+      },
+      "request_to_first_line_ms": 111.8034,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 37466,
+        "adc_drops": 4578,
+        "fifo_overflows": 0,
+        "audio_underruns": 4582,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 40704,
+        "near_rail_samples": 48455
+      },
+      "total_latest_us": 4794,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4590,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 731,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3823,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 36,
+          "cumulative_max_since_boot_us": 82
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=40704 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/16/30/4 Q=1942/2068/2209/89 MAG=154 AUD rms/peak=1214/2368 clips=48455",
+        "us=4794 max=8188 deadline=37466 ADCdrop=4578 FIFO=0 AUDunder=4582 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4590/8000 OUT=204/318 IN=731/1082 DSP=3823/4104 STAT=36/82 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446088873514700,
+        "utc": "2026-10-14T04:57:34.622140+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446088983706500,
+        "utc": "2026-10-14T04:57:34.732332+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446088986303700,
+        "utc": "2026-10-14T04:57:34.734927+00:00"
+      },
+      "request_to_first_line_ms": 110.1918,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 37882,
+        "adc_drops": 4629,
+        "fifo_overflows": 0,
+        "audio_underruns": 4634,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 41120,
+        "near_rail_samples": 49773
+      },
+      "total_latest_us": 4817,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4613,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 747,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3829,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 35,
+          "cumulative_max_since_boot_us": 82
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=41120 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/16/30/4 Q=1942/2079/2210/89 MAG=154 AUD rms/peak=1227/2464 clips=49773",
+        "us=4817 max=8188 deadline=37882 ADCdrop=4629 FIFO=0 AUDunder=4634 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4613/8000 OUT=204/318 IN=747/1082 DSP=3829/4104 STAT=35/82 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446090873699600,
+        "utc": "2026-10-14T04:57:36.622342+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446090984767400,
+        "utc": "2026-10-14T04:57:36.733408+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446090991622400,
+        "utc": "2026-10-14T04:57:36.740259+00:00"
+      },
+      "request_to_first_line_ms": 111.0678,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 38298,
+        "adc_drops": 4680,
+        "fifo_overflows": 0,
+        "audio_underruns": 4684,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 41536,
+        "near_rail_samples": 51112
+      },
+      "total_latest_us": 4790,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4586,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 745,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3805,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 35,
+          "cumulative_max_since_boot_us": 82
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=41536 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/16/34/4 Q=1940/2069/2211/88 MAG=156 AUD rms/peak=1229/2480 clips=51112",
+        "us=4790 max=8188 deadline=38298 ADCdrop=4680 FIFO=0 AUDunder=4684 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4586/8000 OUT=204/318 IN=745/1082 DSP=3805/4104 STAT=35/82 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446092873840800,
+        "utc": "2026-10-14T04:57:38.622497+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446092984713600,
+        "utc": "2026-10-14T04:57:38.733368+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446092990527400,
+        "utc": "2026-10-14T04:57:38.739177+00:00"
+      },
+      "request_to_first_line_ms": 110.8728,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 38714,
+        "adc_drops": 4732,
+        "fifo_overflows": 0,
+        "audio_underruns": 4736,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 41952,
+        "near_rail_samples": 52720
+      },
+      "total_latest_us": 4791,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4587,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 728,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3823,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 35,
+          "cumulative_max_since_boot_us": 82
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=41952 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/16/30/4 Q=1941/2067/2209/89 MAG=156 AUD rms/peak=1192/2336 clips=52720",
+        "us=4791 max=8188 deadline=38714 ADCdrop=4732 FIFO=0 AUDunder=4736 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4587/8000 OUT=204/318 IN=728/1082 DSP=3823/4104 STAT=35/82 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446094873758000,
+        "utc": "2026-10-14T04:57:40.622427+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446094983842700,
+        "utc": "2026-10-14T04:57:40.732509+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446094987537000,
+        "utc": "2026-10-14T04:57:40.736200+00:00"
+      },
+      "request_to_first_line_ms": 110.0847,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 39130,
+        "adc_drops": 4783,
+        "fifo_overflows": 0,
+        "audio_underruns": 4787,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 42368,
+        "near_rail_samples": 54246
+      },
+      "total_latest_us": 4792,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4587,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 205,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 758,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3793,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 36,
+          "cumulative_max_since_boot_us": 82
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=42368 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=3/16/36/4 Q=1921/2080/2205/90 MAG=156 AUD rms/peak=1179/2224 clips=54246",
+        "us=4792 max=8188 deadline=39130 ADCdrop=4783 FIFO=0 AUDunder=4787 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4587/8000 OUT=205/318 IN=758/1082 DSP=3793/4104 STAT=36/82 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_sample",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446096873673200,
+        "utc": "2026-10-14T04:57:42.622354+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446096984610400,
+        "utc": "2026-10-14T04:57:42.733292+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446096989893400,
+        "utc": "2026-10-14T04:57:42.738570+00:00"
+      },
+      "request_to_first_line_ms": 110.9372,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 39546,
+        "adc_drops": 4834,
+        "fifo_overflows": 0,
+        "audio_underruns": 4838,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 42784,
+        "near_rail_samples": 55912
+      },
+      "total_latest_us": 4792,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4588,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 729,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3823,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 36,
+          "cumulative_max_since_boot_us": 82
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=42784 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=2/16/28/4 Q=1935/2066/2211/90 MAG=155 AUD rms/peak=1202/2192 clips=55912",
+        "us=4792 max=8188 deadline=39546 ADCdrop=4834 FIFO=0 AUDunder=4838 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4588/8000 OUT=204/318 IN=729/1082 DSP=3823/4104 STAT=36/82 FFT=0/3508"
+      ]
+    },
+    {
+      "phase": "interval_end",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446098873797900,
+        "utc": "2026-10-14T04:57:44.622494+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446098983427000,
+        "utc": "2026-10-14T04:57:44.732119+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446098986264700,
+        "utc": "2026-10-14T04:57:44.734955+00:00"
+      },
+      "request_to_first_line_ms": 109.6291,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 39962,
+        "adc_drops": 4885,
+        "fifo_overflows": 0,
+        "audio_underruns": 4889,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 43200,
+        "near_rail_samples": 57955
+      },
+      "total_latest_us": 4795,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4591,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 732,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3823,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 35,
+          "cumulative_max_since_boot_us": 82
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=43200 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1/16/35/4 Q=1935/2080/2205/90 MAG=156 AUD rms/peak=1200/2272 clips=57955",
+        "us=4795 max=8188 deadline=39962 ADCdrop=4885 FIFO=0 AUDunder=4889 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4591/8000 OUT=204/318 IN=732/1082 DSP=3823/4104 STAT=35/82 FFT=0/3508"
+      ]
+    }
+  ],
+  "constraints": "No rebuild, flash, reboot, counter reset, sampling/DSP changes or other receiver mode. Only preset 1 before settling; status queries during interval.",
+  "raw_log": "am-iq-timing-2026-10-14-run01.txt",
+  "assessment": "Intended two-input AM IQ test conditions NOT MET: user confirmed CH1 was OFF. Recorded interval failed timing/streaming under that condition; retain as CH1-off evidence, not a completed intended-condition test.",
+  "pre_selection": {
+    "phase": "before_preset_1",
+    "request": {
+      "command": "status",
+      "monotonic_ns": 446031003773000,
+      "utc": "2026-10-14T04:56:36.752004+00:00"
+    },
+    "first_line_received": {
+      "monotonic_ns": 446031121618000,
+      "utc": "2026-10-14T04:56:36.869854+00:00"
+    },
+    "complete_received": {
+      "monotonic_ns": 446031128758500,
+      "utc": "2026-10-14T04:56:36.876990+00:00"
+    },
+    "request_to_first_line_ms": 117.845,
+    "revision": 2,
+    "settings": {
+      "mode": "AM",
+      "input": "IQ",
+      "tune_Hz": -100,
+      "bw": 2,
+      "agc": 4,
+      "gain_log2": 4,
+      "volume_percent": 25,
+      "sq": -1,
+      "hang": 3,
+      "swap": 0,
+      "iqcorr": 0,
+      "deemph": 0,
+      "bass": 0,
+      "treble": 0,
+      "blanker": 0,
+      "notch": 0,
+      "nr": 0,
+      "smooth": 10,
+      "threshold": 1,
+      "cw": 700,
+      "gain_factor": 16
+    },
+    "counters": {
+      "deadline_misses": 25786,
+      "adc_drops": 3146,
+      "fifo_overflows": 0,
+      "audio_underruns": 3150,
+      "audio_drops": 0,
+      "late_dma_interrupts": 0,
+      "processed_blocks": 29024,
+      "near_rail_samples": 30356
+    },
+    "total_latest_us": 4672,
+    "total_cumulative_max_since_boot_us": 8188,
+    "stages": {
+      "PROC": {
+        "latest_us": 4484,
+        "cumulative_max_since_boot_us": 8000
+      },
+      "OUT": {
+        "latest_us": 188,
+        "cumulative_max_since_boot_us": 318
+      },
+      "IN": {
+        "latest_us": 654,
+        "cumulative_max_since_boot_us": 1082
+      },
+      "DSP": {
+        "latest_us": 3797,
+        "cumulative_max_since_boot_us": 3910
+      },
+      "STAT": {
+        "latest_us": 33,
+        "cumulative_max_since_boot_us": 78
+      },
+      "FFT": {
+        "latest_us": 0,
+        "cumulative_max_since_boot_us": 3508
+      }
+    },
+    "raw_lines": [
+      "B=29024 rev=2 AM IQ tune=-100 bw=2 agc=4 gain=2^4 vol=25",
+      "I min/mean/max/rms=5/16/29/3 Q=1942/2076/2205/87 MAG=157 AUD rms/peak=1226/2400 clips=30356",
+      "us=4672 max=8188 deadline=25786 ADCdrop=3146 FIFO=0 AUDunder=3150 AUDdrop=0 IRQlate=0",
+      "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+      "TIMING us latest/max PROC=4484/8000 OUT=188/318 IN=654/1082 DSP=3797/3910 STAT=33/78 FFT=0/3508"
+    ]
+  },
+  "confirmed_settings": {
+    "mode": "AM",
+    "input": "IQ",
+    "tune_Hz": 0,
+    "bw": 2,
+    "agc": 4,
+    "gain_log2": 4,
+    "volume_percent": 25,
+    "sq": -1,
+    "hang": 3,
+    "swap": 0,
+    "iqcorr": 0,
+    "deemph": 0,
+    "bass": 0,
+    "treble": 0,
+    "blanker": 0,
+    "notch": 0,
+    "nr": 0,
+    "smooth": 10,
+    "threshold": 1,
+    "cw": 700,
+    "gain_factor": 16
+  },
+  "settling_seconds_after_confirmed_AM": 5.1002195,
+  "interval": {
+    "timestamp_basis": "Difference between host perf_counter_ns reception timestamps for the first B= line in the selected start/end records; UTC timestamps also saved for every received line.",
+    "elapsed_seconds": 62.1100185,
+    "start": {
+      "phase": "interval_start",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446036774468800,
+        "utc": "2026-10-14T04:56:42.522749+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446036873408500,
+        "utc": "2026-10-14T04:56:42.621683+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446036879244900,
+        "utc": "2026-10-14T04:56:42.627516+00:00"
+      },
+      "request_to_first_line_ms": 98.9397,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 27002,
+        "adc_drops": 3295,
+        "fifo_overflows": 0,
+        "audio_underruns": 3299,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 30240,
+        "near_rail_samples": 32445
+      },
+      "total_latest_us": 4791,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4587,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 729,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3822,
+          "cumulative_max_since_boot_us": 3910
+        },
+        "STAT": {
+          "latest_us": 35,
+          "cumulative_max_since_boot_us": 78
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=30240 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/16/30/4 Q=1939/2077/2206/88 MAG=155 AUD rms/peak=1198/2128 clips=32445",
+        "us=4791 max=8188 deadline=27002 ADCdrop=3295 FIFO=0 AUDunder=3299 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4587/8000 OUT=204/318 IN=729/1082 DSP=3822/3910 STAT=35/78 FFT=0/3508"
+      ]
+    },
+    "end": {
+      "phase": "interval_end",
+      "request": {
+        "command": "status",
+        "monotonic_ns": 446098873797900,
+        "utc": "2026-10-14T04:57:44.622494+00:00"
+      },
+      "first_line_received": {
+        "monotonic_ns": 446098983427000,
+        "utc": "2026-10-14T04:57:44.732119+00:00"
+      },
+      "complete_received": {
+        "monotonic_ns": 446098986264700,
+        "utc": "2026-10-14T04:57:44.734955+00:00"
+      },
+      "request_to_first_line_ms": 109.6291,
+      "revision": 3,
+      "settings": {
+        "mode": "AM",
+        "input": "IQ",
+        "tune_Hz": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume_percent": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700,
+        "gain_factor": 16
+      },
+      "counters": {
+        "deadline_misses": 39962,
+        "adc_drops": 4885,
+        "fifo_overflows": 0,
+        "audio_underruns": 4889,
+        "audio_drops": 0,
+        "late_dma_interrupts": 0,
+        "processed_blocks": 43200,
+        "near_rail_samples": 57955
+      },
+      "total_latest_us": 4795,
+      "total_cumulative_max_since_boot_us": 8188,
+      "stages": {
+        "PROC": {
+          "latest_us": 4591,
+          "cumulative_max_since_boot_us": 8000
+        },
+        "OUT": {
+          "latest_us": 204,
+          "cumulative_max_since_boot_us": 318
+        },
+        "IN": {
+          "latest_us": 732,
+          "cumulative_max_since_boot_us": 1082
+        },
+        "DSP": {
+          "latest_us": 3823,
+          "cumulative_max_since_boot_us": 4104
+        },
+        "STAT": {
+          "latest_us": 35,
+          "cumulative_max_since_boot_us": 82
+        },
+        "FFT": {
+          "latest_us": 0,
+          "cumulative_max_since_boot_us": 3508
+        }
+      },
+      "raw_lines": [
+        "B=43200 rev=3 AM IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1/16/35/4 Q=1935/2080/2205/90 MAG=156 AUD rms/peak=1200/2272 clips=57955",
+        "us=4795 max=8188 deadline=39962 ADCdrop=4885 FIFO=0 AUDunder=4889 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=4591/8000 OUT=204/318 IN=732/1082 DSP=3823/4104 STAT=35/82 FFT=0/3508"
+      ]
+    },
+    "snapshot_count": 32,
+    "changes": {
+      "deadline_misses": 12960,
+      "adc_drops": 1590,
+      "fifo_overflows": 0,
+      "audio_underruns": 1590,
+      "audio_drops": 0,
+      "late_dma_interrupts": 0,
+      "processed_blocks": 12960,
+      "near_rail_samples": 25510
+    },
+    "approximate_blocks_per_second": 208.66198904770894,
+    "nominal_rate_compatible": false,
+    "endpoint_publication_and_serial_tolerance_blocks": 80.8833125,
+    "largest_sampled_total_latest_us": 4817,
+    "stages": {
+      "PROC": {
+        "start_latest_us": 4587,
+        "end_latest_us": 4591,
+        "largest_sampled_latest_us": 4613,
+        "start_cumulative_max_since_boot_us": 8000,
+        "end_cumulative_max_since_boot_us": 8000
+      },
+      "OUT": {
+        "start_latest_us": 204,
+        "end_latest_us": 204,
+        "largest_sampled_latest_us": 209,
+        "start_cumulative_max_since_boot_us": 318,
+        "end_cumulative_max_since_boot_us": 318
+      },
+      "IN": {
+        "start_latest_us": 729,
+        "end_latest_us": 732,
+        "largest_sampled_latest_us": 758,
+        "start_cumulative_max_since_boot_us": 1082,
+        "end_cumulative_max_since_boot_us": 1082
+      },
+      "DSP": {
+        "start_latest_us": 3822,
+        "end_latest_us": 3823,
+        "largest_sampled_latest_us": 3858,
+        "start_cumulative_max_since_boot_us": 3910,
+        "end_cumulative_max_since_boot_us": 4104
+      },
+      "STAT": {
+        "start_latest_us": 35,
+        "end_latest_us": 35,
+        "largest_sampled_latest_us": 47,
+        "start_cumulative_max_since_boot_us": 78,
+        "end_cumulative_max_since_boot_us": 82
+      },
+      "FFT": {
+        "start_latest_us": 0,
+        "end_latest_us": 0,
+        "largest_sampled_latest_us": 0,
+        "start_cumulative_max_since_boot_us": 3508,
+        "end_cumulative_max_since_boot_us": 3508
+      }
+    },
+    "timing_and_streaming_pass": false,
+    "streaming_faults_with_increases": [
+      "deadline_misses",
+      "adc_drops",
+      "audio_underruns"
+    ],
+    "input_condition_issue_near_rail_increase": true
+  },
+  "limitations": [
+    "Counters and maxima at interval start include earlier operation and the preset transition/settling. Only endpoint counter differences are attributed to this record interval.",
+    "Serial has no device timestamp. Reports contain a coherent status published every 32 processed blocks; host times are receive times, not exact block completion times.",
+    "Largest sampled latest timings do not capture every block. Stage maxima since boot may originate from different blocks and must not be summed.",
+    "Spectrum is prepared when the pre-increment block count is divisible by 64. Publication after increment at multiples of 32 misses those latest FFT values; FFT latest=0 does not imply zero spectrum cost. Its cumulative maximum is available.",
+    "No fresh scope readings or direct AFG queries. Earlier voltage measurements are not current verification.",
+    "Two unmodulated sine inputs test timing only; no demodulation-performance claim.",
+    "OLED/control responsiveness and P1/P4 captures remain unverified until the user confirms them.",
+    "User correction supersedes original stimulus description: CH1 was OFF. Near-zero I readings and near-rail counts occurred under this condition. A new run requires the intended inputs and a new user instruction."
+  ],
+  "user_stop": "Collection had already completed before stop request. No further serial commands, measurements or settings changes after request."
+}

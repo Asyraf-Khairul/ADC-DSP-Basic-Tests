@@ -1,5 +1,6 @@
 #include "bench.h"
 #include "basic_dsp.h"
+#include "input_statistics.h"
 #include "receiver_dsp/rx_dsp.h"
 #include "hardware/timer.h"
 #include <algorithm>
@@ -30,24 +31,19 @@ void apply_settings(const Settings &s) {
 }
 void process_samples(uint16_t *raw, int16_t *audio, Status &st) {
     uint32_t stage_start = time_us_32();
-    for (unsigned ch=0;ch<2;++ch) {
-        uint32_t sum=0; uint64_t squares=0;
-        uint16_t lo=4095,hi=0;
-        for (unsigned n=ch;n<ADC_WORDS;n+=2) {
-            auto v=raw[n]&4095u;
-            raw[n]=v; sum+=v; squares+=v*v;
-            lo=std::min<unsigned>(lo,v); hi=std::max<unsigned>(hi,v);
-            if(v<4 || v>4091) ++st.clips;
-        }
-        double mean=sum/1024.0;
-        st.mean[ch]=std::lround(mean); st.lo[ch]=lo; st.hi[ch]=hi;
-        st.rms[ch]=std::sqrt(std::max(0.0,squares/1024.0-mean*mean));
+    InputStatistics input;
+    collect_input_statistics(raw,input);
+    for(unsigned ch=0;ch<2;++ch) {
+        st.mean[ch]=input.mean[ch]; st.lo[ch]=input.lo[ch];
+        st.hi[ch]=input.hi[ch]; st.rms[ch]=input.rms[ch];
     }
+    st.clips+=input.near_rail;
     uint32_t stage_end = time_us_32();
     st.timing.input_stats.record(stage_end - stage_start);
     stage_start = stage_end;
     const auto &s=st.settings;
     if(s.mode==6) {
+        st.receiver_profile = {};
         st.magnitude=basic.process(raw,audio,s.gain);
     } else {
         if(s.input) for(unsigned n=0;n<ADC_WORDS;n+=2) {
@@ -55,6 +51,7 @@ void process_samples(uint16_t *raw, int16_t *audio, Status &st) {
             raw[n+1]=2048;
         }
         receiver.process_block(raw,audio,nullptr);
+        st.receiver_profile = receiver.profile;
         st.magnitude=receiver.get_magnitude();
         // Drain upstream's optional decoder queue; no bit decoder is implemented here.
         int16_t i,q; while(receiver.get_raw_data(i,q)) {}

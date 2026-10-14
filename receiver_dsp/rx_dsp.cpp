@@ -4,10 +4,36 @@
 #include "utils.h"
 #include "pico/stdlib.h"
 #include "cic_corrections.h"
+#include "spectrum_log.h"
 
 #include <math.h>
 #include <cstdio>
 #include <algorithm>
+
+namespace {
+// Same sixteen integrator updates and one comb update as the original CIC.
+// An axis gets one real sample and one zero per ADC pair. Keeping its four
+// accumulators local avoids storing/reloading eight members on every ADC word.
+// Unsigned arithmetic explicitly implements the baseline -fwrapv modulo 2^32.
+template<bool Early>
+inline __attribute__((always_inline)) int16_t cic_group(const uint16_t *raw,
+    int32_t &s1, int32_t &s2, int32_t &s3, int32_t &s4,
+    int32_t &d0, int32_t &d1, int32_t &d2, int32_t &d3) {
+    uint32_t a=s1,b=s2,c=s3,d=s4;
+    for(unsigned p=0;p<16;p+=2) {
+        const uint32_t x=uint32_t(int32_t(int16_t(raw[p+(Early?0:1)])));
+        if constexpr(Early) a+=x;
+        b+=a; c+=b; d+=c;
+        if constexpr(!Early) a+=x;
+        b+=a; c+=b; d+=c;
+    }
+    s1=int32_t(a); s2=int32_t(b); s3=int32_t(c); s4=int32_t(d);
+    const uint32_t c1=d-uint32_t(d0), c2=c1-uint32_t(d1);
+    const uint32_t c3=c2-uint32_t(d2), c4=c3-uint32_t(d3);
+    d0=int32_t(d); d1=int32_t(c1); d2=int32_t(c2); d3=int32_t(c3);
+    return int32_t(c4)>>(cic_bit_growth-extra_bits);
+}
+}
 
 static const int16_t deemph_taps[2][3] = {{14430, 14430, -3909}, {10571, 10571, -11626}};
 int16_t __not_in_flash_func(rx_dsp :: apply_deemphasis)(int16_t x)
@@ -216,24 +242,23 @@ void inline rx_dsp :: iq_imbalance_correction(int16_t &i, int16_t &q)
 
 uint16_t __not_in_flash_func(rx_dsp :: process_block)(uint16_t samples[], int16_t audio_samples[], ring_buffer_t *iq_samples)
 {
-
+  const uint32_t profile_start = receiver_profile_clock();
   uint16_t decimated_index = 0;
   int32_t magnitude_sum = 0;
   int16_t iq[2 * adc_block_size / cic_decimation_rate];
 
-  for(uint16_t idx=0; idx<adc_block_size; idx++)
+  static_assert(cic_decimation_rate == 16 && adc_block_size % 16 == 0);
+  for(uint16_t idx=0; idx<adc_block_size; idx+=16)
   {
-      //convert to signed representation
-      const int16_t raw_sample = samples[idx];
-
-      //work out which samples are i and q
-      int16_t i = ((idx&1)^1^swap_iq)*raw_sample;//even samples contain i data
-      int16_t q = ((idx&1)^swap_iq)*raw_sample;//odd samples contain q data
-
-      //reduce sample rate by a factor of 16
-      if(decimate(i, q))
+      int16_t i,q;
+      if(swap_iq) {
+          i=cic_group<false>(samples+idx,integratori1,integratori2,integratori3,integratori4,delayi0,delayi1,delayi2,delayi3);
+          q=cic_group<true>(samples+idx,integratorq1,integratorq2,integratorq3,integratorq4,delayq0,delayq1,delayq2,delayq3);
+      } else {
+          i=cic_group<true>(samples+idx,integratori1,integratori2,integratori3,integratori4,delayi0,delayi1,delayi2,delayi3);
+          q=cic_group<false>(samples+idx,integratorq1,integratorq2,integratorq3,integratorq4,delayq0,delayq1,delayq2,delayq3);
+      }
       {
-
         static uint32_t iq_count = 0;
         static int32_t i_accumulator = 0;
         static int32_t q_accumulator = 0;
@@ -278,11 +303,13 @@ uint16_t __not_in_flash_func(rx_dsp :: process_block)(uint16_t samples[], int16_
   }
 
   //fft filter decimates a further 2x
+  const uint32_t profile_cic_end = receiver_profile_clock();
   //if the capture buffer isn't in use, fill it
   filter_control.capture = sem_try_acquire(&spectrum_semaphore);
   capture_filter_control = filter_control;
   fft_filter_inst.process_sample(iq, filter_control, capture);
   if(filter_control.capture) sem_release(&spectrum_semaphore);
+  const uint32_t profile_filter_end = receiver_profile_clock();
 
   for(uint16_t idx=0; idx<adc_block_size/decimation_rate; idx++)
   {
@@ -325,6 +352,7 @@ uint16_t __not_in_flash_func(rx_dsp :: process_block)(uint16_t samples[], int16_
     audio_samples[idx] = audio;
   }
 
+  const uint32_t profile_demod_end = receiver_profile_clock();
   if (sem_try_acquire(&audio_semaphore)) {
     for (uint16_t idx = 0; idx < adc_block_size / decimation_rate; idx+=4) {
       audio_capture[audio_capture_idx * 16 + (idx / 4)] = audio_samples[idx];
@@ -344,7 +372,14 @@ uint16_t __not_in_flash_func(rx_dsp :: process_block)(uint16_t samples[], int16_
 
   //average over the number of samples
   signal_amplitude = (magnitude_sum * decimation_rate)/adc_block_size;
-
+  const uint32_t profile_end = receiver_profile_clock();
+  profile.cic_mix = profile_cic_end - profile_start;
+  profile.filter = profile_filter_end - profile_cic_end;
+  profile.demod_audio = profile_demod_end - profile_filter_end;
+  profile.capture = profile_end - profile_demod_end;
+  profile.fft_forward = fft_filter_inst.profile.fft_forward;
+  profile.fft_bins = fft_filter_inst.profile.fft_bins;
+  profile.fft_inverse = fft_filter_inst.profile.fft_inverse;
   return adc_block_size/decimation_rate;
 }
 
@@ -363,53 +398,6 @@ void __not_in_flash_func(rx_dsp :: frequency_shift)(int16_t &i, int16_t &q)
 
     i = i_shifted;
     q = q_shifted;
-}
-
-bool __not_in_flash_func(rx_dsp :: decimate)(int16_t &i, int16_t &q)
-{
-
-      //CIC decimation filter
-      //implement integrator stages
-      integratori1 += i;
-      integratorq1 += q;
-      integratori2 += integratori1;
-      integratorq2 += integratorq1;
-      integratori3 += integratori2;
-      integratorq3 += integratorq2;
-      integratori4 += integratori3;
-      integratorq4 += integratorq3;
-
-      decimate_count++;
-      if(decimate_count >= cic_decimation_rate)
-      {
-        decimate_count = 0;
-
-        //implement comb stages
-        const int32_t combi1 = integratori4-delayi0;
-        const int32_t combq1 = integratorq4-delayq0;
-        const int32_t combi2 = combi1-delayi1;
-        const int32_t combq2 = combq1-delayq1;
-        const int32_t combi3 = combi2-delayi2;
-        const int32_t combq3 = combq2-delayq2;
-        const int32_t combi4 = combi3-delayi3;
-        const int32_t combq4 = combq3-delayq3;
-        delayi0 = integratori4;
-        delayq0 = integratorq4;
-        delayi1 = combi1;
-        delayq1 = combq1;
-        delayi2 = combi2;
-        delayq2 = combq2;
-        delayi3 = combi3;
-        delayq3 = combq3;
-
-        //remove bit growth, but keep some extra bits since noise floor is now lower
-        i = combi4>>(cic_bit_growth-extra_bits);
-        q = combq4>>(cic_bit_growth-extra_bits);
-
-        return true;
-      }
-
-      return false;
 }
 
 // For the formulas see 'PicoRX/simulations/am_sync_des.py:pll_3rd_order_des'
@@ -625,6 +613,7 @@ rx_dsp :: rx_dsp()
   phase = 0;
   frequency=0;
   initialise_luts();
+  initialise_spectrum_logs();
   swap_iq = 0;
   iq_correction = 0;
 
@@ -642,7 +631,6 @@ rx_dsp :: rx_dsp()
   sem_init(&audio_semaphore, 1, 1);
 
   //clear cic filter
-  decimate_count=0;
   integratori1=0; integratorq1=0;
   integratori2=0; integratorq2=0;
   integratori3=0; integratorq3=0;
@@ -866,8 +854,8 @@ void rx_dsp :: get_spectrum(uint8_t spectrum[], uint8_t &dB10, uint8_t zoom)
   max=std::max<uint16_t>(new_max, lowest_max);
   min=std::max<uint16_t>(1, std::min<uint16_t>(new_min, max-1));
   zoom=std::clamp<uint8_t>(zoom, 1, 4);
-  const float logmin = log10f(min);
-  const float logmax = log10f(std::max(max, lowest_max));
+  const float logmin = spectrum_log(min);
+  const float logmax = spectrum_log(std::max(max, lowest_max));
 
   //clamp and convert to log scale 0 -> 255
   uint8_t temp_spectrum[256];
@@ -878,7 +866,7 @@ void rx_dsp :: get_spectrum(uint8_t spectrum[], uint8_t &dB10, uint8_t zoom)
     {
       temp_spectrum[fft_shift(i)] = 0u;
     } else {
-      const float normalised = 255.0f*(log10f(magnitude)-logmin)/(logmax-logmin);
+      const float normalised = 255.0f*(spectrum_log(magnitude)-logmin)/(logmax-logmin);
       const float clamped = std::max(std::min(normalised, 255.0f), 0.0f);
       temp_spectrum[fft_shift(i)] = clamped;
     }

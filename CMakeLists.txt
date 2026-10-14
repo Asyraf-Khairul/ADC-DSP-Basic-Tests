@@ -48,6 +48,7 @@ add_executable(adc_dsp_standalone
     ${BENCH_ENTRY}
     bench.cpp
     basic_dsp.cpp
+    input_statistics.cpp
     settings.cpp
     front_panel.cpp
     controls.cpp
@@ -60,9 +61,29 @@ add_executable(adc_dsp_standalone
     receiver_dsp/utils.cpp
     receiver_dsp/cic_corrections.cpp
     receiver_dsp/noise_reduction.cpp
+    receiver_dsp/spectrum_log.cpp
     receiver_dsp/ring_buffer_lib.c
 )
 target_include_directories(adc_dsp_standalone PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+set(BENCH_BUILD_LABEL "am-profile-v1" CACHE STRING "Human-readable firmware build label")
+file(GLOB BENCH_ID_FILES CONFIGURE_DEPENDS
+    "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/*.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/*.h" "${CMAKE_CURRENT_SOURCE_DIR}/receiver_dsp/*.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/receiver_dsp/*.c" "${CMAKE_CURRENT_SOURCE_DIR}/receiver_dsp/*.h")
+list(APPEND BENCH_ID_FILES "${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt" "${CMAKE_CURRENT_SOURCE_DIR}/build_identity.h.in")
+list(SORT BENCH_ID_FILES)
+set(BENCH_ID_CONTENT "${BENCH_BUILD_LABEL};${CMAKE_BUILD_TYPE};${BENCH_SELF_TEST};${BENCH_OPERATION_BENCHMARK}")
+foreach(BENCH_ID_FILE IN LISTS BENCH_ID_FILES)
+    set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${BENCH_ID_FILE}")
+    file(SHA256 "${BENCH_ID_FILE}" BENCH_FILE_SHA)
+    get_filename_component(BENCH_FILE_NAME "${BENCH_ID_FILE}" NAME)
+    string(APPEND BENCH_ID_CONTENT ";${BENCH_FILE_NAME}:${BENCH_FILE_SHA}")
+endforeach()
+string(SHA256 BENCH_SOURCE_SHA256 "${BENCH_ID_CONTENT}")
+execute_process(COMMAND git rev-parse HEAD WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+    OUTPUT_VARIABLE BENCH_BASE_COMMIT OUTPUT_STRIP_TRAILING_WHITESPACE)
+configure_file(build_identity.h.in build_identity.h @ONLY)
+target_include_directories(adc_dsp_standalone PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 
 target_link_libraries(adc_dsp_standalone PRIVATE
     pico_stdlib
