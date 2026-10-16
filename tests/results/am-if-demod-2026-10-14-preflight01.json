@@ -1,0 +1,177 @@
+{
+  "test": "Section 4.5.5 AM real-I demodulation preflight",
+  "publication_commit": "bfa22b8c150ee87c1808418a08cb066160e3834d",
+  "branch": "testing/am-iq-optimized",
+  "port": "COM8",
+  "device_serial": "E664A836A3704126",
+  "actions": [
+    {
+      "command": "help",
+      "monotonic_ns": 452392934918300,
+      "utc": "2026-10-14T06:42:38.963659+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 452394613534100,
+      "utc": "2026-10-14T06:42:40.642348+00:00"
+    }
+  ],
+  "records": [
+    {
+      "line": "",
+      "monotonic_ns": 452392939550900,
+      "utc": "2026-10-14T06:42:38.968291+00:00"
+    },
+    {
+      "line": "Pico ADC/DSP suite: commands are lowercase, one per line.",
+      "monotonic_ns": 452392941376600,
+      "utc": "2026-10-14T06:42:38.970116+00:00"
+    },
+    {
+      "line": "preset 0..8: BASIC, IQ-AM, IF-AM, IF-AMSYNC, IF-FM, IF-FSK, USB, LSB, IF-CW",
+      "monotonic_ns": 452392941920700,
+      "utc": "2026-10-14T06:42:38.970660+00:00"
+    },
+    {
+      "line": "mode basic|am|amsync|fm|usb|lsb|cw; input iq|i|q; tune -12000..12000 Hz",
+      "monotonic_ns": 452392942399300,
+      "utc": "2026-10-14T06:42:38.971139+00:00"
+    },
+    {
+      "line": "bw 0..4; agc 0=fast 1=medium 2=slow 3=long 4=manual; gain 0..10 (2^n)",
+      "monotonic_ns": 452392942865100,
+      "utc": "2026-10-14T06:42:38.971605+00:00"
+    },
+    {
+      "line": "volume 0..100; squelch -1=off or 0..12; hang 0..7; swap 0|1; iqcorr 0|1",
+      "monotonic_ns": 452392943331700,
+      "utc": "2026-10-14T06:42:38.972071+00:00"
+    },
+    {
+      "line": "deemph 0..2; bass/treble 0..4; blanker 0..6; notch/nr 0|1",
+      "monotonic_ns": 452392943710800,
+      "utc": "2026-10-14T06:42:38.972450+00:00"
+    },
+    {
+      "line": "smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz",
+      "monotonic_ns": 452392944099600,
+      "utc": "2026-10-14T06:42:38.972839+00:00"
+    },
+    {
+      "line": "page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.",
+      "monotonic_ns": 452392944667700,
+      "utc": "2026-10-14T06:42:38.973407+00:00"
+    },
+    {
+      "line": "BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.",
+      "monotonic_ns": 452392945181200,
+      "utc": "2026-10-14T06:42:38.973921+00:00"
+    },
+    {
+      "line": "measure start|stop: all-block timing window; cumulative diagnostics never reset.",
+      "monotonic_ns": 452392945702900,
+      "utc": "2026-10-14T06:42:38.974443+00:00"
+    },
+    {
+      "line": "BUILD label=am-optimized-v1 source_sha256=86d0e4fe2bd42cc00d51896696ec6402e11beee3f1282a7385d0eff4441f9497 base=34bde79a126fc4a7737a4e7194b63833e2aace05",
+      "monotonic_ns": 452392946683600,
+      "utc": "2026-10-14T06:42:38.975423+00:00"
+    },
+    {
+      "line": "INSTRUMENT sys_clock_Hz=120000000 timer_1024_reads_us=86 extra_receiver_timer_reads_per_block=9",
+      "monotonic_ns": 452392947302400,
+      "utc": "2026-10-14T06:42:38.976042+00:00"
+    },
+    {
+      "line": "B=75776 rev=1 AM IF-I tune=8000 bw=2 agc=4 gain=2^4 vol=25",
+      "monotonic_ns": 452394623609400,
+      "utc": "2026-10-14T06:42:40.652420+00:00"
+    },
+    {
+      "line": "I min/mean/max/rms=1987/2077/2161/46 Q=1940/2073/2203/87 MAG=65 AUD rms/peak=209/400 clips=189643",
+      "monotonic_ns": 452394625735900,
+      "utc": "2026-10-14T06:42:40.654543+00:00"
+    },
+    {
+      "line": "us=3458 max=4417 deadline=2 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+      "monotonic_ns": 452394626916300,
+      "utc": "2026-10-14T06:42:40.655723+00:00"
+    },
+    {
+      "line": "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+      "monotonic_ns": 452394628164300,
+      "utc": "2026-10-14T06:42:40.656971+00:00"
+    },
+    {
+      "line": "TIMING us latest/max PROC=3253/4194 OUT=205/284 IN=554/582 DSP=2663/2960 STAT=36/91 FFT=0/976",
+      "monotonic_ns": 452394629129100,
+      "utc": "2026-10-14T06:42:40.657936+00:00"
+    },
+    {
+      "line": "RX latest_us CICMIX=499 FILTER=1607 DEMOD=372 CAPTURE=2 FFTFWD=924 FFTBINS=227 FFTINV=388",
+      "monotonic_ns": 452394630209900,
+      "utc": "2026-10-14T06:42:40.659016+00:00"
+    },
+    {
+      "line": "MEASURE id=0 active=0 settings_changed=0",
+      "monotonic_ns": 452394630625700,
+      "utc": "2026-10-14T06:42:40.659432+00:00"
+    },
+    {
+      "line": "WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+      "monotonic_ns": 452394631510600,
+      "utc": "2026-10-14T06:42:40.660317+00:00"
+    },
+    {
+      "line": "WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+      "monotonic_ns": 452394632246200,
+      "utc": "2026-10-14T06:42:40.661053+00:00"
+    },
+    {
+      "line": "WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+      "monotonic_ns": 452394633210900,
+      "utc": "2026-10-14T06:42:40.662018+00:00"
+    },
+    {
+      "line": "WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+      "monotonic_ns": 452394634140100,
+      "utc": "2026-10-14T06:42:40.662947+00:00"
+    },
+    {
+      "line": "BOOKKEEP max_us=0 sum_us=0",
+      "monotonic_ns": 452394634310000,
+      "utc": "2026-10-14T06:42:40.663117+00:00"
+    },
+    {
+      "line": "ENDSTATUS",
+      "monotonic_ns": 452394634379300,
+      "utc": "2026-10-14T06:42:40.663186+00:00"
+    }
+  ],
+  "physical_setup": "Awaiting user confirmation and fresh instrument readings",
+  "audio_probe_location": "Unconfirmed",
+  "timing_verdict": "Not tested for this setup",
+  "demodulation_verdict": "Not tested",
+  "changes": "Read-only help/status commands; no rebuild, flash, reboot, settings change or cumulative-counter reset",
+  "artifact": {
+    "artifact": "am-optimized-v1.uf2",
+    "sha256": "0bca44e437d8579749c61407390c5f12f947c87a45c53818ebc00163f6768f92",
+    "bytes": 265728,
+    "source_identity": {
+      "BENCH_BUILD_LABEL": "am-optimized-v1",
+      "BENCH_SOURCE_SHA256": "86d0e4fe2bd42cc00d51896696ec6402e11beee3f1282a7385d0eff4441f9497",
+      "BENCH_BASE_COMMIT": "34bde79a126fc4a7737a4e7194b63833e2aace05"
+    },
+    "build_type": "Release",
+    "cxx_flags_release": "-g -O3 -DNDEBUG",
+    "additional_compile_option": "-fwrapv",
+    "BENCH_SELF_TEST": false,
+    "BENCH_OPERATION_BENCHMARK": false,
+    "arm_gcc": "13.3.1",
+    "pico_sdk": "2.1.0",
+    "hardware_evidence": "../results/am-iq-optimized-v1-2026-10-14-run01.json",
+    "note": "Exact hardware-tested image built before publication commit. Embedded base commit identifies its parent; source fingerprint identifies the local runtime source/configuration. Rebuilding after commit can change binary identity."
+  },
+  "runtime_source_identity_matches_tested_artifact": true,
+  "identity_limitation": "Serial build label/fingerprint verified when matched; no independent running-binary readback."
+}

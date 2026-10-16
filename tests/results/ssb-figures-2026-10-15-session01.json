@@ -1,0 +1,146 @@
+{
+  "session": "Subsequent USB/LSB figure verification; distinct from historical timing windows",
+  "client_local_date": "2026-10-15",
+  "timezone": "Pacific/Auckland",
+  "branch": "testing/fm-timing-optimized",
+  "commit": "63f6610e8ab9e894b30543816e5c8033ace43c4a",
+  "tracked_source_diff": "",
+  "actions": [
+    {
+      "command": "help",
+      "utc": "2026-10-15T05:56:49.189860+00:00",
+      "host_monotonic_ns": 536040948952100
+    },
+    {
+      "command": "status",
+      "utc": "2026-10-15T05:56:50.449534+00:00",
+      "host_monotonic_ns": 536042208572100
+    }
+  ],
+  "input_measurements": [
+    {
+      "recorded_utc": "2026-10-15T06:02:53.750190+00:00",
+      "source": "User manual scope readback",
+      "operator_reply": "its like 1.65 / 1.52 / 1.78 / 240mVpp",
+      "scope_channel": "CH1",
+      "pin": "GP27 I, after470ohm resistor as instructed",
+      "generator_displayed_Q_phase_deg": 90,
+      "mean_V": 1.65,
+      "minimum_V": 1.52,
+      "maximum_V": 1.78,
+      "reported_Vpp_V": 0.24,
+      "extrema_span_V": 0.26,
+      "precision": "Approximate manual readings; independent calibrated accuracy not established",
+      "input_range_assessment": "Reported extrema inside0-3.3V",
+      "readout_discrepancy": "Reported extrema span260mV while Vppreadout240mV; preserve both, no silent reconciliation. Readout timing/statistic selection unverified.",
+      "scope_configuration": "DCcoupling500mV/div,200us/div,matching10x probe/menu settings instructed; exact menu/switch state not independently confirmed."
+    },
+    {
+      "recorded_utc": "2026-10-15T06:04:19.811910+00:00",
+      "source": "User comparison with preceding GP27 scope readings",
+      "operator_reply": "same",
+      "scope_channel": "CH2",
+      "pin": "GP26 Q after470ohm resistor as instructed",
+      "generator_displayed_Q_phase_deg": 90,
+      "mean_V": 1.65,
+      "minimum_V": 1.52,
+      "maximum_V": 1.78,
+      "reported_Vpp_V": 0.24,
+      "extrema_span_V": 0.26,
+      "precision": "Approximate equality confirmed by user; not separately typed numerical CH2 readback. Does not establish exact amplitude matching.",
+      "input_range_assessment": "Reported same extrema asGP27,within0-3.3V",
+      "readout_discrepancy": "Same reported values retain260mV extrema-span versus240mV Vppreadout discrepancy; no silent correction."
+    }
+  ],
+  "captures": [],
+  "status": "Input figure verification incomplete: approximately45deg reported, not accepted as quadrature. Apply explicit AFG1022 interchannelFreqLock/PhaseDev setup, then remeasure actual separation/lead-lag.",
+  "ports": [
+    {
+      "device": "COM3",
+      "serial_number": null,
+      "description": "Intel(R) Active Management Technology - SOL (COM3)"
+    },
+    {
+      "device": "COM8",
+      "serial_number": "E664A836A3704126",
+      "description": "USB Serial Device (COM8)"
+    }
+  ],
+  "initial_output": [],
+  "help": [
+    "",
+    "Pico ADC/DSP suite: commands are lowercase, one per line.",
+    "preset 0..8: BASIC, IQ-AM, IF-AM, IF-AMSYNC, IF-FM, IF-FSK, USB, LSB, IF-CW",
+    "mode basic|am|amsync|fm|usb|lsb|cw; input iq|i|q; tune -12000..12000 Hz",
+    "bw 0..4; agc 0=fast 1=medium 2=slow 3=long 4=manual; gain 0..10 (2^n)",
+    "volume 0..100; squelch -1=off or 0..12; hang 0..7; swap 0|1; iqcorr 0|1",
+    "deemph 0..2; bass/treble 0..4; blanker 0..6; notch/nr 0|1",
+    "smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz",
+    "page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.",
+    "BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.",
+    "measure start|stop: all-block timing window; cumulative diagnostics never reset.",
+    "BUILD label=fm-optimized-v2 source_sha256=c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6 base=bfa22b8c150ee87c1808418a08cb066160e3834d",
+    "INSTRUMENT sys_clock_Hz=120000000 timer_1024_reads_us=87 extra_receiver_timer_reads_per_block=9"
+  ],
+  "starting_status": [
+    "B=1656608 rev=8 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+    "I min/mean/max/rms=1934/2076/2210/88 Q=1936/2079/2211/89 MAG=247 AUD rms/peak=2776/4016 clips=1059439",
+    "us=3170 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+    "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+    "TIMING us latest/max PROC=2965/3919 OUT=205/536 IN=553/582 DSP=2378/3288 STAT=34/120 FFT=0/929",
+    "RX latest_us CICMIX=498 FILTER=1451 DEMOD=342 CAPTURE=2 FFTFWD=861 FFTBINS=165 FFTINV=356",
+    "MEASURE id=2 active=0 settings_changed=0",
+    "WINDOW_START B=835805 rev=4 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3567089346",
+    "WINDOW_END B=850348 rev=4 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3629138661",
+    "WINDOW_ORDINARY N=14316 LATE=0 TOTAL=3643/45672379 IN=576/7918000 DSP=2718/34206802 STAT=95/500317 FFT=0/0 OUT=400/3037310 CICMIX=504/7140876 FILTER=1606/20855634 DEMOD=479/4941131 CAPTURE=22/35306 FFTFWD=911/12336552 FFTBINS=280/2435028 FFTINV=396/5103251",
+    "WINDOW_SPECTRUM N=227 LATE=0 TOTAL=4129/796121 IN=562/125690 DSP=2646/542521 STAT=74/7959 FFT=542/74644 OUT=306/44884 CICMIX=503/113216 FILTER=1574/330720 DEMOD=418/78412 CAPTURE=3/553 FFTFWD=896/195595 FFTBINS=226/38628 FFTINV=383/80943",
+    "BOOKKEEP max_us=35 sum_us=62515",
+    "ENDSTATUS"
+  ],
+  "expected_artifact": {
+    "artifact": "fm-optimized-v2.uf2",
+    "sha256": "77b8f17f2facca31221a7e537a34cc139ef9cc8a222d3e657b803949d3561e0e",
+    "bytes": 266240,
+    "source_identity": {
+      "BENCH_BUILD_LABEL": "fm-optimized-v2",
+      "BENCH_SOURCE_SHA256": "c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6",
+      "BENCH_BASE_COMMIT": "bfa22b8c150ee87c1808418a08cb066160e3834d"
+    },
+    "build_type": "Release",
+    "cxx_flags_release": "-g -O3 -DNDEBUG",
+    "additional_compile_option": "-fwrapv",
+    "BENCH_SELF_TEST": false,
+    "BENCH_OPERATION_BENCHMARK": false,
+    "arm_gcc": "13.3.1",
+    "pico_sdk": "2.1.0",
+    "hardware_evidence": "../results/fm-optimized-v2-timing-2026-10-15-run01.json",
+    "note": "Exact tested candidate v2, built before the local commit on testing/fm-timing-optimized. Runtime identity verified; no independent flash readback. See linked hardware result. Local commit only; not pushed."
+  },
+  "runtime_identity_matches": true,
+  "receiver_header_matches": true,
+  "raw_sha256": "fc6a4eddbd40a59e3f7188a7a61deeef473871d2b44d4fad427fb0f9c6d75b49",
+  "operator_updates": [
+    {
+      "recorded_utc": "2026-10-15T06:02:53.750179+00:00",
+      "reply": "i can",
+      "observation": "Operator reports both input sine waves visible following two-channel scope setup instructions; no capture yet."
+    },
+    {
+      "recorded_utc": "2026-10-15T06:18:29.166255+00:00",
+      "reply": "what is this for i cant get a clean signal im on 200mV/div and it says too small and clipping",
+      "observation": "Scope signal not clean; operator reports too-small and clipping indications at200mV/div. No screenshot or exact affected-channel/readout supplied.",
+      "interpretation": "Scope acquisition range/offset is a plausible issue with1.65V DC biased inputs; not proof of ADC input clipping or firmware failure. Need clean live acquisition before accepting phase capture.",
+      "proposed_scope_adjustment": "Both input channels DCcoupled,matching10x probe/menu; verticalPosition0,Offset+1.65V,Scale100mV/div; horizontal200us/div; triggerCH1rising at1.65V. Settings are instructions, not observed instrument state.",
+      "manual_reference": "Tektronix2SeriesMSOHelp analog channel menu; channelbadge doubletap exposesVerticalScale,Offset,Position. https://download.tek.com/manual/2-Series-MSO-Help_077171608.pdf"
+    },
+    {
+      "recorded_utc": "2026-10-15T06:22:36.603580+00:00",
+      "reply": "im not getting it cleanly why its like 45 deg apart",
+      "observation": "Operator reports phase approximately45degrees and not cleanly obtained; exact measurement source/reference and quality warning not supplied.",
+      "interpretation": "Physical quadrature not established. At1kHz a clean45degree separation corresponds to125us, not250us. Generator synchronization or scope measurement setup may be involved; no confirmed cause.",
+      "proposed_generator_correction": "AFG1022 InterCH menu:FreqLockON,PhaseDev90degrees. Manual statesPhaseDev valid only whenFreqLockON. Keep both1kHz sine and prior amplitudes/offsets. Do not infer successful90degree physical phase until scoped.",
+      "instruction_correction": "Earlier instructions described CH1phase0/CH2phase90 without ensuring AFG1022 interchannelFreqLock/PhaseDev setup; now explicitly corrected.",
+      "manual_reference": "https://download.tek.com/manual/AFG1022-Quick-Start-User-Manual-EN.pdf page44 Copy channel setting"
+    }
+  ]
+}

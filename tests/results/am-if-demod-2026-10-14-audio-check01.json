@@ -1,0 +1,149 @@
+{
+  "user_observation": "GP16 connects through filter to speaker; no sound heard",
+  "instrument_observations": "No scope readings or circuit image supplied; amplifier presence and speaker/load unknown",
+  "actions": [
+    {
+      "command": "status",
+      "monotonic_ns": 453862147028800,
+      "utc": "2026-10-14T07:07:08.224626+00:00"
+    },
+    {
+      "command": "status",
+      "monotonic_ns": 453863168765200,
+      "utc": "2026-10-14T07:07:09.246399+00:00"
+    }
+  ],
+  "records": [
+    {
+      "line": "B=419744 rev=1 AM IF-I tune=8000 bw=2 agc=4 gain=2^4 vol=25",
+      "monotonic_ns": 453862159835000,
+      "utc": "2026-10-14T07:07:08.237432+00:00"
+    },
+    {
+      "line": "I min/mean/max/rms=1984/2076/2161/45 Q=1939/2073/2206/87 MAG=65 AUD rms/peak=234/544 clips=189643",
+      "monotonic_ns": 453862160545200,
+      "utc": "2026-10-14T07:07:08.238141+00:00"
+    },
+    {
+      "line": "us=3460 max=4417 deadline=7 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+      "monotonic_ns": 453862161081800,
+      "utc": "2026-10-14T07:07:08.238677+00:00"
+    },
+    {
+      "line": "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+      "monotonic_ns": 453862161815600,
+      "utc": "2026-10-14T07:07:08.239411+00:00"
+    },
+    {
+      "line": "TIMING us latest/max PROC=3255/4194 OUT=205/360 IN=554/583 DSP=2663/3013 STAT=36/111 FFT=0/976",
+      "monotonic_ns": 453862162491500,
+      "utc": "2026-10-14T07:07:08.240087+00:00"
+    },
+    {
+      "line": "RX latest_us CICMIX=499 FILTER=1607 DEMOD=372 CAPTURE=2 FFTFWD=924 FFTBINS=227 FFTINV=387",
+      "monotonic_ns": 453862163104700,
+      "utc": "2026-10-14T07:07:08.240700+00:00"
+    },
+    {
+      "line": "MEASURE id=1 active=0 settings_changed=0",
+      "monotonic_ns": 453862163392200,
+      "utc": "2026-10-14T07:07:08.240988+00:00"
+    },
+    {
+      "line": "WINDOW_START B=375056 rev=1 deadline=6 clips=189643 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=1601226642",
+      "monotonic_ns": 453862164236700,
+      "utc": "2026-10-14T07:07:08.241832+00:00"
+    },
+    {
+      "line": "WINDOW_END B=389598 rev=1 deadline=6 clips=189643 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=1663272914",
+      "monotonic_ns": 453862165023900,
+      "utc": "2026-10-14T07:07:08.242620+00:00"
+    },
+    {
+      "line": "WINDOW_ORDINARY N=14315 LATE=0 TOTAL=3951/49073856 IN=581/7926366 DSP=2998/37831229 STAT=91/499342 FFT=0/0 OUT=360/2806242 CICMIX=504/7140579 FILTER=1805/22900519 DEMOD=468/5228037 CAPTURE=3/35345 FFTFWD=988/13205208 FFTBINS=363/3181391 FFTINV=440/5533008",
+      "monotonic_ns": 453862166714100,
+      "utc": "2026-10-14T07:07:08.244310+00:00"
+    },
+    {
+      "line": "WINDOW_SPECTRUM N=227 LATE=0 TOTAL=4203/925009 IN=560/125854 DSP=2706/599783 STAT=51/7904 FFT=717/146520 OUT=277/44678 CICMIX=503/113207 FILTER=1654/363136 DEMOD=387/82881 CAPTURE=3/556 FFTFWD=929/209362 FFTBINS=274/50489 FFTINV=390/87729",
+      "monotonic_ns": 453862168363000,
+      "utc": "2026-10-14T07:07:08.245960+00:00"
+    },
+    {
+      "line": "BOOKKEEP max_us=66 sum_us=60852",
+      "monotonic_ns": 453862168599700,
+      "utc": "2026-10-14T07:07:08.246195+00:00"
+    },
+    {
+      "line": "ENDSTATUS",
+      "monotonic_ns": 453862168679300,
+      "utc": "2026-10-14T07:07:08.246275+00:00"
+    },
+    {
+      "line": "B=419968 rev=1 AM IF-I tune=8000 bw=2 agc=4 gain=2^4 vol=25",
+      "monotonic_ns": 453863177880500,
+      "utc": "2026-10-14T07:07:09.255510+00:00"
+    },
+    {
+      "line": "I min/mean/max/rms=1985/2076/2168/46 Q=1939/2065/2205/89 MAG=66 AUD rms/peak=234/480 clips=189643",
+      "monotonic_ns": 453863181108700,
+      "utc": "2026-10-14T07:07:09.258737+00:00"
+    },
+    {
+      "line": "us=3460 max=4417 deadline=7 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+      "monotonic_ns": 453863182773600,
+      "utc": "2026-10-14T07:07:09.260399+00:00"
+    },
+    {
+      "line": "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+      "monotonic_ns": 453863184595200,
+      "utc": "2026-10-14T07:07:09.262221+00:00"
+    },
+    {
+      "line": "TIMING us latest/max PROC=3255/4194 OUT=205/360 IN=555/583 DSP=2663/3013 STAT=36/111 FFT=0/976",
+      "monotonic_ns": 453863185892600,
+      "utc": "2026-10-14T07:07:09.263518+00:00"
+    },
+    {
+      "line": "RX latest_us CICMIX=500 FILTER=1607 DEMOD=372 CAPTURE=3 FFTFWD=923 FFTBINS=228 FFTINV=387",
+      "monotonic_ns": 453863186874700,
+      "utc": "2026-10-14T07:07:09.264500+00:00"
+    },
+    {
+      "line": "MEASURE id=1 active=0 settings_changed=0",
+      "monotonic_ns": 453863187251000,
+      "utc": "2026-10-14T07:07:09.264876+00:00"
+    },
+    {
+      "line": "WINDOW_START B=375056 rev=1 deadline=6 clips=189643 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=1601226642",
+      "monotonic_ns": 453863188222900,
+      "utc": "2026-10-14T07:07:09.265848+00:00"
+    },
+    {
+      "line": "WINDOW_END B=389598 rev=1 deadline=6 clips=189643 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=1663272914",
+      "monotonic_ns": 453863189027800,
+      "utc": "2026-10-14T07:07:09.266653+00:00"
+    },
+    {
+      "line": "WINDOW_ORDINARY N=14315 LATE=0 TOTAL=3951/49073856 IN=581/7926366 DSP=2998/37831229 STAT=91/499342 FFT=0/0 OUT=360/2806242 CICMIX=504/7140579 FILTER=1805/22900519 DEMOD=468/5228037 CAPTURE=3/35345 FFTFWD=988/13205208 FFTBINS=363/3181391 FFTINV=440/5533008",
+      "monotonic_ns": 453863190684700,
+      "utc": "2026-10-14T07:07:09.268310+00:00"
+    },
+    {
+      "line": "WINDOW_SPECTRUM N=227 LATE=0 TOTAL=4203/925009 IN=560/125854 DSP=2706/599783 STAT=51/7904 FFT=717/146520 OUT=277/44678 CICMIX=503/113207 FILTER=1654/363136 DEMOD=387/82881 CAPTURE=3/556 FFTFWD=929/209362 FFTBINS=274/50489 FFTINV=390/87729",
+      "monotonic_ns": 453863192328000,
+      "utc": "2026-10-14T07:07:09.269953+00:00"
+    },
+    {
+      "line": "BOOKKEEP max_us=66 sum_us=60852",
+      "monotonic_ns": 453863192549400,
+      "utc": "2026-10-14T07:07:09.270175+00:00"
+    },
+    {
+      "line": "ENDSTATUS",
+      "monotonic_ns": 453863192625600,
+      "utc": "2026-10-14T07:07:09.270251+00:00"
+    }
+  ],
+  "changes": "Read-only status; no settings, wiring or counter changes"
+}

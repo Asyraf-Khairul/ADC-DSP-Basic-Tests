@@ -1,0 +1,738 @@
+{
+  "test": "USB/LSB direct ADC injection, Section4.5.7",
+  "local_date": "2026-10-15 Pacific/Auckland",
+  "branch": "testing/fm-timing-optimized",
+  "commit": "63f6610e8ab9e894b30543816e5c8033ace43c4a",
+  "runtime_identity": {
+    "BENCH_BUILD_LABEL": "fm-optimized-v2",
+    "BENCH_SOURCE_SHA256": "c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6",
+    "BENCH_BASE_COMMIT": "bfa22b8c150ee87c1808418a08cb066160e3834d"
+  },
+  "artifact_sha256": "77b8f17f2facca31221a7e537a34cc139ef9cc8a222d3e657b803949d3561e0e",
+  "firmware_changes": "None; host-only collector added. Mode and gain selected through supported serial commands before measurements; no sampling/counter/deadline changes.",
+  "operator_scope_verification_waiver": "User stated inputs same as expected and requested tests run; no fresh scope numerical voltage or physical phase observations supplied.",
+  "physical_input_phase_verified": false,
+  "generator_phase_label": "Q displayed90deg; physical phase not verified",
+  "generator_settings": "Both generator channels instructed continuous1kHz sine,300mVpp High-Z,+2.5V offset, modulationoff,CH1phase0 CH2phase90; CH1 via retained divider GP27 I, CH2 via retained divider GP26 Q; mixer disconnected instructed. Operator replied set then asked to run without fresh scope verification.",
+  "runs": {
+    "USB": {
+      "name": "ssb-usb-timing-2026-10-15-run01",
+      "interval": {
+        "host_first_start_record_to_stopped_record_seconds": 62.0441702,
+        "device_capture_seconds": 62.046212,
+        "host_start_command": {
+          "command": "measure start",
+          "mono_ns": 532467950423000,
+          "utc": "2026-10-15T04:57:16.059103+00:00"
+        },
+        "host_stop_command": {
+          "command": "measure stop",
+          "mono_ns": 532529995585800,
+          "utc": "2026-10-15T04:58:18.107027+00:00"
+        },
+        "start": {
+          "B": 818870,
+          "rev": 3,
+          "deadline": 0,
+          "clips": 1059439,
+          "ADCdrop": 0,
+          "FIFO": 0,
+          "AUDunder": 0,
+          "AUDdrop": 0,
+          "IRQlate": 0,
+          "device_us": 3494832469
+        },
+        "end": {
+          "B": 833412,
+          "rev": 3,
+          "deadline": 0,
+          "clips": 1059439,
+          "ADCdrop": 0,
+          "FIFO": 0,
+          "AUDunder": 0,
+          "AUDdrop": 0,
+          "IRQlate": 0,
+          "device_us": 3556878681
+        },
+        "counter_increases": {
+          "B": 14542,
+          "deadline": 0,
+          "clips": 0,
+          "ADCdrop": 0,
+          "FIFO": 0,
+          "AUDunder": 0,
+          "AUDdrop": 0,
+          "IRQlate": 0
+        },
+        "blocks_per_second": 234.37369552874557,
+        "groups": {
+          "ORDINARY": {
+            "N": 14314,
+            "LATE": 0,
+            "stages": {
+              "TOTAL": {
+                "max_us": 3656,
+                "sum_us": 45641189
+              },
+              "IN": {
+                "max_us": 582,
+                "sum_us": 7917015
+              },
+              "DSP": {
+                "max_us": 2712,
+                "sum_us": 34182399
+              },
+              "STAT": {
+                "max_us": 90,
+                "sum_us": 496576
+              },
+              "FFT": {
+                "max_us": 0,
+                "sum_us": 0
+              },
+              "OUT": {
+                "max_us": 353,
+                "sum_us": 3035192
+              },
+              "CICMIX": {
+                "max_us": 504,
+                "sum_us": 7139707
+              },
+              "FILTER": {
+                "max_us": 1620,
+                "sum_us": 20833868
+              },
+              "DEMOD": {
+                "max_us": 469,
+                "sum_us": 4939982
+              },
+              "CAPTURE": {
+                "max_us": 3,
+                "sum_us": 35369
+              },
+              "FFTFWD": {
+                "max_us": 933,
+                "sum_us": 12335011
+              },
+              "FFTBINS": {
+                "max_us": 277,
+                "sum_us": 2414995
+              },
+              "FFTINV": {
+                "max_us": 397,
+                "sum_us": 5102817
+              }
+            }
+          },
+          "SPECTRUM": {
+            "N": 228,
+            "LATE": 0,
+            "stages": {
+              "TOTAL": {
+                "max_us": 3867,
+                "sum_us": 798424
+              },
+              "IN": {
+                "max_us": 561,
+                "sum_us": 126240
+              },
+              "DSP": {
+                "max_us": 2512,
+                "sum_us": 544497
+              },
+              "STAT": {
+                "max_us": 59,
+                "sum_us": 7897
+              },
+              "FFT": {
+                "max_us": 434,
+                "sum_us": 74378
+              },
+              "OUT": {
+                "max_us": 306,
+                "sum_us": 44997
+              },
+              "CICMIX": {
+                "max_us": 503,
+                "sum_us": 113715
+              },
+              "FILTER": {
+                "max_us": 1482,
+                "sum_us": 331787
+              },
+              "DEMOD": {
+                "max_us": 413,
+                "sum_us": 78711
+              },
+              "CAPTURE": {
+                "max_us": 3,
+                "sum_us": 576
+              },
+              "FFTFWD": {
+                "max_us": 870,
+                "sum_us": 196438
+              },
+              "FFTBINS": {
+                "max_us": 187,
+                "sum_us": 38445
+              },
+              "FFTINV": {
+                "max_us": 360,
+                "sum_us": 81273
+              }
+            }
+          }
+        },
+        "all_block_maximum_total_us": 3867,
+        "headroom_us": 399,
+        "sampled_latest_max_us": 3216,
+        "cumulative_max_since_boot_at_start_us": 4229,
+        "cumulative_max_since_boot_at_end_us": 4229,
+        "start_revision": 3,
+        "end_revision": 3,
+        "bookkeeping": {
+          "max_us": 65,
+          "sum_us": 62684
+        },
+        "pass_timing_and_streaming": true,
+        "near_rail_increase": 0,
+        "scope_input_limits_verified": false
+      },
+      "assessment": "PASS observed USB IQ timing and serial input-condition interval",
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "digital_audio_snapshots": {
+        "rms_min": 2756,
+        "rms_max": 2874,
+        "peak_min": 3968,
+        "peak_max": 4080,
+        "limitation": "Broadband digital samples before volume/PWM, not selective electrical-output tone level"
+      },
+      "raw_sha256": "4def9e4b4813904f8ea734bf1307072e64347895cfd78686f61d83279ec285bb"
+    },
+    "LSB": {
+      "name": "ssb-lsb-timing-2026-10-15-run01",
+      "interval": {
+        "host_first_start_record_to_stopped_record_seconds": 62.0475246,
+        "device_capture_seconds": 62.049315,
+        "host_start_command": {
+          "command": "measure start",
+          "mono_ns": 532540204268500,
+          "utc": "2026-10-15T04:58:28.316165+00:00"
+        },
+        "host_stop_command": {
+          "command": "measure stop",
+          "mono_ns": 532602252888300,
+          "utc": "2026-10-15T04:59:30.367489+00:00"
+        },
+        "start": {
+          "B": 835805,
+          "rev": 4,
+          "deadline": 0,
+          "clips": 1059439,
+          "ADCdrop": 0,
+          "FIFO": 0,
+          "AUDunder": 0,
+          "AUDdrop": 0,
+          "IRQlate": 0,
+          "device_us": 3567089346
+        },
+        "end": {
+          "B": 850348,
+          "rev": 4,
+          "deadline": 0,
+          "clips": 1059439,
+          "ADCdrop": 0,
+          "FIFO": 0,
+          "AUDunder": 0,
+          "AUDdrop": 0,
+          "IRQlate": 0,
+          "device_us": 3629138661
+        },
+        "counter_increases": {
+          "B": 14543,
+          "deadline": 0,
+          "clips": 0,
+          "ADCdrop": 0,
+          "FIFO": 0,
+          "AUDunder": 0,
+          "AUDdrop": 0,
+          "IRQlate": 0
+        },
+        "blocks_per_second": 234.37809103936118,
+        "groups": {
+          "ORDINARY": {
+            "N": 14316,
+            "LATE": 0,
+            "stages": {
+              "TOTAL": {
+                "max_us": 3643,
+                "sum_us": 45672379
+              },
+              "IN": {
+                "max_us": 576,
+                "sum_us": 7918000
+              },
+              "DSP": {
+                "max_us": 2718,
+                "sum_us": 34206802
+              },
+              "STAT": {
+                "max_us": 95,
+                "sum_us": 500317
+              },
+              "FFT": {
+                "max_us": 0,
+                "sum_us": 0
+              },
+              "OUT": {
+                "max_us": 400,
+                "sum_us": 3037310
+              },
+              "CICMIX": {
+                "max_us": 504,
+                "sum_us": 7140876
+              },
+              "FILTER": {
+                "max_us": 1606,
+                "sum_us": 20855634
+              },
+              "DEMOD": {
+                "max_us": 479,
+                "sum_us": 4941131
+              },
+              "CAPTURE": {
+                "max_us": 22,
+                "sum_us": 35306
+              },
+              "FFTFWD": {
+                "max_us": 911,
+                "sum_us": 12336552
+              },
+              "FFTBINS": {
+                "max_us": 280,
+                "sum_us": 2435028
+              },
+              "FFTINV": {
+                "max_us": 396,
+                "sum_us": 5103251
+              }
+            }
+          },
+          "SPECTRUM": {
+            "N": 227,
+            "LATE": 0,
+            "stages": {
+              "TOTAL": {
+                "max_us": 4129,
+                "sum_us": 796121
+              },
+              "IN": {
+                "max_us": 562,
+                "sum_us": 125690
+              },
+              "DSP": {
+                "max_us": 2646,
+                "sum_us": 542521
+              },
+              "STAT": {
+                "max_us": 74,
+                "sum_us": 7959
+              },
+              "FFT": {
+                "max_us": 542,
+                "sum_us": 74644
+              },
+              "OUT": {
+                "max_us": 306,
+                "sum_us": 44884
+              },
+              "CICMIX": {
+                "max_us": 503,
+                "sum_us": 113216
+              },
+              "FILTER": {
+                "max_us": 1574,
+                "sum_us": 330720
+              },
+              "DEMOD": {
+                "max_us": 418,
+                "sum_us": 78412
+              },
+              "CAPTURE": {
+                "max_us": 3,
+                "sum_us": 553
+              },
+              "FFTFWD": {
+                "max_us": 896,
+                "sum_us": 195595
+              },
+              "FFTBINS": {
+                "max_us": 226,
+                "sum_us": 38628
+              },
+              "FFTINV": {
+                "max_us": 383,
+                "sum_us": 80943
+              }
+            }
+          }
+        },
+        "all_block_maximum_total_us": 4129,
+        "headroom_us": 137,
+        "sampled_latest_max_us": 3212,
+        "cumulative_max_since_boot_at_start_us": 4229,
+        "cumulative_max_since_boot_at_end_us": 4229,
+        "start_revision": 4,
+        "end_revision": 4,
+        "bookkeeping": {
+          "max_us": 35,
+          "sum_us": 62515
+        },
+        "pass_timing_and_streaming": true,
+        "near_rail_increase": 0,
+        "scope_input_limits_verified": false
+      },
+      "assessment": "PASS observed LSB IQ timing and serial input-condition interval",
+      "settings": {
+        "mode": "LSB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "digital_audio_snapshots": {
+        "rms_min": 318,
+        "rms_max": 343,
+        "peak_min": 480,
+        "peak_max": 560,
+        "limitation": "Broadband digital samples before volume/PWM, not selective electrical-output tone level"
+      },
+      "raw_sha256": "7643e95ce1f90b00dc4f4bd8052b1f974541b67df6c1c46b868aa81a13620be3"
+    }
+  },
+  "functional_combinations": [
+    {
+      "displayed_Q_phase_deg": 90,
+      "mode": "USB",
+      "electrical_output_frequency_Hz": null,
+      "electrical_output_FFT_level_dBm": -43,
+      "physical_phase_verified": false,
+      "verdict": "Tone visible; exact recovered frequency pending numerical readback",
+      "tone_visibility": "Visible peak near1kHz per user"
+    },
+    {
+      "displayed_Q_phase_deg": 270,
+      "mode": "USB",
+      "electrical_output_frequency_Hz": null,
+      "electrical_output_FFT_level_dBm": null,
+      "physical_phase_verified": false,
+      "verdict": "No visible1kHz tone; background approximately -72dBm; background-limited measurement",
+      "tone_visibility": "Unresolved in background per user",
+      "background_dBm": -72
+    },
+    {
+      "displayed_Q_phase_deg": 90,
+      "mode": "LSB",
+      "electrical_output_frequency_Hz": null,
+      "electrical_output_FFT_level_dBm": null,
+      "physical_phase_verified": false,
+      "verdict": "No visible1kHz tone; background approximately -75dBm; noise-floor-limited unwanted measurement",
+      "tone_visibility": "unresolved",
+      "background_dBm": -75
+    },
+    {
+      "displayed_Q_phase_deg": 270,
+      "mode": "LSB",
+      "electrical_output_frequency_Hz": null,
+      "electrical_output_FFT_level_dBm": -43,
+      "physical_phase_verified": false,
+      "verdict": "Strong tone observed; numerical output frequency pending",
+      "tone_visibility": "Peak near1kHz returned"
+    }
+  ],
+  "functional_verdict": "Reported electrical strong/weak response swaps with generatorQ90to270:USBstrong at90 andLSBstrong at270. Strong peaks -43dBm; opposite-mode tones unresolved into -75/-72dBm backgrounds. Reference returns to approximately1kHz/-43dBm. Supports proposed15dB target as background-limited comparisons; physical quadrature/lead-lag and precise frequency unverified, so no full controlled-quadrature verification claim.",
+  "audibility": "User reports no audible speaker tone in strong USB condition at gainx16,volume25.",
+  "photographs": "Not saved yet; user says they can save them later. No filenames supplied. Later captures must be labeled with actual acquisition conditions/date.",
+  "publication": "Local evidence only; no commit or push",
+  "broadband_digital_comparison": {
+    "USB_median_AUD_RMS": 2818,
+    "LSB_median_AUD_RMS": 334,
+    "ratio": 8.437125748502995,
+    "difference_dB": 18.523890439235466,
+    "limitation": "Broadband pre-volume/pre-PWM snapshots under unverified physical phase; not selective electrical 1kHz rejection and not an accepted15dB bench result."
+  },
+  "preexisting_history": {
+    "near_rail_count_at_first_connected_preflight": 77973,
+    "near_rail_at_final_gain_selection": 1059439,
+    "interpretation": "Input near-rail detections increased during setup before these fixed windows. Their precise cause/time is unverified. No new detections within the accepted windows must not be generalized to the entire setup session."
+  },
+  "operator_observations": [
+    {
+      "recorded_utc": "2026-10-15T05:06:40.461079+00:00",
+      "operator_reply": "i dont see it",
+      "source": "User scope FFT observation after LSB output-measurement instructions",
+      "mode": "LSB",
+      "displayed_Q_phase_deg": 90,
+      "physical_Q_phase_verified": false,
+      "frequency_of_interest_Hz": 1000,
+      "tone_visibility": "No peak visible per user",
+      "frequency_measurement_Hz": null,
+      "FFT_level_dBm": null,
+      "scope_setup": "CH1 R1/C2 output node, AC coupling,10 ms/div, FFT sourceCH1 span0-2kHz instructed; exact current settings/probe point not independently verified",
+      "interpretation": "Unresolved tone, not zero output or quantified rejection. Need background reading near1kHz under unchanged settings."
+    },
+    {
+      "recorded_utc": "2026-10-15T05:07:38.405818+00:00",
+      "operator_reply": "like -75dBm",
+      "source": "User FFT background readback",
+      "mode": "LSB",
+      "displayed_Q_phase_deg": 90,
+      "physical_phase_verified": false,
+      "frequency_of_interest_Hz": 1000,
+      "background_dBm": -75,
+      "tone_visibility": "Unresolved; user previously reported no visible peak",
+      "interpretation": "Measurement floor only; not an exact unwanted-tone level. Same scope/generator settings instructed."
+    },
+    {
+      "recorded_utc": "2026-10-15T05:08:36.079640+00:00",
+      "operator_reply": "yes i do its -43dBm",
+      "source": "User filtered-output FFT observation after serial USB mode selection",
+      "mode": "USB",
+      "displayed_Q_phase_deg": 90,
+      "physical_phase_verified": false,
+      "tone_visibility": "Visible peak near1kHz confirmed in response to question",
+      "FFT_level_dBm": -43,
+      "measured_frequency_Hz": null,
+      "frequency_provenance": "User confirms peak near requested1kHz; no numerical frequency/cursor readback supplied",
+      "receiver_settings": "Serial verified USB IQ tune0 BW2 manualgainx16 volume25 effects off",
+      "scope_reference": "Unchanged scope and generator settings instructed; FFT window/reference not independently supplied"
+    },
+    {
+      "recorded_utc": "2026-10-15T05:09:23.493919+00:00",
+      "operator_reply": "yes it disappear its background level",
+      "source": "User FFT observation after instructed generator CH2 phase90to270 change",
+      "mode": "USB",
+      "displayed_Q_phase_deg": 270,
+      "physical_phase_verified": false,
+      "frequency_of_interest_Hz": 1000,
+      "tone_visibility": "Peak disappeared into background per user",
+      "background_dBm": null,
+      "interpretation": "USB strong/weak response changed when displayed Q phase reversed. Numerical floor and LSB counterpart pending; physical phase reversal not independently scoped."
+    },
+    {
+      "recorded_utc": "2026-10-15T05:10:17.484105+00:00",
+      "operator_reply": "-72dBm",
+      "source": "User FFT background readback",
+      "mode": "USB",
+      "displayed_Q_phase_deg": 270,
+      "physical_phase_verified": false,
+      "frequency_of_interest_Hz": 1000,
+      "background_dBm": -72,
+      "tone_visibility": "Unresolved; user previously reported peak disappeared",
+      "interpretation": "Background floor only; not an exact residual-tone level."
+    },
+    {
+      "recorded_utc": "2026-10-15T05:24:26.487060+00:00",
+      "operator_reply": "yes it did ist at -43dBm",
+      "source": "User FFT observation after serial LSB mode selection",
+      "mode": "LSB",
+      "displayed_Q_phase_deg": 270,
+      "physical_phase_verified": false,
+      "tone_visibility": "Peak near1kHz returned per user",
+      "FFT_level_dBm": -43,
+      "measured_frequency_Hz": null,
+      "frequency_provenance": "No numerical frequency/cursor readback supplied; near1kHz confirmed in response to question",
+      "scope_settings": "Unchanged instructed; exact full scope readbacks/reference not supplied"
+    },
+    {
+      "recorded_utc": "2026-10-15T05:26:14.114956+00:00",
+      "operator_reply": "yes it is",
+      "source": "User confirmation after request to restore generatorQ90 withUSB and report returning peak near1kHz/-43dBm",
+      "mode": "USB",
+      "displayed_Q_phase_deg": 90,
+      "physical_phase_verified": false,
+      "reported_frequency_Hz": 1000,
+      "frequency_precision": "Approximately1kHz confirmed to a prompted value; no independent numerical cursor readback or uncertainty supplied",
+      "FFT_level_dBm": -43,
+      "level_precision": "Approximately -43dBm confirmed to prompted reference",
+      "test": "Initial strong-condition repeat",
+      "repeatability": "Returns to same reported frequency/level; not a calibrated repeatability or drift measurement"
+    }
+  ],
+  "mode_transitions": [
+    {
+      "evidence": "ssb-mode-switch-2026-10-15-run01.json",
+      "verified_mode": "USB",
+      "error": null,
+      "settings": "IQ tune0 BW2 gainx16 volume25 unchanged; no reset/reboot",
+      "scope_comparison": "Generator and scope unchanged instructed; physical phase unverified"
+    },
+    {
+      "evidence": "ssb-mode-switch-2026-10-15-run02.json",
+      "verified_mode": "LSB",
+      "error": null,
+      "settings": "IQ tune0 BW2 gainx16 volume25 unchanged; no reset/reboot",
+      "displayed_Q_phase_deg": 270,
+      "physical_phase_verified": false
+    },
+    {
+      "evidence": "ssb-mode-switch-2026-10-15-run03.json",
+      "verified_mode": "USB",
+      "error": null,
+      "purpose": "Prepare USBQ90 reference repeat; operator phase change next",
+      "settings": "Other processing settings unchanged; no reset/reboot"
+    }
+  ],
+  "electrical_comparisons": [
+    {
+      "displayed_Q_phase_deg": 90,
+      "wanted_mode_observed": "USB",
+      "wanted_level_dBm": -43,
+      "unwanted_mode_observed": "LSB",
+      "unwanted_tone_resolved": false,
+      "unwanted_background_dBm": -75,
+      "wanted_peak_to_unwanted_background_difference_dB": 32,
+      "bench_target_dB": 15,
+      "assessment": "Supports proposed15dB target as a background-limited comparison if identical measurement settings; not exact unwanted-tone rejection.",
+      "limitations": [
+        "Physical quadrature/lead-lag not verified.",
+        "Input voltage/amplitude matching not freshly measured.",
+        "Exact output frequency and FFT window/reference not supplied.",
+        "Phase reversal and repeatability not yet tested."
+      ]
+    },
+    {
+      "displayed_Q_phase_deg": 270,
+      "wanted_mode_observed": "LSB",
+      "wanted_level_dBm": -43,
+      "unwanted_mode_observed": "USB",
+      "unwanted_tone_resolved": false,
+      "unwanted_background_dBm": -72,
+      "wanted_peak_to_unwanted_background_difference_dB": 29,
+      "bench_target_dB": 15,
+      "assessment": "Supports proposed15dB target as background-limited comparison if identical measurement settings; not exact unwanted-tone rejection.",
+      "limitations": [
+        "Physical quadrature and actual lead/lag not scoped.",
+        "Input voltage/amplitude matching not freshly measured.",
+        "Exact output frequency, FFT reference/window and capture filenames not supplied.",
+        "Initial reference repeat pending."
+      ]
+    }
+  ],
+  "reference_repeat": {
+    "mode": "USB",
+    "displayed_Q_phase_deg": 90,
+    "reported_frequency_Hz": 1000,
+    "reported_FFT_level_dBm": -43,
+    "result": "Confirmed approximate return to prompted1kHz/-43dBm reference; precision unquantified"
+  },
+  "frequency_assessment": {
+    "proposed_bench_target_Hz": [
+      980,
+      1020
+    ],
+    "operator_reference_confirmation_Hz": 1000,
+    "verdict": "Consistent with target based on approximate user confirmation; no independently supplied cursor measurement establishing numerical accuracy for all four combinations."
+  },
+  "final_serial_status_evidence": "ssb-final-status-2026-10-15-run01.json",
+  "final_serial_status": [
+    "B=1226560 rev=7 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+    "I min/mean/max/rms=1936/2077/2208/88 Q=1942/2079/2211/89 MAG=247 AUD rms/peak=2765/4016 clips=1059439",
+    "us=3208 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+    "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+    "TIMING us latest/max PROC=2988/3919 OUT=220/536 IN=554/582 DSP=2397/3288 STAT=35/120 FFT=0/542",
+    "RX latest_us CICMIX=500 FILTER=1460 DEMOD=348 CAPTURE=2 FFTFWD=862 FFTBINS=172 FFTINV=357",
+    "MEASURE id=2 active=0 settings_changed=0",
+    "WINDOW_START B=835805 rev=4 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3567089346",
+    "WINDOW_END B=850348 rev=4 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3629138661",
+    "WINDOW_ORDINARY N=14316 LATE=0 TOTAL=3643/45672379 IN=576/7918000 DSP=2718/34206802 STAT=95/500317 FFT=0/0 OUT=400/3037310 CICMIX=504/7140876 FILTER=1606/20855634 DEMOD=479/4941131 CAPTURE=22/35306 FFTFWD=911/12336552 FFTBINS=280/2435028 FFTINV=396/5103251",
+    "WINDOW_SPECTRUM N=227 LATE=0 TOTAL=4129/796121 IN=562/125690 DSP=2646/542521 STAT=74/7959 FFT=542/74644 OUT=306/44884 CICMIX=503/113216 FILTER=1574/330720 DEMOD=418/78412 CAPTURE=3/553 FFTFWD=896/195595 FFTBINS=226/38628 FFTINV=383/80943",
+    "BOOKKEEP max_us=35 sum_us=62515",
+    "ENDSTATUS"
+  ],
+  "final_cumulative_health": {
+    "us": 3208,
+    "max": 4229,
+    "deadline": 0,
+    "ADCdrop": 0,
+    "FIFO": 0,
+    "AUDunder": 0,
+    "AUDdrop": 0,
+    "IRQlate": 0
+  },
+  "final_cumulative_near_rail": 1059439,
+  "conclusions": {
+    "timing": "PASS observed62-second USB andLSB windows at IQ,tune0,BW2,manualgainx16,volume25 and initial displayedQ90 setting; no new faults or near-rail detections. LSBheadroom137us is limited.",
+    "electrical_selection": "Observed stronger/weaker mode reverses with displayedQ90to270; strong peak-43dBm in each wanted condition, opposite tone unresolved.",
+    "rejection": "Nominal peak/background separations32dB and29dB exceed proposed15dB bench target under unchanged settings. They are background-limited comparisons, not exact residual-tone rejection.",
+    "frequency": "Approximate1kHz reference confirmed, consistent with proposed980-1020Hz target; independently read numeric cursor/uncertainty not supplied.",
+    "physical_quadrature": "Not verified; operator waived fresh input-voltage and scope lead/lag measurements. No measured250us separation or input capture filename.",
+    "repeatability": "USB at displayedQ90 returns to approximately1kHz/-43dBm per operator confirmation.",
+    "audibility": "User reports no audible speaker tone in strong USB condition at gainx16,volume25.",
+    "UI": "User reports OLED, encoder and both buttons responsive; retrospective session confirmation, not a separately timestamped in-window check.",
+    "overall": "Evidence supports electrical sideband selection and bounded timing. Incomplete physical input verification prevents an unqualified controlled-quadrature pass. No complete RF receiver/antenna-to-audio validation."
+  },
+  "timing_condition_limit": "All-block timing windows were collected at initial displayedQ90, before phase reversal; no separate all-blockQ270 windows. Later snapshots preserve cumulative history but are not separate interval worst-case measurements.",
+  "after_timing_diagnostics": {
+    "deadline_increase": 0,
+    "near_rail_increase": 0,
+    "streaming_increases": {
+      "ADCdrop": 0,
+      "FIFO": 0,
+      "AUDunder": 0,
+      "AUDdrop": 0,
+      "IRQlate": 0
+    },
+    "interpretation": "Differences between frozenLSB endpoint and final serial publication; mode transitions and phase reversal included. No new all-block timing-window maximum for those transitions."
+  },
+  "UI_confirmation": "User reports OLED, encoder and both buttons responsive; retrospective session confirmation, not a separately timestamped in-window check.",
+  "operator_follow_up": {
+    "recorded_utc": "2026-10-15T05:30:00.290608+00:00",
+    "reply": "i can save them theyre quite simple as the same the Ui was responsive but i couldnt hear anything why is that the constant for every test?",
+    "audibility": "User reports no audible speaker tone in strong USB condition at gainx16,volume25.",
+    "UI": "User reports OLED, encoder and both buttons responsive; retrospective session confirmation, not a separately timestamped in-window check.",
+    "captures": "Not saved yet; user says they can save them later. No filenames supplied. Later captures must be labeled with actual acquisition conditions/date."
+  },
+  "inaudibility_interpretation": {
+    "observation": "No audible speaker tone also reported in previous AM/FM tests; recovered electrical tone observed in multiple modes.",
+    "inference": "Investigate shared output conversion/filter/loading/speaker stage and signal level; no fault location or hardware failure proven.",
+    "circuit_provenance": "User-provided schematic shows GP16 to100uF coupling capacitor,100ohm series resistor,470nF shunt capacitor and speaker/headphone connections; no dedicated amplifier shown. Speaker impedance and output voltage/power not verified.",
+    "limits": "Unverified FFTdBm scale cannot establish delivered speaker power. No new gain/volume/DSP changes made."
+  }
+}

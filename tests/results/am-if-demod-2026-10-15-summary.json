@@ -1,0 +1,251 @@
+{
+  "section": "4.5.5",
+  "reported_dates_local": [
+    "2026-10-14",
+    "2026-10-15"
+  ],
+  "published_source_commit": "bfa22b8c150ee87c1808418a08cb066160e3834d",
+  "firmware": {
+    "BENCH_BUILD_LABEL": "am-optimized-v1",
+    "BENCH_SOURCE_SHA256": "86d0e4fe2bd42cc00d51896696ec6402e11beee3f1282a7385d0eff4441f9497",
+    "BENCH_BASE_COMMIT": "34bde79a126fc4a7737a4e7194b63833e2aace05"
+  },
+  "timing_volume_percent": 25,
+  "timing": {
+    "host_first_start_record_to_stopped_record_seconds": 62.0448071,
+    "device_capture_seconds": 62.046272,
+    "host_start_command": {
+      "command": "measure start",
+      "mono_ns": 453671423402900,
+      "utc": "2026-10-14T07:03:57.495506+00:00"
+    },
+    "host_stop_command": {
+      "command": "measure stop",
+      "mono_ns": 453733469466800,
+      "utc": "2026-10-14T07:04:59.543357+00:00"
+    },
+    "start": {
+      "B": 375056,
+      "rev": 1,
+      "deadline": 6,
+      "clips": 189643,
+      "ADCdrop": 0,
+      "FIFO": 0,
+      "AUDunder": 0,
+      "AUDdrop": 0,
+      "IRQlate": 0,
+      "device_us": 1601226642
+    },
+    "end": {
+      "B": 389598,
+      "rev": 1,
+      "deadline": 6,
+      "clips": 189643,
+      "ADCdrop": 0,
+      "FIFO": 0,
+      "AUDunder": 0,
+      "AUDdrop": 0,
+      "IRQlate": 0,
+      "device_us": 1663272914
+    },
+    "counter_increases": {
+      "B": 14542,
+      "deadline": 0,
+      "clips": 0,
+      "ADCdrop": 0,
+      "FIFO": 0,
+      "AUDunder": 0,
+      "AUDdrop": 0,
+      "IRQlate": 0
+    },
+    "blocks_per_second": 234.37346888464145,
+    "groups": {
+      "ORDINARY": {
+        "N": 14315,
+        "LATE": 0,
+        "stages": {
+          "TOTAL": {
+            "max_us": 3951,
+            "sum_us": 49073856,
+            "mean_us": 3428.142228431715
+          },
+          "IN": {
+            "max_us": 581,
+            "sum_us": 7926366,
+            "mean_us": 553.7105134474327
+          },
+          "DSP": {
+            "max_us": 2998,
+            "sum_us": 37831229,
+            "mean_us": 2642.7683548725113
+          },
+          "STAT": {
+            "max_us": 91,
+            "sum_us": 499342,
+            "mean_us": 34.88243101641635
+          },
+          "FFT": {
+            "max_us": 0,
+            "sum_us": 0,
+            "mean_us": 0.0
+          },
+          "OUT": {
+            "max_us": 360,
+            "sum_us": 2806242,
+            "mean_us": 196.03506811037374
+          },
+          "CICMIX": {
+            "max_us": 504,
+            "sum_us": 7140579,
+            "mean_us": 498.8179531959483
+          },
+          "FILTER": {
+            "max_us": 1805,
+            "sum_us": 22900519,
+            "mean_us": 1599.7568285015718
+          },
+          "DEMOD": {
+            "max_us": 468,
+            "sum_us": 5228037,
+            "mean_us": 365.21390150192104
+          },
+          "CAPTURE": {
+            "max_us": 3,
+            "sum_us": 35345,
+            "mean_us": 2.4690883688438703
+          },
+          "FFTFWD": {
+            "max_us": 988,
+            "sum_us": 13205208,
+            "mean_us": 922.473489346839
+          },
+          "FFTBINS": {
+            "max_us": 363,
+            "sum_us": 3181391,
+            "mean_us": 222.24177436255675
+          },
+          "FFTINV": {
+            "max_us": 440,
+            "sum_us": 5533008,
+            "mean_us": 386.5181976947258
+          }
+        }
+      },
+      "SPECTRUM": {
+        "N": 227,
+        "LATE": 0,
+        "stages": {
+          "TOTAL": {
+            "max_us": 4203,
+            "sum_us": 925009,
+            "mean_us": 4074.929515418502
+          },
+          "IN": {
+            "max_us": 560,
+            "sum_us": 125854,
+            "mean_us": 554.4229074889868
+          },
+          "DSP": {
+            "max_us": 2706,
+            "sum_us": 599783,
+            "mean_us": 2642.215859030837
+          },
+          "STAT": {
+            "max_us": 51,
+            "sum_us": 7904,
+            "mean_us": 34.819383259911895
+          },
+          "FFT": {
+            "max_us": 717,
+            "sum_us": 146520,
+            "mean_us": 645.4625550660793
+          },
+          "OUT": {
+            "max_us": 277,
+            "sum_us": 44678,
+            "mean_us": 196.8193832599119
+          },
+          "CICMIX": {
+            "max_us": 503,
+            "sum_us": 113207,
+            "mean_us": 498.70925110132157
+          },
+          "FILTER": {
+            "max_us": 1654,
+            "sum_us": 363136,
+            "mean_us": 1599.7180616740088
+          },
+          "DEMOD": {
+            "max_us": 387,
+            "sum_us": 82881,
+            "mean_us": 365.11453744493394
+          },
+          "CAPTURE": {
+            "max_us": 3,
+            "sum_us": 556,
+            "mean_us": 2.449339207048458
+          },
+          "FFTFWD": {
+            "max_us": 929,
+            "sum_us": 209362,
+            "mean_us": 922.2995594713657
+          },
+          "FFTBINS": {
+            "max_us": 274,
+            "sum_us": 50489,
+            "mean_us": 222.41850220264317
+          },
+          "FFTINV": {
+            "max_us": 390,
+            "sum_us": 87729,
+            "mean_us": 386.47136563876654
+          }
+        }
+      }
+    },
+    "all_block_maximum_total_us": 4203,
+    "headroom_us": 63,
+    "sampled_latest_max_us": 3459,
+    "cumulative_max_since_boot_at_end_us": 4417,
+    "bookkeeping": {
+      "max_us": 66,
+      "sum_us": 60852
+    },
+    "pass_timing_and_streaming": true,
+    "near_rail_increase": 0,
+    "scope_input_limits_verified": false
+  },
+  "FFT_trial_volume_percent": 100,
+  "FFT_user_readings": {
+    "AM_0_percent_background_dBm_approx": -80,
+    "AM_20_percent_peak_dBm_approx": -62,
+    "AM_30_percent_peak_dBm_approx": -56,
+    "AM_40_percent_peak_dBm_approx": -53,
+    "AM_60_percent_peak_dBm_approx": -48,
+    "AM_30_percent_repeat_peak_dBm_approx": -56
+  },
+  "on_peak_minus_off_background_dB_approx": 24,
+  "tone_frequency": "Approximately 1 kHz by user FFT observation; exact cursor value not recorded",
+  "digital_AUD_diagnostic": {
+    "volume_percent": 25,
+    "AM_0_percent": 70,
+    "AM_30_percent": 230,
+    "scope": "Broadband digital RMS only; not a selective 1 kHz suppression measurement"
+  },
+  "verdict": "Enough evidence for a bounded report section: qualitative AM-dependent output near 1 kHz, approximately 24 dB above AM-off background, increasing level with depth and one repeatable 30% reading. Full specification pass not established: exact frequency error, proportionality, clipping/distortion, current-volume timing and audible speaker output remain unverified.",
+  "evidence_origin": {
+    "timing": "Automatically timestamped serial all-block capture",
+    "FFT_AUD_and_audibility": "User reports; no local exported waveform files",
+    "schematic_scope_photos": "Viewed in chat; no local image artifact claimed"
+  },
+  "limitations": [
+    "Timing at volume 25% is a separate configuration from FFT measurements at volume 100%.",
+    "At least one further deadline miss was observed after the successful timing window; uninterrupted longer-term timing is not established.",
+    "No exact recovered-frequency tolerance, calibrated noise-floor uncertainty, distortion or clipping assessment.",
+    "Observed depth response is monotonic but 20-to-60% increase is 14 dB versus ideal 9.54 dB; proportionality not established.",
+    "Fresh physical input min/max and unused GP26 quiet DC bias were not established; raw Q varied.",
+    "Speaker remained inaudible; previous reported Dawson firmware audibility is an uncontrolled comparison.",
+    "dBm values are scope readouts; power reference/load not verified, so do not convert to delivered speaker power."
+  ],
+  "publication": "New real-IF test evidence is local, not pushed; original source/AM-IQ evidence is public."
+}

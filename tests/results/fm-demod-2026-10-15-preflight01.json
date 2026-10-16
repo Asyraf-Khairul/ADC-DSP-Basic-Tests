@@ -1,0 +1,130 @@
+{
+  "test": "FM physical demodulation preflight",
+  "local_date": "2026-10-15 Pacific/Auckland",
+  "commit": "63f6610e8ab9e894b30543816e5c8033ace43c4a",
+  "branch": "testing/fm-timing-optimized",
+  "expected_artifact": {
+    "artifact": "fm-optimized-v2.uf2",
+    "sha256": "77b8f17f2facca31221a7e537a34cc139ef9cc8a222d3e657b803949d3561e0e",
+    "bytes": 266240,
+    "source_identity": {
+      "BENCH_BUILD_LABEL": "fm-optimized-v2",
+      "BENCH_SOURCE_SHA256": "c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6",
+      "BENCH_BASE_COMMIT": "bfa22b8c150ee87c1808418a08cb066160e3834d"
+    },
+    "build_type": "Release",
+    "cxx_flags_release": "-g -O3 -DNDEBUG",
+    "additional_compile_option": "-fwrapv",
+    "BENCH_SELF_TEST": false,
+    "BENCH_OPERATION_BENCHMARK": false,
+    "arm_gcc": "13.3.1",
+    "pico_sdk": "2.1.0",
+    "hardware_evidence": "../results/fm-optimized-v2-timing-2026-10-15-run01.json",
+    "note": "Exact tested candidate v2, built before the local commit on testing/fm-timing-optimized. Runtime identity verified; no independent flash readback. See linked hardware result. Local commit only; not pushed."
+  },
+  "actions": [
+    {
+      "command": "help",
+      "utc": "2026-10-15T00:40:28.109202+00:00",
+      "host_monotonic_ns": 517060413101200
+    },
+    {
+      "command": "status",
+      "utc": "2026-10-15T00:40:29.795441+00:00",
+      "host_monotonic_ns": 517062099276600
+    }
+  ],
+  "runtime_help": [
+    "",
+    "Pico ADC/DSP suite: commands are lowercase, one per line.",
+    "preset 0..8: BASIC, IQ-AM, IF-AM, IF-AMSYNC, IF-FM, IF-FSK, USB, LSB, IF-CW",
+    "mode basic|am|amsync|fm|usb|lsb|cw; input iq|i|q; tune -12000..12000 Hz",
+    "bw 0..4; agc 0=fast 1=medium 2=slow 3=long 4=manual; gain 0..10 (2^n)",
+    "volume 0..100; squelch -1=off or 0..12; hang 0..7; swap 0|1; iqcorr 0|1",
+    "deemph 0..2; bass/treble 0..4; blanker 0..6; notch/nr 0|1",
+    "smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz",
+    "page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.",
+    "BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.",
+    "measure start|stop: all-block timing window; cumulative diagnostics never reset.",
+    "BUILD label=fm-optimized-v2 source_sha256=c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6 base=bfa22b8c150ee87c1808418a08cb066160e3834d",
+    "INSTRUMENT sys_clock_Hz=120000000 timer_1024_reads_us=87 extra_receiver_timer_reads_per_block=9"
+  ],
+  "status_records": [
+    {
+      "first_line_received": {
+        "utc": "2026-10-15T00:40:29.842814+00:00",
+        "host_monotonic_ns": 517062146653200
+      },
+      "complete_received": {
+        "utc": "2026-10-15T00:40:29.857219+00:00",
+        "host_monotonic_ns": 517062161023000
+      },
+      "raw_lines": [
+        "B=29088 rev=0 BASIC IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=0/13/24/1 Q=0/13/24/1 MAG=1 AUD rms/peak=6/12 clips=58700",
+        "us=2980 max=4184 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2775/3909 OUT=205/297 IN=551/582 DSP=2186/3275 STAT=36/74 FFT=0/0",
+        "RX latest_us CICMIX=0 FILTER=0 DEMOD=0 CAPTURE=0 FFTFWD=0 FFTBINS=0 FFTINV=0",
+        "MEASURE id=0 active=0 settings_changed=0",
+        "WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+        "WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+        "WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+        "WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+        "BOOKKEEP max_us=0 sum_us=0",
+        "ENDSTATUS"
+      ]
+    }
+  ],
+  "setup_confirmation": "User reports nothing connected; setup not yet established. Earlier serial near-ground readings were taken before connecting the stimulus.",
+  "measurements": {},
+  "verdict": "pending physical measurements; no demodulation pass",
+  "no_rebuild_flash_or_counter_reset": true,
+  "serial_port": "COM8",
+  "initial_output": [],
+  "runtime_identity_matches_artifact": true,
+  "settings": {
+    "mode": "BASIC",
+    "input": "IQ",
+    "tune": 0,
+    "bw": 2,
+    "agc": 4,
+    "gain_log2": 4,
+    "volume": 25,
+    "sq": -1,
+    "hang": 3,
+    "swap": 0,
+    "iqcorr": 0,
+    "deemph": 0,
+    "bass": 0,
+    "treble": 0,
+    "blanker": 0,
+    "notch": 0,
+    "nr": 0,
+    "smooth": 10,
+    "threshold": 1,
+    "cw": 700
+  },
+  "settings_match_intended": false,
+  "starting_health": {
+    "us": 2980,
+    "max": 4184,
+    "deadline": 0,
+    "ADCdrop": 0,
+    "FIFO": 0,
+    "AUDunder": 0,
+    "AUDdrop": 0,
+    "IRQlate": 0
+  },
+  "starting_blocks": 29088,
+  "starting_revision": 0,
+  "starting_near_rail_samples": 58700,
+  "raw_log_sha256": "de97f60c96c69ecc20b9095aee966f98891abd6c3f6e272332bf0de3e31ec75d",
+  "operator_updates": [
+    {
+      "utc": "2026-10-15T00:43:18.532937+00:00",
+      "reply": "i havent connected anything tell me again wha the steup is",
+      "interpretation": "No stimulus setup yet. Do not interpret initial ADC readings as a failed connected-input test."
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "operator_reply": "yws ithink i haveeveything set",
+  "interpretation": "Tentative setup confirmation; fresh scope readings and instrument readbacks remain unverified.",
+  "actions": [
+    {
+      "command": "help",
+      "utc": "2026-10-15T01:04:58.387171+00:00",
+      "mono_ns": 518530637551300
+    },
+    {
+      "command": "status",
+      "utc": "2026-10-15T01:04:59.725641+00:00",
+      "mono_ns": 518531975966100
+    }
+  ],
+  "initial_output": [],
+  "help": [
+    "",
+    "Pico ADC/DSP suite: commands are lowercase, one per line.",
+    "preset 0..8: BASIC, IQ-AM, IF-AM, IF-AMSYNC, IF-FM, IF-FSK, USB, LSB, IF-CW",
+    "mode basic|am|amsync|fm|usb|lsb|cw; input iq|i|q; tune -12000..12000 Hz",
+    "bw 0..4; agc 0=fast 1=medium 2=slow 3=long 4=manual; gain 0..10 (2^n)",
+    "volume 0..100; squelch -1=off or 0..12; hang 0..7; swap 0|1; iqcorr 0|1",
+    "deemph 0..2; bass/treble 0..4; blanker 0..6; notch/nr 0|1",
+    "smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz",
+    "page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.",
+    "BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.",
+    "measure start|stop: all-block timing window; cumulative diagnostics never reset.",
+    "BUILD label=fm-optimized-v2 source_sha256=c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6 base=bfa22b8c150ee87c1808418a08cb066160e3834d",
+    "INSTRUMENT sys_clock_Hz=120000000 timer_1024_reads_us=87 extra_receiver_timer_reads_per_block=9"
+  ],
+  "status": [
+    "B=373568 rev=1 FM IF-I tune=8000 bw=2 agc=4 gain=2^0 vol=25",
+    "I min/mean/max/rms=1941/2072/2216/88 Q=2049/2056/2065/2 MAG=126 AUD rms/peak=1560/2594 clips=3128306",
+    "us=3396 max=4184 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+    "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+    "TIMING us latest/max PROC=3191/3925 OUT=205/354 IN=556/582 DSP=2597/3275 STAT=37/83 FFT=0/739",
+    "RX latest_us CICMIX=499 FILTER=1549 DEMOD=364 CAPTURE=2 FFTFWD=863 FFTBINS=260 FFTINV=357",
+    "MEASURE id=0 active=0 settings_changed=0",
+    "WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+    "WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+    "WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+    "WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+    "BOOKKEEP max_us=0 sum_us=0",
+    "ENDSTATUS"
+  ],
+  "identity_verified": true,
+  "raw_sha256": "aceceb818bfe797f98aeca7c10603203dd00a066dc679c2e7b3f891422344e61",
+  "manual_measurements": [
+    {
+      "recorded_utc": "2026-10-15T01:10:16.858487+00:00",
+      "source": "User scope readback in response to requested GP27 mean/minimum/maximum",
+      "reply": "1.65 1.54 1.78",
+      "point": "GP27 after 470 ohm resistor, scope CH2 per requested setup",
+      "coupling": "DC requested; not independently verified",
+      "mean_V": 1.65,
+      "minimum_V": 1.54,
+      "maximum_V": 1.78,
+      "derived_Vpp": 0.24,
+      "interpretation": "Reported extrema within 0 to 3.3 V; scope extrema are not a guarantee of all transients.",
+      "GP26_fresh_DC": "pending"
+    },
+    {
+      "recorded_utc": "2026-10-15T01:15:55.436968+00:00",
+      "source": "User scope readback after GP26 probe/DC-bias instructions",
+      "reply": "it is 1.65v",
+      "point": "GP26 after existing divider, as instructed",
+      "mean_V": 1.65,
+      "coupling": "DC instructed; no independent instrument inspection",
+      "interpretation": "Fresh user-reported midscale bias. Previous -3 mV reading had uncertain probe point/coupling and is not treated as verified GP26 DC.",
+      "generator_CH2": "DC waveform, High-Z, initial +2.5 V instructed; actual offset readback not separately supplied"
+    },
+    {
+      "recorded_utc": "2026-10-15T01:30:02.929009+00:00",
+      "source": "User FFT readback",
+      "reply": "xyes a very clear reading at 500hz with it being -50dBm",
+      "test": "FM on; tone recovery",
+      "reported_frequency_Hz": 500,
+      "reported_FFT_level_dBm": -50,
+      "tone_visibility": "very clear per user",
+      "frequency_target_Hz": [
+        490,
+        510
+      ],
+      "frequency_target_result": "meets proposed bench target as reported; independent cursor verification not available",
+      "scope_setup": "CH1 filtered audio output; 10 ms/div acquisition and FFT range 0 to 2 kHz instructed; exact FFT window/reference and actual instrument configuration not independently verified",
+      "receiver_configuration": "Last serial verification: FM IF-I +8000 Hz, BW2, manual gain x1, volume25; no changes requested since",
+      "generator_configuration": "FM modulation500 Hz, deviation500 Hz per intended setup; fresh detailed generator readbacks not supplied",
+      "limitations": [
+        "FFT dBm reference and connected-load impedance unverified; do not infer delivered speaker power.",
+        "Modulation-off comparison, deviation response and repeatability still pending."
+      ],
+      "capture_status": "User asked next to save FM-on capture; not yet confirmed saved"
+    },
+    {
+      "recorded_utc": "2026-10-15T01:39:49.379015+00:00",
+      "source": "User FFT observation and background readback",
+      "test": "FM off with carrier retained as instructed",
+      "operator_peak_observation": "the peak disappeared at 500Hz with fm off",
+      "operator_background_reply": "-83dBm",
+      "frequency_of_interest_Hz": 500,
+      "background_level_dBm": -83,
+      "comparison_on_level_dBm": -50,
+      "on_peak_to_off_background_difference_dB": 33,
+      "scope_settings": "Unchanged requested; no independent instrument readback",
+      "carrier_retained": "CH1 Continuous with 8 kHz output ON instructed; exact generator readback not independently supplied",
+      "verdict": "Supports proposed >=10 dB reduction target under unchanged measurement settings; residual 500 Hz tone not resolved above background.",
+      "limitations": [
+        "33 dB is on-peak to off-background separation, not exact measured residual-tone suppression.",
+        "FFT reference/window/resolution bandwidth unverified; do not infer speaker power."
+      ],
+      "capture_saved": "not confirmed"
+    },
+    {
+      "recorded_utc": "2026-10-15T01:43:20.869278+00:00",
+      "source": "User FFT readback following requested deviation change",
+      "reply": "-55dBm",
+      "test": "FM deviation response",
+      "modulation_frequency_Hz": 500,
+      "deviation_Hz": 250,
+      "reported_FFT_level_dBm": -55,
+      "scope_and_receiver_settings": "Unchanged instructed; last verified gain x1 and volume25",
+      "provisional_comparison_to_earlier_500_deviation": {
+        "earlier_level_dBm": -50,
+        "difference_dB": 5,
+        "inferred_voltage_amplitude_ratio_if_same_FFT_reference": 1.7782794100389228,
+        "ideal_doubling_difference_dB": 6.020599913279624
+      },
+      "verdict": "Pending repeated 500 Hz deviation reading and reference repeat; no proportionality pass yet."
+    },
+    {
+      "recorded_utc": "2026-10-15T01:44:41.262161+00:00",
+      "source": "User approximate FFT readback",
+      "reply": "like -48dBm i may have misread teh previous reading",
+      "test": "Return to 500 Hz FM deviation",
+      "modulation_frequency_Hz": 500,
+      "deviation_Hz": 500,
+      "reported_FFT_level_dBm": -48,
+      "uncertainty": "User says previous reading may have been misread; which previous reading is not specified. Preserve -50 dBm initial on reading and -55 dBm first 250 Hz reading as provisional; do not silently replace either.",
+      "next_check": "Repeat 250 Hz deviation with all other settings fixed.",
+      "verdict": "Deviation proportionality and repeatability remain unresolved."
+    },
+    {
+      "recorded_utc": "2026-10-15T01:47:26.324550+00:00",
+      "source": "User FFT readback",
+      "reply": "-55dBm",
+      "test": "250 Hz deviation repeat",
+      "modulation_frequency_Hz": 500,
+      "deviation_Hz": 250,
+      "reported_FFT_level_dBm": -55,
+      "repeat_agreement_dB": 0,
+      "comparison_with_latest_500_deviation": {
+        "level_500_dBm": -48,
+        "level_250_dBm": -55,
+        "difference_dB": 7,
+        "conditional_voltage_amplitude_ratio": 2.2387211385683394,
+        "ideal_ratio": 2,
+        "ideal_difference_dB": 6.020599913279624,
+        "difference_from_ideal_dB": 0.9794000867203758,
+        "ratio_above_ideal_percent": 11.93605692841697
+      },
+      "limitations": "Approximate manual FFT readings, same reference/settings assumed. No declared tolerance for proportionality and no waveform clipping verification; no strict proportionality pass assigned.",
+      "next_check": "Return to 500 Hz deviation for final reference repeat."
+    },
+    {
+      "recorded_utc": "2026-10-15T01:49:49.980024+00:00",
+      "source": "User confirmation of requested reference repeat",
+      "reply": "yes",
+      "test": "Final 500 Hz deviation repeat",
+      "modulation_frequency_Hz": 500,
+      "deviation_Hz": 500,
+      "reported_FFT_level_dBm": -48,
+      "precision": "approximately; yes confirmed return to approximately -48 dBm",
+      "interpretation": "Both 250 Hz (-55 dBm) and 500 Hz (-48 dBm) readings repeated at reported precision. Difference 7 dB; approximate amplitude ratio 2.24, not an exact proportionality validation."
+    },
+    {
+      "recorded_utc": "2026-10-15T01:52:51.882783+00:00",
+      "source": "User listening observation",
+      "reply": "i didnt hear anything",
+      "test": "Speaker audibility at final FM settings",
+      "result": "No tone heard",
+      "conditions": "FM on, modulation500 Hz, deviation500 Hz, gain x1 and volume25 instructed; last runtime verification matched receiver settings.",
+      "interpretation": "Electrical 500 Hz FFT evidence does not establish audible speaker output. Cause not diagnosed; no claim of confirmed overload, inadequate power, speaker fault or complete receiver pass."
+    }
+  ],
+  "physical_test_progress": "Requested electrical observations and final timing recorded. No audible speaker tone; saved FM-on/off photos outstanding. New evidence remains local and uncommitted.",
+  "scope_photo_observations": [
+    {
+      "recorded_utc": "2026-10-15T01:27:19.412642+00:00",
+      "source": "User photo visible in conversation; no local image file archived",
+      "scope": "Tektronix 2 Series MSO",
+      "CH1_V_per_div": 0.02,
+      "CH1_probe_factor": 10,
+      "CH1_coupling": "AC icon visible",
+      "bandwidth_limit_Hz": 20000000,
+      "time_per_div_s": 0.001,
+      "sample_rate_Hz": 25000000,
+      "record_length_points": 250000,
+      "acquisition": "Stopped",
+      "CH1_displayed_frequency_Hz": 240400,
+      "CH1_displayed_peak_to_peak_V": 0.0632,
+      "CH1_displayed_mean_V": -0.0001049,
+      "CH2_displayed_peak_to_peak_V": 0.26,
+      "CH2_frequency_warning": "Low amplitude",
+      "interpretation": "Dense high-frequency band consistent with PWM ripple; no clear 2 ms audio period resolved. Displayed frequency/Vpp do not measure the recovered 500 Hz tone. CH2 probe location/current waveform cannot be confirmed from this photo.",
+      "demodulation_verdict": "unverified",
+      "next_measurement": "Resume acquisition and examine CH1 FFT near 500 Hz with longer acquisition; retain generator and receiver settings."
+    }
+  ],
+  "operator_follow_up": {
+    "recorded_utc": "2026-10-15T01:51:55.254093+00:00",
+    "reply": "i havent took pictures as i iwll do it when the web write up my report sectiion and the output isnt clipped and when are you doing the timing check run i wnt to hear it",
+    "audibility": "User reports no audible tone from speaker at final measurement condition: FM 500 Hz modulation, 500 Hz deviation, last serial-verified gain x1 and volume25. No setting changes instructed.",
+    "output_waveform_clipping": "User reports output is not clipped; measurement method and a validating output-waveform capture were not supplied.",
+    "captures_saved": "FM-on/off FFT photos not yet taken; user intends to collect later for report. Later captures must be labeled with actual settings/date and not presented as contemporaneous evidence for this interval."
+  }
+}

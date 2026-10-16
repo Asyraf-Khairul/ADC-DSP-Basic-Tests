@@ -1,0 +1,59 @@
+{
+  "purpose": "Read-only final receiver/identity and cumulative diagnostic snapshot after all four electrical observations and reference repeat",
+  "actions": [
+    {
+      "command": "help",
+      "utc": "2026-10-15T05:26:14.324511+00:00",
+      "host_monotonic_ns": 534206145519200
+    },
+    {
+      "command": "status",
+      "utc": "2026-10-15T05:26:15.693182+00:00",
+      "host_monotonic_ns": 534207514119700
+    }
+  ],
+  "initial_output": [],
+  "help": [
+    "",
+    "Pico ADC/DSP suite: commands are lowercase, one per line.",
+    "preset 0..8: BASIC, IQ-AM, IF-AM, IF-AMSYNC, IF-FM, IF-FSK, USB, LSB, IF-CW",
+    "mode basic|am|amsync|fm|usb|lsb|cw; input iq|i|q; tune -12000..12000 Hz",
+    "bw 0..4; agc 0=fast 1=medium 2=slow 3=long 4=manual; gain 0..10 (2^n)",
+    "volume 0..100; squelch -1=off or 0..12; hang 0..7; swap 0|1; iqcorr 0|1",
+    "deemph 0..2; bass/treble 0..4; blanker 0..6; notch/nr 0|1",
+    "smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz",
+    "page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.",
+    "BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.",
+    "measure start|stop: all-block timing window; cumulative diagnostics never reset.",
+    "BUILD label=fm-optimized-v2 source_sha256=c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6 base=bfa22b8c150ee87c1808418a08cb066160e3834d",
+    "INSTRUMENT sys_clock_Hz=120000000 timer_1024_reads_us=87 extra_receiver_timer_reads_per_block=9"
+  ],
+  "status": [
+    "B=1226560 rev=7 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+    "I min/mean/max/rms=1936/2077/2208/88 Q=1942/2079/2211/89 MAG=247 AUD rms/peak=2765/4016 clips=1059439",
+    "us=3208 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+    "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+    "TIMING us latest/max PROC=2988/3919 OUT=220/536 IN=554/582 DSP=2397/3288 STAT=35/120 FFT=0/542",
+    "RX latest_us CICMIX=500 FILTER=1460 DEMOD=348 CAPTURE=2 FFTFWD=862 FFTBINS=172 FFTINV=357",
+    "MEASURE id=2 active=0 settings_changed=0",
+    "WINDOW_START B=835805 rev=4 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3567089346",
+    "WINDOW_END B=850348 rev=4 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3629138661",
+    "WINDOW_ORDINARY N=14316 LATE=0 TOTAL=3643/45672379 IN=576/7918000 DSP=2718/34206802 STAT=95/500317 FFT=0/0 OUT=400/3037310 CICMIX=504/7140876 FILTER=1606/20855634 DEMOD=479/4941131 CAPTURE=22/35306 FFTFWD=911/12336552 FFTBINS=280/2435028 FFTINV=396/5103251",
+    "WINDOW_SPECTRUM N=227 LATE=0 TOTAL=4129/796121 IN=562/125690 DSP=2646/542521 STAT=74/7959 FFT=542/74644 OUT=306/44884 CICMIX=503/113216 FILTER=1574/330720 DEMOD=418/78412 CAPTURE=3/553 FFTFWD=896/195595 FFTBINS=226/38628 FFTINV=383/80943",
+    "BOOKKEEP max_us=35 sum_us=62515",
+    "ENDSTATUS"
+  ],
+  "runtime_identity_matches": true,
+  "health": {
+    "us": 3208,
+    "max": 4229,
+    "deadline": 0,
+    "ADCdrop": 0,
+    "FIFO": 0,
+    "AUDunder": 0,
+    "AUDdrop": 0,
+    "IRQlate": 0
+  },
+  "near_rail_samples": 1059439,
+  "raw_sha256": "b6885dc806b17f39a23f94c6eecd42b14f466502044123187247b399b7d07d8d"
+}

@@ -1,0 +1,169 @@
+# HOST SESSION {"session": "tuning-bandwidth-2026-10-16-setup01", "client_local_date": "2026-10-16", "timezone": "Pacific/Auckland", "branch": "testing/fm-timing-optimized", "commit": "63f6610e8ab9e894b30543816e5c8033ace43c4a", "tracked_changes": "", "ports": [{"device": "COM3", "serial_number": null, "hwid": "PCI\\VEN_8086&DEV_7AEB&SUBSYS_8ACC103C&REV_11\\3&11583659&0&B3"}, {"device": "COM8", "serial_number": "E664A836A3704126", "hwid": "USB VID:PID=2E8A:000A SER=E664A836A3704126 LOCATION=1-2:x.0"}], "artifact_sha256": "77b8f17f2facca31221a7e537a34cc139ef9cc8a222d3e657b803949d3561e0e", "expected_identity": {"BENCH_BUILD_LABEL": "fm-optimized-v2", "BENCH_SOURCE_SHA256": "c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6", "BENCH_BASE_COMMIT": "bfa22b8c150ee87c1808418a08cb066160e3834d"}, "actions": [], "records": [], "operator_setup": "User reports connected and everything connected; current input voltages and generator readbacks not yet supplied.", "physical_setup_verified": false, "photographs_inspected": [], "runtime_identity_verified": false, "identity_limit": "Serial self-report compared to local artifact metadata; no independent flash readback.", "assessment": "Incomplete: setup and electrical measurements pending"}
+# HOST TX {"command": "help", "utc": "2026-10-15T23:04:12.370381+00:00", "host_monotonic_ns": 597682704257100}
+# HOST RX {"utc": "2026-10-15T23:04:12.375494+00:00", "host_monotonic_ns": 597682709395000}
+
+# HOST RX {"utc": "2026-10-15T23:04:12.377331+00:00", "host_monotonic_ns": 597682711211400}
+Pico ADC/DSP suite: commands are lowercase, one per line.
+# HOST RX {"utc": "2026-10-15T23:04:12.377957+00:00", "host_monotonic_ns": 597682711836700}
+preset 0..8: BASIC, IQ-AM, IF-AM, IF-AMSYNC, IF-FM, IF-FSK, USB, LSB, IF-CW
+# HOST RX {"utc": "2026-10-15T23:04:12.378561+00:00", "host_monotonic_ns": 597682712440700}
+mode basic|am|amsync|fm|usb|lsb|cw; input iq|i|q; tune -12000..12000 Hz
+# HOST RX {"utc": "2026-10-15T23:04:12.379074+00:00", "host_monotonic_ns": 597682712950100}
+bw 0..4; agc 0=fast 1=medium 2=slow 3=long 4=manual; gain 0..10 (2^n)
+# HOST RX {"utc": "2026-10-15T23:04:12.379586+00:00", "host_monotonic_ns": 597682713461500}
+volume 0..100; squelch -1=off or 0..12; hang 0..7; swap 0|1; iqcorr 0|1
+# HOST RX {"utc": "2026-10-15T23:04:12.379980+00:00", "host_monotonic_ns": 597682713855700}
+deemph 0..2; bass/treble 0..4; blanker 0..6; notch/nr 0|1
+# HOST RX {"utc": "2026-10-15T23:04:12.380462+00:00", "host_monotonic_ns": 597682714341000}
+smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz
+# HOST RX {"utc": "2026-10-15T23:04:12.381049+00:00", "host_monotonic_ns": 597682714925200}
+page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.
+# HOST RX {"utc": "2026-10-15T23:04:12.381567+00:00", "host_monotonic_ns": 597682715442700}
+BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.
+# HOST RX {"utc": "2026-10-15T23:04:12.382076+00:00", "host_monotonic_ns": 597682715951000}
+measure start|stop: all-block timing window; cumulative diagnostics never reset.
+# HOST RX {"utc": "2026-10-15T23:04:12.383009+00:00", "host_monotonic_ns": 597682716883500}
+BUILD label=fm-optimized-v2 source_sha256=c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6 base=bfa22b8c150ee87c1808418a08cb066160e3834d
+# HOST RX {"utc": "2026-10-15T23:04:12.383607+00:00", "host_monotonic_ns": 597682717482300}
+INSTRUMENT sys_clock_Hz=120000000 timer_1024_reads_us=86 extra_receiver_timer_reads_per_block=9
+# HOST TX {"command": "status", "utc": "2026-10-15T23:04:13.640434+00:00", "host_monotonic_ns": 597683974225000}
+# HOST RX {"utc": "2026-10-15T23:04:13.649824+00:00", "host_monotonic_ns": 597683983628700}
+B=121280 rev=4 USB IF-I tune=6500 bw=4 agc=4 gain=2^4 vol=25
+# HOST RX {"utc": "2026-10-15T23:04:13.652637+00:00", "host_monotonic_ns": 597683986431200}
+I min/mean/max/rms=1934/2075/2214/89 Q=2036/2055/2073/6 MAG=124 AUD rms/peak=1410/2144 clips=398614
+# HOST RX {"utc": "2026-10-15T23:04:13.654266+00:00", "host_monotonic_ns": 597683988053600}
+us=3315 max=4233 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0
+# HOST RX {"utc": "2026-10-15T23:04:13.656035+00:00", "host_monotonic_ns": 597683989828300}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"utc": "2026-10-15T23:04:13.657220+00:00", "host_monotonic_ns": 597683991006600}
+TIMING us latest/max PROC=3110/3925 OUT=205/308 IN=555/582 DSP=2519/3286 STAT=36/91 FFT=0/444
+# HOST RX {"utc": "2026-10-15T23:04:13.658321+00:00", "host_monotonic_ns": 597683992106900}
+RX latest_us CICMIX=499 FILTER=1470 DEMOD=348 CAPTURE=3 FFTFWD=863 FFTBINS=181 FFTINV=357
+# HOST RX {"utc": "2026-10-15T23:04:13.659150+00:00", "host_monotonic_ns": 597683992936700}
+MEASURE id=0 active=0 settings_changed=0
+# HOST RX {"utc": "2026-10-15T23:04:13.660781+00:00", "host_monotonic_ns": 597683994572700}
+WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0
+# HOST RX {"utc": "2026-10-15T23:04:13.662062+00:00", "host_monotonic_ns": 597683995847500}
+WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0
+# HOST RX {"utc": "2026-10-15T23:04:13.663533+00:00", "host_monotonic_ns": 597683997316700}
+WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0
+# HOST RX {"utc": "2026-10-15T23:04:13.664653+00:00", "host_monotonic_ns": 597683998436300}
+WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0
+# HOST RX {"utc": "2026-10-15T23:04:13.664842+00:00", "host_monotonic_ns": 597683998625000}
+BOOKKEEP max_us=0 sum_us=0
+# HOST RX {"utc": "2026-10-15T23:04:13.664922+00:00", "host_monotonic_ns": 597683998705400}
+ENDSTATUS
+# HOST TX {"command": "mode usb", "utc": "2026-10-15T23:04:13.665001+00:00", "host_monotonic_ns": 597683998784600}
+# HOST RX {"utc": "2026-10-15T23:04:13.674225+00:00", "host_monotonic_ns": 597684008012000}
+OK queued; allow 2 s settling
+# HOST TX {"command": "input i", "utc": "2026-10-15T23:04:14.087193+00:00", "host_monotonic_ns": 597684420954800}
+# HOST RX {"utc": "2026-10-15T23:04:14.096764+00:00", "host_monotonic_ns": 597684430536900}
+OK queued; allow 2 s settling
+# HOST TX {"command": "tune 6500", "utc": "2026-10-15T23:04:14.500687+00:00", "host_monotonic_ns": 597684834416200}
+# HOST RX {"utc": "2026-10-15T23:04:14.590463+00:00", "host_monotonic_ns": 597684924204500}
+OK queued; allow 2 s settling
+# HOST TX {"command": "bw 4", "utc": "2026-10-15T23:04:15.006622+00:00", "host_monotonic_ns": 597685340309400}
+# HOST RX {"utc": "2026-10-15T23:04:15.083759+00:00", "host_monotonic_ns": 597685417451600}
+OK queued; allow 2 s settling
+# HOST TX {"command": "agc 4", "utc": "2026-10-15T23:04:15.498815+00:00", "host_monotonic_ns": 597685832467800}
+# HOST RX {"utc": "2026-10-15T23:04:15.585480+00:00", "host_monotonic_ns": 597685919150700}
+OK queued; allow 2 s settling
+# HOST TX {"command": "gain 4", "utc": "2026-10-15T23:04:15.992548+00:00", "host_monotonic_ns": 597686326171100}
+# HOST RX {"utc": "2026-10-15T23:04:16.087378+00:00", "host_monotonic_ns": 597686421017400}
+OK queued; allow 2 s settling
+# HOST TX {"command": "volume 25", "utc": "2026-10-15T23:04:16.501622+00:00", "host_monotonic_ns": 597686835202900}
+# HOST RX {"utc": "2026-10-15T23:04:16.590412+00:00", "host_monotonic_ns": 597686924013000}
+OK queued; allow 2 s settling
+# HOST TX {"command": "squelch -1", "utc": "2026-10-15T23:04:17.006513+00:00", "host_monotonic_ns": 597687340057000}
+# HOST RX {"utc": "2026-10-15T23:04:17.091665+00:00", "host_monotonic_ns": 597687425232300}
+OK queued; allow 2 s settling
+# HOST TX {"command": "hang 3", "utc": "2026-10-15T23:04:17.513285+00:00", "host_monotonic_ns": 597687846801900}
+# HOST RX {"utc": "2026-10-15T23:04:17.587661+00:00", "host_monotonic_ns": 597687921191500}
+OK queued; allow 2 s settling
+# HOST TX {"command": "swap 0", "utc": "2026-10-15T23:04:18.008218+00:00", "host_monotonic_ns": 597688341690700}
+# HOST RX {"utc": "2026-10-15T23:04:18.087461+00:00", "host_monotonic_ns": 597688420955200}
+OK queued; allow 2 s settling
+# HOST TX {"command": "iqcorr 0", "utc": "2026-10-15T23:04:18.513840+00:00", "host_monotonic_ns": 597688847286000}
+# HOST RX {"utc": "2026-10-15T23:04:18.589651+00:00", "host_monotonic_ns": 597688923108300}
+OK queued; allow 2 s settling
+# HOST TX {"command": "deemph 0", "utc": "2026-10-15T23:04:19.003756+00:00", "host_monotonic_ns": 597689337162100}
+# HOST RX {"utc": "2026-10-15T23:04:19.088953+00:00", "host_monotonic_ns": 597689422359000}
+OK queued; allow 2 s settling
+# HOST TX {"command": "bass 0", "utc": "2026-10-15T23:04:19.508168+00:00", "host_monotonic_ns": 597689841537200}
+# HOST RX {"utc": "2026-10-15T23:04:19.587536+00:00", "host_monotonic_ns": 597689920921100}
+OK queued; allow 2 s settling
+# HOST TX {"command": "treble 0", "utc": "2026-10-15T23:04:20.014859+00:00", "host_monotonic_ns": 597690348194000}
+# HOST RX {"utc": "2026-10-15T23:04:20.089178+00:00", "host_monotonic_ns": 597690422519100}
+OK queued; allow 2 s settling
+# HOST TX {"command": "blanker 0", "utc": "2026-10-15T23:04:20.504140+00:00", "host_monotonic_ns": 597690837437500}
+# HOST RX {"utc": "2026-10-15T23:04:20.590640+00:00", "host_monotonic_ns": 597690923953300}
+OK queued; allow 2 s settling
+# HOST TX {"command": "notch 0", "utc": "2026-10-15T23:04:21.014526+00:00", "host_monotonic_ns": 597691347788000}
+# HOST RX {"utc": "2026-10-15T23:04:21.088448+00:00", "host_monotonic_ns": 597691421719300}
+OK queued; allow 2 s settling
+# HOST TX {"command": "nr 0", "utc": "2026-10-15T23:04:21.504936+00:00", "host_monotonic_ns": 597691838157800}
+# HOST RX {"utc": "2026-10-15T23:04:21.585254+00:00", "host_monotonic_ns": 597691918477700}
+OK queued; allow 2 s settling
+# HOST TX {"command": "smooth 10", "utc": "2026-10-15T23:04:21.997258+00:00", "host_monotonic_ns": 597692330449400}
+# HOST RX {"utc": "2026-10-15T23:04:22.091280+00:00", "host_monotonic_ns": 597692424493400}
+OK queued; allow 2 s settling
+# HOST TX {"command": "threshold 1", "utc": "2026-10-15T23:04:22.492826+00:00", "host_monotonic_ns": 597692825980800}
+# HOST RX {"utc": "2026-10-15T23:04:22.592789+00:00", "host_monotonic_ns": 597692925958500}
+OK queued; allow 2 s settling
+# HOST TX {"command": "cw 700", "utc": "2026-10-15T23:04:23.013244+00:00", "host_monotonic_ns": 597693346464500}
+# HOST RX {"utc": "2026-10-15T23:04:23.087488+00:00", "host_monotonic_ns": 597693420623200}
+OK queued; allow 2 s settling
+# HOST TX {"command": "status", "utc": "2026-10-15T23:04:23.490941+00:00", "host_monotonic_ns": 597693824024200}
+# HOST RX {"utc": "2026-10-15T23:04:23.588350+00:00", "host_monotonic_ns": 597693921451200}
+B=123616 rev=24 USB IF-I tune=6500 bw=4 agc=4 gain=2^4 vol=25
+# HOST RX {"utc": "2026-10-15T23:04:23.590781+00:00", "host_monotonic_ns": 597693923860000}
+I min/mean/max/rms=1937/2075/2217/89 Q=2039/2055/2075/5 MAG=123 AUD rms/peak=1389/1968 clips=398614
+# HOST RX {"utc": "2026-10-15T23:04:23.592407+00:00", "host_monotonic_ns": 597693925481800}
+us=3312 max=4233 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0
+# HOST RX {"utc": "2026-10-15T23:04:23.594167+00:00", "host_monotonic_ns": 597693927240200}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"utc": "2026-10-15T23:04:23.594955+00:00", "host_monotonic_ns": 597693928026600}
+TIMING us latest/max PROC=3108/3925 OUT=204/340 IN=555/584 DSP=2517/3286 STAT=36/105 FFT=0/444
+# HOST RX {"utc": "2026-10-15T23:04:23.595493+00:00", "host_monotonic_ns": 597693928563500}
+RX latest_us CICMIX=500 FILTER=1468 DEMOD=348 CAPTURE=3 FFTFWD=862 FFTBINS=181 FFTINV=356
+# HOST RX {"utc": "2026-10-15T23:04:23.595744+00:00", "host_monotonic_ns": 597693928814800}
+MEASURE id=0 active=0 settings_changed=0
+# HOST RX {"utc": "2026-10-15T23:04:23.596345+00:00", "host_monotonic_ns": 597693929415500}
+WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0
+# HOST RX {"utc": "2026-10-15T23:04:23.596925+00:00", "host_monotonic_ns": 597693929995900}
+WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0
+# HOST RX {"utc": "2026-10-15T23:04:23.597826+00:00", "host_monotonic_ns": 597693930896300}
+WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0
+# HOST RX {"utc": "2026-10-15T23:04:23.598711+00:00", "host_monotonic_ns": 597693931781300}
+WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0
+# HOST RX {"utc": "2026-10-15T23:04:23.598875+00:00", "host_monotonic_ns": 597693931945400}
+BOOKKEEP max_us=0 sum_us=0
+# HOST RX {"utc": "2026-10-15T23:04:23.598944+00:00", "host_monotonic_ns": 597693932014700}
+ENDSTATUS
+# HOST TX {"command": "status", "utc": "2026-10-15T23:04:28.954687+00:00", "host_monotonic_ns": 597699287378400}
+# HOST RX {"utc": "2026-10-15T23:04:28.964102+00:00", "host_monotonic_ns": 597699296812400}
+B=124864 rev=24 USB IF-I tune=6500 bw=4 agc=4 gain=2^4 vol=25
+# HOST RX {"utc": "2026-10-15T23:04:28.966712+00:00", "host_monotonic_ns": 597699299405500}
+I min/mean/max/rms=1941/2075/2211/88 Q=2040/2055/2067/4 MAG=123 AUD rms/peak=1402/1968 clips=398614
+# HOST RX {"utc": "2026-10-15T23:04:28.968437+00:00", "host_monotonic_ns": 597699301127200}
+us=3263 max=4233 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0
+# HOST RX {"utc": "2026-10-15T23:04:28.970259+00:00", "host_monotonic_ns": 597699302949200}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"utc": "2026-10-15T23:04:28.970844+00:00", "host_monotonic_ns": 597699303530800}
+TIMING us latest/max PROC=3075/3925 OUT=188/340 IN=553/584 DSP=2488/3286 STAT=33/105 FFT=0/444
+# HOST RX {"utc": "2026-10-15T23:04:28.971397+00:00", "host_monotonic_ns": 597699304087000}
+RX latest_us CICMIX=498 FILTER=1458 DEMOD=342 CAPTURE=3 FFTFWD=860 FFTBINS=174 FFTINV=356
+# HOST RX {"utc": "2026-10-15T23:04:28.971770+00:00", "host_monotonic_ns": 597699304458800}
+MEASURE id=0 active=0 settings_changed=0
+# HOST RX {"utc": "2026-10-15T23:04:28.973365+00:00", "host_monotonic_ns": 597699306055400}
+WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0
+# HOST RX {"utc": "2026-10-15T23:04:28.975092+00:00", "host_monotonic_ns": 597699307783400}
+WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0
+# HOST RX {"utc": "2026-10-15T23:04:28.977593+00:00", "host_monotonic_ns": 597699310281900}
+WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0
+# HOST RX {"utc": "2026-10-15T23:04:28.979380+00:00", "host_monotonic_ns": 597699312066800}
+WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0
+# HOST RX {"utc": "2026-10-15T23:04:28.979648+00:00", "host_monotonic_ns": 597699312334200}
+BOOKKEEP max_us=0 sum_us=0
+# HOST RX {"utc": "2026-10-15T23:04:28.979761+00:00", "host_monotonic_ns": 597699312446800}
+ENDSTATUS

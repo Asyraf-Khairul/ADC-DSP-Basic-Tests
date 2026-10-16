@@ -1,0 +1,156 @@
+{
+  "session": "tuning-bandwidth-2026-10-16-bandwidth4-repeat01",
+  "client_local_date": "2026-10-16",
+  "timezone": "Pacific/Auckland",
+  "branch": "testing/fm-timing-optimized",
+  "commit": "63f6610e8ab9e894b30543816e5c8033ace43c4a",
+  "tracked_changes": "",
+  "ports": [
+    {
+      "device": "COM3",
+      "serial_number": null,
+      "hwid": "PCI\\VEN_8086&DEV_7AEB&SUBSYS_8ACC103C&REV_11\\3&11583659&0&B3"
+    },
+    {
+      "device": "COM8",
+      "serial_number": "E664A836A3704126",
+      "hwid": "USB VID:PID=2E8A:000A SER=E664A836A3704126 LOCATION=1-2:x.0"
+    }
+  ],
+  "artifact_sha256": "77b8f17f2facca31221a7e537a34cc139ef9cc8a222d3e657b803949d3561e0e",
+  "expected_identity": {
+    "BENCH_BUILD_LABEL": "fm-optimized-v2",
+    "BENCH_SOURCE_SHA256": "c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6",
+    "BENCH_BASE_COMMIT": "bfa22b8c150ee87c1808418a08cb066160e3834d"
+  },
+  "actions": [
+    {
+      "command": "help",
+      "utc": "2026-10-15T23:43:55.720341+00:00",
+      "host_monotonic_ns": 600065904209200
+    },
+    {
+      "command": "status",
+      "utc": "2026-10-15T23:43:57.004812+00:00",
+      "host_monotonic_ns": 600067188627700
+    },
+    {
+      "command": "bw 4",
+      "utc": "2026-10-15T23:43:57.026063+00:00",
+      "host_monotonic_ns": 600067209860100
+    },
+    {
+      "command": "status",
+      "utc": "2026-10-15T23:43:57.545270+00:00",
+      "host_monotonic_ns": 600067729043100
+    },
+    {
+      "command": "status",
+      "utc": "2026-10-15T23:44:02.858562+00:00",
+      "host_monotonic_ns": 600073042040800
+    }
+  ],
+  "records": [
+    {
+      "label": "before_any_settings",
+      "first_line_received": {
+        "utc": "2026-10-15T23:43:57.014328+00:00",
+        "host_monotonic_ns": 600067198149500
+      },
+      "complete_received": {
+        "utc": "2026-10-15T23:43:57.025984+00:00",
+        "host_monotonic_ns": 600067209779500
+      },
+      "lines": [
+        "B=679872 rev=29 USB IF-I tune=5500 bw=0 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1944/2074/2205/88 Q=2041/2055/2069/4 MAG=2 AUD rms/peak=37/112 clips=398614",
+        "us=3247 max=4408 deadline=1 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=3059/4048 OUT=188/369 IN=553/584 DSP=2456/3286 STAT=49/105 FFT=0/552",
+        "RX latest_us CICMIX=498 FILTER=1442 DEMOD=341 CAPTURE=3 FFTFWD=860 FFTBINS=157 FFTINV=356",
+        "MEASURE id=0 active=0 settings_changed=0",
+        "WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+        "WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+        "WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+        "WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+        "BOOKKEEP max_us=0 sum_us=0",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "label": "settings_requested_before_settling",
+      "first_line_received": {
+        "utc": "2026-10-15T23:43:57.634322+00:00",
+        "host_monotonic_ns": 600067818096100
+      },
+      "complete_received": {
+        "utc": "2026-10-15T23:43:57.641499+00:00",
+        "host_monotonic_ns": 600067825260600
+      },
+      "lines": [
+        "B=680000 rev=30 USB IF-I tune=5500 bw=4 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1945/2074/2208/88 Q=2041/2055/2076/4 MAG=124 AUD rms/peak=1418/2016 clips=398614",
+        "us=3263 max=4408 deadline=1 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=3075/4048 OUT=188/369 IN=553/584 DSP=2488/3286 STAT=33/105 FFT=0/552",
+        "RX latest_us CICMIX=498 FILTER=1459 DEMOD=341 CAPTURE=3 FFTFWD=860 FFTBINS=174 FFTINV=356",
+        "MEASURE id=0 active=0 settings_changed=0",
+        "WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+        "WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+        "WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+        "WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+        "BOOKKEEP max_us=0 sum_us=0",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "label": "after_settling",
+      "first_line_received": {
+        "utc": "2026-10-15T23:44:02.884894+00:00",
+        "host_monotonic_ns": 600073068386400
+      },
+      "complete_received": {
+        "utc": "2026-10-15T23:44:02.900859+00:00",
+        "host_monotonic_ns": 600073084332100
+      },
+      "lines": [
+        "B=681248 rev=30 USB IF-I tune=5500 bw=4 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1946/2075/2208/88 Q=2042/2055/2073/3 MAG=124 AUD rms/peak=1424/2096 clips=398614",
+        "us=3313 max=4408 deadline=1 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=3108/4048 OUT=205/369 IN=555/584 DSP=2517/3286 STAT=36/105 FFT=0/552",
+        "RX latest_us CICMIX=500 FILTER=1469 DEMOD=348 CAPTURE=2 FFTFWD=862 FFTBINS=181 FFTINV=357",
+        "MEASURE id=0 active=0 settings_changed=0",
+        "WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+        "WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+        "WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+        "WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+        "BOOKKEEP max_us=0 sum_us=0",
+        "ENDSTATUS"
+      ]
+    }
+  ],
+  "operator_setup": "User reports connected and everything connected; current input voltages and generator readbacks not yet supplied.",
+  "physical_setup_verified": false,
+  "photographs_inspected": [],
+  "runtime_identity_verified": true,
+  "identity_limit": "Serial self-report compared to local artifact metadata; no independent flash readback.",
+  "assessment": "Incomplete: setup and electrical measurements pending",
+  "connection_lines": [],
+  "help_lines": [
+    "Pico ADC/DSP suite: commands are lowercase, one per line.",
+    "preset 0..8: BASIC, IQ-AM, IF-AM, IF-AMSYNC, IF-FM, IF-FSK, USB, LSB, IF-CW",
+    "mode basic|am|amsync|fm|usb|lsb|cw; input iq|i|q; tune -12000..12000 Hz",
+    "bw 0..4; agc 0=fast 1=medium 2=slow 3=long 4=manual; gain 0..10 (2^n)",
+    "volume 0..100; squelch -1=off or 0..12; hang 0..7; swap 0|1; iqcorr 0|1",
+    "deemph 0..2; bass/treble 0..4; blanker 0..6; notch/nr 0|1",
+    "smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz",
+    "page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.",
+    "BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.",
+    "measure start|stop: all-block timing window; cumulative diagnostics never reset.",
+    "BUILD label=fm-optimized-v2 source_sha256=c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6 base=bfa22b8c150ee87c1808418a08cb066160e3834d",
+    "INSTRUMENT sys_clock_Hz=120000000 timer_1024_reads_us=86 extra_receiver_timer_reads_per_block=9"
+  ],
+  "settling_seconds": 5.2,
+  "raw_log_sha256": "e900e8e138831f291e99732a58ae833fb0e44267e6ec49d8f23fe4b01c5bcadf"
+}

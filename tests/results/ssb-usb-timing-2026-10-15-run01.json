@@ -1,0 +1,4028 @@
+{
+  "name": "ssb-usb-timing-2026-10-15-run01",
+  "source_identity": {
+    "BENCH_BUILD_LABEL": "fm-optimized-v2",
+    "BENCH_SOURCE_SHA256": "c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6",
+    "BENCH_BASE_COMMIT": "bfa22b8c150ee87c1808418a08cb066160e3834d"
+  },
+  "publication_commit": "63f6610e8ab9e894b30543816e5c8033ace43c4a",
+  "branch": "testing/fm-timing-optimized",
+  "tracked_source_diff": "",
+  "artifact_metadata": "tests/artifacts/fm-optimized-v2.json",
+  "expected_UF2_sha256": "77b8f17f2facca31221a7e537a34cc139ef9cc8a222d3e657b803949d3561e0e",
+  "restart_method": "No reboot; current powered session, all cumulative counters retained. Gain x16 set before test. Physical scope verification waived by user.",
+  "scope_readings": "User declined fresh numerical input readings; no current voltage/phase scope verification. Historical AM/FM measurements not reused as fresh.",
+  "setup": "Both generator channels instructed continuous1kHz sine,300mVpp High-Z,+2.5V offset, modulationoff,CH1phase0 CH2phase90; CH1 via retained divider GP27 I, CH2 via retained divider GP26 Q; mixer disconnected instructed. Operator replied set then asked to run without fresh scope verification.",
+  "phase_label": "Q displayed90deg; physical phase not verified",
+  "physical_phase_verified": false,
+  "operator_reply": "ist the same as expected dont owrry just run the tets im sure its right now",
+  "audio_probe_location": "Filtered R1/C2 junction instructed for later electrical-output measurements; current scope probe location not independently verified.",
+  "demodulation_verdict": "Not measured by timing collector; AUD RMS is broadband pre-volume/pre-PWM, not a selective output-tone measurement.",
+  "UI_confirmation": "unverified for this run",
+  "actions": [
+    {
+      "command": "stream 0",
+      "mono_ns": 532461699613100,
+      "utc": "2026-10-15T04:57:09.808014+00:00"
+    },
+    {
+      "command": "help",
+      "mono_ns": 532461699755300,
+      "utc": "2026-10-15T04:57:09.808156+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532462752333000,
+      "utc": "2026-10-15T04:57:10.860782+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532467870516400,
+      "utc": "2026-10-15T04:57:15.979199+00:00"
+    },
+    {
+      "command": "measure start",
+      "mono_ns": 532467950423000,
+      "utc": "2026-10-15T04:57:16.059103+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532467950567300,
+      "utc": "2026-10-15T04:57:16.059247+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532472972426600,
+      "utc": "2026-10-15T04:57:21.081337+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532477972534800,
+      "utc": "2026-10-15T04:57:26.081669+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532482972742200,
+      "utc": "2026-10-15T04:57:31.082098+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532487972971500,
+      "utc": "2026-10-15T04:57:36.082552+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532492972698100,
+      "utc": "2026-10-15T04:57:41.082499+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532497972503400,
+      "utc": "2026-10-15T04:57:46.082527+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532502972931600,
+      "utc": "2026-10-15T04:57:51.083179+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532507973319100,
+      "utc": "2026-10-15T04:57:56.083791+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532512972797300,
+      "utc": "2026-10-15T04:58:01.083491+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532517972872700,
+      "utc": "2026-10-15T04:58:06.083788+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532522972474000,
+      "utc": "2026-10-15T04:58:11.083610+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532527972887600,
+      "utc": "2026-10-15T04:58:16.084245+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532529972899600,
+      "utc": "2026-10-15T04:58:18.084351+00:00"
+    },
+    {
+      "command": "measure stop",
+      "mono_ns": 532529995585800,
+      "utc": "2026-10-15T04:58:18.107027+00:00"
+    },
+    {
+      "command": "status",
+      "mono_ns": 532529995706600,
+      "utc": "2026-10-15T04:58:18.107148+00:00"
+    }
+  ],
+  "records": [
+    {
+      "phase": "existing_settings_before_settling",
+      "request": {
+        "command": "status",
+        "mono_ns": 532462752333000,
+        "utc": "2026-10-15T04:57:10.860782+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532462760508400,
+        "utc": "2026-10-15T04:57:10.868959+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532462769236300,
+        "utc": "2026-10-15T04:57:10.877685+00:00"
+      },
+      "B": 817632,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3170,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 0,
+        "active": 0,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 0,
+        "rev": 0,
+        "deadline": 0,
+        "clips": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 0
+      },
+      "end": {
+        "B": 0,
+        "rev": 0,
+        "deadline": 0,
+        "clips": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 0
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 0,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "IN": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "DSP": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "STAT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "CICMIX": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FILTER": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "DEMOD": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "CAPTURE": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTFWD": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTBINS": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTINV": {
+              "max_us": 0,
+              "sum_us": 0
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 0,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "IN": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "DSP": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "STAT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "CICMIX": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FILTER": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "DEMOD": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "CAPTURE": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTFWD": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTBINS": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTINV": {
+              "max_us": 0,
+              "sum_us": 0
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 0,
+        "sum_us": 0
+      },
+      "raw_lines": [
+        "B=817632 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1937/2080/2211/89 Q=1936/2075/2215/87 MAG=248 AUD rms/peak=2775/3984 clips=1059439",
+        "us=3170 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2965/3919 OUT=205/536 IN=552/582 DSP=2380/3288 STAT=33/98 FFT=0/417",
+        "RX latest_us CICMIX=498 FILTER=1451 DEMOD=343 CAPTURE=2 FFTFWD=861 FFTBINS=165 FFTINV=357",
+        "MEASURE id=0 active=0 settings_changed=0",
+        "WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+        "WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+        "WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+        "WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+        "BOOKKEEP max_us=0 sum_us=0",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "settled_before_measurement",
+      "request": {
+        "command": "status",
+        "mono_ns": 532467870516400,
+        "utc": "2026-10-15T04:57:15.979199+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532467937521900,
+        "utc": "2026-10-15T04:57:16.046208+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532467949814900,
+        "utc": "2026-10-15T04:57:16.058494+00:00"
+      },
+      "B": 818848,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3208,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 0,
+        "active": 0,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 0,
+        "rev": 0,
+        "deadline": 0,
+        "clips": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 0
+      },
+      "end": {
+        "B": 0,
+        "rev": 0,
+        "deadline": 0,
+        "clips": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 0
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 0,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "IN": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "DSP": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "STAT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "CICMIX": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FILTER": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "DEMOD": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "CAPTURE": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTFWD": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTBINS": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTINV": {
+              "max_us": 0,
+              "sum_us": 0
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 0,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "IN": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "DSP": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "STAT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "CICMIX": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FILTER": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "DEMOD": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "CAPTURE": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTFWD": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTBINS": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTINV": {
+              "max_us": 0,
+              "sum_us": 0
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 0,
+        "sum_us": 0
+      },
+      "raw_lines": [
+        "B=818848 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1939/2073/2208/87 Q=1938/2080/2214/90 MAG=247 AUD rms/peak=2842/4000 clips=1059439",
+        "us=3208 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2988/3919 OUT=220/536 IN=553/582 DSP=2397/3288 STAT=36/98 FFT=0/417",
+        "RX latest_us CICMIX=499 FILTER=1461 DEMOD=348 CAPTURE=2 FFTFWD=863 FFTBINS=172 FFTINV=357",
+        "MEASURE id=0 active=0 settings_changed=0",
+        "WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+        "WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+        "WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+        "WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+        "BOOKKEEP max_us=0 sum_us=0",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_start_acknowledged",
+      "request": {
+        "command": "status",
+        "mono_ns": 532467950567300,
+        "utc": "2026-10-15T04:57:16.059247+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532467972367200,
+        "utc": "2026-10-15T04:57:16.081049+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532467981218600,
+        "utc": "2026-10-15T04:57:16.089899+00:00"
+      },
+      "B": 818870,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3169,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 1,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832489
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 0,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "IN": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "DSP": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "STAT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "CICMIX": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FILTER": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "DEMOD": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "CAPTURE": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTFWD": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTBINS": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTINV": {
+              "max_us": 0,
+              "sum_us": 0
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 0,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "IN": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "DSP": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "STAT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "CICMIX": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FILTER": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "DEMOD": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "CAPTURE": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTFWD": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTBINS": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "FFTINV": {
+              "max_us": 0,
+              "sum_us": 0
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 0,
+        "sum_us": 0
+      },
+      "raw_lines": [
+        "B=818870 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1933/2077/2210/88 Q=1935/2078/2212/89 MAG=247 AUD rms/peak=2761/4032 clips=1059439",
+        "us=3169 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2965/3919 OUT=204/536 IN=553/582 DSP=2379/3288 STAT=33/106 FFT=0/417",
+        "RX latest_us CICMIX=499 FILTER=1450 DEMOD=342 CAPTURE=3 FFTFWD=860 FFTBINS=165 FFTINV=357",
+        "MEASURE id=1 active=1 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832489",
+        "WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+        "WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+        "BOOKKEEP max_us=0 sum_us=0",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_sample",
+      "request": {
+        "command": "status",
+        "mono_ns": 532472972426600,
+        "utc": "2026-10-15T04:57:21.081337+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532472980667700,
+        "utc": "2026-10-15T04:57:21.089576+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532472993139500,
+        "utc": "2026-10-15T04:57:21.102043+00:00"
+      },
+      "B": 820032,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3208,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 1,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 820032,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3499790268
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 1144,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3481,
+              "sum_us": 3647243
+            },
+            "IN": {
+              "max_us": 582,
+              "sum_us": 632749
+            },
+            "DSP": {
+              "max_us": 2587,
+              "sum_us": 2731805
+            },
+            "STAT": {
+              "max_us": 68,
+              "sum_us": 39748
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 300,
+              "sum_us": 242163
+            },
+            "CICMIX": {
+              "max_us": 503,
+              "sum_us": 570622
+            },
+            "FILTER": {
+              "max_us": 1607,
+              "sum_us": 1665147
+            },
+            "DEMOD": {
+              "max_us": 382,
+              "sum_us": 394605
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 2829
+            },
+            "FFTFWD": {
+              "max_us": 903,
+              "sum_us": 985805
+            },
+            "FFTBINS": {
+              "max_us": 255,
+              "sum_us": 193102
+            },
+            "FFTINV": {
+              "max_us": 397,
+              "sum_us": 407859
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 18,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3547,
+              "sum_us": 63071
+            },
+            "IN": {
+              "max_us": 556,
+              "sum_us": 9971
+            },
+            "DSP": {
+              "max_us": 2398,
+              "sum_us": 42978
+            },
+            "STAT": {
+              "max_us": 37,
+              "sum_us": 623
+            },
+            "FFT": {
+              "max_us": 352,
+              "sum_us": 5901
+            },
+            "OUT": {
+              "max_us": 206,
+              "sum_us": 3565
+            },
+            "CICMIX": {
+              "max_us": 500,
+              "sum_us": 8978
+            },
+            "FILTER": {
+              "max_us": 1461,
+              "sum_us": 26199
+            },
+            "DEMOD": {
+              "max_us": 349,
+              "sum_us": 6209
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 45
+            },
+            "FFTFWD": {
+              "max_us": 863,
+              "sum_us": 15509
+            },
+            "FFTBINS": {
+              "max_us": 173,
+              "sum_us": 3037
+            },
+            "FFTINV": {
+              "max_us": 357,
+              "sum_us": 6415
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 65,
+        "sum_us": 5092
+      },
+      "raw_lines": [
+        "B=820032 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1940/2079/2208/89 Q=1936/2074/2211/87 MAG=249 AUD rms/peak=2799/4032 clips=1059439",
+        "us=3208 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2988/3919 OUT=220/536 IN=554/582 DSP=2398/3288 STAT=35/106 FFT=0/417",
+        "RX latest_us CICMIX=499 FILTER=1461 DEMOD=348 CAPTURE=3 FFTFWD=863 FFTBINS=172 FFTINV=357",
+        "MEASURE id=1 active=1 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=820032 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3499790268",
+        "WINDOW_ORDINARY N=1144 LATE=0 TOTAL=3481/3647243 IN=582/632749 DSP=2587/2731805 STAT=68/39748 FFT=0/0 OUT=300/242163 CICMIX=503/570622 FILTER=1607/1665147 DEMOD=382/394605 CAPTURE=3/2829 FFTFWD=903/985805 FFTBINS=255/193102 FFTINV=397/407859",
+        "WINDOW_SPECTRUM N=18 LATE=0 TOTAL=3547/63071 IN=556/9971 DSP=2398/42978 STAT=37/623 FFT=352/5901 OUT=206/3565 CICMIX=500/8978 FILTER=1461/26199 DEMOD=349/6209 CAPTURE=3/45 FFTFWD=863/15509 FFTBINS=173/3037 FFTINV=357/6415",
+        "BOOKKEEP max_us=65 sum_us=5092",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_sample",
+      "request": {
+        "command": "status",
+        "mono_ns": 532477972534800,
+        "utc": "2026-10-15T04:57:26.081669+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532477979863600,
+        "utc": "2026-10-15T04:57:26.088991+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532477989547000,
+        "utc": "2026-10-15T04:57:26.098673+00:00"
+      },
+      "B": 821216,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3216,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 1,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 821216,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3504842013
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 2309,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3615,
+              "sum_us": 7361494
+            },
+            "IN": {
+              "max_us": 582,
+              "sum_us": 1277100
+            },
+            "DSP": {
+              "max_us": 2672,
+              "sum_us": 5513699
+            },
+            "STAT": {
+              "max_us": 90,
+              "sum_us": 80110
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 300,
+              "sum_us": 489009
+            },
+            "CICMIX": {
+              "max_us": 504,
+              "sum_us": 1151707
+            },
+            "FILTER": {
+              "max_us": 1608,
+              "sum_us": 3360715
+            },
+            "DEMOD": {
+              "max_us": 414,
+              "sum_us": 796563
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 5703
+            },
+            "FFTFWD": {
+              "max_us": 927,
+              "sum_us": 1989730
+            },
+            "FFTBINS": {
+              "max_us": 255,
+              "sum_us": 389549
+            },
+            "FFTINV": {
+              "max_us": 397,
+              "sum_us": 823167
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 37,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3547,
+              "sum_us": 129411
+            },
+            "IN": {
+              "max_us": 556,
+              "sum_us": 20485
+            },
+            "DSP": {
+              "max_us": 2398,
+              "sum_us": 88288
+            },
+            "STAT": {
+              "max_us": 37,
+              "sum_us": 1271
+            },
+            "FFT": {
+              "max_us": 352,
+              "sum_us": 12036
+            },
+            "OUT": {
+              "max_us": 207,
+              "sum_us": 7269
+            },
+            "CICMIX": {
+              "max_us": 500,
+              "sum_us": 18453
+            },
+            "FILTER": {
+              "max_us": 1461,
+              "sum_us": 53822
+            },
+            "DEMOD": {
+              "max_us": 349,
+              "sum_us": 12741
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 94
+            },
+            "FFTFWD": {
+              "max_us": 863,
+              "sum_us": 31871
+            },
+            "FFTBINS": {
+              "max_us": 173,
+              "sum_us": 6223
+            },
+            "FFTINV": {
+              "max_us": 357,
+              "sum_us": 13187
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 65,
+        "sum_us": 10224
+      },
+      "raw_lines": [
+        "B=821216 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1938/2069/2208/87 Q=1937/2066/2209/90 MAG=248 AUD rms/peak=2818/4080 clips=1059439",
+        "us=3216 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=3010/3919 OUT=206/536 IN=552/582 DSP=2422/3288 STAT=35/106 FFT=0/417",
+        "RX latest_us CICMIX=499 FILTER=1450 DEMOD=383 CAPTURE=2 FFTFWD=860 FFTBINS=165 FFTINV=356",
+        "MEASURE id=1 active=1 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=821216 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3504842013",
+        "WINDOW_ORDINARY N=2309 LATE=0 TOTAL=3615/7361494 IN=582/1277100 DSP=2672/5513699 STAT=90/80110 FFT=0/0 OUT=300/489009 CICMIX=504/1151707 FILTER=1608/3360715 DEMOD=414/796563 CAPTURE=3/5703 FFTFWD=927/1989730 FFTBINS=255/389549 FFTINV=397/823167",
+        "WINDOW_SPECTRUM N=37 LATE=0 TOTAL=3547/129411 IN=556/20485 DSP=2398/88288 STAT=37/1271 FFT=352/12036 OUT=207/7269 CICMIX=500/18453 FILTER=1461/53822 DEMOD=349/12741 CAPTURE=3/94 FFTFWD=863/31871 FFTBINS=173/6223 FFTINV=357/13187",
+        "BOOKKEEP max_us=65 sum_us=10224",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_sample",
+      "request": {
+        "command": "status",
+        "mono_ns": 532482972742200,
+        "utc": "2026-10-15T04:57:31.082098+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532482982318600,
+        "utc": "2026-10-15T04:57:31.091673+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532482996042600,
+        "utc": "2026-10-15T04:57:31.105391+00:00"
+      },
+      "B": 822368,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3210,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 1,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 822368,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3509757203
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 3443,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3615,
+              "sum_us": 10977777
+            },
+            "IN": {
+              "max_us": 582,
+              "sum_us": 1904349
+            },
+            "DSP": {
+              "max_us": 2672,
+              "sum_us": 8221894
+            },
+            "STAT": {
+              "max_us": 90,
+              "sum_us": 119476
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 300,
+              "sum_us": 729714
+            },
+            "CICMIX": {
+              "max_us": 504,
+              "sum_us": 1717354
+            },
+            "FILTER": {
+              "max_us": 1608,
+              "sum_us": 5011202
+            },
+            "DEMOD": {
+              "max_us": 436,
+              "sum_us": 1188157
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 8516
+            },
+            "FFTFWD": {
+              "max_us": 927,
+              "sum_us": 2966903
+            },
+            "FFTBINS": {
+              "max_us": 255,
+              "sum_us": 580899
+            },
+            "FFTINV": {
+              "max_us": 397,
+              "sum_us": 1227402
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 55,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3599,
+              "sum_us": 192465
+            },
+            "IN": {
+              "max_us": 556,
+              "sum_us": 30451
+            },
+            "DSP": {
+              "max_us": 2446,
+              "sum_us": 131304
+            },
+            "STAT": {
+              "max_us": 56,
+              "sum_us": 1908
+            },
+            "FFT": {
+              "max_us": 365,
+              "sum_us": 17874
+            },
+            "OUT": {
+              "max_us": 213,
+              "sum_us": 10836
+            },
+            "CICMIX": {
+              "max_us": 500,
+              "sum_us": 27430
+            },
+            "FILTER": {
+              "max_us": 1482,
+              "sum_us": 80034
+            },
+            "DEMOD": {
+              "max_us": 361,
+              "sum_us": 18961
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 139
+            },
+            "FFTFWD": {
+              "max_us": 866,
+              "sum_us": 47380
+            },
+            "FFTBINS": {
+              "max_us": 187,
+              "sum_us": 9270
+            },
+            "FFTINV": {
+              "max_us": 360,
+              "sum_us": 19608
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 65,
+        "sum_us": 15152
+      },
+      "raw_lines": [
+        "B=822368 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1934/2078/2207/88 Q=1933/2070/2226/88 MAG=247 AUD rms/peak=2846/4064 clips=1059439",
+        "us=3210 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2988/3919 OUT=222/536 IN=554/582 DSP=2398/3288 STAT=36/106 FFT=0/417",
+        "RX latest_us CICMIX=499 FILTER=1461 DEMOD=348 CAPTURE=3 FFTFWD=863 FFTBINS=172 FFTINV=357",
+        "MEASURE id=1 active=1 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=822368 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3509757203",
+        "WINDOW_ORDINARY N=3443 LATE=0 TOTAL=3615/10977777 IN=582/1904349 DSP=2672/8221894 STAT=90/119476 FFT=0/0 OUT=300/729714 CICMIX=504/1717354 FILTER=1608/5011202 DEMOD=436/1188157 CAPTURE=3/8516 FFTFWD=927/2966903 FFTBINS=255/580899 FFTINV=397/1227402",
+        "WINDOW_SPECTRUM N=55 LATE=0 TOTAL=3599/192465 IN=556/30451 DSP=2446/131304 STAT=56/1908 FFT=365/17874 OUT=213/10836 CICMIX=500/27430 FILTER=1482/80034 DEMOD=361/18961 CAPTURE=3/139 FFTFWD=866/47380 FFTBINS=187/9270 FFTINV=360/19608",
+        "BOOKKEEP max_us=65 sum_us=15152",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_sample",
+      "request": {
+        "command": "status",
+        "mono_ns": 532487972971500,
+        "utc": "2026-10-15T04:57:36.082552+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532487981181500,
+        "utc": "2026-10-15T04:57:36.090756+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532487993746800,
+        "utc": "2026-10-15T04:57:36.103318+00:00"
+      },
+      "B": 823552,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3169,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 1,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 823552,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3514808893
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 4609,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3615,
+              "sum_us": 14696015
+            },
+            "IN": {
+              "max_us": 582,
+              "sum_us": 2549245
+            },
+            "DSP": {
+              "max_us": 2672,
+              "sum_us": 11006407
+            },
+            "STAT": {
+              "max_us": 90,
+              "sum_us": 159915
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 318,
+              "sum_us": 977329
+            },
+            "CICMIX": {
+              "max_us": 504,
+              "sum_us": 2298962
+            },
+            "FILTER": {
+              "max_us": 1608,
+              "sum_us": 6708255
+            },
+            "DEMOD": {
+              "max_us": 436,
+              "sum_us": 1590718
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 11374
+            },
+            "FFTFWD": {
+              "max_us": 932,
+              "sum_us": 3971670
+            },
+            "FFTBINS": {
+              "max_us": 255,
+              "sum_us": 777609
+            },
+            "FFTINV": {
+              "max_us": 397,
+              "sum_us": 1643077
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 73,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3599,
+              "sum_us": 255656
+            },
+            "IN": {
+              "max_us": 561,
+              "sum_us": 40427
+            },
+            "DSP": {
+              "max_us": 2446,
+              "sum_us": 174323
+            },
+            "STAT": {
+              "max_us": 56,
+              "sum_us": 2536
+            },
+            "FFT": {
+              "max_us": 365,
+              "sum_us": 23837
+            },
+            "OUT": {
+              "max_us": 213,
+              "sum_us": 14408
+            },
+            "CICMIX": {
+              "max_us": 503,
+              "sum_us": 36417
+            },
+            "FILTER": {
+              "max_us": 1482,
+              "sum_us": 106249
+            },
+            "DEMOD": {
+              "max_us": 361,
+              "sum_us": 25186
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 184
+            },
+            "FFTFWD": {
+              "max_us": 866,
+              "sum_us": 62894
+            },
+            "FFTBINS": {
+              "max_us": 187,
+              "sum_us": 12322
+            },
+            "FFTINV": {
+              "max_us": 360,
+              "sum_us": 26023
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 65,
+        "sum_us": 20231
+      },
+      "raw_lines": [
+        "B=823552 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1936/2066/2205/89 Q=1937/2067/2210/89 MAG=247 AUD rms/peak=2756/3984 clips=1059439",
+        "us=3169 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2964/3919 OUT=205/536 IN=552/582 DSP=2378/3288 STAT=33/106 FFT=0/417",
+        "RX latest_us CICMIX=498 FILTER=1450 DEMOD=342 CAPTURE=3 FFTFWD=860 FFTBINS=165 FFTINV=357",
+        "MEASURE id=1 active=1 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=823552 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3514808893",
+        "WINDOW_ORDINARY N=4609 LATE=0 TOTAL=3615/14696015 IN=582/2549245 DSP=2672/11006407 STAT=90/159915 FFT=0/0 OUT=318/977329 CICMIX=504/2298962 FILTER=1608/6708255 DEMOD=436/1590718 CAPTURE=3/11374 FFTFWD=932/3971670 FFTBINS=255/777609 FFTINV=397/1643077",
+        "WINDOW_SPECTRUM N=73 LATE=0 TOTAL=3599/255656 IN=561/40427 DSP=2446/174323 STAT=56/2536 FFT=365/23837 OUT=213/14408 CICMIX=503/36417 FILTER=1482/106249 DEMOD=361/25186 CAPTURE=3/184 FFTFWD=866/62894 FFTBINS=187/12322 FFTINV=360/26023",
+        "BOOKKEEP max_us=65 sum_us=20231",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_sample",
+      "request": {
+        "command": "status",
+        "mono_ns": 532492972698100,
+        "utc": "2026-10-15T04:57:41.082499+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532492981669800,
+        "utc": "2026-10-15T04:57:41.091468+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532492995513000,
+        "utc": "2026-10-15T04:57:41.105307+00:00"
+      },
+      "B": 824704,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3209,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 1,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 824704,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3519724135
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 5743,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3656,
+              "sum_us": 18311908
+            },
+            "IN": {
+              "max_us": 582,
+              "sum_us": 3176421
+            },
+            "DSP": {
+              "max_us": 2674,
+              "sum_us": 13714476
+            },
+            "STAT": {
+              "max_us": 90,
+              "sum_us": 199258
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 329,
+              "sum_us": 1217869
+            },
+            "CICMIX": {
+              "max_us": 504,
+              "sum_us": 2864566
+            },
+            "FILTER": {
+              "max_us": 1608,
+              "sum_us": 8358761
+            },
+            "DEMOD": {
+              "max_us": 447,
+              "sum_us": 1982107
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 14187
+            },
+            "FFTFWD": {
+              "max_us": 933,
+              "sum_us": 4948955
+            },
+            "FFTBINS": {
+              "max_us": 255,
+              "sum_us": 968863
+            },
+            "FFTINV": {
+              "max_us": 397,
+              "sum_us": 2047309
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 91,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3599,
+              "sum_us": 318480
+            },
+            "IN": {
+              "max_us": 561,
+              "sum_us": 50388
+            },
+            "DSP": {
+              "max_us": 2446,
+              "sum_us": 217258
+            },
+            "STAT": {
+              "max_us": 56,
+              "sum_us": 3151
+            },
+            "FFT": {
+              "max_us": 365,
+              "sum_us": 29616
+            },
+            "OUT": {
+              "max_us": 213,
+              "sum_us": 17916
+            },
+            "CICMIX": {
+              "max_us": 503,
+              "sum_us": 45391
+            },
+            "FILTER": {
+              "max_us": 1482,
+              "sum_us": 132422
+            },
+            "DEMOD": {
+              "max_us": 361,
+              "sum_us": 31383
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 226
+            },
+            "FFTFWD": {
+              "max_us": 866,
+              "sum_us": 78395
+            },
+            "FFTBINS": {
+              "max_us": 187,
+              "sum_us": 15348
+            },
+            "FFTINV": {
+              "max_us": 360,
+              "sum_us": 32438
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 65,
+        "sum_us": 25176
+      },
+      "raw_lines": [
+        "B=824704 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1938/2074/2208/87 Q=1936/2067/2220/89 MAG=248 AUD rms/peak=2874/4048 clips=1059439",
+        "us=3209 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2988/3919 OUT=221/536 IN=554/582 DSP=2398/3288 STAT=35/106 FFT=0/417",
+        "RX latest_us CICMIX=500 FILTER=1461 DEMOD=348 CAPTURE=3 FFTFWD=863 FFTBINS=173 FFTINV=356",
+        "MEASURE id=1 active=1 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=824704 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3519724135",
+        "WINDOW_ORDINARY N=5743 LATE=0 TOTAL=3656/18311908 IN=582/3176421 DSP=2674/13714476 STAT=90/199258 FFT=0/0 OUT=329/1217869 CICMIX=504/2864566 FILTER=1608/8358761 DEMOD=447/1982107 CAPTURE=3/14187 FFTFWD=933/4948955 FFTBINS=255/968863 FFTINV=397/2047309",
+        "WINDOW_SPECTRUM N=91 LATE=0 TOTAL=3599/318480 IN=561/50388 DSP=2446/217258 STAT=56/3151 FFT=365/29616 OUT=213/17916 CICMIX=503/45391 FILTER=1482/132422 DEMOD=361/31383 CAPTURE=3/226 FFTFWD=866/78395 FFTBINS=187/15348 FFTINV=360/32438",
+        "BOOKKEEP max_us=65 sum_us=25176",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_sample",
+      "request": {
+        "command": "status",
+        "mono_ns": 532497972503400,
+        "utc": "2026-10-15T04:57:46.082527+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532497981390100,
+        "utc": "2026-10-15T04:57:46.091414+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532497994338100,
+        "utc": "2026-10-15T04:57:46.104354+00:00"
+      },
+      "B": 825888,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3208,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 1,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 825888,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3524775868
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 6908,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3656,
+              "sum_us": 22026461
+            },
+            "IN": {
+              "max_us": 582,
+              "sum_us": 3820808
+            },
+            "DSP": {
+              "max_us": 2703,
+              "sum_us": 16496473
+            },
+            "STAT": {
+              "max_us": 90,
+              "sum_us": 239728
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 329,
+              "sum_us": 1464765
+            },
+            "CICMIX": {
+              "max_us": 504,
+              "sum_us": 3445665
+            },
+            "FILTER": {
+              "max_us": 1618,
+              "sum_us": 10054480
+            },
+            "DEMOD": {
+              "max_us": 447,
+              "sum_us": 2384038
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 17057
+            },
+            "FFTFWD": {
+              "max_us": 933,
+              "sum_us": 5952899
+            },
+            "FFTBINS": {
+              "max_us": 255,
+              "sum_us": 1165448
+            },
+            "FFTINV": {
+              "max_us": 397,
+              "sum_us": 2462645
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 110,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3599,
+              "sum_us": 384927
+            },
+            "IN": {
+              "max_us": 561,
+              "sum_us": 60904
+            },
+            "DSP": {
+              "max_us": 2446,
+              "sum_us": 262606
+            },
+            "STAT": {
+              "max_us": 56,
+              "sum_us": 3802
+            },
+            "FFT": {
+              "max_us": 366,
+              "sum_us": 35789
+            },
+            "OUT": {
+              "max_us": 213,
+              "sum_us": 21639
+            },
+            "CICMIX": {
+              "max_us": 503,
+              "sum_us": 54867
+            },
+            "FILTER": {
+              "max_us": 1482,
+              "sum_us": 160058
+            },
+            "DEMOD": {
+              "max_us": 361,
+              "sum_us": 37932
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 275
+            },
+            "FFTFWD": {
+              "max_us": 866,
+              "sum_us": 94759
+            },
+            "FFTBINS": {
+              "max_us": 187,
+              "sum_us": 18547
+            },
+            "FFTINV": {
+              "max_us": 360,
+              "sum_us": 39210
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 65,
+        "sum_us": 30275
+      },
+      "raw_lines": [
+        "B=825888 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1934/2065/2211/90 Q=1936/2071/2214/87 MAG=247 AUD rms/peak=2760/3984 clips=1059439",
+        "us=3208 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2988/3919 OUT=220/536 IN=554/582 DSP=2398/3288 STAT=36/106 FFT=0/417",
+        "RX latest_us CICMIX=499 FILTER=1461 DEMOD=348 CAPTURE=3 FFTFWD=863 FFTBINS=172 FFTINV=357",
+        "MEASURE id=1 active=1 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=825888 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3524775868",
+        "WINDOW_ORDINARY N=6908 LATE=0 TOTAL=3656/22026461 IN=582/3820808 DSP=2703/16496473 STAT=90/239728 FFT=0/0 OUT=329/1464765 CICMIX=504/3445665 FILTER=1618/10054480 DEMOD=447/2384038 CAPTURE=3/17057 FFTFWD=933/5952899 FFTBINS=255/1165448 FFTINV=397/2462645",
+        "WINDOW_SPECTRUM N=110 LATE=0 TOTAL=3599/384927 IN=561/60904 DSP=2446/262606 STAT=56/3802 FFT=366/35789 OUT=213/21639 CICMIX=503/54867 FILTER=1482/160058 DEMOD=361/37932 CAPTURE=3/275 FFTFWD=866/94759 FFTBINS=187/18547 FFTINV=360/39210",
+        "BOOKKEEP max_us=65 sum_us=30275",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_sample",
+      "request": {
+        "command": "status",
+        "mono_ns": 532502972931600,
+        "utc": "2026-10-15T04:57:51.083179+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532502982477000,
+        "utc": "2026-10-15T04:57:51.092720+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532502995309600,
+        "utc": "2026-10-15T04:57:51.105548+00:00"
+      },
+      "B": 827072,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3172,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 1,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 827072,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3529827564
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 8074,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3656,
+              "sum_us": 25743440
+            },
+            "IN": {
+              "max_us": 582,
+              "sum_us": 4465669
+            },
+            "DSP": {
+              "max_us": 2703,
+              "sum_us": 19280566
+            },
+            "STAT": {
+              "max_us": 90,
+              "sum_us": 280076
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 329,
+              "sum_us": 1711617
+            },
+            "CICMIX": {
+              "max_us": 504,
+              "sum_us": 4027246
+            },
+            "FILTER": {
+              "max_us": 1618,
+              "sum_us": 11751476
+            },
+            "DEMOD": {
+              "max_us": 448,
+              "sum_us": 2786219
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 19966
+            },
+            "FFTFWD": {
+              "max_us": 933,
+              "sum_us": 6957646
+            },
+            "FFTBINS": {
+              "max_us": 255,
+              "sum_us": 1362154
+            },
+            "FFTINV": {
+              "max_us": 397,
+              "sum_us": 2878296
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 128,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3599,
+              "sum_us": 448090
+            },
+            "IN": {
+              "max_us": 561,
+              "sum_us": 70879
+            },
+            "DSP": {
+              "max_us": 2446,
+              "sum_us": 305611
+            },
+            "STAT": {
+              "max_us": 56,
+              "sum_us": 4428
+            },
+            "FFT": {
+              "max_us": 366,
+              "sum_us": 41687
+            },
+            "OUT": {
+              "max_us": 267,
+              "sum_us": 25264
+            },
+            "CICMIX": {
+              "max_us": 503,
+              "sum_us": 63845
+            },
+            "FILTER": {
+              "max_us": 1482,
+              "sum_us": 186275
+            },
+            "DEMOD": {
+              "max_us": 361,
+              "sum_us": 44145
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 316
+            },
+            "FFTFWD": {
+              "max_us": 870,
+              "sum_us": 110275
+            },
+            "FFTBINS": {
+              "max_us": 187,
+              "sum_us": 21592
+            },
+            "FFTINV": {
+              "max_us": 360,
+              "sum_us": 45628
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 65,
+        "sum_us": 35378
+      },
+      "raw_lines": [
+        "B=827072 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1933/2072/2211/87 Q=1932/2079/2214/90 MAG=246 AUD rms/peak=2826/4000 clips=1059439",
+        "us=3172 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2967/3919 OUT=205/536 IN=552/582 DSP=2380/3288 STAT=33/106 FFT=0/417",
+        "RX latest_us CICMIX=498 FILTER=1451 DEMOD=342 CAPTURE=3 FFTFWD=860 FFTBINS=167 FFTINV=356",
+        "MEASURE id=1 active=1 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=827072 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3529827564",
+        "WINDOW_ORDINARY N=8074 LATE=0 TOTAL=3656/25743440 IN=582/4465669 DSP=2703/19280566 STAT=90/280076 FFT=0/0 OUT=329/1711617 CICMIX=504/4027246 FILTER=1618/11751476 DEMOD=448/2786219 CAPTURE=3/19966 FFTFWD=933/6957646 FFTBINS=255/1362154 FFTINV=397/2878296",
+        "WINDOW_SPECTRUM N=128 LATE=0 TOTAL=3599/448090 IN=561/70879 DSP=2446/305611 STAT=56/4428 FFT=366/41687 OUT=267/25264 CICMIX=503/63845 FILTER=1482/186275 DEMOD=361/44145 CAPTURE=3/316 FFTFWD=870/110275 FFTBINS=187/21592 FFTINV=360/45628",
+        "BOOKKEEP max_us=65 sum_us=35378",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_sample",
+      "request": {
+        "command": "status",
+        "mono_ns": 532507973319100,
+        "utc": "2026-10-15T04:57:56.083791+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532507982968000,
+        "utc": "2026-10-15T04:57:56.093433+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532507996992900,
+        "utc": "2026-10-15T04:57:56.107454+00:00"
+      },
+      "B": 828224,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3210,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 1,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 828224,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3534742801
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 9208,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3656,
+              "sum_us": 29359288
+            },
+            "IN": {
+              "max_us": 582,
+              "sum_us": 5092868
+            },
+            "DSP": {
+              "max_us": 2703,
+              "sum_us": 21988571
+            },
+            "STAT": {
+              "max_us": 90,
+              "sum_us": 319428
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 329,
+              "sum_us": 1952097
+            },
+            "CICMIX": {
+              "max_us": 504,
+              "sum_us": 4592889
+            },
+            "FILTER": {
+              "max_us": 1618,
+              "sum_us": 13401918
+            },
+            "DEMOD": {
+              "max_us": 448,
+              "sum_us": 3177611
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 22778
+            },
+            "FFTFWD": {
+              "max_us": 933,
+              "sum_us": 7934806
+            },
+            "FFTBINS": {
+              "max_us": 255,
+              "sum_us": 1553441
+            },
+            "FFTINV": {
+              "max_us": 397,
+              "sum_us": 3282533
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 146,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3599,
+              "sum_us": 511022
+            },
+            "IN": {
+              "max_us": 561,
+              "sum_us": 80847
+            },
+            "DSP": {
+              "max_us": 2446,
+              "sum_us": 348561
+            },
+            "STAT": {
+              "max_us": 56,
+              "sum_us": 5043
+            },
+            "FFT": {
+              "max_us": 366,
+              "sum_us": 47522
+            },
+            "OUT": {
+              "max_us": 267,
+              "sum_us": 28789
+            },
+            "CICMIX": {
+              "max_us": 503,
+              "sum_us": 72818
+            },
+            "FILTER": {
+              "max_us": 1482,
+              "sum_us": 212459
+            },
+            "DEMOD": {
+              "max_us": 361,
+              "sum_us": 50344
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 363
+            },
+            "FFTFWD": {
+              "max_us": 870,
+              "sum_us": 125782
+            },
+            "FFTBINS": {
+              "max_us": 187,
+              "sum_us": 24618
+            },
+            "FFTINV": {
+              "max_us": 360,
+              "sum_us": 52044
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 65,
+        "sum_us": 40340
+      },
+      "raw_lines": [
+        "B=828224 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1936/2066/2213/89 Q=1933/2076/2210/87 MAG=246 AUD rms/peak=2805/3968 clips=1059439",
+        "us=3210 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2989/3919 OUT=221/536 IN=554/582 DSP=2399/3288 STAT=35/106 FFT=0/417",
+        "RX latest_us CICMIX=499 FILTER=1461 DEMOD=348 CAPTURE=3 FFTFWD=863 FFTBINS=172 FFTINV=357",
+        "MEASURE id=1 active=1 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=828224 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3534742801",
+        "WINDOW_ORDINARY N=9208 LATE=0 TOTAL=3656/29359288 IN=582/5092868 DSP=2703/21988571 STAT=90/319428 FFT=0/0 OUT=329/1952097 CICMIX=504/4592889 FILTER=1618/13401918 DEMOD=448/3177611 CAPTURE=3/22778 FFTFWD=933/7934806 FFTBINS=255/1553441 FFTINV=397/3282533",
+        "WINDOW_SPECTRUM N=146 LATE=0 TOTAL=3599/511022 IN=561/80847 DSP=2446/348561 STAT=56/5043 FFT=366/47522 OUT=267/28789 CICMIX=503/72818 FILTER=1482/212459 DEMOD=361/50344 CAPTURE=3/363 FFTFWD=870/125782 FFTBINS=187/24618 FFTINV=360/52044",
+        "BOOKKEEP max_us=65 sum_us=40340",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_sample",
+      "request": {
+        "command": "status",
+        "mono_ns": 532512972797300,
+        "utc": "2026-10-15T04:58:01.083491+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532512981664900,
+        "utc": "2026-10-15T04:58:01.092355+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532512995456000,
+        "utc": "2026-10-15T04:58:01.106140+00:00"
+      },
+      "B": 829408,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3209,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 1,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 829408,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3539794535
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 10373,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3656,
+              "sum_us": 33074856
+            },
+            "IN": {
+              "max_us": 582,
+              "sum_us": 5737213
+            },
+            "DSP": {
+              "max_us": 2703,
+              "sum_us": 24770792
+            },
+            "STAT": {
+              "max_us": 90,
+              "sum_us": 359806
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 347,
+              "sum_us": 2199847
+            },
+            "CICMIX": {
+              "max_us": 504,
+              "sum_us": 5173964
+            },
+            "FILTER": {
+              "max_us": 1618,
+              "sum_us": 15097602
+            },
+            "DEMOD": {
+              "max_us": 448,
+              "sum_us": 3579819
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 25665
+            },
+            "FFTFWD": {
+              "max_us": 933,
+              "sum_us": 8938773
+            },
+            "FFTBINS": {
+              "max_us": 255,
+              "sum_us": 1749945
+            },
+            "FFTINV": {
+              "max_us": 397,
+              "sum_us": 3697895
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 165,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3599,
+              "sum_us": 577505
+            },
+            "IN": {
+              "max_us": 561,
+              "sum_us": 91357
+            },
+            "DSP": {
+              "max_us": 2446,
+              "sum_us": 393922
+            },
+            "STAT": {
+              "max_us": 56,
+              "sum_us": 5697
+            },
+            "FFT": {
+              "max_us": 369,
+              "sum_us": 53716
+            },
+            "OUT": {
+              "max_us": 267,
+              "sum_us": 32518
+            },
+            "CICMIX": {
+              "max_us": 503,
+              "sum_us": 82294
+            },
+            "FILTER": {
+              "max_us": 1482,
+              "sum_us": 240099
+            },
+            "DEMOD": {
+              "max_us": 361,
+              "sum_us": 56903
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 411
+            },
+            "FFTFWD": {
+              "max_us": 870,
+              "sum_us": 142150
+            },
+            "FFTBINS": {
+              "max_us": 187,
+              "sum_us": 27817
+            },
+            "FFTINV": {
+              "max_us": 360,
+              "sum_us": 58815
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 65,
+        "sum_us": 45406
+      },
+      "raw_lines": [
+        "B=829408 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1931/2077/2207/88 Q=1935/2080/2214/89 MAG=247 AUD rms/peak=2775/4016 clips=1059439",
+        "us=3209 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2988/3919 OUT=221/536 IN=554/582 DSP=2397/3288 STAT=36/106 FFT=0/417",
+        "RX latest_us CICMIX=499 FILTER=1460 DEMOD=349 CAPTURE=2 FFTFWD=863 FFTBINS=172 FFTINV=357",
+        "MEASURE id=1 active=1 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=829408 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3539794535",
+        "WINDOW_ORDINARY N=10373 LATE=0 TOTAL=3656/33074856 IN=582/5737213 DSP=2703/24770792 STAT=90/359806 FFT=0/0 OUT=347/2199847 CICMIX=504/5173964 FILTER=1618/15097602 DEMOD=448/3579819 CAPTURE=3/25665 FFTFWD=933/8938773 FFTBINS=255/1749945 FFTINV=397/3697895",
+        "WINDOW_SPECTRUM N=165 LATE=0 TOTAL=3599/577505 IN=561/91357 DSP=2446/393922 STAT=56/5697 FFT=369/53716 OUT=267/32518 CICMIX=503/82294 FILTER=1482/240099 DEMOD=361/56903 CAPTURE=3/411 FFTFWD=870/142150 FFTBINS=187/27817 FFTINV=360/58815",
+        "BOOKKEEP max_us=65 sum_us=45406",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_sample",
+      "request": {
+        "command": "status",
+        "mono_ns": 532517972872700,
+        "utc": "2026-10-15T04:58:06.083788+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532517981198700,
+        "utc": "2026-10-15T04:58:06.092109+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532517994210700,
+        "utc": "2026-10-15T04:58:06.105117+00:00"
+      },
+      "B": 830592,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3195,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 1,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 830592,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3544846256
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 11539,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3656,
+              "sum_us": 36793335
+            },
+            "IN": {
+              "max_us": 582,
+              "sum_us": 6382127
+            },
+            "DSP": {
+              "max_us": 2708,
+              "sum_us": 27555408
+            },
+            "STAT": {
+              "max_us": 90,
+              "sum_us": 400272
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 347,
+              "sum_us": 2447470
+            },
+            "CICMIX": {
+              "max_us": 504,
+              "sum_us": 5755549
+            },
+            "FILTER": {
+              "max_us": 1618,
+              "sum_us": 16794590
+            },
+            "DEMOD": {
+              "max_us": 469,
+              "sum_us": 3982500
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 28549
+            },
+            "FFTFWD": {
+              "max_us": 933,
+              "sum_us": 9943562
+            },
+            "FFTBINS": {
+              "max_us": 255,
+              "sum_us": 1946602
+            },
+            "FFTINV": {
+              "max_us": 397,
+              "sum_us": 4113537
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 183,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3599,
+              "sum_us": 640489
+            },
+            "IN": {
+              "max_us": 561,
+              "sum_us": 101326
+            },
+            "DSP": {
+              "max_us": 2446,
+              "sum_us": 436916
+            },
+            "STAT": {
+              "max_us": 56,
+              "sum_us": 6317
+            },
+            "FFT": {
+              "max_us": 369,
+              "sum_us": 59551
+            },
+            "OUT": {
+              "max_us": 267,
+              "sum_us": 36056
+            },
+            "CICMIX": {
+              "max_us": 503,
+              "sum_us": 91273
+            },
+            "FILTER": {
+              "max_us": 1482,
+              "sum_us": 266292
+            },
+            "DEMOD": {
+              "max_us": 361,
+              "sum_us": 63120
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 460
+            },
+            "FFTFWD": {
+              "max_us": 870,
+              "sum_us": 157660
+            },
+            "FFTBINS": {
+              "max_us": 187,
+              "sum_us": 30852
+            },
+            "FFTINV": {
+              "max_us": 360,
+              "sum_us": 65230
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 65,
+        "sum_us": 50486
+      },
+      "raw_lines": [
+        "B=830592 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1937/2076/2206/88 Q=1936/2069/2213/88 MAG=247 AUD rms/peak=2851/4064 clips=1059439",
+        "us=3195 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2989/3919 OUT=206/536 IN=569/582 DSP=2385/3288 STAT=35/106 FFT=0/417",
+        "RX latest_us CICMIX=498 FILTER=1455 DEMOD=343 CAPTURE=2 FFTFWD=864 FFTBINS=167 FFTINV=356",
+        "MEASURE id=1 active=1 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=830592 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3544846256",
+        "WINDOW_ORDINARY N=11539 LATE=0 TOTAL=3656/36793335 IN=582/6382127 DSP=2708/27555408 STAT=90/400272 FFT=0/0 OUT=347/2447470 CICMIX=504/5755549 FILTER=1618/16794590 DEMOD=469/3982500 CAPTURE=3/28549 FFTFWD=933/9943562 FFTBINS=255/1946602 FFTINV=397/4113537",
+        "WINDOW_SPECTRUM N=183 LATE=0 TOTAL=3599/640489 IN=561/101326 DSP=2446/436916 STAT=56/6317 FFT=369/59551 OUT=267/36056 CICMIX=503/91273 FILTER=1482/266292 DEMOD=361/63120 CAPTURE=3/460 FFTFWD=870/157660 FFTBINS=187/30852 FFTINV=360/65230",
+        "BOOKKEEP max_us=65 sum_us=50486",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_sample",
+      "request": {
+        "command": "status",
+        "mono_ns": 532522972474000,
+        "utc": "2026-10-15T04:58:11.083610+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532522981463800,
+        "utc": "2026-10-15T04:58:11.092596+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532522994771100,
+        "utc": "2026-10-15T04:58:11.105900+00:00"
+      },
+      "B": 831744,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3209,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 1,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 831744,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3549761467
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 12673,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3656,
+              "sum_us": 40408635
+            },
+            "IN": {
+              "max_us": 582,
+              "sum_us": 7009304
+            },
+            "DSP": {
+              "max_us": 2712,
+              "sum_us": 30263224
+            },
+            "STAT": {
+              "max_us": 90,
+              "sum_us": 439588
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 347,
+              "sum_us": 2687653
+            },
+            "CICMIX": {
+              "max_us": 504,
+              "sum_us": 6321193
+            },
+            "FILTER": {
+              "max_us": 1619,
+              "sum_us": 18445040
+            },
+            "DEMOD": {
+              "max_us": 469,
+              "sum_us": 4373730
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 31325
+            },
+            "FFTFWD": {
+              "max_us": 933,
+              "sum_us": 10920786
+            },
+            "FFTBINS": {
+              "max_us": 258,
+              "sum_us": 2137874
+            },
+            "FFTINV": {
+              "max_us": 397,
+              "sum_us": 4517783
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 201,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3867,
+              "sum_us": 703904
+            },
+            "IN": {
+              "max_us": 561,
+              "sum_us": 111287
+            },
+            "DSP": {
+              "max_us": 2512,
+              "sum_us": 480040
+            },
+            "STAT": {
+              "max_us": 59,
+              "sum_us": 6970
+            },
+            "FFT": {
+              "max_us": 434,
+              "sum_us": 65546
+            },
+            "OUT": {
+              "max_us": 306,
+              "sum_us": 39700
+            },
+            "CICMIX": {
+              "max_us": 503,
+              "sum_us": 100250
+            },
+            "FILTER": {
+              "max_us": 1482,
+              "sum_us": 292498
+            },
+            "DEMOD": {
+              "max_us": 413,
+              "sum_us": 69402
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 507
+            },
+            "FFTFWD": {
+              "max_us": 870,
+              "sum_us": 173174
+            },
+            "FFTBINS": {
+              "max_us": 187,
+              "sum_us": 33891
+            },
+            "FFTINV": {
+              "max_us": 360,
+              "sum_us": 71650
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 65,
+        "sum_us": 55457
+      },
+      "raw_lines": [
+        "B=831744 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1940/2079/2213/89 Q=1938/2077/2214/88 MAG=247 AUD rms/peak=2756/4000 clips=1059439",
+        "us=3209 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2988/3919 OUT=221/536 IN=554/582 DSP=2397/3288 STAT=35/106 FFT=0/434",
+        "RX latest_us CICMIX=500 FILTER=1460 DEMOD=348 CAPTURE=3 FFTFWD=862 FFTBINS=172 FFTINV=357",
+        "MEASURE id=1 active=1 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=831744 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3549761467",
+        "WINDOW_ORDINARY N=12673 LATE=0 TOTAL=3656/40408635 IN=582/7009304 DSP=2712/30263224 STAT=90/439588 FFT=0/0 OUT=347/2687653 CICMIX=504/6321193 FILTER=1619/18445040 DEMOD=469/4373730 CAPTURE=3/31325 FFTFWD=933/10920786 FFTBINS=258/2137874 FFTINV=397/4517783",
+        "WINDOW_SPECTRUM N=201 LATE=0 TOTAL=3867/703904 IN=561/111287 DSP=2512/480040 STAT=59/6970 FFT=434/65546 OUT=306/39700 CICMIX=503/100250 FILTER=1482/292498 DEMOD=413/69402 CAPTURE=3/507 FFTFWD=870/173174 FFTBINS=187/33891 FFTINV=360/71650",
+        "BOOKKEEP max_us=65 sum_us=55457",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_sample",
+      "request": {
+        "command": "status",
+        "mono_ns": 532527972887600,
+        "utc": "2026-10-15T04:58:16.084245+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532527981329000,
+        "utc": "2026-10-15T04:58:16.092681+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532527992860800,
+        "utc": "2026-10-15T04:58:16.104212+00:00"
+      },
+      "B": 832928,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3172,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 1,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 832928,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3554813163
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 13838,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3656,
+              "sum_us": 44122881
+            },
+            "IN": {
+              "max_us": 582,
+              "sum_us": 7653683
+            },
+            "DSP": {
+              "max_us": 2712,
+              "sum_us": 33045284
+            },
+            "STAT": {
+              "max_us": 90,
+              "sum_us": 480015
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 347,
+              "sum_us": 2934229
+            },
+            "CICMIX": {
+              "max_us": 504,
+              "sum_us": 6902275
+            },
+            "FILTER": {
+              "max_us": 1620,
+              "sum_us": 20140853
+            },
+            "DEMOD": {
+              "max_us": 469,
+              "sum_us": 4775619
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 34209
+            },
+            "FFTFWD": {
+              "max_us": 933,
+              "sum_us": 11924721
+            },
+            "FFTBINS": {
+              "max_us": 277,
+              "sum_us": 2334602
+            },
+            "FFTINV": {
+              "max_us": 397,
+              "sum_us": 4933093
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 220,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3867,
+              "sum_us": 770265
+            },
+            "IN": {
+              "max_us": 561,
+              "sum_us": 121805
+            },
+            "DSP": {
+              "max_us": 2512,
+              "sum_us": 525372
+            },
+            "STAT": {
+              "max_us": 59,
+              "sum_us": 7617
+            },
+            "FFT": {
+              "max_us": 434,
+              "sum_us": 71671
+            },
+            "OUT": {
+              "max_us": 306,
+              "sum_us": 43405
+            },
+            "CICMIX": {
+              "max_us": 503,
+              "sum_us": 109723
+            },
+            "FILTER": {
+              "max_us": 1482,
+              "sum_us": 320132
+            },
+            "DEMOD": {
+              "max_us": 413,
+              "sum_us": 75943
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 556
+            },
+            "FFTFWD": {
+              "max_us": 870,
+              "sum_us": 189544
+            },
+            "FFTBINS": {
+              "max_us": 187,
+              "sum_us": 37085
+            },
+            "FFTINV": {
+              "max_us": 360,
+              "sum_us": 78420
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 65,
+        "sum_us": 60576
+      },
+      "raw_lines": [
+        "B=832928 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1937/2073/2204/87 Q=1937/2066/2213/89 MAG=247 AUD rms/peak=2851/4016 clips=1059439",
+        "us=3172 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2966/3919 OUT=206/536 IN=552/582 DSP=2379/3288 STAT=33/106 FFT=0/434",
+        "RX latest_us CICMIX=498 FILTER=1452 DEMOD=342 CAPTURE=2 FFTFWD=861 FFTBINS=166 FFTINV=356",
+        "MEASURE id=1 active=1 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=832928 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3554813163",
+        "WINDOW_ORDINARY N=13838 LATE=0 TOTAL=3656/44122881 IN=582/7653683 DSP=2712/33045284 STAT=90/480015 FFT=0/0 OUT=347/2934229 CICMIX=504/6902275 FILTER=1620/20140853 DEMOD=469/4775619 CAPTURE=3/34209 FFTFWD=933/11924721 FFTBINS=277/2334602 FFTINV=397/4933093",
+        "WINDOW_SPECTRUM N=220 LATE=0 TOTAL=3867/770265 IN=561/121805 DSP=2512/525372 STAT=59/7617 FFT=434/71671 OUT=306/43405 CICMIX=503/109723 FILTER=1482/320132 DEMOD=413/75943 CAPTURE=3/556 FFTFWD=870/189544 FFTBINS=187/37085 FFTINV=360/78420",
+        "BOOKKEEP max_us=65 sum_us=60576",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_sample",
+      "request": {
+        "command": "status",
+        "mono_ns": 532529972899600,
+        "utc": "2026-10-15T04:58:18.084351+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532529981545400,
+        "utc": "2026-10-15T04:58:18.092989+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532529994669400,
+        "utc": "2026-10-15T04:58:18.106110+00:00"
+      },
+      "B": 833376,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3208,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 1,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 833376,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3556724666
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 14279,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3656,
+              "sum_us": 45528899
+            },
+            "IN": {
+              "max_us": 582,
+              "sum_us": 7897616
+            },
+            "DSP": {
+              "max_us": 2712,
+              "sum_us": 34098394
+            },
+            "STAT": {
+              "max_us": 90,
+              "sum_us": 495288
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 347,
+              "sum_us": 3027622
+            },
+            "CICMIX": {
+              "max_us": 504,
+              "sum_us": 7122239
+            },
+            "FILTER": {
+              "max_us": 1620,
+              "sum_us": 20782707
+            },
+            "DEMOD": {
+              "max_us": 469,
+              "sum_us": 4927782
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 35286
+            },
+            "FFTFWD": {
+              "max_us": 933,
+              "sum_us": 12304757
+            },
+            "FFTBINS": {
+              "max_us": 277,
+              "sum_us": 2408986
+            },
+            "FFTINV": {
+              "max_us": 397,
+              "sum_us": 5090317
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 227,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3867,
+              "sum_us": 794919
+            },
+            "IN": {
+              "max_us": 561,
+              "sum_us": 125684
+            },
+            "DSP": {
+              "max_us": 2512,
+              "sum_us": 542117
+            },
+            "STAT": {
+              "max_us": 59,
+              "sum_us": 7862
+            },
+            "FFT": {
+              "max_us": 434,
+              "sum_us": 74036
+            },
+            "OUT": {
+              "max_us": 306,
+              "sum_us": 44808
+            },
+            "CICMIX": {
+              "max_us": 503,
+              "sum_us": 113217
+            },
+            "FILTER": {
+              "max_us": 1482,
+              "sum_us": 330336
+            },
+            "DEMOD": {
+              "max_us": 413,
+              "sum_us": 78369
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 573
+            },
+            "FFTFWD": {
+              "max_us": 870,
+              "sum_us": 195578
+            },
+            "FFTBINS": {
+              "max_us": 187,
+              "sum_us": 38278
+            },
+            "FFTINV": {
+              "max_us": 360,
+              "sum_us": 80917
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 65,
+        "sum_us": 62524
+      },
+      "raw_lines": [
+        "B=833376 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1938/2073/2206/87 Q=1937/2080/2212/90 MAG=246 AUD rms/peak=2825/4000 clips=1059439",
+        "us=3208 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2988/3919 OUT=220/536 IN=554/582 DSP=2397/3288 STAT=35/106 FFT=0/434",
+        "RX latest_us CICMIX=500 FILTER=1460 DEMOD=348 CAPTURE=3 FFTFWD=863 FFTBINS=171 FFTINV=357",
+        "MEASURE id=1 active=1 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=833376 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3556724666",
+        "WINDOW_ORDINARY N=14279 LATE=0 TOTAL=3656/45528899 IN=582/7897616 DSP=2712/34098394 STAT=90/495288 FFT=0/0 OUT=347/3027622 CICMIX=504/7122239 FILTER=1620/20782707 DEMOD=469/4927782 CAPTURE=3/35286 FFTFWD=933/12304757 FFTBINS=277/2408986 FFTINV=397/5090317",
+        "WINDOW_SPECTRUM N=227 LATE=0 TOTAL=3867/794919 IN=561/125684 DSP=2512/542117 STAT=59/7862 FFT=434/74036 OUT=306/44808 CICMIX=503/113217 FILTER=1482/330336 DEMOD=413/78369 CAPTURE=3/573 FFTFWD=870/195578 FFTBINS=187/38278 FFTINV=360/80917",
+        "BOOKKEEP max_us=65 sum_us=62524",
+        "ENDSTATUS"
+      ]
+    },
+    {
+      "phase": "measurement_stopped",
+      "request": {
+        "command": "status",
+        "mono_ns": 532529995706600,
+        "utc": "2026-10-15T04:58:18.107148+00:00"
+      },
+      "first_line_received": {
+        "mono_ns": 532530016537400,
+        "utc": "2026-10-15T04:58:18.127980+00:00"
+      },
+      "complete_received": {
+        "mono_ns": 532530025648600,
+        "utc": "2026-10-15T04:58:18.137090+00:00"
+      },
+      "B": 833412,
+      "revision": 3,
+      "settings": {
+        "mode": "USB",
+        "input": "IQ",
+        "tune": 0,
+        "bw": 2,
+        "agc": 4,
+        "gain_log2": 4,
+        "volume": 25,
+        "sq": -1,
+        "hang": 3,
+        "swap": 0,
+        "iqcorr": 0,
+        "deemph": 0,
+        "bass": 0,
+        "treble": 0,
+        "blanker": 0,
+        "notch": 0,
+        "nr": 0,
+        "smooth": 10,
+        "threshold": 1,
+        "cw": 700
+      },
+      "health": {
+        "us": 3170,
+        "max": 4229,
+        "deadline": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "clips": 1059439,
+      "measure": {
+        "id": 1,
+        "active": 0,
+        "settings_changed": 0
+      },
+      "start": {
+        "B": 818870,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3494832469
+      },
+      "end": {
+        "B": 833412,
+        "rev": 3,
+        "deadline": 0,
+        "clips": 1059439,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3556878681
+      },
+      "groups": {
+        "ORDINARY": {
+          "N": 14314,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3656,
+              "sum_us": 45641189
+            },
+            "IN": {
+              "max_us": 582,
+              "sum_us": 7917015
+            },
+            "DSP": {
+              "max_us": 2712,
+              "sum_us": 34182399
+            },
+            "STAT": {
+              "max_us": 90,
+              "sum_us": 496576
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 353,
+              "sum_us": 3035192
+            },
+            "CICMIX": {
+              "max_us": 504,
+              "sum_us": 7139707
+            },
+            "FILTER": {
+              "max_us": 1620,
+              "sum_us": 20833868
+            },
+            "DEMOD": {
+              "max_us": 469,
+              "sum_us": 4939982
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 35369
+            },
+            "FFTFWD": {
+              "max_us": 933,
+              "sum_us": 12335011
+            },
+            "FFTBINS": {
+              "max_us": 277,
+              "sum_us": 2414995
+            },
+            "FFTINV": {
+              "max_us": 397,
+              "sum_us": 5102817
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 228,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3867,
+              "sum_us": 798424
+            },
+            "IN": {
+              "max_us": 561,
+              "sum_us": 126240
+            },
+            "DSP": {
+              "max_us": 2512,
+              "sum_us": 544497
+            },
+            "STAT": {
+              "max_us": 59,
+              "sum_us": 7897
+            },
+            "FFT": {
+              "max_us": 434,
+              "sum_us": 74378
+            },
+            "OUT": {
+              "max_us": 306,
+              "sum_us": 44997
+            },
+            "CICMIX": {
+              "max_us": 503,
+              "sum_us": 113715
+            },
+            "FILTER": {
+              "max_us": 1482,
+              "sum_us": 331787
+            },
+            "DEMOD": {
+              "max_us": 413,
+              "sum_us": 78711
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 576
+            },
+            "FFTFWD": {
+              "max_us": 870,
+              "sum_us": 196438
+            },
+            "FFTBINS": {
+              "max_us": 187,
+              "sum_us": 38445
+            },
+            "FFTINV": {
+              "max_us": 360,
+              "sum_us": 81273
+            }
+          }
+        }
+      },
+      "bookkeeping": {
+        "max_us": 65,
+        "sum_us": 62684
+      },
+      "raw_lines": [
+        "B=833412 rev=3 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+        "I min/mean/max/rms=1932/2075/2204/87 Q=1936/2067/2213/88 MAG=248 AUD rms/peak=2872/4064 clips=1059439",
+        "us=3170 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+        "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+        "TIMING us latest/max PROC=2965/3919 OUT=205/536 IN=553/582 DSP=2379/3288 STAT=33/106 FFT=0/434",
+        "RX latest_us CICMIX=498 FILTER=1450 DEMOD=343 CAPTURE=3 FFTFWD=861 FFTBINS=165 FFTINV=356",
+        "MEASURE id=1 active=0 settings_changed=0",
+        "WINDOW_START B=818870 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3494832469",
+        "WINDOW_END B=833412 rev=3 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3556878681",
+        "WINDOW_ORDINARY N=14314 LATE=0 TOTAL=3656/45641189 IN=582/7917015 DSP=2712/34182399 STAT=90/496576 FFT=0/0 OUT=353/3035192 CICMIX=504/7139707 FILTER=1620/20833868 DEMOD=469/4939982 CAPTURE=3/35369 FFTFWD=933/12335011 FFTBINS=277/2414995 FFTINV=397/5102817",
+        "WINDOW_SPECTRUM N=228 LATE=0 TOTAL=3867/798424 IN=561/126240 DSP=2512/544497 STAT=59/7897 FFT=434/74378 OUT=306/44997 CICMIX=503/113715 FILTER=1482/331787 DEMOD=413/78711 CAPTURE=3/576 FFTFWD=870/196438 FFTBINS=187/38445 FFTINV=360/81273",
+        "BOOKKEEP max_us=65 sum_us=62684",
+        "ENDSTATUS"
+      ]
+    }
+  ],
+  "assessment": "PASS observed USB IQ timing and serial input-condition interval",
+  "connection_serial": [],
+  "runtime_help": [
+    "Pico ADC/DSP suite: commands are lowercase, one per line.",
+    "preset 0..8: BASIC, IQ-AM, IF-AM, IF-AMSYNC, IF-FM, IF-FSK, USB, LSB, IF-CW",
+    "mode basic|am|amsync|fm|usb|lsb|cw; input iq|i|q; tune -12000..12000 Hz",
+    "bw 0..4; agc 0=fast 1=medium 2=slow 3=long 4=manual; gain 0..10 (2^n)",
+    "volume 0..100; squelch -1=off or 0..12; hang 0..7; swap 0|1; iqcorr 0|1",
+    "deemph 0..2; bass/treble 0..4; blanker 0..6; notch/nr 0|1",
+    "smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz",
+    "page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.",
+    "BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.",
+    "measure start|stop: all-block timing window; cumulative diagnostics never reset.",
+    "BUILD label=fm-optimized-v2 source_sha256=c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6 base=bfa22b8c150ee87c1808418a08cb066160e3834d",
+    "INSTRUMENT sys_clock_Hz=120000000 timer_1024_reads_us=87 extra_receiver_timer_reads_per_block=9"
+  ],
+  "runtime_source_identity_verified": true,
+  "mode_transition": "None performed",
+  "settings_verification": "All settings explicitly matched; preset number itself not exposed",
+  "interval": {
+    "host_first_start_record_to_stopped_record_seconds": 62.0441702,
+    "device_capture_seconds": 62.046212,
+    "host_start_command": {
+      "command": "measure start",
+      "mono_ns": 532467950423000,
+      "utc": "2026-10-15T04:57:16.059103+00:00"
+    },
+    "host_stop_command": {
+      "command": "measure stop",
+      "mono_ns": 532529995585800,
+      "utc": "2026-10-15T04:58:18.107027+00:00"
+    },
+    "start": {
+      "B": 818870,
+      "rev": 3,
+      "deadline": 0,
+      "clips": 1059439,
+      "ADCdrop": 0,
+      "FIFO": 0,
+      "AUDunder": 0,
+      "AUDdrop": 0,
+      "IRQlate": 0,
+      "device_us": 3494832469
+    },
+    "end": {
+      "B": 833412,
+      "rev": 3,
+      "deadline": 0,
+      "clips": 1059439,
+      "ADCdrop": 0,
+      "FIFO": 0,
+      "AUDunder": 0,
+      "AUDdrop": 0,
+      "IRQlate": 0,
+      "device_us": 3556878681
+    },
+    "counter_increases": {
+      "B": 14542,
+      "deadline": 0,
+      "clips": 0,
+      "ADCdrop": 0,
+      "FIFO": 0,
+      "AUDunder": 0,
+      "AUDdrop": 0,
+      "IRQlate": 0
+    },
+    "blocks_per_second": 234.37369552874557,
+    "groups": {
+      "ORDINARY": {
+        "N": 14314,
+        "LATE": 0,
+        "stages": {
+          "TOTAL": {
+            "max_us": 3656,
+            "sum_us": 45641189
+          },
+          "IN": {
+            "max_us": 582,
+            "sum_us": 7917015
+          },
+          "DSP": {
+            "max_us": 2712,
+            "sum_us": 34182399
+          },
+          "STAT": {
+            "max_us": 90,
+            "sum_us": 496576
+          },
+          "FFT": {
+            "max_us": 0,
+            "sum_us": 0
+          },
+          "OUT": {
+            "max_us": 353,
+            "sum_us": 3035192
+          },
+          "CICMIX": {
+            "max_us": 504,
+            "sum_us": 7139707
+          },
+          "FILTER": {
+            "max_us": 1620,
+            "sum_us": 20833868
+          },
+          "DEMOD": {
+            "max_us": 469,
+            "sum_us": 4939982
+          },
+          "CAPTURE": {
+            "max_us": 3,
+            "sum_us": 35369
+          },
+          "FFTFWD": {
+            "max_us": 933,
+            "sum_us": 12335011
+          },
+          "FFTBINS": {
+            "max_us": 277,
+            "sum_us": 2414995
+          },
+          "FFTINV": {
+            "max_us": 397,
+            "sum_us": 5102817
+          }
+        }
+      },
+      "SPECTRUM": {
+        "N": 228,
+        "LATE": 0,
+        "stages": {
+          "TOTAL": {
+            "max_us": 3867,
+            "sum_us": 798424
+          },
+          "IN": {
+            "max_us": 561,
+            "sum_us": 126240
+          },
+          "DSP": {
+            "max_us": 2512,
+            "sum_us": 544497
+          },
+          "STAT": {
+            "max_us": 59,
+            "sum_us": 7897
+          },
+          "FFT": {
+            "max_us": 434,
+            "sum_us": 74378
+          },
+          "OUT": {
+            "max_us": 306,
+            "sum_us": 44997
+          },
+          "CICMIX": {
+            "max_us": 503,
+            "sum_us": 113715
+          },
+          "FILTER": {
+            "max_us": 1482,
+            "sum_us": 331787
+          },
+          "DEMOD": {
+            "max_us": 413,
+            "sum_us": 78711
+          },
+          "CAPTURE": {
+            "max_us": 3,
+            "sum_us": 576
+          },
+          "FFTFWD": {
+            "max_us": 870,
+            "sum_us": 196438
+          },
+          "FFTBINS": {
+            "max_us": 187,
+            "sum_us": 38445
+          },
+          "FFTINV": {
+            "max_us": 360,
+            "sum_us": 81273
+          }
+        }
+      }
+    },
+    "all_block_maximum_total_us": 3867,
+    "headroom_us": 399,
+    "sampled_latest_max_us": 3216,
+    "cumulative_max_since_boot_at_start_us": 4229,
+    "cumulative_max_since_boot_at_end_us": 4229,
+    "start_revision": 3,
+    "end_revision": 3,
+    "bookkeeping": {
+      "max_us": 65,
+      "sum_us": 62684
+    },
+    "pass_timing_and_streaming": true,
+    "near_rail_increase": 0,
+    "scope_input_limits_verified": false
+  },
+  "digital_audio_snapshots": {
+    "rms_min": 2756,
+    "rms_max": 2874,
+    "peak_min": 3968,
+    "peak_max": 4080,
+    "limitation": "Broadband digital samples before volume/PWM, not selective electrical-output tone level"
+  },
+  "raw_log_sha256": "4def9e4b4813904f8ea734bf1307072e64347895cfd78686f61d83279ec285bb"
+}

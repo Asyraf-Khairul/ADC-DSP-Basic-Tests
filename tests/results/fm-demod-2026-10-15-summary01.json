@@ -1,0 +1,343 @@
+{
+  "local_date": "2026-10-15 Pacific/Auckland",
+  "purpose": "Section 4.5.6 direct ADC-injection physical FM demodulation tests",
+  "repository": "Asyraf-Khairul/ADC-DSP-Basic-Tests",
+  "local_branch": "testing/fm-timing-optimized",
+  "commit": "63f6610e8ab9e894b30543816e5c8033ace43c4a",
+  "identity": {
+    "BENCH_BUILD_LABEL": "fm-optimized-v2",
+    "BENCH_SOURCE_SHA256": "c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6",
+    "BENCH_BASE_COMMIT": "bfa22b8c150ee87c1808418a08cb066160e3834d"
+  },
+  "artifact_sha256": "77b8f17f2facca31221a7e537a34cc139ef9cc8a222d3e657b803949d3561e0e",
+  "runtime_identity_verified": true,
+  "no_rebuild_flash_DSP_change_or_cumulative_counter_reset": true,
+  "setup": {
+    "generator_CH1": {
+      "connection": "Existing 470 ohm / 1 kohm divider to GP27",
+      "carrier_Hz": 8000,
+      "amplitude_setting_Vpp": 0.3,
+      "offset_setting_V": 2.5,
+      "load_indication": "High-Z",
+      "modulation": "Internal sine FM, 500 Hz",
+      "final_deviation_Hz": 500,
+      "provenance": "Instructed intended setup; user tentatively confirmed everything set. Detailed instrument readbacks not independently supplied."
+    },
+    "generator_CH2": {
+      "connection": "Existing divider to GP26",
+      "waveform": "DC instructed",
+      "offset_setting_V": "initial +2.5 V instructed; actual readback not supplied"
+    },
+    "mixer": "Disconnected instructed; not independently inspected",
+    "speaker": "Remains connected per established setup; actual impedance/load not measured",
+    "scope_CH1": "R1 100 ohm / C2 470 nF junction to circuit ground, after GP16 coupling capacitor; instructed probe point, not independently physically inspected",
+    "GP27_scope_user_readings_V": {
+      "mean": 1.65,
+      "minimum": 1.54,
+      "maximum": 1.78,
+      "derived_Vpp": 0.24
+    },
+    "GP26_scope_user_DC_V": 1.65,
+    "input_limit_result": "Reported GP27 extrema within 0 to 3.3 V; GP26 near midscale. Does not exclude all transients.",
+    "scope_FFT": "CH1; 10 ms/div acquisition and 0-2 kHz FFT span instructed; actual full readbacks, window and amplitude reference not recorded. Prior photo was waveform mode at 1 ms/div, not the later FFT."
+  },
+  "receiver_settings": {
+    "mode": "FM",
+    "input": "IF-I",
+    "tune": 8000,
+    "bw": 2,
+    "agc": 4,
+    "gain_log2": 0,
+    "volume": 25,
+    "sq": -1,
+    "hang": 3,
+    "swap": 0,
+    "iqcorr": 0,
+    "deemph": 0,
+    "bass": 0,
+    "treble": 0,
+    "blanker": 0,
+    "notch": 0,
+    "nr": 0,
+    "smooth": 10,
+    "threshold": 1,
+    "cw": 700
+  },
+  "observations": [
+    {
+      "condition": "FM on, initial",
+      "deviation_Hz": 500,
+      "reported_tone_Hz": 500,
+      "level_dBm": -50,
+      "note": "Clear peak; later user said an earlier reading might have been misread, unspecified which."
+    },
+    {
+      "condition": "FM off, carrier retained as instructed",
+      "deviation_Hz": null,
+      "reported_tone_Hz": null,
+      "level_dBm": -83,
+      "note": "Peak disappeared; level is background at 500 Hz, not resolved residual tone."
+    },
+    {
+      "condition": "FM on, lower deviation",
+      "deviation_Hz": 250,
+      "reported_tone_Hz": null,
+      "level_dBm": -55,
+      "note": "Measured at 500 Hz FFT location; repeated at same reported level."
+    },
+    {
+      "condition": "FM on, higher deviation",
+      "deviation_Hz": 500,
+      "reported_tone_Hz": null,
+      "level_dBm": -48,
+      "note": "Approximate reading, final repeat confirmed yes to approximately -48 dBm."
+    }
+  ],
+  "tone_recovery": {
+    "bench_target_Hz": [
+      490,
+      510
+    ],
+    "reported_Hz": 500,
+    "frequency_error_percent_from_reported_reading": 0,
+    "verdict": "Meets proposed bench frequency target as reported; modulation-off disappearance supports recovery from FM. Cursor accuracy/calibration not independently established."
+  },
+  "modulation_off": {
+    "on_initial_dBm": -50,
+    "off_background_dBm": -83,
+    "nominal_peak_to_background_dB": 33,
+    "bench_target_dB": 10,
+    "verdict": "Supports target under unchanged settings; residual tone not resolved. 33 dB is nominal peak/background separation, not exact residual-tone suppression. Initial reading uncertainty retained; later -48 dBm reference is not silently substituted."
+  },
+  "deviation_response": {
+    "modulation_Hz": 500,
+    "low_deviation_Hz": 250,
+    "high_deviation_Hz": 500,
+    "low_dBm": -55,
+    "high_dBm": -48,
+    "difference_dB": 7,
+    "conditional_amplitude_ratio": 2.2387211385683394,
+    "ideal_ratio": 2,
+    "ideal_difference_dB": 6.020599913279624,
+    "excess_over_ideal_dB": 0.9794000867203758,
+    "ratio_above_ideal_percent": 11.93605692841697,
+    "repeatability": "Both conditions repeated at reported precision. Earlier initial higher-deviation level -50 dBm is retained as uncertain.",
+    "verdict": "Increasing response approximately near doubling; 2.24x measured vs 2x ideal (~12% high). No exact proportionality or no-compression claim; uncertainty/tolerance not quantified."
+  },
+  "timing": {
+    "host_first_start_record_to_stopped_record_seconds": 62.0643484,
+    "device_capture_seconds": 62.066821,
+    "host_start_command": {
+      "command": "measure start",
+      "mono_ns": 521229012212500,
+      "utc": "2026-10-15T01:49:56.841810+00:00"
+    },
+    "host_stop_command": {
+      "command": "measure stop",
+      "mono_ns": 521291076622700,
+      "utc": "2026-10-15T01:50:58.907849+00:00"
+    },
+    "start": {
+      "B": 1005734,
+      "rev": 1,
+      "deadline": 0,
+      "clips": 3347771,
+      "ADCdrop": 0,
+      "FIFO": 0,
+      "AUDunder": 0,
+      "AUDdrop": 0,
+      "IRQlate": 0,
+      "device_us": 4292119304
+    },
+    "end": {
+      "B": 1020281,
+      "rev": 1,
+      "deadline": 0,
+      "clips": 3347771,
+      "ADCdrop": 0,
+      "FIFO": 0,
+      "AUDunder": 0,
+      "AUDdrop": 0,
+      "IRQlate": 0,
+      "device_us": 4354186125
+    },
+    "counter_increases": {
+      "B": 14547,
+      "deadline": 0,
+      "clips": 0,
+      "ADCdrop": 0,
+      "FIFO": 0,
+      "AUDunder": 0,
+      "AUDdrop": 0,
+      "IRQlate": 0
+    },
+    "blocks_per_second": 234.37643116923937,
+    "groups": {
+      "ORDINARY": {
+        "N": 14320,
+        "LATE": 0,
+        "stages": {
+          "TOTAL": {
+            "max_us": 3937,
+            "sum_us": 48155202
+          },
+          "IN": {
+            "max_us": 576,
+            "sum_us": 7929969
+          },
+          "DSP": {
+            "max_us": 2982,
+            "sum_us": 36918046
+          },
+          "STAT": {
+            "max_us": 84,
+            "sum_us": 495518
+          },
+          "FFT": {
+            "max_us": 0,
+            "sum_us": 0
+          },
+          "OUT": {
+            "max_us": 415,
+            "sum_us": 2801733
+          },
+          "CICMIX": {
+            "max_us": 504,
+            "sum_us": 7142646
+          },
+          "FILTER": {
+            "max_us": 1750,
+            "sum_us": 22071464
+          },
+          "DEMOD": {
+            "max_us": 459,
+            "sum_us": 5115324
+          },
+          "CAPTURE": {
+            "max_us": 20,
+            "sum_us": 62602
+          },
+          "FFTFWD": {
+            "max_us": 921,
+            "sum_us": 12339922
+          },
+          "FFTBINS": {
+            "max_us": 404,
+            "sum_us": 3645296
+          },
+          "FFTINV": {
+            "max_us": 385,
+            "sum_us": 5104996
+          }
+        }
+      },
+      "SPECTRUM": {
+        "N": 227,
+        "LATE": 0,
+        "stages": {
+          "TOTAL": {
+            "max_us": 3862,
+            "sum_us": 855014
+          },
+          "IN": {
+            "max_us": 564,
+            "sum_us": 125847
+          },
+          "DSP": {
+            "max_us": 2619,
+            "sum_us": 585047
+          },
+          "STAT": {
+            "max_us": 43,
+            "sum_us": 7837
+          },
+          "FFT": {
+            "max_us": 452,
+            "sum_us": 91303
+          },
+          "OUT": {
+            "max_us": 213,
+            "sum_us": 44548
+          },
+          "CICMIX": {
+            "max_us": 503,
+            "sum_us": 113224
+          },
+          "FILTER": {
+            "max_us": 1570,
+            "sum_us": 349774
+          },
+          "DEMOD": {
+            "max_us": 374,
+            "sum_us": 81194
+          },
+          "CAPTURE": {
+            "max_us": 19,
+            "sum_us": 858
+          },
+          "FFTFWD": {
+            "max_us": 878,
+            "sum_us": 195591
+          },
+          "FFTBINS": {
+            "max_us": 271,
+            "sum_us": 57722
+          },
+          "FFTINV": {
+            "max_us": 359,
+            "sum_us": 80914
+          }
+        }
+      }
+    },
+    "all_block_maximum_total_us": 3937,
+    "headroom_us": 329,
+    "sampled_latest_max_us": 3393,
+    "cumulative_max_since_boot_at_end_us": 4184,
+    "bookkeeping": {
+      "max_us": 66,
+      "sum_us": 59229
+    },
+    "pass_timing_and_streaming": true,
+    "near_rail_increase": 0,
+    "scope_input_limits_verified": false
+  },
+  "timing_cumulative_max_at_start_us": 4184,
+  "pre_test_rail_history": {
+    "preflight_near_rail": 58700,
+    "first_FM_settings_check_near_rail": 3128306,
+    "final_timing_window_start_near_rail": 3347771,
+    "increase_since_first_FM_settings_check": 219465,
+    "interpretation": "Counter increased during the setup/physical-test session before the final timed window. No continuous log identifies when or why; do not attribute all to a specific wiring change or silently claim zero near-rail events over the entire session."
+  },
+  "operator_follow_up": {
+    "recorded_utc": "2026-10-15T01:51:55.254093+00:00",
+    "reply": "i havent took pictures as i iwll do it when the web write up my report sectiion and the output isnt clipped and when are you doing the timing check run i wnt to hear it",
+    "audibility": "User reports no audible speaker tone at final measurement settings.",
+    "output_waveform_clipping": "User reports output is not clipped; measurement method and a validating output-waveform capture were not supplied.",
+    "captures_saved": "FM-on/off FFT photos not yet taken; user intends to collect later for report. Later captures must be labeled with actual settings/date and not presented as contemporaneous evidence for this interval."
+  },
+  "UI": "Responsive was confirmed during prior optimization work; not newly checked in this physical-test session.",
+  "limitations": [
+    "Scope FFT levels are manual readings with unverified reference/window; do not convert to delivered speaker power.",
+    "Dense 240.4 kHz output ripple photo is not the recovered-tone amplitude measurement.",
+    "Timing is bounded to the recorded final interval; not a worst-case guarantee.",
+    "No full receiver/RF/mixer/antenna chain validation.",
+    "No hardware numerical equivalence, distortion metric or output clipping proof."
+  ],
+  "evidence_files": [
+    "tests/results/fm-demod-2026-10-15-preflight01.json",
+    "tests/results/fm-demod-2026-10-15-settings01.json",
+    "tests/results/fm-demod-timing-2026-10-15-run01.json"
+  ],
+  "raw_timing_sha256": "3912c273297e61710e43b3101aa4925cccb71086c5d9afbce68df2281858d309",
+  "publication": "New physical-test evidence remains local, uncommitted and unpushed.",
+  "speaker_audibility": {
+    "recorded_utc": "2026-10-15T01:52:51.882783+00:00",
+    "operator_reply": "i didnt hear anything",
+    "verdict": "Audible output not demonstrated at gain x1, volume25",
+    "cause": "Not established by available evidence",
+    "independent_of_electrical_recovery": true
+  },
+  "overall_assessment": "Direct ADC-injection measurements support 500 Hz electrical recovery and modulation-off reduction; deviation response repeatable but not precise ideal proportionality. Final bounded timing interval passes. User reports no clipping without validating capture; speaker tone not audible. Photos outstanding. Complete receiver/antenna-to-audio validation not claimed."
+}

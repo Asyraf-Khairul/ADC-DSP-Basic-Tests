@@ -1,0 +1,119 @@
+{
+  "name": "ssb-demod-2026-10-15-preflight02",
+  "branch": "testing/fm-timing-optimized",
+  "commit": "63f6610e8ab9e894b30543816e5c8033ace43c4a",
+  "operator_reply": "connected",
+  "expected_artifact": {
+    "artifact": "fm-optimized-v2.uf2",
+    "sha256": "77b8f17f2facca31221a7e537a34cc139ef9cc8a222d3e657b803949d3561e0e",
+    "bytes": 266240,
+    "source_identity": {
+      "BENCH_BUILD_LABEL": "fm-optimized-v2",
+      "BENCH_SOURCE_SHA256": "c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6",
+      "BENCH_BASE_COMMIT": "bfa22b8c150ee87c1808418a08cb066160e3834d"
+    },
+    "build_type": "Release",
+    "cxx_flags_release": "-g -O3 -DNDEBUG",
+    "additional_compile_option": "-fwrapv",
+    "BENCH_SELF_TEST": false,
+    "BENCH_OPERATION_BENCHMARK": false,
+    "arm_gcc": "13.3.1",
+    "pico_sdk": "2.1.0",
+    "hardware_evidence": "../results/fm-optimized-v2-timing-2026-10-15-run01.json",
+    "note": "Exact tested candidate v2, built before the local commit on testing/fm-timing-optimized. Runtime identity verified; no independent flash readback. See linked hardware result. Local commit only; not pushed."
+  },
+  "actions": [
+    {
+      "command": "help",
+      "utc": "2026-10-15T03:59:39.967033+00:00",
+      "host_monotonic_ns": 529011989501100
+    },
+    {
+      "command": "status",
+      "utc": "2026-10-15T03:59:41.316423+00:00",
+      "host_monotonic_ns": 529013338904800
+    }
+  ],
+  "setup": "USB connection and requested wiring confirmed by user; generator settings and fresh input measurements pending",
+  "verdict": "No USB/LSB hardware pass yet",
+  "ports": [
+    {
+      "device": "COM3",
+      "description": "Intel(R) Active Management Technology - SOL (COM3)",
+      "serial_number": null
+    },
+    {
+      "device": "COM8",
+      "description": "USB Serial Device (COM8)",
+      "serial_number": "E664A836A3704126"
+    }
+  ],
+  "port": "COM8",
+  "initial_output": [],
+  "help": [
+    "",
+    "Pico ADC/DSP suite: commands are lowercase, one per line.",
+    "preset 0..8: BASIC, IQ-AM, IF-AM, IF-AMSYNC, IF-FM, IF-FSK, USB, LSB, IF-CW",
+    "mode basic|am|amsync|fm|usb|lsb|cw; input iq|i|q; tune -12000..12000 Hz",
+    "bw 0..4; agc 0=fast 1=medium 2=slow 3=long 4=manual; gain 0..10 (2^n)",
+    "volume 0..100; squelch -1=off or 0..12; hang 0..7; swap 0|1; iqcorr 0|1",
+    "deemph 0..2; bass/treble 0..4; blanker 0..6; notch/nr 0|1",
+    "smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz",
+    "page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.",
+    "BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.",
+    "measure start|stop: all-block timing window; cumulative diagnostics never reset.",
+    "BUILD label=fm-optimized-v2 source_sha256=c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6 base=bfa22b8c150ee87c1808418a08cb066160e3834d",
+    "INSTRUMENT sys_clock_Hz=120000000 timer_1024_reads_us=87 extra_receiver_timer_reads_per_block=9"
+  ],
+  "status": [
+    "B=9152 rev=0 BASIC IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+    "I min/mean/max/rms=1/15/31/4 Q=6/16/32/3 MAG=5 AUD rms/peak=10/23 clips=77973",
+    "us=2982 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+    "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+    "TIMING us latest/max PROC=2777/3919 OUT=205/310 IN=551/582 DSP=2188/3288 STAT=36/74 FFT=0/0",
+    "RX latest_us CICMIX=0 FILTER=0 DEMOD=0 CAPTURE=0 FFTFWD=0 FFTBINS=0 FFTINV=0",
+    "MEASURE id=0 active=0 settings_changed=0",
+    "WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+    "WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0",
+    "WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+    "WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0",
+    "BOOKKEEP max_us=0 sum_us=0",
+    "ENDSTATUS"
+  ],
+  "runtime_identity_matches": true,
+  "runtime_identity_limit": "Self-reported identity, no flash readback",
+  "raw_sha256": "68911526fa0d5eed1a8a6c0d497e6c2e8aed4a7f67932fc921bdb25edf8f94fd",
+  "operator_updates": [
+    {
+      "recorded_utc": "2026-10-15T04:10:17.258946+00:00",
+      "reply": "set",
+      "interpretation": "User confirms instructed generator configuration set, with outputs off pending input measurements; exact readbacks not independently inspected.",
+      "instructed_settings": {
+        "CH1": {
+          "pin": "GP27 I via existing divider",
+          "waveform": "sine",
+          "run_mode": "continuous",
+          "frequency_Hz": 1000,
+          "amplitude_setting_Vpp": 0.3,
+          "offset_setting_V": 2.5,
+          "load_indication": "High-Z",
+          "modulation": "off",
+          "phase_setting_deg": 0
+        },
+        "CH2": {
+          "pin": "GP26 Q via existing divider",
+          "waveform": "sine, changed from prior DC bias",
+          "run_mode": "continuous",
+          "frequency_Hz": 1000,
+          "amplitude_setting_Vpp": 0.3,
+          "offset_setting_V": 2.5,
+          "load_indication": "High-Z",
+          "modulation": "off",
+          "phase_setting_deg": 90
+        }
+      },
+      "input_voltage_verification": "pending fresh scope measurements",
+      "physical_quadrature": "pending scope lead/lag and quarter-period verification"
+    }
+  ]
+}

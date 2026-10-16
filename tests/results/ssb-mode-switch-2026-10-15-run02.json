@@ -1,0 +1,56 @@
+{
+  "purpose": "USB toLSB at generator Q displayed270deg; only receiver mode changes before settling",
+  "actions": [
+    {
+      "command": "status",
+      "utc": "2026-10-15T05:10:17.700911+00:00",
+      "host_monotonic_ns": 533249559075400
+    },
+    {
+      "command": "mode lsb",
+      "utc": "2026-10-15T05:10:18.786983+00:00",
+      "host_monotonic_ns": 533250645089000
+    },
+    {
+      "command": "status",
+      "utc": "2026-10-15T05:10:24.124916+00:00",
+      "host_monotonic_ns": 533255982797600
+    }
+  ],
+  "initial_output": [],
+  "before": [
+    "B=1002048 rev=5 USB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+    "I min/mean/max/rms=1934/2066/2206/88 Q=1937/2078/2203/89 MAG=27 AUD rms/peak=319/528 clips=1059439",
+    "us=3168 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+    "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+    "TIMING us latest/max PROC=2964/3919 OUT=204/536 IN=552/582 DSP=2377/3288 STAT=34/120 FFT=0/542",
+    "RX latest_us CICMIX=498 FILTER=1450 DEMOD=342 CAPTURE=2 FFTFWD=861 FFTBINS=165 FFTINV=356",
+    "MEASURE id=2 active=0 settings_changed=0",
+    "WINDOW_START B=835805 rev=4 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3567089346",
+    "WINDOW_END B=850348 rev=4 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3629138661",
+    "WINDOW_ORDINARY N=14316 LATE=0 TOTAL=3643/45672379 IN=576/7918000 DSP=2718/34206802 STAT=95/500317 FFT=0/0 OUT=400/3037310 CICMIX=504/7140876 FILTER=1606/20855634 DEMOD=479/4941131 CAPTURE=22/35306 FFTFWD=911/12336552 FFTBINS=280/2435028 FFTINV=396/5103251",
+    "WINDOW_SPECTRUM N=227 LATE=0 TOTAL=4129/796121 IN=562/125690 DSP=2646/542521 STAT=74/7959 FFT=542/74644 OUT=306/44884 CICMIX=503/113216 FILTER=1574/330720 DEMOD=418/78412 CAPTURE=3/553 FFTFWD=896/195595 FFTBINS=226/38628 FFTINV=383/80943",
+    "BOOKKEEP max_us=35 sum_us=62515",
+    "ENDSTATUS"
+  ],
+  "settling_output": [
+    "OK queued; allow 2 s settling"
+  ],
+  "after": [
+    "B=1003552 rev=6 LSB IQ tune=0 bw=2 agc=4 gain=2^4 vol=25",
+    "I min/mean/max/rms=1931/2069/2206/87 Q=1940/2080/2210/89 MAG=247 AUD rms/peak=2803/3984 clips=1059439",
+    "us=3212 max=4229 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0",
+    "sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700",
+    "TIMING us latest/max PROC=2990/3919 OUT=222/536 IN=554/582 DSP=2399/3288 STAT=36/120 FFT=0/542",
+    "RX latest_us CICMIX=500 FILTER=1462 DEMOD=349 CAPTURE=2 FFTFWD=863 FFTBINS=173 FFTINV=357",
+    "MEASURE id=2 active=0 settings_changed=0",
+    "WINDOW_START B=835805 rev=4 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3567089346",
+    "WINDOW_END B=850348 rev=4 deadline=0 clips=1059439 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=3629138661",
+    "WINDOW_ORDINARY N=14316 LATE=0 TOTAL=3643/45672379 IN=576/7918000 DSP=2718/34206802 STAT=95/500317 FFT=0/0 OUT=400/3037310 CICMIX=504/7140876 FILTER=1606/20855634 DEMOD=479/4941131 CAPTURE=22/35306 FFTFWD=911/12336552 FFTBINS=280/2435028 FFTINV=396/5103251",
+    "WINDOW_SPECTRUM N=227 LATE=0 TOTAL=4129/796121 IN=562/125690 DSP=2646/542521 STAT=74/7959 FFT=542/74644 OUT=306/44884 CICMIX=503/113216 FILTER=1574/330720 DEMOD=418/78412 CAPTURE=3/553 FFTFWD=896/195595 FFTBINS=226/38628 FFTINV=383/80943",
+    "BOOKKEEP max_us=35 sum_us=62515",
+    "ENDSTATUS"
+  ],
+  "mode_verified": "LSB",
+  "raw_sha256": "0117c99a7d93e77b4a32ed076fe32ddd27bdc01f8e25d255aa013bdf84d53a64"
+}

@@ -2,3 +2,5 @@
 tests/reference_receiver/** -text -whitespace
 tests/results/am-*.txt -text -whitespace
 tests/results/fm-*.txt -text -whitespace
+tests/results/ssb-*.txt -text -whitespace
+tests/results/tuning-bandwidth*.txt -text -whitespace

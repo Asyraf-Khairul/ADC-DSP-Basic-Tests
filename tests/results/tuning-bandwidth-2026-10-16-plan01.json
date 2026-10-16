@@ -1,0 +1,505 @@
+{
+  "client_local_date": "2026-10-16",
+  "state": "Electrical observations complete at reported precision; final62-second timing failed strict no-miss criterion; all evidence preserved locally",
+  "input": "Fixed 8000 Hz real sine on GP27, GP26 externally biased. IF-I replaces internal Q with midscale, so generator quadrature orientation is immaterial to this translation test.",
+  "source_files": [
+    "bench.cpp",
+    "receiver_dsp/rx_dsp.cpp",
+    "receiver_dsp/rx_definitions.h",
+    "receiver_dsp/fft_filter.cpp",
+    "receiver_dsp/fft_filter.h",
+    "settings.cpp"
+  ],
+  "nco": {
+    "sample_rate_Hz": 30000,
+    "accumulator_bits": 32,
+    "frequency_step_Hz": 6.984919309616089e-06,
+    "command_step_Hz": 1,
+    "command_range_Hz": [
+      -12000,
+      12000
+    ],
+    "sign": "multiply complex input by exp(-j*2*pi*tune*t); USB keeps positive translated frequencies",
+    "phase_lookup": "11 most significant phase bits, 2048-point sine table; does not quantize tuning to FFT bins"
+  },
+  "supported_inputs": [
+    "IQ uses both ADC inputs",
+    "IF-I retains GP27 and synthesizes midscale Q",
+    "IF-Q retains GP26 as I and synthesizes midscale Q"
+  ],
+  "filter": {
+    "fft_size": 256,
+    "sample_rate_Hz": 30000,
+    "bin_spacing_Hz": 117.1875,
+    "window": "256-point Hann, 50 percent overlap-add, inverse transform decimated by 2",
+    "ssb_start_bin": 3,
+    "ssb_stop_bins": [
+      16,
+      19,
+      22,
+      25,
+      28
+    ],
+    "ssb_retained_bin_centres_Hz": [
+      [
+        351.5625,
+        1875.0
+      ],
+      [
+        351.5625,
+        2226.5625
+      ],
+      [
+        351.5625,
+        2578.125
+      ],
+      [
+        351.5625,
+        2929.6875
+      ],
+      [
+        351.5625,
+        3281.25
+      ]
+    ],
+    "limitation": "Retained FFT bin centres are not measured -3 dB cutoff frequencies; Hann-window spectral leakage and overlap-add shape transition response."
+  },
+  "tuning_conditions": [
+    {
+      "requested_tune_Hz": 6500,
+      "phase_increment": 930576247,
+      "nominal_actual_tune_Hz": 6499.999996740371,
+      "expected_output_Hz": 1500.000003259629,
+      "bw": 4,
+      "serial_evidence": "tuning-bandwidth-2026-10-16-tune6500-01.json",
+      "scope_instructions": {
+        "probe": "CH1 at R1 100ohm / C2 470nF junction, ground circuit ground",
+        "coupling": "AC",
+        "vertical_start_mV_per_div": 20,
+        "horizontal_start_ms_per_div": 10,
+        "fft_source": "CH1",
+        "fft_window": "Hann/Hanning",
+        "fft_span_Hz": [
+          0,
+          4000
+        ],
+        "required": "Actual peak frequency; sample rate and record length to verify acquisition duration, cursor step/resolution before tolerance judgement",
+        "photograph": "Not yet required"
+      },
+      "measured_output_Hz": 1500,
+      "reported_FFT_level_dBm": -57,
+      "nominal_error_Hz": 0,
+      "measurement_precision": "Reported as1.5 kHz; finer cursor resolution unconfirmed",
+      "assessment": "Consistent with expected frequency at reported precision; final tolerance assessment pending cursor precision confirmation",
+      "level_correction": "Operator corrected initial -51 to -57dBm; earlier raw manual entry retained as superseded history",
+      "level_validity": "Uncertain: operator now suspects -57dBm readback was erroneous; original reports -51 then -57 retained. Do not claim a precise original-to-repeat level difference."
+    },
+    {
+      "requested_tune_Hz": 7000,
+      "phase_increment": 1002159035,
+      "nominal_actual_tune_Hz": 6999.999994877726,
+      "expected_output_Hz": 1000.0000051222742,
+      "bw": 4,
+      "serial_evidence": "tuning-bandwidth-2026-10-16-tune7000-01.json",
+      "measured_output_Hz": 1000,
+      "reported_FFT_level_dBm": -51,
+      "nominal_error_Hz": 0,
+      "measurement_precision": "Prompted1.0kHz confirmed; finer cursor precision unconfirmed",
+      "assessment": "Consistent with expected frequency at reported precision; final tolerance assessment pending cursor precision"
+    },
+    {
+      "requested_tune_Hz": 5500,
+      "phase_increment": 787410670,
+      "nominal_actual_tune_Hz": 5499.999993480742,
+      "expected_output_Hz": 2500.000006519258,
+      "bw": 4,
+      "serial_evidence": "tuning-bandwidth-2026-10-16-tune5500-01.json",
+      "measured_output_Hz": 2500,
+      "reported_FFT_level_dBm": -51,
+      "nominal_error_Hz": 0,
+      "measurement_precision": "Reported2.5kHz; finer cursor precision unconfirmed",
+      "assessment": "Consistent with expectation at reported precision"
+    },
+    {
+      "requested_tune_Hz": 6500,
+      "phase_increment": 930576247,
+      "nominal_actual_tune_Hz": 6499.999996740371,
+      "expected_output_Hz": 1500.000003259629,
+      "bw": 4,
+      "serial_evidence": "tuning-bandwidth-2026-10-16-tune6500-repeat01.json",
+      "measured_output_Hz": 1500,
+      "reported_FFT_level_dBm": -51,
+      "nominal_error_Hz": 0,
+      "measurement_precision": "Prompted1.5kHz confirmed; finer cursor precision not supplied",
+      "assessment": "Frequency returned to original reported value; precise amplitude repeatability not established due to uncertain first level"
+    }
+  ],
+  "bandwidth_comparison": {
+    "input_Hz": 8000,
+    "tune_Hz": 5500,
+    "output_Hz_approx": 2500,
+    "sequence": [
+      4,
+      0,
+      4
+    ],
+    "expected": "2500 Hz lies near bin21.33: well inside wide retained bins3..28, outside narrow bins3..16; Hann main lobe lies outside narrow passband. Expect attenuation, no exact rejection assumed.",
+    "fixed": "Manual gain x16, volume25, effects off, same input and scope settings",
+    "measurements": [
+      {
+        "bw": 4,
+        "output_frequency_Hz": 2498,
+        "FFT_level_dBm": -52.25,
+        "peak_status": "Peak cursor readback as instructed",
+        "serial_evidence": "tuning-bandwidth-2026-10-16-bandwidth4-01.json",
+        "photograph_status": "Operator confirms saved after requested filename bandwidth4_2500Hz; not inspected"
+      },
+      {
+        "bw": 0,
+        "cursor_frequency_Hz": 2498,
+        "FFT_level_dBm": -81,
+        "peak_status": "Unresolved; background reading",
+        "serial_evidence": "tuning-bandwidth-2026-10-16-bandwidth0-01.json",
+        "photograph_status": "Operator confirms saved after requested name bandwidth0_2500Hz; not inspected"
+      },
+      {
+        "bw": 4,
+        "repeat": true,
+        "output_frequency_Hz": null,
+        "FFT_level_dBm": null,
+        "observation": "Peak returned approximately to preceding wide-band reading, operator-confirmed; no independent numeric readback",
+        "serial_evidence": "tuning-bandwidth-2026-10-16-bandwidth4-repeat01.json"
+      }
+    ],
+    "wide_peak_to_narrow_background_difference_dB": 28.75,
+    "interpretation": "Wide-band tone -52.25dBm versus narrow-band background -81dBm:28.75dB displayed separation. No resolved attenuated tone, so not an exact rejection value, zero output, measured cutoff or speaker power. Return to bandwidth4 pending."
+  },
+  "frequency_acceptance": {
+    "proposal": "Provisional +/-20 Hz only if FFT record duration >=0.1 s (raw bin spacing <=10 Hz), cursor/readout resolution <=10 Hz and generator frequency/readback are verified. Record actual scope resolution before accepting; otherwise revise before measurement.",
+    "nco_error_bound_Hz": 6.984919309616089e-06,
+    "limitation": "Clock calibration and instrument absolute accuracy not independently measured; this is a functional check."
+  },
+  "photographs": [
+    {
+      "condition": "USB IF-I tune5500 bw4",
+      "requested_filename": "bandwidth4_2500Hz",
+      "actual_filename": "Not separately supplied; operator confirmed saving after requested name",
+      "operator_confirmation": "i saved it",
+      "status": "Operator reports saved; image not supplied or inspected",
+      "recorded_utc": "2026-10-15T23:39:32.963410+00:00"
+    },
+    {
+      "condition": "USB IF-I tune5500 bw0",
+      "requested_filename": "bandwidth0_2500Hz",
+      "actual_filename": "Not separately supplied; operator confirmed saving after requested name",
+      "operator_confirmation": "yes it is",
+      "status": "Operator reports saved; image not supplied or inspected",
+      "recorded_utc": "2026-10-15T23:43:54.793861+00:00"
+    }
+  ],
+  "operator_measurements": [
+    {
+      "recorded_utc": "2026-10-15T23:20:28.620298+00:00",
+      "source": "Operator typed scope readings",
+      "original": "gp27 = 1.65,1.52,1,78; gp26 = 1.65v",
+      "GP27_mean_V": 1.65,
+      "GP27_minimum_V": 1.52,
+      "GP27_maximum_V": 1.78,
+      "GP27_extrema_span_V": 0.26,
+      "GP26_DC_V": 1.65,
+      "note": "Interpreted 1,78 as1.78V; fresh Vpp readout not supplied. Probe location/DC coupling instructed, not independently inspected; exact generator readbacks pending."
+    },
+    {
+      "recorded_utc": "2026-10-15T23:30:16.174212+00:00",
+      "source": "Operator scope readback; SR/RL confirmed against prompted values",
+      "condition": "USB IF-I tune6500 bw4",
+      "output_frequency_reported": "1.5 kHz",
+      "output_frequency_Hz": 1500,
+      "FFT_level_dBm": -51,
+      "sample_rate_Sa_per_s": 2500000,
+      "record_length_samples": 250000,
+      "acquisition_duration_s": 0.1,
+      "raw_FFT_bin_spacing_Hz": 10,
+      "limitation": "Cursor smallest increment/precision and actual FFT window not explicitly confirmed. No screenshot inspected. Displayed dBm reference impedance unverified; not speaker power."
+    },
+    {
+      "recorded_utc": "2026-10-15T23:32:08.480868+00:00",
+      "source": "Operator correction and follow-up confirmation",
+      "correction": "Previous tune6500 reading was -57dBm, not -51dBm",
+      "tune6500_level_dBm": -57,
+      "tune7000_level_dBm": -51,
+      "tune7000_frequency_Hz": 1000,
+      "FFT_window": "Hann/Hanning confirmed",
+      "confirmation": "yes to peak1.0kHz and Hann/Hanning",
+      "limitation": "Reported frequency rounded; exact cursor increment not supplied; no image inspected"
+    },
+    {
+      "recorded_utc": "2026-10-15T23:33:31.043751+00:00",
+      "source": "Operator FFT cursor readback",
+      "condition": "USB IF-I tune5500 bw4",
+      "output_frequency_reported": "2.5 kHz",
+      "output_frequency_Hz": 2500,
+      "FFT_level_dBm": -51,
+      "limitation": "Rounded reported frequency; no screenshot inspected"
+    },
+    {
+      "recorded_utc": "2026-10-15T23:34:33.934964+00:00",
+      "source": "Operator repeat reading and qualification of earlier reading",
+      "condition": "USB IF-I tune6500 repeat bw4",
+      "output_frequency_Hz": 1500,
+      "FFT_level_dBm": -51,
+      "original_reply": "yes it is its now -51dBm ignore that -57 maybe an error by me",
+      "note": "Earlier -57dBm is marked suspected operator error; retained as history and excluded from quantitative level-repeatability claim."
+    },
+    {
+      "recorded_utc": "2026-10-15T23:39:09.659439+00:00",
+      "source": "Operator FFT cursor readback",
+      "condition": "USB IF-I tune5500 bw4",
+      "original_reply": "2.498 -52.25dBm",
+      "output_frequency_Hz": 2498,
+      "FFT_level_dBm": -52.25,
+      "unit_interpretation": "2.498 interpreted as kHz from preceding2.5kHz cursor instruction",
+      "serial_evidence": "tuning-bandwidth-2026-10-16-bandwidth4-01.json",
+      "nominal_frequency_error_Hz": -2,
+      "photograph_status": "Requested bandwidth4_2500Hz; save not yet confirmed; image not inspected"
+    },
+    {
+      "recorded_utc": "2026-10-15T23:43:13.392286+00:00",
+      "source": "Operator FFT readback",
+      "condition": "USB IF-I tune5500 bw0",
+      "cursor_frequency_Hz": 2498,
+      "cursor_frequency_basis": "Instructed to retain previous cursor position; no separate new frequency readback",
+      "FFT_level_dBm": -81,
+      "peak_status": "No visible peaks, operator reported; unresolved background reading",
+      "serial_evidence": "tuning-bandwidth-2026-10-16-bandwidth0-01.json",
+      "photograph_status": "Requested bandwidth0_2500Hz; save not yet confirmed, not inspected"
+    },
+    {
+      "recorded_utc": "2026-10-15T23:45:30.109663+00:00",
+      "source": "Operator approximate repeat confirmation",
+      "condition": "USB IF-I tune5500 bw4 repeat",
+      "original_reply": "yesiti did same one roughly u can do the final 60 sec test",
+      "observation": "Peak returned roughly matching previous2498Hz/-52.25dBm; no new precise numeric reading supplied"
+    }
+  ],
+  "timing": {
+    "evidence": "tuning-bandwidth-timing-2026-10-16-run01.json",
+    "assessment": "FAIL observed USB IF-I timing/streaming interval; near-rail changes reported separately",
+    "interval": {
+      "host_first_start_record_to_stopped_record_seconds": 62.0456658,
+      "device_capture_seconds": 62.045896,
+      "host_start_command": {
+        "command": "measure start",
+        "mono_ns": 600167331031300,
+        "utc": "2026-10-15T23:45:37.152755+00:00"
+      },
+      "host_stop_command": {
+        "command": "measure stop",
+        "mono_ns": 600229377818200,
+        "utc": "2026-10-15T23:46:39.202936+00:00"
+      },
+      "start": {
+        "B": 703359,
+        "rev": 30,
+        "deadline": 1,
+        "clips": 398614,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3001985490
+      },
+      "end": {
+        "B": 717901,
+        "rev": 30,
+        "deadline": 2,
+        "clips": 398614,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0,
+        "device_us": 3064031386
+      },
+      "counter_increases": {
+        "B": 14542,
+        "deadline": 1,
+        "clips": 0,
+        "ADCdrop": 0,
+        "FIFO": 0,
+        "AUDunder": 0,
+        "AUDdrop": 0,
+        "IRQlate": 0
+      },
+      "blocks_per_second": 234.3748891949276,
+      "groups": {
+        "ORDINARY": {
+          "N": 14314,
+          "LATE": 0,
+          "stages": {
+            "TOTAL": {
+              "max_us": 3841,
+              "sum_us": 47057846
+            },
+            "IN": {
+              "max_us": 579,
+              "sum_us": 7924700
+            },
+            "DSP": {
+              "max_us": 2880,
+              "sum_us": 35820958
+            },
+            "STAT": {
+              "max_us": 86,
+              "sum_us": 495419
+            },
+            "FFT": {
+              "max_us": 0,
+              "sum_us": 0
+            },
+            "OUT": {
+              "max_us": 367,
+              "sum_us": 2807014
+            },
+            "CICMIX": {
+              "max_us": 504,
+              "sum_us": 7138747
+            },
+            "FILTER": {
+              "max_us": 1645,
+              "sum_us": 20949085
+            },
+            "DEMOD": {
+              "max_us": 461,
+              "sum_us": 4940873
+            },
+            "CAPTURE": {
+              "max_us": 19,
+              "sum_us": 35535
+            },
+            "FFTFWD": {
+              "max_us": 927,
+              "sum_us": 12333728
+            },
+            "FFTBINS": {
+              "max_us": 288,
+              "sum_us": 2532226
+            },
+            "FFTINV": {
+              "max_us": 398,
+              "sum_us": 5102218
+            }
+          }
+        },
+        "SPECTRUM": {
+          "N": 228,
+          "LATE": 1,
+          "stages": {
+            "TOTAL": {
+              "max_us": 4327,
+              "sum_us": 818379
+            },
+            "IN": {
+              "max_us": 567,
+              "sum_us": 126389
+            },
+            "DSP": {
+              "max_us": 2834,
+              "sum_us": 570765
+            },
+            "STAT": {
+              "max_us": 78,
+              "sum_us": 7932
+            },
+            "FFT": {
+              "max_us": 506,
+              "sum_us": 67810
+            },
+            "OUT": {
+              "max_us": 339,
+              "sum_us": 45056
+            },
+            "CICMIX": {
+              "max_us": 503,
+              "sum_us": 113700
+            },
+            "FILTER": {
+              "max_us": 1566,
+              "sum_us": 333739
+            },
+            "DEMOD": {
+              "max_us": 453,
+              "sum_us": 78785
+            },
+            "CAPTURE": {
+              "max_us": 3,
+              "sum_us": 546
+            },
+            "FFTFWD": {
+              "max_us": 885,
+              "sum_us": 196473
+            },
+            "FFTBINS": {
+              "max_us": 230,
+              "sum_us": 40348
+            },
+            "FFTINV": {
+              "max_us": 381,
+              "sum_us": 81291
+            }
+          }
+        }
+      },
+      "all_block_maximum_total_us": 4327,
+      "headroom_us": -61,
+      "sampled_latest_max_us": 3317,
+      "cumulative_max_since_boot_at_start_us": 4408,
+      "cumulative_max_since_boot_at_end_us": 4408,
+      "start_revision": 30,
+      "end_revision": 30,
+      "bookkeeping": {
+        "max_us": 66,
+        "sum_us": 62697
+      },
+      "pass_timing_and_streaming": false,
+      "near_rail_increase": 0,
+      "scope_input_limits_operator_reported": true,
+      "scope_input_limits_independently_verified": false
+    }
+  },
+  "scope_acquisition": {
+    "sample_rate_Sa_per_s": 2500000,
+    "record_length_samples": 250000,
+    "record_duration_s": 0.1,
+    "FFT_bin_spacing_Hz": 10,
+    "source": "Operator confirmed exact prompted SR/RL values",
+    "window": "Hann/Hanning confirmed by operator",
+    "FFT_span_Hz": "0-4000 instructed",
+    "cursor_resolution": "Not yet confirmed",
+    "cursor_readback_precision": "Operator supplied2.498kHz (1Hz displayed reporting precision); smallest movable cursor increment not independently verified. Raw FFT-bin spacing10Hz remains unchanged."
+  },
+  "fault_observations": [
+    {
+      "evidence": "tuning-bandwidth-2026-10-16-tune7000-01.json",
+      "records": [
+        {
+          "label": "before_any_settings",
+          "header": "B=488000 rev=24 USB IF-I tune=6500 bw=4 agc=4 gain=2^4 vol=25",
+          "health": "us=3312 max=4233 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0"
+        },
+        {
+          "label": "settings_requested_before_settling",
+          "header": "B=488128 rev=25 USB IF-I tune=7000 bw=4 agc=4 gain=2^4 vol=25",
+          "health": "us=3270 max=4233 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0"
+        },
+        {
+          "label": "after_settling",
+          "header": "B=489408 rev=25 USB IF-I tune=7000 bw=4 agc=4 gain=2^4 vol=25",
+          "health": "us=3313 max=4408 deadline=1 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0"
+        }
+      ],
+      "note": "One cumulative deadline miss and maximum4408us now observed, versus previous0 and4233us. No all-block window was active; precise event time and dominant stage unavailable. Do not attribute to a tuning transition without evidence. Other streaming fault counters0, near-rail unchanged398614."
+    }
+  ]
+}

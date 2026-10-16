@@ -1,0 +1,56 @@
+# HOST TX {"utc": "2026-10-15T00:40:28.109202+00:00", "host_monotonic_ns": 517060413101200}
+help
+# HOST RX {"utc": "2026-10-15T00:40:28.114660+00:00", "host_monotonic_ns": 517060418539700}
+
+# HOST RX {"utc": "2026-10-15T00:40:28.116697+00:00", "host_monotonic_ns": 517060420573300}
+Pico ADC/DSP suite: commands are lowercase, one per line.
+# HOST RX {"utc": "2026-10-15T00:40:28.117251+00:00", "host_monotonic_ns": 517060421125200}
+preset 0..8: BASIC, IQ-AM, IF-AM, IF-AMSYNC, IF-FM, IF-FSK, USB, LSB, IF-CW
+# HOST RX {"utc": "2026-10-15T00:40:28.117743+00:00", "host_monotonic_ns": 517060421617200}
+mode basic|am|amsync|fm|usb|lsb|cw; input iq|i|q; tune -12000..12000 Hz
+# HOST RX {"utc": "2026-10-15T00:40:28.119261+00:00", "host_monotonic_ns": 517060423135800}
+bw 0..4; agc 0=fast 1=medium 2=slow 3=long 4=manual; gain 0..10 (2^n)
+# HOST RX {"utc": "2026-10-15T00:40:28.119755+00:00", "host_monotonic_ns": 517060423628200}
+volume 0..100; squelch -1=off or 0..12; hang 0..7; swap 0|1; iqcorr 0|1
+# HOST RX {"utc": "2026-10-15T00:40:28.120162+00:00", "host_monotonic_ns": 517060424035600}
+deemph 0..2; bass/treble 0..4; blanker 0..6; notch/nr 0|1
+# HOST RX {"utc": "2026-10-15T00:40:28.120565+00:00", "host_monotonic_ns": 517060424437900}
+smooth 1..15; threshold 0=adaptive or 1..6; cw 100..2000 Hz
+# HOST RX {"utc": "2026-10-15T00:40:28.121157+00:00", "host_monotonic_ns": 517060425030500}
+page 0..4 (4=timing); stream 0|1; status; help. Reboot resets settings and DSP history.
+# HOST RX {"utc": "2026-10-15T00:40:28.121687+00:00", "host_monotonic_ns": 517060425560100}
+BASIC ignores receiver controls except gain/volume. IF forces swap/iqcorr off.
+# HOST RX {"utc": "2026-10-15T00:40:28.122250+00:00", "host_monotonic_ns": 517060426122700}
+measure start|stop: all-block timing window; cumulative diagnostics never reset.
+# HOST RX {"utc": "2026-10-15T00:40:28.123274+00:00", "host_monotonic_ns": 517060427146800}
+BUILD label=fm-optimized-v2 source_sha256=c9424dd398f20e91897c62007188ab5e2d88b0e70e1e3567bc74c89aa570dae6 base=bfa22b8c150ee87c1808418a08cb066160e3834d
+# HOST RX {"utc": "2026-10-15T00:40:28.123911+00:00", "host_monotonic_ns": 517060427784000}
+INSTRUMENT sys_clock_Hz=120000000 timer_1024_reads_us=87 extra_receiver_timer_reads_per_block=9
+# HOST TX {"utc": "2026-10-15T00:40:29.795441+00:00", "host_monotonic_ns": 517062099276600}
+status
+# HOST RX {"utc": "2026-10-15T00:40:29.842814+00:00", "host_monotonic_ns": 517062146653200}
+B=29088 rev=0 BASIC IQ tune=0 bw=2 agc=4 gain=2^4 vol=25
+# HOST RX {"utc": "2026-10-15T00:40:29.845771+00:00", "host_monotonic_ns": 517062149599900}
+I min/mean/max/rms=0/13/24/1 Q=0/13/24/1 MAG=1 AUD rms/peak=6/12 clips=58700
+# HOST RX {"utc": "2026-10-15T00:40:29.847901+00:00", "host_monotonic_ns": 517062151722900}
+us=2980 max=4184 deadline=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0
+# HOST RX {"utc": "2026-10-15T00:40:29.849986+00:00", "host_monotonic_ns": 517062153795700}
+sq=-1 hang=3 swap=0 iqcorr=0 deemph=0 bass=0 treble=0 blanker=0 notch=0 nr=0 smooth=10 threshold=1 cw=700
+# HOST RX {"utc": "2026-10-15T00:40:29.851397+00:00", "host_monotonic_ns": 517062155204300}
+TIMING us latest/max PROC=2775/3909 OUT=205/297 IN=551/582 DSP=2186/3275 STAT=36/74 FFT=0/0
+# HOST RX {"utc": "2026-10-15T00:40:29.852335+00:00", "host_monotonic_ns": 517062156140300}
+RX latest_us CICMIX=0 FILTER=0 DEMOD=0 CAPTURE=0 FFTFWD=0 FFTBINS=0 FFTINV=0
+# HOST RX {"utc": "2026-10-15T00:40:29.852784+00:00", "host_monotonic_ns": 517062156588900}
+MEASURE id=0 active=0 settings_changed=0
+# HOST RX {"utc": "2026-10-15T00:40:29.853704+00:00", "host_monotonic_ns": 517062157508100}
+WINDOW_START B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0
+# HOST RX {"utc": "2026-10-15T00:40:29.854467+00:00", "host_monotonic_ns": 517062158270900}
+WINDOW_END B=0 rev=0 deadline=0 clips=0 ADCdrop=0 FIFO=0 AUDunder=0 AUDdrop=0 IRQlate=0 device_us=0
+# HOST RX {"utc": "2026-10-15T00:40:29.855633+00:00", "host_monotonic_ns": 517062159443800}
+WINDOW_ORDINARY N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0
+# HOST RX {"utc": "2026-10-15T00:40:29.856915+00:00", "host_monotonic_ns": 517062160724300}
+WINDOW_SPECTRUM N=0 LATE=0 TOTAL=0/0 IN=0/0 DSP=0/0 STAT=0/0 FFT=0/0 OUT=0/0 CICMIX=0/0 FILTER=0/0 DEMOD=0/0 CAPTURE=0/0 FFTFWD=0/0 FFTBINS=0/0 FFTINV=0/0
+# HOST RX {"utc": "2026-10-15T00:40:29.857134+00:00", "host_monotonic_ns": 517062160939100}
+BOOKKEEP max_us=0 sum_us=0
+# HOST RX {"utc": "2026-10-15T00:40:29.857219+00:00", "host_monotonic_ns": 517062161023000}
+ENDSTATUS
